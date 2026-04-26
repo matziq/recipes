@@ -28,10 +28,24 @@
     "type": "html"
   },
   {
-    "title": "Empanadas de Cangrejo y Mango",
+    "title": "Empanadas de Cangrejo  y  Mango",
     "category": "Appetizers",
     "sub": "",
     "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango.html",
+    "type": "html"
+  },
+  {
+    "title": "Empanadas de Cangrejo  y  Mango",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango-2.html",
+    "type": "html"
+  },
+  {
+    "title": "Empanadas de Cangrejo y Mango",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango-3.html",
     "type": "html"
   },
   {
@@ -40,6 +54,13 @@
     "sub": "",
     "url": "recipes/appetizers/florentine-artichoke-dip.html",
     "type": "html"
+  },
+  {
+    "title": "Grandma's Crab Dip",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/appetizers/grandmas-crab-dip.jpg",
+    "type": "jpg"
   },
   {
     "title": "Grandma's Crab Dip",
@@ -287,6 +308,13 @@
     "type": "html"
   },
   {
+    "title": "Sacrament Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/sacrament-bread.jpg",
+    "type": "jpg"
+  },
+  {
     "title": "Traditional Irish Soda Bread",
     "category": "Breads",
     "sub": "",
@@ -452,6 +480,13 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/homemade-ice-cream.html",
+    "type": "html"
+  },
+  {
+    "title": "Homemade Ice Cream",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/homemade-ice-cream-2.html",
     "type": "html"
   },
   {

@@ -108,11 +108,127 @@ def _is_sync_conflict(name: str) -> bool:
     return "-desktop-" in n or re.search(r"\(\d+\)$", name) is not None
 
 
-def select_best_files() -> list[Path]:
-    """Walk SOURCE and pick one file per (category, sub, normalized_title).
+def _docx_text_and_images(path: Path) -> tuple[str, bool]:
+    """Return (normalized_text, has_images) for a docx file."""
+    try:
+        with open(path, "rb") as f:
+            html = mammoth.convert_to_html(f).value or ""
+    except Exception:
+        return ("", False)
+    has_images = "<img" in html
+    text = re.sub(r"<[^>]+>", " ", html)
+    text = re.sub(r"\s+", " ", text).strip().lower()
+    return (text, has_images)
 
-    Prefers .docx > .pdf > image. Drops OneDrive sync conflict copies
-    (e.g. ``-DESKTOP-IIG115D`` and ``(1)`` suffixes) when a clean copy exists.
+
+def _pdf_text_and_images(path: Path) -> tuple[str, bool]:
+    """Return (normalized_text, has_images) for a pdf file."""
+    try:
+        with fitz.open(path) as doc:
+            text_parts = []
+            has_images = False
+            for page in doc:
+                text_parts.append(page.get_text("text"))
+                if not has_images and page.get_images(full=False):
+                    has_images = True
+            text = re.sub(r"\s+", " ", " ".join(text_parts)).strip().lower()
+            return (text, has_images)
+    except Exception:
+        return ("", False)
+
+
+def _text_similarity(a: str, b: str) -> float:
+    """Word-set Jaccard similarity (0..1). Cheap and order-independent."""
+    if not a or not b:
+        return 0.0
+    wa = set(re.findall(r"\w+", a))
+    wb = set(re.findall(r"\w+", b))
+    if not wa or not wb:
+        return 0.0
+    return len(wa & wb) / len(wa | wb)
+
+
+# Threshold above which two recipes are considered the same content
+SIMILARITY_THRESHOLD = 0.75
+
+
+def _smart_pick(files: list[Path], log: list[str]) -> list[Path]:
+    """For a duplicate group, choose which file(s) to keep based on content.
+
+    Rules:
+      1. Drop sync-conflict copies if any clean copy exists.
+      2. If a docx and pdf cover the same recipe (text similarity high):
+           - Keep the one with images if only one has images.
+           - Otherwise keep the docx (cleaner conversion).
+      3. If text differs significantly, keep both (return both files).
+    """
+    if len(files) == 1:
+        return files
+
+    # Drop sync-conflict copies when a clean version exists
+    clean = [p for p in files if not _is_sync_conflict(p.stem)]
+    if clean and len(clean) < len(files):
+        dropped = [p.name for p in files if _is_sync_conflict(p.stem)]
+        log.append(f"  dropped sync-conflict copies: {dropped}")
+        files = clean
+
+    if len(files) == 1:
+        return files
+
+    # Analyze content
+    info: list[tuple[Path, str, bool]] = []
+    for p in files:
+        ext = p.suffix.lower()
+        if ext in DOCX_EXT:
+            txt, imgs = _docx_text_and_images(p)
+        elif ext in PDF_EXT:
+            txt, imgs = _pdf_text_and_images(p)
+        else:
+            txt, imgs = ("", False)
+        info.append((p, txt, imgs))
+
+    # Pairwise: if every pair is similar enough, treat as one recipe
+    paths = [i[0] for i in info]
+    all_similar = True
+    for i in range(len(info)):
+        for j in range(i + 1, len(info)):
+            sim = _text_similarity(info[i][1], info[j][1])
+            if sim < SIMILARITY_THRESHOLD:
+                all_similar = False
+                break
+        if not all_similar:
+            break
+
+    if not all_similar:
+        log.append(f"  content differs -> keeping all {len(files)}: {[p.name for p in paths]}")
+        return files
+
+    # Same content: prefer image-bearing version if only some have images
+    with_images = [t for t in info if t[2]]
+    without_images = [t for t in info if not t[2]]
+    if with_images and without_images:
+        # Prefer pdf-with-images > docx-with-images > anything else
+        with_images.sort(key=lambda t: _FORMAT_RANK.get(t[0].suffix.lower(), 99))
+        # Actually prefer .pdf if it's the one with images, since user wants
+        # to preserve embedded images — but if docx also has images, it wins.
+        pdf_with = next((t for t in with_images if t[0].suffix.lower() == ".pdf"), None)
+        docx_with = next((t for t in with_images if t[0].suffix.lower() == ".docx"), None)
+        winner = (docx_with or pdf_with or with_images[0])[0]
+        log.append(f"  same content; kept {winner.name} (has images)")
+        return [winner]
+
+    # Either all have images or none do; pick by format rank (docx wins)
+    info.sort(key=lambda t: _FORMAT_RANK.get(t[0].suffix.lower(), 99))
+    winner = info[0][0]
+    log.append(f"  same content; kept {winner.name} (preferred format)")
+    return [winner]
+
+
+def select_best_files(verbose: bool = True) -> list[Path]:
+    """Walk SOURCE and pick the best file(s) for each recipe group.
+
+    Uses content-aware deduplication: compares text and image presence
+    between docx/pdf siblings to keep the version with the most info.
     """
     candidates: dict[tuple[str, str, str], list[Path]] = {}
     for src in SOURCE.rglob("*"):
@@ -129,14 +245,18 @@ def select_best_files() -> list[Path]:
         candidates.setdefault(key, []).append(src)
 
     chosen: list[Path] = []
-    for files in candidates.values():
-        # Sort: clean copies before sync-conflict copies, then by format rank
-        files.sort(key=lambda p: (
-            _is_sync_conflict(p.stem),
-            _FORMAT_RANK.get(p.suffix.lower(), 99),
-            len(p.stem),
-        ))
-        chosen.append(files[0])
+    decision_log: list[str] = []
+    for key, files in candidates.items():
+        if len(files) > 1:
+            decision_log.append(f"[{key[0]}{('/'+key[1]) if key[1] else ''}] {key[2]!r}")
+        picked = _smart_pick(files, decision_log)
+        chosen.extend(picked)
+
+    if verbose and decision_log:
+        print("Deduplication decisions:")
+        print("\n".join(decision_log))
+        print()
+
     chosen.sort()
     return chosen
 
