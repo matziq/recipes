@@ -156,8 +156,8 @@ header h1 a{color:inherit;text-decoration:none}
   text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
 .cat:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(194,65,12,.12)}
 .cat .ic{font-size:2.2rem;display:block}
-.cat .name{font-weight:bold;margin-top:6px}
-.cat .count{color:var(--muted);font-size:.9rem}
+.cat .name{font-weight:bold;margin-top:6px;display:block}
+.cat .count{color:var(--muted);font-size:.9rem;display:block;margin-top:2px}
 h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:6px}
 .recipes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
 .recipes li{background:var(--card);border:1px solid var(--line);border-radius:10px}
