@@ -7,19 +7,25 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
+import stat
+import time
 from html import escape
 from pathlib import Path
 
+import fitz  # PyMuPDF
 import mammoth
 
 SOURCE = Path(r"d:/OneDrive/Recipes")
 OUT = Path(__file__).parent
 RECIPES_OUT = OUT / "recipes"
 
-KEEP_EXT = {".pdf", ".jpg", ".jpeg", ".png", ".gif", ".webp"}
-CONVERT_EXT = {".docx"}
+IMAGE_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+DOCX_EXT = {".docx"}
+PDF_EXT = {".pdf"}
 SKIP_EXT = {".psd", ".doc"}  # cannot easily render
+PDF_DPI = 130  # render resolution for PDF page images
 ICONS = {
     "Appetizers": "🥟", "Baby Food": "🍼", "Beef": "🥩", "Breads": "🍞",
     "Breakfast": "🍳", "Chicken": "🍗", "Desserts": "🍰", "Drinks": "🥤",
@@ -51,6 +57,27 @@ def convert_docx(src: Path, dst_html: Path) -> str:
     return result.value or "<p><em>(empty document)</em></p>"
 
 
+def convert_pdf_pages(src: Path, out_dir: Path, slug: str) -> str:
+    """Render each PDF page to a JPEG and return HTML body that displays them."""
+    images_dir = out_dir / f"{slug}_pages"
+    images_dir.mkdir(parents=True, exist_ok=True)
+    parts: list[str] = []
+    zoom = PDF_DPI / 72.0
+    matrix = fitz.Matrix(zoom, zoom)
+    with fitz.open(src) as doc:
+        for i, page in enumerate(doc, start=1):
+            pix = page.get_pixmap(matrix=matrix, alpha=False)
+            img_path = images_dir / f"page-{i:03d}.jpg"
+            pix.pil_save(img_path, format="JPEG", quality=82, optimize=True)
+            rel = f"{slug}_pages/{img_path.name}"
+            parts.append(
+                f'<img class="pdf-page" loading="lazy" src="{rel}" alt="Page {i}">'
+            )
+    if not parts:
+        return "<p><em>(empty PDF)</em></p>"
+    return '<div class="pdf-pages">' + "\n".join(parts) + "</div>"
+
+
 def category_for(rel: Path) -> tuple[str, str]:
     """Return (top_category, sub_category_or_empty)."""
     parts = rel.parts
@@ -61,9 +88,21 @@ def category_for(rel: Path) -> tuple[str, str]:
     return (top, sub)
 
 
+def _force_rm(func, path, exc):
+    try:
+        os.chmod(path, stat.S_IWRITE)
+        func(path)
+    except Exception:
+        time.sleep(0.2)
+        try:
+            func(path)
+        except Exception:
+            pass
+
+
 def main() -> None:
     if RECIPES_OUT.exists():
-        shutil.rmtree(RECIPES_OUT)
+        shutil.rmtree(RECIPES_OUT, onerror=_force_rm)
     RECIPES_OUT.mkdir(parents=True, exist_ok=True)
 
     recipes = []  # list of dicts: {title, category, sub, path, type}
@@ -75,7 +114,7 @@ def main() -> None:
         ext = src.suffix.lower()
         if ext in SKIP_EXT:
             continue
-        if ext not in KEEP_EXT and ext not in CONVERT_EXT:
+        if ext not in IMAGE_EXT and ext not in DOCX_EXT and ext not in PDF_EXT:
             continue
 
         category, sub = category_for(rel)
@@ -88,15 +127,19 @@ def main() -> None:
         title = src.stem
         slug = slugify(title)
 
-        if ext in CONVERT_EXT:
+        if ext in DOCX_EXT or ext in PDF_EXT:
             out_file = out_dir / f"{slug}.html"
-            # avoid collision
             n = 2
+            slug_used = slug
             while out_file.exists():
-                out_file = out_dir / f"{slug}-{n}.html"
+                slug_used = f"{slug}-{n}"
+                out_file = out_dir / f"{slug_used}.html"
                 n += 1
             try:
-                body = convert_docx(src, out_file)
+                if ext in DOCX_EXT:
+                    body = convert_docx(src, out_file)
+                else:
+                    body = convert_pdf_pages(src, out_dir, slug_used)
             except Exception as e:
                 body = f"<p>Could not convert: {escape(str(e))}</p>"
             page = render_recipe_page(title, category, sub, body)
@@ -173,6 +216,8 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .recipe-content img{max-width:100%;height:auto}
 .recipe-content table{border-collapse:collapse;margin:12px 0}
 .recipe-content td,.recipe-content th{border:1px solid var(--line);padding:6px 10px}
+.pdf-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
+.pdf-page{max-width:100%;height:auto;box-shadow:0 2px 12px rgba(0,0,0,.08);border-radius:6px;background:#fff}
 footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results{display:none}
 .search-results.active{display:block}
