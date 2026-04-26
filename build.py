@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import stat
 import time
@@ -88,6 +89,58 @@ def category_for(rel: Path) -> tuple[str, str]:
     return (top, sub)
 
 
+_DEDUP_TITLE_RE = re.compile(r"-desktop-[a-z0-9]+|\(\d+\)", re.IGNORECASE)
+
+
+def normalize_title(title: str) -> str:
+    """Normalize a title for duplicate detection."""
+    t = _DEDUP_TITLE_RE.sub("", title)
+    t = re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
+    return t
+
+
+# Format priority: docx is preferred (cleanest text), then pdf, then images
+_FORMAT_RANK = {".docx": 0, ".pdf": 1, ".jpg": 2, ".jpeg": 2, ".png": 2, ".gif": 2, ".webp": 2}
+
+
+def _is_sync_conflict(name: str) -> bool:
+    n = name.lower()
+    return "-desktop-" in n or re.search(r"\(\d+\)$", name) is not None
+
+
+def select_best_files() -> list[Path]:
+    """Walk SOURCE and pick one file per (category, sub, normalized_title).
+
+    Prefers .docx > .pdf > image. Drops OneDrive sync conflict copies
+    (e.g. ``-DESKTOP-IIG115D`` and ``(1)`` suffixes) when a clean copy exists.
+    """
+    candidates: dict[tuple[str, str, str], list[Path]] = {}
+    for src in SOURCE.rglob("*"):
+        if not src.is_file():
+            continue
+        ext = src.suffix.lower()
+        if ext in SKIP_EXT:
+            continue
+        if ext not in IMAGE_EXT and ext not in DOCX_EXT and ext not in PDF_EXT:
+            continue
+        rel = src.relative_to(SOURCE)
+        category, sub = category_for(rel)
+        key = (category, sub, normalize_title(src.stem))
+        candidates.setdefault(key, []).append(src)
+
+    chosen: list[Path] = []
+    for files in candidates.values():
+        # Sort: clean copies before sync-conflict copies, then by format rank
+        files.sort(key=lambda p: (
+            _is_sync_conflict(p.stem),
+            _FORMAT_RANK.get(p.suffix.lower(), 99),
+            len(p.stem),
+        ))
+        chosen.append(files[0])
+    chosen.sort()
+    return chosen
+
+
 def _force_rm(func, path, exc):
     try:
         os.chmod(path, stat.S_IWRITE)
@@ -107,15 +160,9 @@ def main() -> None:
 
     recipes = []  # list of dicts: {title, category, sub, path, type}
 
-    for src in SOURCE.rglob("*"):
-        if not src.is_file():
-            continue
+    for src in select_best_files():
         rel = src.relative_to(SOURCE)
         ext = src.suffix.lower()
-        if ext in SKIP_EXT:
-            continue
-        if ext not in IMAGE_EXT and ext not in DOCX_EXT and ext not in PDF_EXT:
-            continue
 
         category, sub = category_for(rel)
         cat_dir_parts = [slugify(category)]
