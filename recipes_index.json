@@ -21,31 +21,17 @@
     "type": "html"
   },
   {
-    "title": "Crab and Mango Empanadas",
+    "title": "Crab And Mango Empanadas",
     "category": "Appetizers",
     "sub": "",
     "url": "recipes/appetizers/crab-and-mango-empanadas.html",
     "type": "html"
   },
   {
-    "title": "Empanadas de Cangrejo  y  Mango",
+    "title": "Empanadas De Cangrejo Y Mango",
     "category": "Appetizers",
     "sub": "",
     "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango.html",
-    "type": "html"
-  },
-  {
-    "title": "Empanadas de Cangrejo  y  Mango",
-    "category": "Appetizers",
-    "sub": "",
-    "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango-2.html",
-    "type": "html"
-  },
-  {
-    "title": "Empanadas de Cangrejo y Mango",
-    "category": "Appetizers",
-    "sub": "",
-    "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango-3.html",
     "type": "html"
   },
   {
@@ -59,18 +45,11 @@
     "title": "Grandma's Crab Dip",
     "category": "Appetizers",
     "sub": "",
-    "url": "recipes/appetizers/grandmas-crab-dip.jpg",
-    "type": "jpg"
-  },
-  {
-    "title": "Grandma's Crab Dip",
-    "category": "Appetizers",
-    "sub": "",
     "url": "recipes/appetizers/grandmas-crab-dip.html",
     "type": "html"
   },
   {
-    "title": "olive cheese ball",
+    "title": "Olive Cheese Ball",
     "category": "Appetizers",
     "sub": "",
     "url": "recipes/appetizers/olive-cheese-ball.html",
@@ -119,7 +98,7 @@
     "type": "html"
   },
   {
-    "title": "IDEAS for first tastes",
+    "title": "Ideas For First Tastes",
     "category": "Baby Food",
     "sub": "",
     "url": "recipes/baby-food/ideas-for-first-tastes.html",
@@ -147,14 +126,14 @@
     "type": "html"
   },
   {
-    "title": "Best at home steak",
+    "title": "Best At Home Steak",
     "category": "Beef",
     "sub": "",
     "url": "recipes/beef/best-at-home-steak.html",
     "type": "html"
   },
   {
-    "title": "burritos",
+    "title": "Burritos",
     "category": "Beef",
     "sub": "",
     "url": "recipes/beef/burritos.html",
@@ -168,7 +147,7 @@
     "type": "html"
   },
   {
-    "title": "Red Beans and Rice",
+    "title": "Red Beans And Rice",
     "category": "Beef",
     "sub": "",
     "url": "recipes/beef/red-beans-and-rice.html",
@@ -182,7 +161,7 @@
     "type": "html"
   },
   {
-    "title": "AMISH FRIENDSHIP BREAD",
+    "title": "Amish Friendship Bread",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/amish-friendship-bread.html",
@@ -217,7 +196,7 @@
     "type": "html"
   },
   {
-    "title": "Grandma's quick Rolls",
+    "title": "Grandma's Quick Rolls",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/grandmas-quick-rolls.html",
@@ -228,20 +207,6 @@
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/grandmas-rolls.html",
-    "type": "html"
-  },
-  {
-    "title": "IMG_20200301_092615_01",
-    "category": "Breads",
-    "sub": "",
-    "url": "recipes/breads/img-20200301-092615-01.html",
-    "type": "html"
-  },
-  {
-    "title": "IMG_20200301_092615_01-edit-20230618093844",
-    "category": "Breads",
-    "sub": "",
-    "url": "recipes/breads/img-20200301-092615-01-edit-20230618093844.html",
     "type": "html"
   },
   {
@@ -266,7 +231,7 @@
     "type": "html"
   },
   {
-    "title": "pizza crust",
+    "title": "Pizza Crust",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/pizza-crust.html",
@@ -294,7 +259,7 @@
     "type": "html"
   },
   {
-    "title": "rosemary and sage breadsticks",
+    "title": "Rosemary And Sage Breadsticks",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/rosemary-and-sage-breadsticks.html",
@@ -306,13 +271,6 @@
     "sub": "",
     "url": "recipes/breads/sacrament-bread.html",
     "type": "html"
-  },
-  {
-    "title": "Sacrament Bread",
-    "category": "Breads",
-    "sub": "",
-    "url": "recipes/breads/sacrament-bread.jpg",
-    "type": "jpg"
   },
   {
     "title": "Traditional Irish Soda Bread",
@@ -336,7 +294,7 @@
     "type": "html"
   },
   {
-    "title": "Bacon and Green Chili Quiche",
+    "title": "Bacon And Green Chili Quiche",
     "category": "Breakfast",
     "sub": "",
     "url": "recipes/breakfast/bacon-and-green-chili-quiche.html",
@@ -350,7 +308,7 @@
     "type": "html"
   },
   {
-    "title": "IHOP Pancakes",
+    "title": "Ihop Pancakes",
     "category": "Breakfast",
     "sub": "",
     "url": "recipes/breakfast/ihop-pancakes.html",
@@ -371,7 +329,7 @@
     "type": "html"
   },
   {
-    "title": "Chicken and Goat Cheese Roll-ups",
+    "title": "Chicken And Goat Cheese Roll-Ups",
     "category": "Chicken",
     "sub": "",
     "url": "recipes/chicken/chicken-and-goat-cheese-roll-ups.html",
@@ -392,14 +350,14 @@
     "type": "html"
   },
   {
-    "title": "Chicken with Ginger and Green Onion Salt Dip",
+    "title": "Chicken With Ginger And Green Onion Salt Dip",
     "category": "Chicken",
     "sub": "",
     "url": "recipes/chicken/chicken-with-ginger-and-green-onion-salt-dip.html",
     "type": "html"
   },
   {
-    "title": "Fat-Free Creamy Chicken, Spinach, Mushrrom and Rice",
+    "title": "Fat-Free Creamy Chicken, Spinach, Mushrrom And Rice",
     "category": "Chicken",
     "sub": "",
     "url": "recipes/chicken/fat-free-creamy-chicken-spinach-mushrrom-and-rice.html",
@@ -420,7 +378,7 @@
     "type": "html"
   },
   {
-    "title": "T's coq au vin",
+    "title": "T's Coq Au Vin",
     "category": "Chicken",
     "sub": "",
     "url": "recipes/chicken/ts-coq-au-vin.html",
@@ -462,7 +420,7 @@
     "type": "html"
   },
   {
-    "title": "Emeril's bananas foster",
+    "title": "Emeril's Bananas Foster",
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/emerils-bananas-foster.html",
@@ -480,13 +438,6 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/homemade-ice-cream.html",
-    "type": "html"
-  },
-  {
-    "title": "Homemade Ice Cream",
-    "category": "Desserts",
-    "sub": "",
-    "url": "recipes/desserts/homemade-ice-cream-2.html",
     "type": "html"
   },
   {
@@ -518,7 +469,7 @@
     "type": "html"
   },
   {
-    "title": "Sweet Coconut Tapioca Soup with Bananas",
+    "title": "Sweet Coconut Tapioca Soup With Bananas",
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/sweet-coconut-tapioca-soup-with-bananas.html",
@@ -679,7 +630,7 @@
     "type": "html"
   },
   {
-    "title": "NoBake Peanut Butter Bars",
+    "title": "Nobake Peanut Butter Bars",
     "category": "Desserts",
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/nobake-peanut-butter-bars.html",
@@ -735,6 +686,13 @@
     "type": "html"
   },
   {
+    "title": "Disgusting Potion",
+    "category": "Drinks",
+    "sub": "",
+    "url": "recipes/drinks/disgusting-potion.html",
+    "type": "html"
+  },
+  {
     "title": "Root Beer",
     "category": "Drinks",
     "sub": "",
@@ -763,7 +721,7 @@
     "type": "html"
   },
   {
-    "title": "Strawberry-Kiwi Salad with Basil",
+    "title": "Strawberry-Kiwi Salad With Basil",
     "category": "Fruit",
     "sub": "",
     "url": "recipes/fruit/strawberry-kiwi-salad-with-basil.html",
@@ -805,7 +763,7 @@
     "type": "html"
   },
   {
-    "title": "OVEN KALUA PIG",
+    "title": "Oven Kalua Pig",
     "category": "Luau",
     "sub": "",
     "url": "recipes/luau/oven-kalua-pig.html",
@@ -826,7 +784,7 @@
     "type": "html"
   },
   {
-    "title": "VOLCANIC PUNCH",
+    "title": "Volcanic Punch",
     "category": "Luau",
     "sub": "",
     "url": "recipes/luau/volcanic-punch.html",
@@ -854,18 +812,11 @@
     "type": "html"
   },
   {
-    "title": "quick & delicious dinner ideas",
+    "title": "Quick & Delicious Dinner Ideas",
     "category": "Other",
     "sub": "",
     "url": "recipes/other/quick-delicious-dinner-ideas.html",
     "type": "html"
-  },
-  {
-    "title": "recipe card I",
-    "category": "Other",
-    "sub": "",
-    "url": "recipes/other/recipe-card-i.jpg",
-    "type": "jpg"
   },
   {
     "title": "Jack's Famous Italian Spaghetti",
@@ -910,14 +861,14 @@
     "type": "html"
   },
   {
-    "title": "RIBS",
+    "title": "Ribs",
     "category": "Pork",
     "sub": "",
     "url": "recipes/pork/ribs.html",
     "type": "html"
   },
   {
-    "title": "Walnut Crusted Pork Chops with Wild Rice",
+    "title": "Walnut Crusted Pork Chops With Wild Rice",
     "category": "Pork",
     "sub": "",
     "url": "recipes/pork/walnut-crusted-pork-chops-with-wild-rice.html",
@@ -945,7 +896,7 @@
     "type": "html"
   },
   {
-    "title": "raspberry spinach salad",
+    "title": "Raspberry Spinach Salad",
     "category": "Salads",
     "sub": "",
     "url": "recipes/salads/raspberry-spinach-salad.html",
@@ -966,7 +917,7 @@
     "type": "html"
   },
   {
-    "title": "BBQ Sauce",
+    "title": "Bbq Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
     "url": "recipes/sauces-dips/bbq-sauce.html",
@@ -1008,7 +959,7 @@
     "type": "html"
   },
   {
-    "title": "Sweet and Hot Garlic Sauce",
+    "title": "Sweet And Hot Garlic Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
     "url": "recipes/sauces-dips/sweet-and-hot-garlic-sauce.html",
@@ -1064,7 +1015,7 @@
     "type": "html"
   },
   {
-    "title": "PF Chang's Kung Pao Shrimp",
+    "title": "Pf Chang's Kung Pao Shrimp",
     "category": "Seafood",
     "sub": "",
     "url": "recipes/seafood/pf-changs-kung-pao-shrimp.html",
@@ -1092,7 +1043,7 @@
     "type": "html"
   },
   {
-    "title": "Shrimp Braised in Oil",
+    "title": "Shrimp Braised In Oil",
     "category": "Seafood",
     "sub": "",
     "url": "recipes/seafood/shrimp-braised-in-oil.html",
@@ -1120,7 +1071,7 @@
     "type": "html"
   },
   {
-    "title": "Arroz con Gandules",
+    "title": "Arroz Con Gandules",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/arroz-con-gandules.html",
@@ -1162,14 +1113,14 @@
     "type": "html"
   },
   {
-    "title": "Garlic Mashed Potatoes with Blue Cheese",
+    "title": "Garlic Mashed Potatoes With Blue Cheese",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/garlic-mashed-potatoes-with-blue-cheese.html",
     "type": "html"
   },
   {
-    "title": "Green Beans with Walnuts and Garlic",
+    "title": "Green Beans With Walnuts And Garlic",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/green-beans-with-walnuts-and-garlic.html",
@@ -1218,7 +1169,7 @@
     "type": "html"
   },
   {
-    "title": "Sweet Potato Casserole.doc",
+    "title": "Sweet Potato Casserole.Doc",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/sweet-potato-casseroledoc.html",
@@ -1323,7 +1274,7 @@
     "type": "html"
   },
   {
-    "title": "Pan-Fried Tofu with Spicy Lemongrass Sauce",
+    "title": "Pan-Fried Tofu With Spicy Lemongrass Sauce",
     "category": "Vegetarian (Tofu)",
     "sub": "",
     "url": "recipes/vegetarian-tofu/pan-fried-tofu-with-spicy-lemongrass-sauce.html",
