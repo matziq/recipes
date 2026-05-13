@@ -21,6 +21,7 @@ import mammoth
 SOURCE = Path(r"d:/OneDrive/Recipes")
 OUT = Path(__file__).parent
 RECIPES_OUT = OUT / "recipes"
+NEW_RECIPES_JSON = OUT / "new_recipes.json"
 
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 DOCX_EXT = {".docx"}
@@ -331,6 +332,27 @@ def main() -> None:
 
     recipes.sort(key=lambda r: (r["category"], r["sub"], r["title"].lower()))
 
+    # Apply NEW flag from new_recipes.json (case-insensitive match on category + title)
+    new_keys: set[tuple[str, str]] = set()
+    if NEW_RECIPES_JSON.exists():
+        try:
+            entries = json.loads(NEW_RECIPES_JSON.read_text(encoding="utf-8"))
+            if isinstance(entries, list):
+                for e in entries:
+                    cat = (e.get("category") or "").strip().lower()
+                    title = (e.get("title") or "").strip().lower()
+                    if cat and title:
+                        new_keys.add((cat, title))
+        except Exception as exc:
+            print(f"Warning: could not read {NEW_RECIPES_JSON.name}: {exc}")
+    if new_keys:
+        matched = 0
+        for r in recipes:
+            if (r["category"].strip().lower(), r["title"].strip().lower()) in new_keys:
+                r["new"] = True
+                matched += 1
+        print(f"Flagged {matched} recipe(s) as NEW from {NEW_RECIPES_JSON.name}.")
+
     # Write search index
     (OUT / "recipes_index.json").write_text(
         json.dumps(recipes, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -377,6 +399,8 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .tag.pdf{background:#ef4444}
 .tag.html{background:#16a34a}
 .tag.jpg,.tag.jpeg,.tag.png{background:#3b82f6}
+.tag.new{background:#dc2626;font-weight:bold;letter-spacing:.5px;animation:pulse-new 1.6s ease-in-out infinite}
+@keyframes pulse-new{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
@@ -461,7 +485,8 @@ function render(items){{
   if(!items.length){{ list.innerHTML='<li class="empty">No matches.</li>'; return;}}
   list.innerHTML = items.slice(0,200).map(r=>{{
     const sub = r.sub ? ' › '+r.sub : '';
-    return `<li><a href="${{r.url}}">${{r.title}}</a> <span class="tag ${{r.type}}">${{r.type}}</span><div class="meta">${{r.category}}${{sub}}</div></li>`;
+    const newBadge = r.new ? ' <span class="tag new">NEW</span>' : '';
+    return `<li><a href="${{r.url}}">${{r.title}}</a> <span class="tag ${{r.type}}">${{r.type}}</span>${{newBadge}}<div class="meta">${{r.category}}${{sub}}</div></li>`;
   }}).join('');
 }}
 q.addEventListener('input', () => {{
@@ -483,9 +508,10 @@ q.addEventListener('input', () => {{
 
 def _recipe_li(r: dict) -> str:
     t = r["type"]
+    new_badge = ' <span class="tag new">NEW</span>' if r.get("new") else ''
     return (
         f'<li><a href="{escape(r["url"])}">{escape(r["title"])}'
-        f'<span class="tag {t}">{t}</span></a></li>'
+        f'<span class="tag {t}">{t}</span>{new_badge}</a></li>'
     )
 
 

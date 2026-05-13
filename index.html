@@ -34,6 +34,8 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .tag.pdf{background:#ef4444}
 .tag.html{background:#16a34a}
 .tag.jpg,.tag.jpeg,.tag.png{background:#3b82f6}
+.tag.new{background:#dc2626;font-weight:bold;letter-spacing:.5px;animation:pulse-new 1.6s ease-in-out infinite}
+@keyframes pulse-new{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
@@ -54,12 +56,12 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 </head><body>
 <header>
   <h1><a href="./">🍴 Recipes</a></h1>
-  <div class="search"><input id="q" type="search" placeholder="Search 185 recipes..." autocomplete="off"></div>
+  <div class="search"><input id="q" type="search" placeholder="Search 197 recipes..." autocomplete="off"></div>
 </header>
 <main class="container">
   <div id="results" class="search-results"><ul id="results-list"></ul></div>
   <div id="browse">
-    <div class="cats"><a class="cat" href="#cat-appetizers"><span class="ic">🥟</span><span class="name">Appetizers</span><span class="count">10 recipes</span></a><a class="cat" href="#cat-baby-food"><span class="ic">🍼</span><span class="name">Baby Food</span><span class="count">5 recipes</span></a><a class="cat" href="#cat-beef"><span class="ic">🥩</span><span class="name">Beef</span><span class="count">7 recipes</span></a><a class="cat" href="#cat-breads"><span class="ic">🍞</span><span class="name">Breads</span><span class="count">21 recipes</span></a><a class="cat" href="#cat-breakfast"><span class="ic">🍳</span><span class="name">Breakfast</span><span class="count">5 recipes</span></a><a class="cat" href="#cat-chicken"><span class="ic">🍗</span><span class="name">Chicken</span><span class="count">8 recipes</span></a><a class="cat" href="#cat-desserts"><span class="ic">🍰</span><span class="name">Desserts</span><span class="count">43 recipes</span></a><a class="cat" href="#cat-drinks"><span class="ic">🥤</span><span class="name">Drinks</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-fruit"><span class="ic">🍓</span><span class="name">Fruit</span><span class="count">2 recipes</span></a><a class="cat" href="#cat-luau"><span class="ic">🌺</span><span class="name">Luau</span><span class="count">9 recipes</span></a><a class="cat" href="#cat-other"><span class="ic">📄</span><span class="name">Other</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-pasta"><span class="ic">🍝</span><span class="name">Pasta</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-pork"><span class="ic">🥓</span><span class="name">Pork</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-salads"><span class="ic">🥗</span><span class="name">Salads</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-sandwiches"><span class="ic">🥪</span><span class="name">Sandwiches</span><span class="count">1 recipes</span></a><a class="cat" href="#cat-sauces-dips"><span class="ic">🥫</span><span class="name">Sauces  &amp; Dips</span><span class="count">10 recipes</span></a><a class="cat" href="#cat-seafood"><span class="ic">🦐</span><span class="name">Seafood</span><span class="count">13 recipes</span></a><a class="cat" href="#cat-sides"><span class="ic">🍚</span><span class="name">Sides</span><span class="count">15 recipes</span></a><a class="cat" href="#cat-snacks"><span class="ic">🍿</span><span class="name">Snacks</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-soups"><span class="ic">🍲</span><span class="name">Soups</span><span class="count">7 recipes</span></a><a class="cat" href="#cat-turkey"><span class="ic">🦃</span><span class="name">Turkey</span><span class="count">1 recipes</span></a><a class="cat" href="#cat-vegetarian-tofu"><span class="ic">🥦</span><span class="name">Vegetarian (Tofu)</span><span class="count">4 recipes</span></a></div>
+    <div class="cats"><a class="cat" href="#cat-appetizers"><span class="ic">🥟</span><span class="name">Appetizers</span><span class="count">10 recipes</span></a><a class="cat" href="#cat-baby-food"><span class="ic">🍼</span><span class="name">Baby Food</span><span class="count">5 recipes</span></a><a class="cat" href="#cat-beef"><span class="ic">🥩</span><span class="name">Beef</span><span class="count">8 recipes</span></a><a class="cat" href="#cat-breads"><span class="ic">🍞</span><span class="name">Breads</span><span class="count">21 recipes</span></a><a class="cat" href="#cat-breakfast"><span class="ic">🍳</span><span class="name">Breakfast</span><span class="count">5 recipes</span></a><a class="cat" href="#cat-chicken"><span class="ic">🍗</span><span class="name">Chicken</span><span class="count">9 recipes</span></a><a class="cat" href="#cat-desserts"><span class="ic">🍰</span><span class="name">Desserts</span><span class="count">46 recipes</span></a><a class="cat" href="#cat-drinks"><span class="ic">🥤</span><span class="name">Drinks</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-fruit"><span class="ic">🍓</span><span class="name">Fruit</span><span class="count">2 recipes</span></a><a class="cat" href="#cat-luau"><span class="ic">🌺</span><span class="name">Luau</span><span class="count">9 recipes</span></a><a class="cat" href="#cat-other"><span class="ic">📄</span><span class="name">Other</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-pasta"><span class="ic">🍝</span><span class="name">Pasta</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-pork"><span class="ic">🥓</span><span class="name">Pork</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-salads"><span class="ic">🥗</span><span class="name">Salads</span><span class="count">5 recipes</span></a><a class="cat" href="#cat-sandwiches"><span class="ic">🥪</span><span class="name">Sandwiches</span><span class="count">1 recipes</span></a><a class="cat" href="#cat-sauces-dips"><span class="ic">🥫</span><span class="name">Sauces  &amp; Dips</span><span class="count">10 recipes</span></a><a class="cat" href="#cat-seafood"><span class="ic">🦐</span><span class="name">Seafood</span><span class="count">16 recipes</span></a><a class="cat" href="#cat-sides"><span class="ic">🍚</span><span class="name">Sides</span><span class="count">16 recipes</span></a><a class="cat" href="#cat-snacks"><span class="ic">🍿</span><span class="name">Snacks</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-soups"><span class="ic">🍲</span><span class="name">Soups</span><span class="count">8 recipes</span></a><a class="cat" href="#cat-turkey"><span class="ic">🦃</span><span class="name">Turkey</span><span class="count">1 recipes</span></a><a class="cat" href="#cat-vegetarian-tofu"><span class="ic">🥦</span><span class="name">Vegetarian (Tofu)</span><span class="count">5 recipes</span></a></div>
     <section id="cat-appetizers"><h2 class="cat-title">🥟 Appetizers</h2><ul class="recipes">
 <li><a href="recipes/appetizers/algerian-stuffed-dates.html">Algerian Stuffed Dates<span class="tag html">html</span></a></li>
 <li><a href="recipes/appetizers/blazing-monster-eyes.html">Blazing Monster Eyes<span class="tag html">html</span></a></li>
@@ -82,6 +84,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/beef/amazing-meatballs.html">Amazing Meatballs<span class="tag html">html</span></a></li>
 <li><a href="recipes/beef/beef-kabobs.html">Beef Kabobs<span class="tag html">html</span></a></li>
 <li><a href="recipes/beef/best-at-home-steak.html">Best At Home Steak<span class="tag html">html</span></a></li>
+<li><a href="recipes/beef/birria-slow-cooker.html">Birria (Slow Cooker)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/beef/burritos.html">Burritos<span class="tag html">html</span></a></li>
 <li><a href="recipes/beef/grandmass-yummy-meatloaf.html">Grandmas&#x27;s Yummy Meatloaf<span class="tag html">html</span></a></li>
 <li><a href="recipes/beef/red-beans-and-rice.html">Red Beans And Rice<span class="tag html">html</span></a></li>
@@ -118,23 +121,27 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/chicken/chicken-caesar-wraps.html">Chicken Caesar Wraps<span class="tag html">html</span></a></li>
 <li><a href="recipes/chicken/chicken-chile-tostadas.html">Chicken Chile Tostadas<span class="tag html">html</span></a></li>
 <li><a href="recipes/chicken/chicken-with-ginger-and-green-onion-salt-dip.html">Chicken With Ginger And Green Onion Salt Dip<span class="tag html">html</span></a></li>
+<li><a href="recipes/chicken/crispy-poblano-chicken-tacos-with-avocado-jalapeño-salsa.html">Crispy Poblano Chicken Tacos with Avocado-Jalapeño Salsa<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/chicken/fat-free-creamy-chicken-spinach-mushrrom-and-rice.html">Fat-Free Creamy Chicken, Spinach, Mushrrom And Rice<span class="tag html">html</span></a></li>
 <li><a href="recipes/chicken/hot-chicken-salad.html">Hot Chicken Salad<span class="tag html">html</span></a></li>
 <li><a href="recipes/chicken/provolone-mushroom-chicken.html">Provolone &amp; Mushroom Chicken<span class="tag html">html</span></a></li>
 <li><a href="recipes/chicken/ts-coq-au-vin.html">T&#x27;s Coq Au Vin<span class="tag html">html</span></a></li>
 </ul></section><section id="cat-desserts"><h2 class="cat-title">🍰 Desserts</h2><ul class="recipes">
 <li><a href="recipes/desserts/chocolate-cream-filling.html">Chocolate Cream Filling<span class="tag html">html</span></a></li>
+<li><a href="recipes/desserts/chocolate-fondue.html">Chocolate Fondue<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/desserts/cinnabon-cinnamon-rolls.html">Cinnabon Cinnamon Rolls<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/classic-chocolate-pudding.html">Classic Chocolate Pudding<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/coconut-mango-sorbet.html">Coconut Mango Sorbet<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/cream-puffs.html">Cream Puffs<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/emerils-bananas-foster.html">Emeril&#x27;s Bananas Foster<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/fruit-pizza.html">Fruit Pizza<span class="tag html">html</span></a></li>
+<li><a href="recipes/desserts/homemade-fondant-that-tastes-like-buttercream.html">Homemade Fondant that Tastes like Buttercream<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/desserts/homemade-ice-cream.html">Homemade Ice Cream<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/ice-cream-vanilla.html">Ice Cream (Vanilla)<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/mango-sticky-rice.html">Mango Sticky Rice<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/microwave-salted-caramel-popcorn.html">Microwave Salted Caramel Popcorn<span class="tag html">html</span></a></li>
 <li><a href="recipes/desserts/pumpkin-chocolate-cheesecake-bars.html">Pumpkin Chocolate Cheesecake Bars<span class="tag html">html</span></a></li>
+<li><a href="recipes/desserts/salted-caramel-bread-pudding.html">Salted Caramel Bread Pudding<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/desserts/sweet-coconut-tapioca-soup-with-bananas.html">Sweet Coconut Tapioca Soup With Bananas<span class="tag html">html</span></a></li>
 </ul>
 <h3 style="color:var(--muted);margin-top:18px">🎂 Cakes</h3>
@@ -215,6 +222,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/salads/chinese-cabbage-salad.html">Chinese Cabbage Salad<span class="tag html">html</span></a></li>
 <li><a href="recipes/salads/fiery-chicken-spinach-salad.html">Fiery Chicken Spinach Salad<span class="tag html">html</span></a></li>
 <li><a href="recipes/salads/greek-couscous-salad.html">Greek Couscous Salad<span class="tag html">html</span></a></li>
+<li><a href="recipes/salads/mediterranean-three-bean-salad-high-protein-high-fiber.html">Mediterranean Three Bean Salad (High Protein, High Fiber)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/salads/raspberry-spinach-salad.html">Raspberry Spinach Salad<span class="tag html">html</span></a></li>
 </ul></section><section id="cat-sandwiches"><h2 class="cat-title">🥪 Sandwiches</h2><ul class="recipes">
 <li><a href="recipes/sandwiches/spinach-feta-croissants.html">Spinach Feta Croissants<span class="tag html">html</span></a></li>
@@ -230,11 +238,14 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/sauces-dips/the-best-cheese-fondue-ever.html">The Best Cheese Fondue Ever<span class="tag html">html</span></a></li>
 <li><a href="recipes/sauces-dips/warm-chocolate-sauce.html">Warm Chocolate Sauce<span class="tag html">html</span></a></li>
 </ul></section><section id="cat-seafood"><h2 class="cat-title">🦐 Seafood</h2><ul class="recipes">
+<li><a href="recipes/seafood/best-shrimp-boil-recipe.html">BEST Shrimp Boil Recipe!<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/seafood/broiled-tilapia-parmesan.html">Broiled Tilapia Parmesan<span class="tag html">html</span></a></li>
 <li><a href="recipes/seafood/cajun-blackened-tuna.html">Cajun Blackened Tuna<span class="tag html">html</span></a></li>
 <li><a href="recipes/seafood/copelands-hot-crab-claws.html">Copelands Hot Crab Claws<span class="tag html">html</span></a></li>
+<li><a href="recipes/seafood/crunch-roll-sushi-bowl-with-easy-eel-sauce.html">Crunch Roll Sushi Bowl with Easy Eel Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/seafood/grilled-salmon.html">Grilled Salmon<span class="tag html">html</span></a></li>
 <li><a href="recipes/seafood/macadamia-coconut-crusted-shrimp.html">Macadamia Coconut-Crusted Shrimp<span class="tag html">html</span></a></li>
+<li><a href="recipes/seafood/margarita-grilled-shrimp-kabobs.html">Margarita Grilled Shrimp Kabobs<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/seafood/pf-changs-kung-pao-shrimp.html">Pf Chang&#x27;s Kung Pao Shrimp<span class="tag html">html</span></a></li>
 <li><a href="recipes/seafood/popcorn-garlic-shrimp.html">Popcorn Garlic Shrimp<span class="tag html">html</span></a></li>
 <li><a href="recipes/seafood/rabagos-shrimp-coctail.html">Rabago&#x27;s Shrimp Coctail<span class="tag html">html</span></a></li>
@@ -255,6 +266,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/sides/grilled-asparagus.html">Grilled Asparagus<span class="tag html">html</span></a></li>
 <li><a href="recipes/sides/latkes.html">Latkes<span class="tag html">html</span></a></li>
 <li><a href="recipes/sides/mexican-sweet-corn-cake.html">Mexican Sweet Corn Cake<span class="tag html">html</span></a></li>
+<li><a href="recipes/sides/perfect-jasmine-rice.html">Perfect Jasmine Rice<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/sides/red-lobster-white-cheddar-mashed-potatoes.html">Red Lobster White Cheddar Mashed Potatoes<span class="tag html">html</span></a></li>
 <li><a href="recipes/sides/spicy-sweet-potato-wedges.html">Spicy Sweet Potato Wedges<span class="tag html">html</span></a></li>
 <li><a href="recipes/sides/sweet-potato-casserole.html">Sweet Potato Casserole<span class="tag html">html</span></a></li>
@@ -268,6 +280,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/soups/bennigans-ultimate-baked-potato-soup.html">Bennigans Ultimate Baked Potato Soup<span class="tag html">html</span></a></li>
 <li><a href="recipes/soups/black-bean-soup.html">Black Bean Soup<span class="tag html">html</span></a></li>
 <li><a href="recipes/soups/butternut-squash-soup.html">Butternut Squash Soup<span class="tag html">html</span></a></li>
+<li><a href="recipes/soups/creamy-mushroom-chicken-and-wild-rice-soup.html">Creamy Mushroom Chicken and Wild Rice Soup<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/soups/la-madeleines-tomato-basil-soup.html">La Madeleine&#x27;s Tomato-Basil Soup<span class="tag html">html</span></a></li>
 <li><a href="recipes/soups/pablano-soup.html">Pablano Soup<span class="tag html">html</span></a></li>
 <li><a href="recipes/soups/soup-nazi.html">Soup Nazi<span class="tag html">html</span></a></li>
@@ -278,11 +291,12 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 <li><a href="recipes/vegetarian-tofu/herb-marinated-fresh-mozzarella-wraps.html">Herb-Marinated Fresh Mozzarella Wraps<span class="tag html">html</span></a></li>
 <li><a href="recipes/vegetarian-tofu/marinated-grilled-mushrooms.html">Marinated &amp; Grilled Mushrooms<span class="tag html">html</span></a></li>
 <li><a href="recipes/vegetarian-tofu/pan-fried-tofu-with-spicy-lemongrass-sauce.html">Pan-Fried Tofu With Spicy Lemongrass Sauce<span class="tag html">html</span></a></li>
+<li><a href="recipes/vegetarian-tofu/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html">Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
 <li><a href="recipes/vegetarian-tofu/thai-sticky-rice.html">Thai Sticky Rice<span class="tag html">html</span></a></li>
 </ul></section>
   </div>
 </main>
-<footer>Built from OneDrive/Recipes • 185 recipes</footer>
+<footer>Built from OneDrive/Recipes • 197 recipes</footer>
 <script>
 let RECIPES = [];
 fetch('recipes_index.json').then(r=>r.json()).then(d=>{RECIPES=d});
@@ -294,7 +308,8 @@ function render(items){
   if(!items.length){ list.innerHTML='<li class="empty">No matches.</li>'; return;}
   list.innerHTML = items.slice(0,200).map(r=>{
     const sub = r.sub ? ' › '+r.sub : '';
-    return `<li><a href="${r.url}">${r.title}</a> <span class="tag ${r.type}">${r.type}</span><div class="meta">${r.category}${sub}</div></li>`;
+    const newBadge = r.new ? ' <span class="tag new">NEW</span>' : '';
+    return `<li><a href="${r.url}">${r.title}</a> <span class="tag ${r.type}">${r.type}</span>${newBadge}<div class="meta">${r.category}${sub}</div></li>`;
   }).join('');
 }
 q.addEventListener('input', () => {

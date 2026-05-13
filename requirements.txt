@@ -1,0 +1,6 @@
+pymupdf
+mammoth
+requests
+python-docx
+pillow
+curl_cffi

@@ -133,6 +133,14 @@
     "type": "html"
   },
   {
+    "title": "Birria (Slow Cooker)",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/birria-slow-cooker.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Burritos",
     "category": "Beef",
     "sub": "",
@@ -364,6 +372,14 @@
     "type": "html"
   },
   {
+    "title": "Crispy Poblano Chicken Tacos with Avocado-Jalapeño Salsa",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/crispy-poblano-chicken-tacos-with-avocado-jalapeño-salsa.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Fat-Free Creamy Chicken, Spinach, Mushrrom And Rice",
     "category": "Chicken",
     "sub": "",
@@ -397,6 +413,14 @@
     "sub": "",
     "url": "recipes/desserts/chocolate-cream-filling.html",
     "type": "html"
+  },
+  {
+    "title": "Chocolate Fondue",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/chocolate-fondue.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Cinnabon Cinnamon Rolls",
@@ -441,6 +465,14 @@
     "type": "html"
   },
   {
+    "title": "Homemade Fondant that Tastes like Buttercream",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/homemade-fondant-that-tastes-like-buttercream.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Homemade Ice Cream",
     "category": "Desserts",
     "sub": "",
@@ -474,6 +506,14 @@
     "sub": "",
     "url": "recipes/desserts/pumpkin-chocolate-cheesecake-bars.html",
     "type": "html"
+  },
+  {
+    "title": "Salted Caramel Bread Pudding",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/salted-caramel-bread-pudding.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Sweet Coconut Tapioca Soup With Bananas",
@@ -903,6 +943,14 @@
     "type": "html"
   },
   {
+    "title": "Mediterranean Three Bean Salad (High Protein, High Fiber)",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/mediterranean-three-bean-salad-high-protein-high-fiber.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Raspberry Spinach Salad",
     "category": "Salads",
     "sub": "",
@@ -987,6 +1035,14 @@
     "type": "html"
   },
   {
+    "title": "BEST Shrimp Boil Recipe!",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/best-shrimp-boil-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Broiled Tilapia Parmesan",
     "category": "Seafood",
     "sub": "",
@@ -1008,6 +1064,14 @@
     "type": "html"
   },
   {
+    "title": "Crunch Roll Sushi Bowl with Easy Eel Sauce",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/crunch-roll-sushi-bowl-with-easy-eel-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Grilled Salmon",
     "category": "Seafood",
     "sub": "",
@@ -1020,6 +1084,14 @@
     "sub": "",
     "url": "recipes/seafood/macadamia-coconut-crusted-shrimp.html",
     "type": "html"
+  },
+  {
+    "title": "Margarita Grilled Shrimp Kabobs",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/margarita-grilled-shrimp-kabobs.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Pf Chang's Kung Pao Shrimp",
@@ -1155,6 +1227,14 @@
     "type": "html"
   },
   {
+    "title": "Perfect Jasmine Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/perfect-jasmine-rice.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Red Lobster White Cheddar Mashed Potatoes",
     "category": "Sides",
     "sub": "",
@@ -1232,6 +1312,14 @@
     "type": "html"
   },
   {
+    "title": "Creamy Mushroom Chicken and Wild Rice Soup",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/soups/creamy-mushroom-chicken-and-wild-rice-soup.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "La Madeleine's Tomato-Basil Soup",
     "category": "Soups",
     "sub": "",
@@ -1286,6 +1374,14 @@
     "sub": "",
     "url": "recipes/vegetarian-tofu/pan-fried-tofu-with-spicy-lemongrass-sauce.html",
     "type": "html"
+  },
+  {
+    "title": "Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe",
+    "category": "Vegetarian (Tofu)",
+    "sub": "",
+    "url": "recipes/vegetarian-tofu/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Thai Sticky Rice",

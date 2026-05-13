@@ -2,6 +2,7 @@
 
 Usage:
     python import_recipe.py <url> [--category Breads] [--title "Override Title"]
+        [--no-image] [--no-mark-new]
 """
 from __future__ import annotations
 
@@ -9,15 +10,36 @@ import argparse
 import json
 import re
 import sys
+from datetime import date
 from html import unescape
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
 from docx import Document
+from docx.shared import Inches
 
 ONEDRIVE_RECIPES = Path(r"d:/OneDrive/Recipes")
+SITE_DIR = Path(__file__).parent
+NEW_RECIPES_JSON = SITE_DIR / "new_recipes.json"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+BROWSER_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
+    "Sec-Ch-Ua": '"Chromium";v="120", "Not_A Brand";v="24"',
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": '"Windows"',
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "Upgrade-Insecure-Requests": "1",
+}
 
 
 def strip_html(s: str) -> str:
@@ -43,12 +65,63 @@ def find_recipe(data):
     return None
 
 
+def _fetch_html(url: str) -> str:
+    sess = requests.Session()
+    sess.headers.update(BROWSER_HEADERS)
+    parsed = urlparse(url)
+    referer = None
+    if parsed.scheme and parsed.netloc:
+        referer = f"{parsed.scheme}://{parsed.netloc}/"
+        sess.headers["Referer"] = referer
+    try:
+        resp = sess.get(url, timeout=30, allow_redirects=True)
+        resp.raise_for_status()
+        if "application/ld+json" in resp.text:
+            return resp.text
+        # Some sites (e.g., onceuponachef.com) serve a JSON-LD-less variant
+        # to plain requests clients; treat as a soft failure and fall through.
+        soft_failure: Exception | None = None
+    except (requests.HTTPError, requests.exceptions.SSLError) as exc:
+        soft_failure = exc
+        status = None
+        if isinstance(exc, requests.HTTPError) and exc.response is not None:
+            status = exc.response.status_code
+            if status not in (403, 429, 503):
+                raise
+    # Fallback: curl_cffi impersonates a real Chrome TLS fingerprint to
+    # defeat Cloudflare bot-protection challenges and content variants.
+    try:
+        from curl_cffi import requests as cffi_requests  # type: ignore
+    except ImportError as ie:
+        raise SystemExit(
+            f"Could not fetch {url} ({soft_failure!r}); install curl_cffi to bypass."
+        ) from ie
+    cffi_headers = {"Accept-Language": "en-US,en;q=0.9"}
+    if referer:
+        cffi_headers["Referer"] = referer
+    last_text = None
+    for profile in ("chrome124", "chrome120", "chrome119", "chrome116"):
+        try:
+            resp2 = cffi_requests.get(
+                url, impersonate=profile, timeout=45,
+                allow_redirects=True, headers=cffi_headers,
+            )
+        except Exception:
+            continue
+        last_text = resp2.text
+        if resp2.status_code == 200 and "application/ld+json" in resp2.text:
+            return resp2.text
+    if last_text and "application/ld+json" in last_text:
+        return last_text
+    raise SystemExit(
+        f"Could not fetch {url}; Cloudflare challenge or JSON-LD content unavailable."
+    )
+
+
 def fetch_recipe(url: str) -> dict:
-    resp = requests.get(url, headers={"User-Agent": UA}, timeout=30)
-    resp.raise_for_status()
-    html = resp.text
+    html = _fetch_html(url)
     for m in re.finditer(
-        r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+        r'<script[^>]*type=[\'"]application/ld\+json[\'"][^>]*>(.*?)</script>',
         html, re.DOTALL | re.IGNORECASE,
     ):
         try:
@@ -63,6 +136,70 @@ def fetch_recipe(url: str) -> dict:
 
 def safe_filename(title: str) -> str:
     return re.sub(r'[<>:"/\\|?*]', "", title).strip()
+
+
+def extract_image_url(image_data) -> str | None:
+    """Extract first usable image URL from a schema.org Recipe `image` field."""
+    if not image_data:
+        return None
+    if isinstance(image_data, str):
+        return image_data
+    if isinstance(image_data, dict):
+        url = image_data.get("url") or image_data.get("contentUrl") or image_data.get("@id")
+        if isinstance(url, str):
+            return url
+        return extract_image_url(image_data.get("image"))
+    if isinstance(image_data, list):
+        for item in image_data:
+            url = extract_image_url(item)
+            if url:
+                return url
+    return None
+
+
+def download_image(url: str) -> BytesIO | None:
+    try:
+        resp = requests.get(url, headers=BROWSER_HEADERS, timeout=30)
+        resp.raise_for_status()
+        return BytesIO(resp.content)
+    except Exception as exc:
+        # Try the same curl_cffi fallback used for HTML fetches.
+        try:
+            from curl_cffi import requests as cffi_requests  # type: ignore
+            r2 = cffi_requests.get(url, impersonate="chrome124", timeout=30)
+            if r2.status_code == 200 and r2.content:
+                return BytesIO(r2.content)
+        except Exception:
+            pass
+        print(f"Warning: could not download image {url}: {exc}")
+        return None
+
+
+def mark_recipe_as_new(category: str, title: str) -> None:
+    """Record this recipe in new_recipes.json so build.py renders a NEW badge."""
+    entries: list[dict] = []
+    if NEW_RECIPES_JSON.exists():
+        try:
+            entries = json.loads(NEW_RECIPES_JSON.read_text(encoding="utf-8"))
+            if not isinstance(entries, list):
+                entries = []
+        except json.JSONDecodeError:
+            entries = []
+    key = (category.strip().lower(), title.strip().lower())
+    if any(
+        (e.get("category", "").strip().lower(), e.get("title", "").strip().lower()) == key
+        for e in entries
+    ):
+        return
+    entries.append({
+        "category": category,
+        "title": title,
+        "added": date.today().isoformat(),
+    })
+    NEW_RECIPES_JSON.write_text(
+        json.dumps(entries, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def parse_iso_duration(s: str) -> str:
@@ -81,10 +218,21 @@ def parse_iso_duration(s: str) -> str:
     return " ".join(parts)
 
 
-def build_docx(recipe: dict, source_url: str, out_path: Path) -> None:
+def build_docx(recipe: dict, source_url: str, out_path: Path, include_image: bool = True) -> None:
     doc = Document()
     title = strip_html(recipe.get("name", "Untitled Recipe"))
     doc.add_heading(title, level=1)
+
+    # Hero image (optional)
+    if include_image:
+        img_url = extract_image_url(recipe.get("image"))
+        if img_url:
+            img_data = download_image(img_url)
+            if img_data is not None:
+                try:
+                    doc.add_picture(img_data, width=Inches(5.0))
+                except Exception as exc:
+                    print(f"Warning: could not embed image: {exc}")
 
     desc = strip_html(recipe.get("description", ""))
     if desc:
@@ -154,6 +302,8 @@ def main() -> None:
     ap.add_argument("url")
     ap.add_argument("--category", default="Breads")
     ap.add_argument("--title", default=None, help="Override title for filename")
+    ap.add_argument("--no-image", action="store_true", help="Skip embedding the recipe's main image")
+    ap.add_argument("--no-mark-new", action="store_true", help="Do not flag this recipe as NEW for the site")
     args = ap.parse_args()
 
     recipe = fetch_recipe(args.url)
@@ -161,9 +311,15 @@ def main() -> None:
     out = ONEDRIVE_RECIPES / args.category / f"{safe_filename(title)}.docx"
     if out.exists():
         print(f"Already exists: {out}")
+        if not args.no_mark_new:
+            mark_recipe_as_new(args.category, title)
+            print(f"Re-marked as NEW: {args.category} / {title}")
         sys.exit(0)
-    build_docx(recipe, args.url, out)
+    build_docx(recipe, args.url, out, include_image=not args.no_image)
     print(f"Saved: {out}")
+    if not args.no_mark_new:
+        mark_recipe_as_new(args.category, title)
+        print(f"Marked as NEW: {args.category} / {title}")
 
 
 if __name__ == "__main__":
