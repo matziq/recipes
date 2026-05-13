@@ -49,6 +49,14 @@
     "type": "html"
   },
   {
+    "title": "Jalapeño Poppers",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/appetizers/jalapeño-poppers.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Olive Cheese Ball",
     "category": "Appetizers",
     "sub": "",
@@ -372,6 +380,14 @@
     "type": "html"
   },
   {
+    "title": "Best Huevos Rancheros Recipe",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/best-huevos-rancheros-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Crème Brulee French Toast",
     "category": "Breakfast",
     "sub": "",
@@ -404,6 +420,14 @@
     "category": "Breakfast",
     "sub": "",
     "url": "recipes/breakfast/pumpkin-pancakes.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Yeast Waffles",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/yeast-waffles.html",
     "type": "html",
     "new": true
   },
@@ -451,11 +475,27 @@
     "type": "html"
   },
   {
+    "title": "Grilled Boneless Chicken Thighs",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/grilled-boneless-chicken-thighs.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Hot Chicken Salad",
     "category": "Chicken",
     "sub": "",
     "url": "recipes/chicken/hot-chicken-salad.html",
     "type": "html"
+  },
+  {
+    "title": "Huli Huli Chicken with Amazing Huli Huli Sauce",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/huli-huli-chicken-with-amazing-huli-huli-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Panang curry",
@@ -478,6 +518,14 @@
     "sub": "",
     "url": "recipes/chicken/ts-coq-au-vin.html",
     "type": "html"
+  },
+  {
+    "title": "Best White Chocolate and Macadamia Cookies",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/best-white-chocolate-and-macadamia-cookies.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Chocolate Coconut Bars",
@@ -558,6 +606,14 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/everyday-cinnamon-rolls.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Frosting for Sugar Cookies",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/frosting-for-sugar-cookies.html",
     "type": "html",
     "new": true
   },
@@ -845,6 +901,14 @@
     "type": "html"
   },
   {
+    "title": "Chocolate Peanut Butter Protein Smoothie",
+    "category": "Drinks",
+    "sub": "",
+    "url": "recipes/drinks/chocolate-peanut-butter-protein-smoothie.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Disgusting Potion",
     "category": "Drinks",
     "sub": "",
@@ -1000,6 +1064,14 @@
     "type": "html"
   },
   {
+    "title": "Pesto Cavatappi",
+    "category": "Pasta",
+    "sub": "",
+    "url": "recipes/pasta/pesto-cavatappi.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Pflomms Pfetuccine Alpfredo",
     "category": "Pasta",
     "sub": "",
@@ -1026,6 +1098,14 @@
     "sub": "",
     "url": "recipes/pork/cajun-pork-chops.html",
     "type": "html"
+  },
+  {
+    "title": "Crockpot BBQ Ribs",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/crockpot-bbq-ribs.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Ribs",
@@ -1058,11 +1138,27 @@
     "new": true
   },
   {
+    "title": "Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/chicken-bacon-avocado-chopped-salad-with-lemon-vinaigrette.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Chinese Cabbage Salad",
     "category": "Salads",
     "sub": "",
     "url": "recipes/salads/chinese-cabbage-salad.html",
     "type": "html"
+  },
+  {
+    "title": "Creamy Cucumber Tomato Salad Recipe",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/creamy-cucumber-tomato-salad-recipe.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Fiery Chicken Spinach Salad",
@@ -1131,6 +1227,30 @@
     "type": "html"
   },
   {
+    "title": "Best Ranchero Sauce Recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/best-ranchero-sauce-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Creamy Red Enchilada Sauce Recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/creamy-red-enchilada-sauce-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Cucumber Salad Dressing",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/cucumber-salad-dressing.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Gravy recipe (tastes like KFC - but a million times better!)",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -1196,6 +1316,14 @@
     "type": "html"
   },
   {
+    "title": "THE BEST Greek Chicken Marinade",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/the-best-greek-chicken-marinade.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Warm Chocolate Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -1239,6 +1367,14 @@
     "sub": "",
     "url": "recipes/seafood/cajun-blackened-tuna.html",
     "type": "html"
+  },
+  {
+    "title": "California Spicy Crab Stuffed Avocado",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/california-spicy-crab-stuffed-avocado.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Chef John's Shrimp and Grits",
@@ -1421,6 +1557,14 @@
     "type": "html"
   },
   {
+    "title": "Grilled Sweet Potatoes",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/grilled-sweet-potatoes.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Latkes",
     "category": "Sides",
     "sub": "",
@@ -1448,6 +1592,22 @@
     "sub": "",
     "url": "recipes/sides/red-lobster-white-cheddar-mashed-potatoes.html",
     "type": "html"
+  },
+  {
+    "title": "Rosemary Parmesan Roasted Potatoes",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/rosemary-parmesan-roasted-potatoes.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Sausage Stuffing",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/sausage-stuffing.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Spicy Sweet Potato Wedges",
