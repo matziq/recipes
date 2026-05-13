@@ -353,6 +353,8 @@ def main() -> None:
                 matched += 1
         print(f"Flagged {matched} recipe(s) as NEW from {NEW_RECIPES_JSON.name}.")
 
+    new_count = sum(1 for r in recipes if r.get("new"))
+
     # Write search index
     (OUT / "recipes_index.json").write_text(
         json.dumps(recipes, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -363,7 +365,12 @@ def main() -> None:
     for r in recipes:
         tree.setdefault(r["category"], {}).setdefault(r["sub"], []).append(r)
 
-    (OUT / "index.html").write_text(render_index(tree, len(recipes)), encoding="utf-8")
+    (OUT / "index.html").write_text(render_index(tree, len(recipes), new_count), encoding="utf-8")
+    new_html_path = OUT / "new.html"
+    if new_count:
+        new_html_path.write_text(render_new_page(recipes, new_count), encoding="utf-8")
+    elif new_html_path.exists():
+        new_html_path.unlink()
     print(f"Built {len(recipes)} recipes across {len(tree)} categories.")
 
 
@@ -401,6 +408,12 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .tag.jpg,.tag.jpeg,.tag.png{background:#3b82f6}
 .tag.new{background:#dc2626;font-weight:bold;letter-spacing:.5px;animation:pulse-new 1.6s ease-in-out infinite}
 @keyframes pulse-new{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
+.new-banner{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1f0,#fff8f1);border:1px solid #fecaca;border-left:6px solid #dc2626;border-radius:12px;padding:14px 18px;margin:0 0 22px;text-decoration:none;color:var(--ink);box-shadow:0 1px 4px rgba(220,38,38,.08);transition:transform .12s ease, box-shadow .12s ease}
+.new-banner:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(220,38,38,.15)}
+.new-banner-tag{background:#dc2626;color:#fff;font-weight:bold;letter-spacing:.5px;font-size:.78rem;padding:3px 8px;border-radius:6px;animation:pulse-new 1.6s ease-in-out infinite}
+.new-banner-text{font-weight:600;flex:1}
+.new-banner-arrow{color:#dc2626;font-size:1.2rem;font-weight:bold}
+.new-page-intro{color:var(--muted);margin:6px 0 22px}
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
@@ -420,7 +433,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 """
 
 
-def render_index(tree: dict[str, dict[str, list[dict]]], total: int) -> str:
+def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: int = 0) -> str:
     sections = []
     cat_cards = []
     for cat in sorted(tree.keys()):
@@ -454,6 +467,17 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int) -> str:
             + "\n".join(items_html) + "</section>"
         )
 
+    new_banner = ""
+    if new_count:
+        plural = "" if new_count == 1 else "s"
+        new_banner = (
+            f'<a class="new-banner" href="new.html">'
+            f'<span class="new-banner-tag">NEW</span>'
+            f'<span class="new-banner-text">See the {new_count} newest recipe{plural}</span>'
+            f'<span class="new-banner-arrow">&rarr;</span>'
+            f'</a>'
+        )
+
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
@@ -467,6 +491,7 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int) -> str:
   <div class="search"><input id="q" type="search" placeholder="Search {total} recipes..." autocomplete="off"></div>
 </header>
 <main class="container">
+  {new_banner}
   <div id="results" class="search-results"><ul id="results-list"></ul></div>
   <div id="browse">
     <div class="cats">{"".join(cat_cards)}</div>
@@ -513,6 +538,41 @@ def _recipe_li(r: dict) -> str:
         f'<li><a href="{escape(r["url"])}">{escape(r["title"])}'
         f'<span class="tag {t}">{t}</span>{new_badge}</a></li>'
     )
+
+
+def render_new_page(recipes: list[dict], new_count: int) -> str:
+    """Build a dedicated page listing every recipe currently flagged NEW."""
+    by_cat: dict[str, list[dict]] = {}
+    for r in recipes:
+        if r.get("new"):
+            by_cat.setdefault(r["category"], []).append(r)
+    sections = []
+    for cat in sorted(by_cat.keys()):
+        icon = ICONS.get(cat, "\U0001F4C4")
+        items = "\n".join(_recipe_li(r) for r in sorted(by_cat[cat], key=lambda x: x["title"].lower()))
+        sections.append(
+            f'<section><h2 class="cat-title">{icon} {escape(cat)}</h2>'
+            f'<ul class="recipes">{items}</ul></section>'
+        )
+    plural = "" if new_count == 1 else "s"
+    return f"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Recipes \u2022 Recipes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>\U0001F374</text></svg>">
+<style>{BASE_CSS}</style>
+</head><body>
+<header><h1><a href="index.html">\U0001F374 Recipes</a></h1></header>
+<main class="container">
+  <div class="crumbs"><a href="index.html">Recipes</a> \u203A <span class="tag new">NEW</span></div>
+  <h1 style="color:var(--accent);margin-top:0">\U0001F195 {new_count} New Recipe{plural}</h1>
+  <p class="new-page-intro">These were added recently. Edit <code>new_recipes.json</code> and rebuild to remove the NEW badge after a week or so.</p>
+  {"".join(sections)}
+</main>
+<footer><a href="index.html">\u2190 Back to all recipes</a></footer>
+</body></html>
+"""
 
 
 def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:

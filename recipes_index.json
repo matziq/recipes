@@ -148,6 +148,14 @@
     "type": "html"
   },
   {
+    "title": "Copycat Crunchwrap Supreme",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/copycat-crunchwrap-supreme.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Grandmas's Yummy Meatloaf",
     "category": "Beef",
     "sub": "",
@@ -160,6 +168,14 @@
     "sub": "",
     "url": "recipes/beef/red-beans-and-rice.html",
     "type": "html"
+  },
+  {
+    "title": "Roasted Corned Beef and Cabbage with Horseradish Cream Sauce",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/roasted-corned-beef-and-cabbage-with-horseradish-cream-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "100% Whole Wheat Bread",
@@ -190,11 +206,27 @@
     "type": "html"
   },
   {
+    "title": "Cinnamon Sugar Soft Pretzels Recipe",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/cinnamon-sugar-soft-pretzels-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Cranberry Nut Bread",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/cranberry-nut-bread.html",
     "type": "html"
+  },
+  {
+    "title": "Easy Homemade Soft Pretzels Recipe",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/easy-homemade-soft-pretzels-recipe.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Exquisite Pumpkin Bread",
@@ -232,11 +264,27 @@
     "type": "html"
   },
   {
+    "title": "Monkey Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/monkey-bread.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Naan",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/naan.html",
     "type": "html"
+  },
+  {
+    "title": "No Fail Focaccia",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/no-fail-focaccia.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Oat Bran Muffins",
@@ -258,6 +306,14 @@
     "sub": "",
     "url": "recipes/breads/pizzeria-uno-pizza-crust.html",
     "type": "html"
+  },
+  {
+    "title": "Pretzel Hamburger Buns",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/pretzel-hamburger-buns.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Raspberry-Cream Cheese Muffins",
@@ -344,6 +400,14 @@
     "type": "html"
   },
   {
+    "title": "Pumpkin Pancakes",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/pumpkin-pancakes.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Chicken And Goat Cheese Roll-Ups",
     "category": "Chicken",
     "sub": "",
@@ -394,6 +458,14 @@
     "type": "html"
   },
   {
+    "title": "Panang curry",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/panang-curry.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Provolone & Mushroom Chicken",
     "category": "Chicken",
     "sub": "",
@@ -406,6 +478,14 @@
     "sub": "",
     "url": "recipes/chicken/ts-coq-au-vin.html",
     "type": "html"
+  },
+  {
+    "title": "Chocolate Coconut Bars",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/chocolate-coconut-bars.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Chocolate Cream Filling",
@@ -444,6 +524,14 @@
     "type": "html"
   },
   {
+    "title": "Cookie Butter Frosting",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/cookie-butter-frosting.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Cream Puffs",
     "category": "Desserts",
     "sub": "",
@@ -451,11 +539,27 @@
     "type": "html"
   },
   {
+    "title": "Easy Tiramisu Mousse",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/easy-tiramisu-mousse.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Emeril's Bananas Foster",
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/emerils-bananas-foster.html",
     "type": "html"
+  },
+  {
+    "title": "Everyday Cinnamon Rolls",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/everyday-cinnamon-rolls.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Fruit Pizza",
@@ -521,6 +625,14 @@
     "sub": "",
     "url": "recipes/desserts/sweet-coconut-tapioca-soup-with-bananas.html",
     "type": "html"
+  },
+  {
+    "title": "The BEST Rice Krispies Treats Recipe",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/the-best-rice-krispies-treats-recipe.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "A Very Berry Strawberry Bunt Cake",
@@ -775,6 +887,14 @@
     "type": "html"
   },
   {
+    "title": "Summer Peach Fruit Salad",
+    "category": "Fruit",
+    "sub": "",
+    "url": "recipes/fruit/summer-peach-fruit-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Aloha Sweet Potatoes",
     "category": "Luau",
     "sub": "",
@@ -915,11 +1035,27 @@
     "type": "html"
   },
   {
+    "title": "Tacos al Pastor (3 Methods)",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/tacos-al-pastor-3-methods.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Walnut Crusted Pork Chops With Wild Rice",
     "category": "Pork",
     "sub": "",
     "url": "recipes/pork/walnut-crusted-pork-chops-with-wild-rice.html",
     "type": "html"
+  },
+  {
+    "title": "Basil Lemon Pasta Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/basil-lemon-pasta-salad.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Chinese Cabbage Salad",
@@ -943,6 +1079,14 @@
     "type": "html"
   },
   {
+    "title": "Indian Cucumber Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/indian-cucumber-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Mediterranean Three Bean Salad (High Protein, High Fiber)",
     "category": "Salads",
     "sub": "",
@@ -956,6 +1100,14 @@
     "sub": "",
     "url": "recipes/salads/raspberry-spinach-salad.html",
     "type": "html"
+  },
+  {
+    "title": "Grilled Chicken & Pesto Panini",
+    "category": "Sandwiches",
+    "sub": "",
+    "url": "recipes/sandwiches/grilled-chicken-pesto-panini.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Spinach Feta Croissants",
@@ -979,6 +1131,14 @@
     "type": "html"
   },
   {
+    "title": "Gravy recipe (tastes like KFC - but a million times better!)",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/gravy-recipe-tastes-like-kfc-but-a-million-times-better.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Guacamole",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -998,6 +1158,14 @@
     "sub": "",
     "url": "recipes/sauces-dips/jalapeno-spiked-cherry-preserves.html",
     "type": "html"
+  },
+  {
+    "title": "Kicked-Up Cheddar Cheese Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/kicked-up-cheddar-cheese-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Mexican Black Bean Dip",
@@ -1035,6 +1203,22 @@
     "type": "html"
   },
   {
+    "title": "White Pizza Sauce Recipe (Quick & Easy)",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/white-pizza-sauce-recipe-quick-easy.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Best Easy Healthy Baked Salmon",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/best-easy-healthy-baked-salmon.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "BEST Shrimp Boil Recipe!",
     "category": "Seafood",
     "sub": "",
@@ -1055,6 +1239,14 @@
     "sub": "",
     "url": "recipes/seafood/cajun-blackened-tuna.html",
     "type": "html"
+  },
+  {
+    "title": "Chef John's Shrimp and Grits",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/chef-johns-shrimp-and-grits.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Copelands Hot Crab Claws",
@@ -1136,6 +1328,14 @@
     "type": "html"
   },
   {
+    "title": "Spicy Shrimp Tacos with Avocado Crema",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/spicy-shrimp-tacos-with-avocado-crema.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Stuffed Salmon",
     "category": "Seafood",
     "sub": "",
@@ -1169,6 +1369,14 @@
     "sub": "",
     "url": "recipes/sides/caramelized-onions.html",
     "type": "html"
+  },
+  {
+    "title": "Cheesy Baked Grits",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/cheesy-baked-grits.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Cheesy Potato Gratin",
@@ -1249,6 +1457,14 @@
     "type": "html"
   },
   {
+    "title": "Sushi Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/sushi-rice.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Sweet Potato Casserole",
     "category": "Sides",
     "sub": "",
@@ -1289,6 +1505,22 @@
     "sub": "",
     "url": "recipes/snacks/pumpkin-seeds.html",
     "type": "html"
+  },
+  {
+    "title": "Soft Pretzel Bites",
+    "category": "Snacks",
+    "sub": "",
+    "url": "recipes/snacks/soft-pretzel-bites.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Sweet and Salty Peanut Butter Pretzel Bites",
+    "category": "Snacks",
+    "sub": "",
+    "url": "recipes/snacks/sweet-and-salty-peanut-butter-pretzel-bites.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Bennigans Ultimate Baked Potato Soup",

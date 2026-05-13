@@ -36,6 +36,12 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .tag.jpg,.tag.jpeg,.tag.png{background:#3b82f6}
 .tag.new{background:#dc2626;font-weight:bold;letter-spacing:.5px;animation:pulse-new 1.6s ease-in-out infinite}
 @keyframes pulse-new{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
+.new-banner{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1f0,#fff8f1);border:1px solid #fecaca;border-left:6px solid #dc2626;border-radius:12px;padding:14px 18px;margin:0 0 22px;text-decoration:none;color:var(--ink);box-shadow:0 1px 4px rgba(220,38,38,.08);transition:transform .12s ease, box-shadow .12s ease}
+.new-banner:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(220,38,38,.15)}
+.new-banner-tag{background:#dc2626;color:#fff;font-weight:bold;letter-spacing:.5px;font-size:.78rem;padding:3px 8px;border-radius:6px;animation:pulse-new 1.6s ease-in-out infinite}
+.new-banner-text{font-weight:600;flex:1}
+.new-banner-arrow{color:#dc2626;font-size:1.2rem;font-weight:bold}
+.new-page-intro{color:var(--muted);margin:6px 0 22px}
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
