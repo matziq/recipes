@@ -64,6 +64,14 @@
     "type": "html"
   },
   {
+    "title": "Quinoa Stuffed Peppers",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/appetizers/quinoa-stuffed-peppers.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Torchy's Queso",
     "category": "Appetizers",
     "sub": "",
@@ -141,6 +149,14 @@
     "type": "html"
   },
   {
+    "title": "Best Beef Dip Ever",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/best-beef-dip-ever.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Birria (Slow Cooker)",
     "category": "Beef",
     "sub": "",
@@ -156,6 +172,14 @@
     "type": "html"
   },
   {
+    "title": "Carne Asada Tacos",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/carne-asada-tacos.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Copycat Crunchwrap Supreme",
     "category": "Beef",
     "sub": "",
@@ -169,6 +193,14 @@
     "sub": "",
     "url": "recipes/beef/grandmass-yummy-meatloaf.html",
     "type": "html"
+  },
+  {
+    "title": "Perfect Pan-Seared Steak",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/perfect-pan-seared-steak.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Red Beans And Rice",
@@ -193,6 +225,14 @@
     "type": "html"
   },
   {
+    "title": "Amazingly Easy Irish Soda Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/amazingly-easy-irish-soda-bread.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Amish Friendship Bread",
     "category": "Breads",
     "sub": "",
@@ -205,6 +245,14 @@
     "sub": "",
     "url": "recipes/breads/banana-oatmeal-loaf.html",
     "type": "html"
+  },
+  {
+    "title": "California Roll Sushi Bowl",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/california-roll-sushi-bowl.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Chickpea Moraccan Flatbread",
@@ -227,6 +275,14 @@
     "sub": "",
     "url": "recipes/breads/cranberry-nut-bread.html",
     "type": "html"
+  },
+  {
+    "title": "Crunch Roll Sushi Bowl with Easy Eel Sauce",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/crunch-roll-sushi-bowl-with-easy-eel-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Easy Homemade Soft Pretzels Recipe",
@@ -276,6 +332,14 @@
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/monkey-bread.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "My Best Pumpkin Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/my-best-pumpkin-bread.html",
     "type": "html",
     "new": true
   },
@@ -345,10 +409,41 @@
     "type": "html"
   },
   {
+    "title": "Rosemary Bread {Macaroni Grill Copycat Recipe}",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/rosemary-bread-macaroni-grill-copycat-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Sacrament Bread",
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/sacrament-bread.html",
+    "type": "html"
+  },
+  {
+    "title": "Slow Cooker Chicken Tortilla Soup",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/slow-cooker-chicken-tortilla-soup.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Soft Pretzel Bites",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/soft-pretzel-bites.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Sweet Honey & Jalapeño Cornbread Muffins",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/sweet-honey-jalapeño-cornbread-muffins.html",
     "type": "html"
   },
   {
@@ -395,6 +490,14 @@
     "type": "html"
   },
   {
+    "title": "German Apple Pancake",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/german-apple-pancake.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Ihop Pancakes",
     "category": "Breakfast",
     "sub": "",
@@ -439,6 +542,14 @@
     "type": "html"
   },
   {
+    "title": "Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/chicken-bacon-avocado-chopped-salad-with-lemon-vinaigrette.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Chicken Caesar Wraps",
     "category": "Chicken",
     "sub": "",
@@ -451,6 +562,14 @@
     "sub": "",
     "url": "recipes/chicken/chicken-chile-tostadas.html",
     "type": "html"
+  },
+  {
+    "title": "Chicken Tikka Masala Recipe (Better Than Takeout)",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/chicken-tikka-masala-recipe-better-than-takeout.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Chicken With Ginger And Green Onion Salt Dip",
@@ -498,6 +617,14 @@
     "new": true
   },
   {
+    "title": "Italian Grinder Chicken Salad",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/italian-grinder-chicken-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Panang curry",
     "category": "Chicken",
     "sub": "",
@@ -518,6 +645,22 @@
     "sub": "",
     "url": "recipes/chicken/ts-coq-au-vin.html",
     "type": "html"
+  },
+  {
+    "title": "Thai Peanut Chicken Wraps",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/thai-peanut-chicken-wraps.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "THE BEST Greek Chicken Marinade",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/the-best-greek-chicken-marinade.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Best White Chocolate and Macadamia Cookies",
@@ -661,6 +804,14 @@
     "type": "html"
   },
   {
+    "title": "Molten Chocolate Mug Cake",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/molten-chocolate-mug-cake.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Pumpkin Chocolate Cheesecake Bars",
     "category": "Desserts",
     "sub": "",
@@ -668,10 +819,42 @@
     "type": "html"
   },
   {
+    "title": "Salted Caramel Apple Hand Pies",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/salted-caramel-apple-hand-pies.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Salted Caramel Bread Pudding",
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/salted-caramel-bread-pudding.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Salted Caramel Ice Cream",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/salted-caramel-ice-cream.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Salted-Caramel 6-Layer Chocolate Cake",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/salted-caramel-6-layer-chocolate-cake.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Sophie's Shepherd's Pie",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/sophies-shepherds-pie.html",
     "type": "html",
     "new": true
   },
@@ -687,6 +870,14 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/the-best-rice-krispies-treats-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "The Most Amazing Chocolate Cake",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/the-most-amazing-chocolate-cake.html",
     "type": "html",
     "new": true
   },
@@ -909,6 +1100,14 @@
     "new": true
   },
   {
+    "title": "CopyCat Chick-fil-A Frosted Lemonade",
+    "category": "Drinks",
+    "sub": "",
+    "url": "recipes/drinks/copycat-chick-fil-a-frosted-lemonade.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Disgusting Potion",
     "category": "Drinks",
     "sub": "",
@@ -1050,11 +1249,27 @@
     "type": "html"
   },
   {
+    "title": "Basil Lemon Pasta Salad",
+    "category": "Pasta",
+    "sub": "",
+    "url": "recipes/pasta/basil-lemon-pasta-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Jack's Famous Italian Spaghetti",
     "category": "Pasta",
     "sub": "",
     "url": "recipes/pasta/jacks-famous-italian-spaghetti.html",
     "type": "html"
+  },
+  {
+    "title": "Mongolian Beef Ramen",
+    "category": "Pasta",
+    "sub": "",
+    "url": "recipes/pasta/mongolian-beef-ramen.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Peanut Noodle Salad",
@@ -1115,6 +1330,14 @@
     "type": "html"
   },
   {
+    "title": "Sausage Stuffing",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/sausage-stuffing.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Tacos al Pastor (3 Methods)",
     "category": "Pork",
     "sub": "",
@@ -1138,6 +1361,14 @@
     "new": true
   },
   {
+    "title": "Caprese Avocado Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/caprese-avocado-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette",
     "category": "Salads",
     "sub": "",
@@ -1153,10 +1384,26 @@
     "type": "html"
   },
   {
+    "title": "Cobb Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/cobb-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Creamy Cucumber Tomato Salad Recipe",
     "category": "Salads",
     "sub": "",
     "url": "recipes/salads/creamy-cucumber-tomato-salad-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Cucumber Salad Dressing",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/cucumber-salad-dressing.html",
     "type": "html",
     "new": true
   },
@@ -1173,6 +1420,22 @@
     "sub": "",
     "url": "recipes/salads/greek-couscous-salad.html",
     "type": "html"
+  },
+  {
+    "title": "Greek Salad Dressing (The BEST!)",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/greek-salad-dressing-the-best.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Healthy Greek Salad Dressing",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/healthy-greek-salad-dressing.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Indian Cucumber Salad",
@@ -1198,6 +1461,22 @@
     "type": "html"
   },
   {
+    "title": "Summer Peach Fruit Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/summer-peach-fruit-salad.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Chicken Taco Seasoning Recipe",
+    "category": "Sandwiches",
+    "sub": "",
+    "url": "recipes/sandwiches/chicken-taco-seasoning-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Grilled Chicken & Pesto Panini",
     "category": "Sandwiches",
     "sub": "",
@@ -1211,6 +1490,14 @@
     "sub": "",
     "url": "recipes/sandwiches/spinach-feta-croissants.html",
     "type": "html"
+  },
+  {
+    "title": "Authentic Homemade Ranchero Sauce Recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/authentic-homemade-ranchero-sauce-recipe.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Avocado Salsa",
@@ -1235,6 +1522,21 @@
     "new": true
   },
   {
+    "title": "BEST Salsa Taquera Recipe (Taqueria Style Salsa Roja)  Mexican Made Meatless™",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/best-salsa-taquera-recipe-taqueria-style-salsa-roja-mexican-made-meatless.html",
+    "type": "html"
+  },
+  {
+    "title": "Creamy Garlic Lime Cilantro Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/creamy-garlic-lime-cilantro-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Creamy Red Enchilada Sauce Recipe",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -1247,6 +1549,22 @@
     "category": "Sauces  & Dips",
     "sub": "",
     "url": "recipes/sauces-dips/cucumber-salad-dressing.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Easy Baja Sauce (for Tacos and more!)",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/easy-baja-sauce-for-tacos-and-more.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Easy Red Enchilada Sauce {15 minute Recipe}",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/easy-red-enchilada-sauce-15-minute-recipe.html",
     "type": "html",
     "new": true
   },
@@ -1264,6 +1582,30 @@
     "sub": "",
     "url": "recipes/sauces-dips/guacamole.html",
     "type": "html"
+  },
+  {
+    "title": "Guajillo Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/guajillo-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Homemade Ranchero Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/homemade-ranchero-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Homemade Russian Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/homemade-russian-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Jalapeno Tartar Sauce",
@@ -1288,11 +1630,50 @@
     "new": true
   },
   {
+    "title": "Louisiana Remoulade Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/louisiana-remoulade-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Mexican Black Bean Dip",
     "category": "Sauces  & Dips",
     "sub": "",
     "url": "recipes/sauces-dips/mexican-black-bean-dip.html",
     "type": "html"
+  },
+  {
+    "title": "Mexican Hot Sauce Recipe (Salsa Roja, Taquería-Style)",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/mexican-hot-sauce-recipe-salsa-roja-taquería-style.html",
+    "type": "html"
+  },
+  {
+    "title": "Pineapple Habanero Hot Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/pineapple-habanero-hot-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Quick And Tasty Ranchero Sauce Recipe - Perfect For Any Dish",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/quick-and-tasty-ranchero-sauce-recipe-perfect-for-any-dish.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Ranchero Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/ranchero-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Salsa",
@@ -1302,11 +1683,34 @@
     "type": "html"
   },
   {
+    "title": "Salsa Macha – The Mexican Chile Oil You’ll Want to Put on Everything",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/salsa-macha-the-mexican-chile-oil-youll-want-to-put-on-everything.html",
+    "type": "html"
+  },
+  {
+    "title": "Sweet & Spicy Sriracha Chili Dipping Sauce Recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/sweet-spicy-sriracha-chili-dipping-sauce-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Sweet And Hot Garlic Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
     "url": "recipes/sauces-dips/sweet-and-hot-garlic-sauce.html",
     "type": "html"
+  },
+  {
+    "title": "Tamale Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/tamale-sauce.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "The Best Cheese Fondue Ever",
@@ -1400,11 +1804,26 @@
     "new": true
   },
   {
+    "title": "Garlic-Jalapeño Shrimp",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/garlic-jalapeño-shrimp.html",
+    "type": "html"
+  },
+  {
     "title": "Grilled Salmon",
     "category": "Seafood",
     "sub": "",
     "url": "recipes/seafood/grilled-salmon.html",
     "type": "html"
+  },
+  {
+    "title": "Grilled Salmon with Avocado Salsa Recipe",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/grilled-salmon-with-avocado-salsa-recipe.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Macadamia Coconut-Crusted Shrimp",
@@ -1443,11 +1862,43 @@
     "type": "html"
   },
   {
+    "title": "Red Lobster Copycat Pina Colada Sauce",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/red-lobster-copycat-pina-colada-sauce.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Salmon Patties",
     "category": "Seafood",
     "sub": "",
     "url": "recipes/seafood/salmon-patties.html",
     "type": "html"
+  },
+  {
+    "title": "Seafood Pizza",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/seafood-pizza.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Seafood Salad Recipe",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/seafood-salad-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Shrimp And Asparagus Stir-Fry Recipe by Tasty",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/shrimp-and-asparagus-stir-fry-recipe-by-tasty.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Shrimp Braised In Oil",
@@ -1479,6 +1930,14 @@
     "type": "html"
   },
   {
+    "title": "Sushi Rice",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/sushi-rice.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Thai Coconut Shrimp",
     "category": "Seafood",
     "sub": "",
@@ -1493,11 +1952,66 @@
     "type": "html"
   },
   {
+    "title": "BEST Copycat Zuppa Toscana Recipe",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/best-copycat-zuppa-toscana-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Best White Chocolate and Macadamia Cookies",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/best-white-chocolate-and-macadamia-cookies.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Birria (Slow Cooker)",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/birria-slow-cooker.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Black-Eyed Pea Baked Squash",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/black-eyed-pea-baked-squash.html",
     "type": "html"
+  },
+  {
+    "title": "Blueberry Brie Jalapeño Poppers",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/blueberry-brie-jalapeño-poppers.html",
+    "type": "html"
+  },
+  {
+    "title": "Brazilan Style Black Beans in Pressure Cooker",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/brazilan-style-black-beans-in-pressure-cooker.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Brazilian Style Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/brazilian-style-rice.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Brown Butter Honey Glazed Carrots",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/brown-butter-honey-glazed-carrots.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Caramelized Onions",
@@ -1522,11 +2036,91 @@
     "type": "html"
   },
   {
+    "title": "Chocolate Fondue",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/chocolate-fondue.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Chunky Portabella Veggie Burgers",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/chunky-portabella-veggie-burgers.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Chuy's Creamy Jalapeno Dip",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/chuys-creamy-jalapeno-dip.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Cilantro Lime Crema recipe",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/cilantro-lime-crema-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Cinnamon Sugar Soft Pretzels Recipe",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/cinnamon-sugar-soft-pretzels-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Copycat Crunchwrap Supreme",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/copycat-crunchwrap-supreme.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Copycat Texas Roadhouse Butter",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/copycat-texas-roadhouse-butter.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Crispy Parmesan Garlic Edamame",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/crispy-parmesan-garlic-edamame.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Damon's Pecan-Crusted Fluffy Sweet Potatoes",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/damons-pecan-crusted-fluffy-sweet-potatoes.html",
     "type": "html"
+  },
+  {
+    "title": "Easy Homemade Soft Pretzels Recipe",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/easy-homemade-soft-pretzels-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Everyday Cinnamon Rolls",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/everyday-cinnamon-rolls.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Firecracker Broccoli",
@@ -1536,11 +2130,27 @@
     "type": "html"
   },
   {
+    "title": "Frijoles Puercos",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/frijoles-puercos.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Garlic Mashed Potatoes With Blue Cheese",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/garlic-mashed-potatoes-with-blue-cheese.html",
     "type": "html"
+  },
+  {
+    "title": "Garlic Rubbed Roasted Cabbage Steaks",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/garlic-rubbed-roasted-cabbage-steaks.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Green Beans With Walnuts And Garlic",
@@ -1565,11 +2175,42 @@
     "new": true
   },
   {
+    "title": "Healthy Pumpkin Oatmeal Blender Pancakes",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/healthy-pumpkin-oatmeal-blender-pancakes.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Homemade Fondant that Tastes like Buttercream",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/homemade-fondant-that-tastes-like-buttercream.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Jalapeño Crema",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/jalapeño-crema.html",
+    "type": "html"
+  },
+  {
     "title": "Latkes",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/latkes.html",
     "type": "html"
+  },
+  {
+    "title": "Lion House Rolls",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/lion-house-rolls.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Mexican Sweet Corn Cake",
@@ -1579,10 +2220,26 @@
     "type": "html"
   },
   {
+    "title": "Panang curry",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/panang-curry.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Perfect Jasmine Rice",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/perfect-jasmine-rice.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Pumpkin Pancakes",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/pumpkin-pancakes.html",
     "type": "html",
     "new": true
   },
@@ -1594,10 +2251,26 @@
     "type": "html"
   },
   {
+    "title": "Roasted Whole Carrots with Honey and Feta",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/roasted-whole-carrots-with-honey-and-feta.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Rosemary Parmesan Roasted Potatoes",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/rosemary-parmesan-roasted-potatoes.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Saucy Sesame Meatballs",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/saucy-sesame-meatballs.html",
     "type": "html",
     "new": true
   },
@@ -1610,11 +2283,43 @@
     "new": true
   },
   {
+    "title": "Scalloped Potatoes",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/scalloped-potatoes.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Slow Cooker Carnitas",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/slow-cooker-carnitas.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Spicy Sweet Potato Wedges",
     "category": "Sides",
     "sub": "",
     "url": "recipes/sides/spicy-sweet-potato-wedges.html",
     "type": "html"
+  },
+  {
+    "title": "Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Strawberry Buttermilk Pancakes with Nutella Syrup",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/strawberry-buttermilk-pancakes-with-nutella-syrup.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Sushi Rice",
@@ -1637,6 +2342,38 @@
     "sub": "",
     "url": "recipes/sides/sweet-potato-casseroledoc.html",
     "type": "html"
+  },
+  {
+    "title": "Tacos al Pastor (3 Methods)",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/tacos-al-pastor-3-methods.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "The Best Asparagus in Under 10 Minutes",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/the-best-asparagus-in-under-10-minutes.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "The BEST Rice Krispies Treats Recipe",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/the-best-rice-krispies-treats-recipe.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Yeast Waffles",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/yeast-waffles.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Aunt Regina's Granola",
@@ -1679,6 +2416,14 @@
     "category": "Snacks",
     "sub": "",
     "url": "recipes/snacks/sweet-and-salty-peanut-butter-pretzel-bites.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "10-Minute Chili Lime Almonds",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/soups/10-minute-chili-lime-almonds.html",
     "type": "html",
     "new": true
   },
@@ -1731,6 +2476,14 @@
     "sub": "",
     "url": "recipes/soups/soup-nazi.html",
     "type": "html"
+  },
+  {
+    "title": "Tex Mex Chili Gravy (Mexican Brown Gravy)",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/soups/tex-mex-chili-gravy-mexican-brown-gravy.html",
+    "type": "html",
+    "new": true
   },
   {
     "title": "Tortellini Soup",

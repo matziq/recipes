@@ -430,6 +430,102 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results a{color:var(--accent);text-decoration:none;font-weight:bold}
 .search-results .meta{color:var(--muted);font-size:.85rem}
 .empty{color:var(--muted);font-style:italic;padding:20px}
+.all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+"""
+
+
+# Client-side JS: hide NEW badges per-user once a recipe is viewed.
+# Stores viewed recipe URLs in localStorage under "recipesViewedNew".
+VIEWED_NEW_JS = r"""
+(function(){
+  var KEY = 'recipesViewedNew';
+  function load(){
+    try { return new Set(JSON.parse(localStorage.getItem(KEY) || '[]')); }
+    catch(e){ return new Set(); }
+  }
+  function save(s){
+    try { localStorage.setItem(KEY, JSON.stringify(Array.from(s))); } catch(e){}
+  }
+  var viewed = load();
+  var isNewPage = document.body.classList.contains('new-page');
+
+  // Hide NEW badges (and on new.html the whole <li>) for already-viewed links.
+  var anchors = document.querySelectorAll('a');
+  for (var i = 0; i < anchors.length; i++) {
+    var a = anchors[i];
+    var badge = a.querySelector('.tag.new');
+    if (!badge) continue;
+    var href = a.getAttribute('href');
+    if (href && viewed.has(href)) {
+      badge.remove();
+      if (isNewPage) {
+        var li = a.closest('li');
+        if (li) li.remove();
+      }
+    }
+  }
+
+  // Index page: update banner count or hide it.
+  var banner = document.querySelector('.new-banner');
+  if (banner) {
+    var remaining = document.querySelectorAll('a .tag.new').length;
+    if (remaining === 0) {
+      banner.style.display = 'none';
+    } else {
+      var text = banner.querySelector('.new-banner-text');
+      if (text) {
+        text.textContent = 'See the ' + remaining + ' newest recipe' + (remaining === 1 ? '' : 's');
+      }
+    }
+  }
+
+  // New page: drop empty sections and show "all caught up" if everything viewed.
+  if (isNewPage) {
+    var sections = document.querySelectorAll('section');
+    for (var j = 0; j < sections.length; j++) {
+      if (sections[j].querySelectorAll('li').length === 0) sections[j].remove();
+    }
+    if (document.querySelectorAll('section').length === 0) {
+      var main = document.querySelector('main');
+      if (main) {
+        var msg = document.createElement('p');
+        msg.className = 'all-caught-up';
+        msg.innerHTML = "\u2728 You're all caught up! No new recipes to view.";
+        main.appendChild(msg);
+      }
+      var headline = document.querySelector('main h1');
+      if (headline) headline.style.display = 'none';
+      var intro = document.querySelector('.new-page-intro');
+      if (intro) intro.style.display = 'none';
+    } else {
+      // Update headline count too
+      var leftCount = document.querySelectorAll('a .tag.new').length;
+      var headlineEl = document.querySelector('main h1');
+      if (headlineEl) {
+        headlineEl.textContent = '\ud83c\udd95 ' + leftCount + ' New Recipe' + (leftCount === 1 ? '' : 's');
+      }
+    }
+  }
+
+  // Mark as viewed on click of any link that currently shows a NEW badge.
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    while (t && t !== document.body) {
+      if (t.tagName === 'A') {
+        var b = t.querySelector('.tag.new');
+        if (b) {
+          var h = t.getAttribute('href');
+          if (h) {
+            viewed.add(h);
+            save(viewed);
+          }
+        }
+        break;
+      }
+      t = t.parentNode;
+    }
+  });
+})();
 """
 
 
@@ -527,6 +623,7 @@ q.addEventListener('input', () => {{
   browse.style.display='none';
 }});
 </script>
+<script>""" + VIEWED_NEW_JS + """</script>
 </body></html>
 """
 
@@ -562,15 +659,16 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
 <title>New Recipes \u2022 Recipes</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>\U0001F374</text></svg>">
 <style>{BASE_CSS}</style>
-</head><body>
+</head><body class="new-page">
 <header><h1><a href="index.html">\U0001F374 Recipes</a></h1></header>
 <main class="container">
   <div class="crumbs"><a href="index.html">Recipes</a> \u203A <span class="tag new">NEW</span></div>
   <h1 style="color:var(--accent);margin-top:0">\U0001F195 {new_count} New Recipe{plural}</h1>
-  <p class="new-page-intro">These were added recently. Edit <code>new_recipes.json</code> and rebuild to remove the NEW badge after a week or so.</p>
+  <p class="new-page-intro">Click any recipe and the NEW badge disappears for you. (We remember your views in this browser.)</p>
   {"".join(sections)}
 </main>
 <footer><a href="index.html">\u2190 Back to all recipes</a></footer>
+<script>""" + VIEWED_NEW_JS + """</script>
 </body></html>
 """
 

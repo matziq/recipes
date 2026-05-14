@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soft Pretzel Bites • Recipes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🍴</text></svg>">
+<style>
+:root{
+  --bg:#fff8f1; --card:#fff; --ink:#3b2a1a; --muted:#7a6a55;
+  --accent:#c2410c; --accent2:#f59e0b; --line:#f1e4d2;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Iowan Old Style',serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,#fff7ec,#fff8f1);
+  border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header h1{margin:0;font-size:1.4rem;color:var(--accent)}
+header h1 a{color:inherit;text-decoration:none}
+.search{flex:1;min-width:240px}
+.search input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff}
+.container{max-width:1100px;margin:0 auto;padding:24px 20px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;
+  text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.cat:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(194,65,12,.12)}
+.cat .ic{font-size:2.2rem;display:block}
+.cat .name{font-weight:bold;margin-top:6px;display:block}
+.cat .count{color:var(--muted);font-size:.9rem;display:block;margin-top:2px}
+h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:6px}
+.recipes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.recipes li{background:var(--card);border:1px solid var(--line);border-radius:10px}
+.recipes a{display:block;padding:12px 14px;color:var(--ink);text-decoration:none}
+.recipes a:hover{background:#fff3e2}
+.tag{font-size:.7rem;background:var(--accent2);color:#fff;padding:2px 6px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.tag.pdf{background:#ef4444}
+.tag.html{background:#16a34a}
+.tag.jpg,.tag.jpeg,.tag.png{background:#3b82f6}
+.tag.new{background:#dc2626;font-weight:bold;letter-spacing:.5px;animation:pulse-new 1.6s ease-in-out infinite}
+@keyframes pulse-new{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
+.new-banner{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1f0,#fff8f1);border:1px solid #fecaca;border-left:6px solid #dc2626;border-radius:12px;padding:14px 18px;margin:0 0 22px;text-decoration:none;color:var(--ink);box-shadow:0 1px 4px rgba(220,38,38,.08);transition:transform .12s ease, box-shadow .12s ease}
+.new-banner:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(220,38,38,.15)}
+.new-banner-tag{background:#dc2626;color:#fff;font-weight:bold;letter-spacing:.5px;font-size:.78rem;padding:3px 8px;border-radius:6px;animation:pulse-new 1.6s ease-in-out infinite}
+.new-banner-text{font-weight:600;flex:1}
+.new-banner-arrow{color:#dc2626;font-size:1.2rem;font-weight:bold}
+.new-page-intro{color:var(--muted);margin:6px 0 22px}
+.crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+.crumbs a{color:var(--accent);text-decoration:none}
+.recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
+.recipe-content img{max-width:100%;height:auto}
+.recipe-content table{border-collapse:collapse;margin:12px 0}
+.recipe-content td,.recipe-content th{border:1px solid var(--line);padding:6px 10px}
+.pdf-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
+.pdf-page{max-width:100%;height:auto;box-shadow:0 2px 12px rgba(0,0,0,.08);border-radius:6px;background:#fff}
+footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
+.search-results{display:none}
+.search-results.active{display:block}
+.search-results ul{list-style:none;padding:0;margin:0}
+.search-results li{padding:10px;border-bottom:1px solid var(--line)}
+.search-results a{color:var(--accent);text-decoration:none;font-weight:bold}
+.search-results .meta{color:var(--muted);font-size:.85rem}
+.empty{color:var(--muted);font-style:italic;padding:20px}
+.all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+</style>
+</head><body>
+<header><h1><a href="../../index.html">🍴 Recipes</a></h1></header>
+<main class="container">
+  <div class="crumbs"><a href="../../index.html">Recipes</a> › <a href="../../index.html#cat-breads">Breads</a></div>
+  <h1 style="color:var(--accent);margin-top:0">Soft Pretzel Bites</h1>
+  <article class="recipe-content"><h1>Soft Pretzel Bites</h1><p>These soft pretzel bites are always a crowd favorite! The easy dough requires just 6 ingredients and there’s hardly any rise time, so this is a wonderful recipe for yeast beginners. Have fun shaping the bites (they don’t need to be perfect!) and enjoy warm flavorful homemade pretzels within an hour. Review recipe notes and watch the video tutorial before starting.</p><p><em>Yield: 5 dozen • Prep: 40 min • Cook: 15 min • Total: 1 hr</em></p><h2>Ingredients</h2><ul><li>1 and 1/2 cups (360g/ml) warm water (lukewarm; around 100°F (38°C) is great)</li><li>2 and 1/4 teaspoons (7g) instant or active dry yeast (1 standard packet)</li><li>1 Tablespoon brown sugar or granulated sugar</li><li>1 teaspoon salt</li><li>1 Tablespoon (14g) unsalted butter, melted and slightly cooled</li><li>3 and 3/4–4 cups (469–500g) all-purpose flour (spooned &amp; leveled), plus more for hands and work surface</li><li>topping: coarse salt/coarse sea salt</li><li>1/2 cup (120g) baking soda</li><li>9 cups (2.1L) water</li><li>spicy cheese sauce or your favorite mustard</li></ul><h2>Instructions</h2><ol><li>Whisk warm water, yeast, and sugar together in the bowl of your stand mixer fitted with a paddle or dough hook attachment. (If you do not have a stand mixer, just use a regular large mixing bowl and a wooden spoon or silicone spatula.) Cover yeast mixture and allow to sit for 5 minutes or until foamy on top. Add salt, melted butter, and 3 cups (375g) of flour. Beat on low speed for 1 minute, scrape down the sides of the bowl with a rubber spatula if needed, then add 3/4 cup (95g) of flour. Beat on low speed until the dough comes together and pulls away from the sides of the bowl, about 2 minutes. If dough is extremely sticky after 1 minute of mixing, add remaining 1/4 cup (30g) of flour and continue to beat for 1 more minute. (You can see in the video that I add the remaining flour.)</li><li>Keep the dough in the mixer (and switch to the dough hook if using the paddle) and beat for an additional 5 full minutes, or knead by hand on a lightly floured surface for 5 full minutes. (If you’re new to bread-baking, my How to Knead Dough video tutorial can help here.) If the dough becomes too sticky during the kneading process, sprinkle 1 teaspoon of flour at a time on the dough or on the work surface/in the bowl to make a soft, slightly tacky dough. Do not add more flour than you need because you do not want a dry dough. After kneading, the dough should still feel a little soft. Poke it with your finger—if it slowly bounces back, your dough is ready to rise. You can also do a “windowpane test” to see if your dough has been kneaded long enough: tear off a small (roughly golfball-size) piece of dough and gently stretch it out until it’s thin enough for light to pass through it. Hold it up to a window or light. Does light pass through the stretched dough without the dough tearing first? If so, your dough has been kneaded long enough and is ready to rise. If not, keep kneading until it passes the windowpane test.</li><li>Cover lightly with a towel and allow to rest for 10-30 minutes. (Meanwhile, I like to get the water + baking soda boiling as instructed in step 5.)</li><li>Preheat oven to 400°F (204°C). Line 2 baking sheets with parchment paper or silicone baking mats. Silicone baking mats are highly recommended over parchment paper. If using parchment paper, lightly spray with nonstick spray or grease with butter. Set aside.</li><li>With a sharp knife, pizza cutter, or bench scraper, cut dough into 6 equal pieces (just eyeball it, doesn’t have to be perfect). Sprinkle work surface very lightly with flour. (Tip: The heavier you flour the work surface, the harder it is to roll the dough. A little stickiness actually helps. You only need *a very light* dusting of flour.) Roll each piece of dough into a 20-inch rope. If the ropes keep shrinking and stretching the dough becomes difficult, stop what you’re doing, lightly cover all of the dough, and let it rest for 10 minutes so the gluten can relax. Then, return to rolling it into ropes. Cut each rope into 1.5–2-inch pieces to make bites.</li><li>Mix water and baking soda together in a large pot. Bring to a boil. Place 8–10 pretzel bites into the boiling water for a quick 10–15 seconds. (Any longer and your pretzels could take on a metallic taste.) Using a slotted spatula or spoon, lift the pretzel bites out of the water and allow excess water to drip off. Place bites onto prepared baking sheets. Sprinkle each with coarse sea salt while they are still wet, or leave plain if using cinnamon sugar topping listed in the notes. Repeat baking soda bath with remaining pretzel bites. If needed, you can cover and refrigerate the boiled/unbaked bites for up to 24 hours before baking.</li><li>Bake for 15 minutes or until golden brown. Remove from the oven and serve warm.</li><li>Cover and store leftover pretzel bites at room temperature for up to 3 days. They lose a little softness over time. To reheat, microwave for a few seconds or bake in a 350°F (177°C) for 5 minutes.</li></ol><p><em>Source: https://sallysbakingaddiction.com/soft-pretzel-bites</em></p></article>
+</main>
+<footer><a href="../../index.html">← Back to all recipes</a></footer>
+</body></html>
