@@ -498,6 +498,14 @@
     "new": true
   },
   {
+    "title": "High-Protein Buttermilk Pancakes (Your Mom’s Recipe, Upgraded)",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/high-protein-buttermilk-pancakes-your-moms-recipe-upgraded.html",
+    "type": "html",
+    "new": true
+  },
+  {
     "title": "Ihop Pancakes",
     "category": "Breakfast",
     "sub": "",
@@ -808,6 +816,14 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/molten-chocolate-mug-cake.html",
+    "type": "html",
+    "new": true
+  },
+  {
+    "title": "Mrs. Sigg's Snickerdoodles",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/mrs-siggs-snickerdoodles.html",
     "type": "html",
     "new": true
   },
