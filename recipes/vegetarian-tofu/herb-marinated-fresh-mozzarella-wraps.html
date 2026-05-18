@@ -45,11 +45,14 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
-.recipe-content img{max-width:100%;height:auto}
+.recipe-content img{display:block;max-width:min(220px,100%);height:auto;margin:10px 0;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:zoom-in;transition:max-width .18s ease,box-shadow .18s ease,transform .18s ease}
+.recipe-content img:hover{box-shadow:0 6px 22px rgba(194,65,12,.18);transform:translateY(-1px)}
+.recipe-content img.image-expanded{max-width:100%;cursor:zoom-out;box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.recipe-content img:focus{outline:3px solid rgba(245,158,11,.5);outline-offset:3px}
 .recipe-content table{border-collapse:collapse;margin:12px 0}
 .recipe-content td,.recipe-content th{border:1px solid var(--line);padding:6px 10px}
 .pdf-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
-.pdf-page{max-width:100%;height:auto;box-shadow:0 2px 12px rgba(0,0,0,.08);border-radius:6px;background:#fff}
+.pdf-page{background:#fff}
 footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results{display:none}
 .search-results.active{display:block}
@@ -68,4 +71,28 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
   <article class="recipe-content"><p>Herb-Marinated Fresh Mozzarella Wraps</p><p>¾ cup (3 ounces) diced fresh mozzarella cheese<br />2  tablespoons chopped fresh basil<br />2  tablespoons chopped pitted kalamata olives<br />1  tablespoon chopped fresh chives<br />1  tablespoon chopped fresh oregano<br />1  teaspoon olive oil<br />¼ pound thinly sliced pepper ham<br />16 asparagus spears, steamed and chilled (about 1/4 pound)<br />4  (8-inch) fat-free flour tortillas<br /><br />Combine the first 6 ingredients in a medium bowl. Cover and chill 2 hours. </p><p>Arrange 1 ounce of ham and 4 asparagus spears on each tortilla. Spoon about 1/3 cup cheese mixture over the asparagus, and roll up. </p><p>Note: These wraps may be assembled up to 4 hours in advance, though the tortillas will begin to absorb moisture if prepared too far in advance. Pepper ham is available in the deli section of most supermarkets. If you are unable to find it, substitute regular ham, and add 1/4 teaspoon freshly ground black pepper to the cheese as it marinates. <br /></p><p>Yield: 4 servings</p></article>
 </main>
 <footer><a href="../../index.html">← Back to all recipes</a></footer>
+<script>
+(function(){
+    var images = document.querySelectorAll('.recipe-content img');
+    function toggle(img){
+        var expanded = img.classList.toggle('image-expanded');
+        img.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        img.title = expanded ? 'Click to shrink image' : 'Click to enlarge image';
+    }
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        img.setAttribute('role', 'button');
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('aria-expanded', 'false');
+        img.title = 'Click to enlarge image';
+        img.addEventListener('click', function(){ toggle(this); });
+        img.addEventListener('keydown', function(e){
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle(this);
+            }
+        });
+    }
+})();
+</script>
 </body></html>

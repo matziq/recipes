@@ -417,11 +417,14 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
-.recipe-content img{max-width:100%;height:auto}
+.recipe-content img{display:block;max-width:min(220px,100%);height:auto;margin:10px 0;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:zoom-in;transition:max-width .18s ease,box-shadow .18s ease,transform .18s ease}
+.recipe-content img:hover{box-shadow:0 6px 22px rgba(194,65,12,.18);transform:translateY(-1px)}
+.recipe-content img.image-expanded{max-width:100%;cursor:zoom-out;box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.recipe-content img:focus{outline:3px solid rgba(245,158,11,.5);outline-offset:3px}
 .recipe-content table{border-collapse:collapse;margin:12px 0}
 .recipe-content td,.recipe-content th{border:1px solid var(--line);padding:6px 10px}
 .pdf-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
-.pdf-page{max-width:100%;height:auto;box-shadow:0 2px 12px rgba(0,0,0,.08);border-radius:6px;background:#fff}
+.pdf-page{background:#fff}
 footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results{display:none}
 .search-results.active{display:block}
@@ -525,6 +528,34 @@ VIEWED_NEW_JS = r"""
       t = t.parentNode;
     }
   });
+})();
+"""
+
+
+# Client-side JS: make every recipe image a clickable/focusable thumbnail
+# that toggles between compact and full-width display.
+IMAGE_TOGGLE_JS = r"""
+(function(){
+    var images = document.querySelectorAll('.recipe-content img');
+    function toggle(img){
+        var expanded = img.classList.toggle('image-expanded');
+        img.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        img.title = expanded ? 'Click to shrink image' : 'Click to enlarge image';
+    }
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        img.setAttribute('role', 'button');
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('aria-expanded', 'false');
+        img.title = 'Click to enlarge image';
+        img.addEventListener('click', function(){ toggle(this); });
+        img.addEventListener('keydown', function(e){
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle(this);
+            }
+        });
+    }
 })();
 """
 
@@ -695,6 +726,7 @@ def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:
   <article class="recipe-content">{body}</article>
 </main>
 <footer><a href="{root}index.html">← Back to all recipes</a></footer>
+<script>""" + IMAGE_TOGGLE_JS + """</script>
 </body></html>
 """
 

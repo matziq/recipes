@@ -45,11 +45,14 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
-.recipe-content img{max-width:100%;height:auto}
+.recipe-content img{display:block;max-width:min(220px,100%);height:auto;margin:10px 0;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:zoom-in;transition:max-width .18s ease,box-shadow .18s ease,transform .18s ease}
+.recipe-content img:hover{box-shadow:0 6px 22px rgba(194,65,12,.18);transform:translateY(-1px)}
+.recipe-content img.image-expanded{max-width:100%;cursor:zoom-out;box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.recipe-content img:focus{outline:3px solid rgba(245,158,11,.5);outline-offset:3px}
 .recipe-content table{border-collapse:collapse;margin:12px 0}
 .recipe-content td,.recipe-content th{border:1px solid var(--line);padding:6px 10px}
 .pdf-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
-.pdf-page{max-width:100%;height:auto;box-shadow:0 2px 12px rgba(0,0,0,.08);border-radius:6px;background:#fff}
+.pdf-page{background:#fff}
 footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results{display:none}
 .search-results.active{display:block}
@@ -68,4 +71,28 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
   <article class="recipe-content"><table><tr><td><p><strong>BACON &amp; GREEN CHILI  QUICHE</strong> </p></td></tr><tr><td><p>1 refrigerated pie crust (half of15-ounce package), room temperature.  Or, double recipe and fill 3 frozen pie crust tins, room temperature.</p><p>½ lb. bacon<br />1 4-ounce can diced green chilies, drained<br />4 green onions, chopped<br />1 cup shredded Monterey Jack cheese (about 4 ounces)<br />1 cup shredded sharp cheddar cheese (about 4 ounces)<br />1 1/4 cups half and half<br />4 eggs<br />1/2 teaspoon salt </p><p>Preheat oven to 425°F. Unfold crust. Using wet fingertips press together any tears. Press crust into 9-inch deep dish pie plate. Press foil over crust to hold shape. Bake 5 minutes. Remove from oven; remove foil. Reduce temperature to 400°F. </p><p>Cook bacon in heavy large skillet over medium-high heat until brown and crisp. Transfer to paper towels and drain. Crumble bacon. Sprinkle bacon, then chilies and green onion over crust. Combine Monterey Jack cheese and cheddar cheese and sprinkle over. Beat half and half, eggs and salt in medium bowl to blend. Pour half and half mixture into crust. </p><p>Bake quiche until knife inserted into center comes out clean, about 45 minutes. Let quiche stand 5 minutes. Cut quiche into wedges and serve.</p></td></tr></table></article>
 </main>
 <footer><a href="../../index.html">← Back to all recipes</a></footer>
+<script>
+(function(){
+    var images = document.querySelectorAll('.recipe-content img');
+    function toggle(img){
+        var expanded = img.classList.toggle('image-expanded');
+        img.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        img.title = expanded ? 'Click to shrink image' : 'Click to enlarge image';
+    }
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        img.setAttribute('role', 'button');
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('aria-expanded', 'false');
+        img.title = 'Click to enlarge image';
+        img.addEventListener('click', function(){ toggle(this); });
+        img.addEventListener('keydown', function(e){
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle(this);
+            }
+        });
+    }
+})();
+</script>
 </body></html>
