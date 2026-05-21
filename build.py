@@ -6,12 +6,14 @@
 """
 from __future__ import annotations
 
+import html as html_lib
 import json
 import os
 import re
 import shutil
 import stat
 import time
+from collections import Counter
 from html import escape
 from pathlib import Path
 
@@ -78,6 +80,306 @@ def convert_pdf_pages(src: Path, out_dir: Path, slug: str) -> str:
     if not parts:
         return "<p><em>(empty PDF)</em></p>"
     return '<div class="pdf-pages">' + "\n".join(parts) + "</div>"
+
+
+# ---------- Ingredient extraction ----------
+
+# Measurement units (singular + abbreviations); plural forms generated below.
+# Single-letter abbreviations like 'c', 't', 'l', 'g' are intentionally
+# excluded because they cause too many false positives in free-form text.
+_UNIT_WORDS = {
+    "cup", "tablespoon", "tbsp", "tbs", "tb", "teaspoon", "tsp", "ts",
+    "ounce", "oz", "pound", "lb", "lbs", "gram", "grams", "kilogram", "kg",
+    "milliliter", "ml", "liter", "liters", "pint", "pt", "quart", "qt",
+    "gallon", "gal", "package", "pkg", "can", "bottle", "jar", "box",
+    "bag", "slice", "piece", "clove", "sprig", "bunch", "dash", "pinch",
+    "drop", "stick", "head", "stalk", "envelope", "packet", "rib",
+    "inch", "fluid", "tsp.", "tbsp.",
+}
+UNITS = set(_UNIT_WORDS) | {w + "s" for w in _UNIT_WORDS if not w.endswith(".")}
+
+# Article/filler words to strip when they appear at the front of a phrase.
+_FILLER = {"of", "a", "an", "the", "some"}
+
+# Equipment/cookware words that, if seen as the final noun, mean the line is
+# an instruction ("in a large skillet") rather than an ingredient.
+_EQUIPMENT = {
+    "skillet", "pan", "saucepan", "pot", "bowl", "dish", "plate",
+    "baking-dish", "sheet", "oven", "grill", "stove", "burner",
+    "refrigerator", "freezer", "microwave", "blender", "processor",
+    "mixer", "whisk", "spoon", "fork", "knife", "spatula", "colander",
+    "strainer", "thermometer", "timer", "foil", "wrap", "towel",
+}
+
+# Hand-curated singularizations for common food plurals where naive rules fail.
+_SINGULAR_OVERRIDES = {
+    "tomatoes": "tomato",
+    "potatoes": "potato",
+    "chilies": "chili",
+    "chilis": "chili",
+    "chillies": "chili",
+    "berries": "berry",
+    "cherries": "cherry",
+    "strawberries": "strawberry",
+    "blueberries": "blueberry",
+    "raspberries": "raspberry",
+    "blackberries": "blackberry",
+    "cranberries": "cranberry",
+    "anchovies": "anchovy",
+    "loaves": "loaf",
+    "leaves": "leaf",
+    "knives": "knife",
+    "halves": "half",
+    "calves": "calf",
+    "wolves": "wolf",
+    "shelves": "shelf",
+    "chives": "chives",  # always plural in recipes
+    "oats": "oats",
+    "greens": "greens",
+    "sprouts": "sprouts",
+    "grits": "grits",
+    "peas": "peas",
+    "beans": "beans",
+    "noodles": "noodles",
+    "oysters": "oyster",
+    "shrimp": "shrimp",
+    "shrimps": "shrimp",
+    "scallops": "scallop",
+}
+
+# Adjectives/prep words to drop from the start/end of an ingredient name.
+DESCRIPTORS = {
+    "large", "small", "medium", "jumbo", "mini", "whole", "half", "quarter",
+    "fresh", "frozen", "dried", "dry", "canned", "raw", "cooked", "cold",
+    "warm", "hot", "softened", "melted", "chilled", "room-temperature",
+    "room", "temperature", "ripe", "unripe", "organic", "wild", "unsalted",
+    "salted", "unsweetened", "sweetened", "low-fat", "nonfat", "non-fat",
+    "fat-free", "lean", "skinless", "boneless", "extra-virgin", "extra",
+    "virgin", "pure", "plain", "chopped", "minced", "diced", "sliced",
+    "crushed", "grated", "shredded", "peeled", "pitted", "cored", "drained",
+    "rinsed", "thawed", "squeezed", "ground", "fine", "finely", "coarse",
+    "coarsely", "pressed", "mashed", "beaten", "whipped", "cubed", "halved",
+    "quartered", "julienned", "shaved", "roasted", "toasted", "blanched",
+    "crumbled", "smoked", "cured", "uncooked", "lightly", "thinly",
+    "thickly", "freshly", "preferably", "optional", "about", "approximately",
+    "good", "good-quality", "quality", "low-sodium", "reduced-fat",
+    "all-purpose", "all", "purpose", "self-rising", "hot-cooked",
+}
+
+# Words that, if they appear AS THE FINAL TOKEN, indicate the line is not
+# really a food noun (it's a description/instruction/measurement leftover).
+_BAD_FINAL_TOKENS = {
+    "taste", "needed", "garnish", "serving", "desired", "wanted",
+    "minute", "minutes", "hour", "hours", "second", "seconds",
+    "degree", "degrees", "people", "person", "serving", "servings",
+    "use", "needed", "side", "sides", "top", "topping", "thick", "thin",
+    "long", "wide", "deep", "diameter", "size", "sized", "color", "colored",
+}
+
+# Unicode fractions for line-start detection and quantity stripping.
+_FRACTION_CHARS = "¼½¾⅓⅔⅛⅜⅝⅞"
+
+_QTY_PREFIX = re.compile(
+    r"^[\d" + _FRACTION_CHARS + r"\s/\-–.,xX×]+"
+)
+_PAREN = re.compile(r"\([^()]*\)")
+_NON_ALPHA = re.compile(r"[^a-z\-' ]+")
+
+# Phrases that indicate the rest of the line is prep, not ingredient.
+_TRAILING_PHRASES = (
+    " to taste",
+    " for serving",
+    " for garnish",
+    " for the ",
+    " as needed",
+    " if desired",
+    " or to taste",
+    " plus more",
+    " plus extra",
+)
+
+
+def _looks_like_ingredient(line: str) -> bool:
+    """Heuristic: a non-empty line that starts with a digit, fraction, or unit."""
+    if not line or len(line) > 200:
+        return False
+    s = line.lstrip()
+    if not s:
+        return False
+    if s[0].isdigit() or s[0] in _FRACTION_CHARS:
+        return True
+    first = re.split(r"\s+", s, maxsplit=1)[0].lower().rstrip(".,:;")
+    if first in UNITS:
+        return True
+    return False
+
+
+def _clean_phrase(s: str) -> str:
+    """Strip a single ingredient candidate down to its core noun phrase."""
+    s = s.strip().strip(",.;:!?-–")
+    if not s:
+        return ""
+
+    # Drop parentheticals like "(10 ounce)" or "(optional)".
+    s = _PAREN.sub(" ", s)
+
+    # Anything after the first comma is usually preparation: "garlic, minced".
+    if "," in s:
+        s = s.split(",", 1)[0]
+
+    # Strip well-known trailing phrases.
+    low = s.lower()
+    for phrase in _TRAILING_PHRASES:
+        idx = low.find(phrase)
+        if idx >= 0:
+            s = s[:idx]
+            low = s.lower()
+
+    # Strip leading quantity (numbers, fractions, ranges).
+    s = _QTY_PREFIX.sub("", s).strip()
+
+    # Lowercase, keep only a-z/-/'/space, collapse whitespace.
+    s = s.lower()
+    s = _NON_ALPHA.sub(" ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    if not s:
+        return ""
+
+    tokens = s.split()
+
+    # Strip leading filler/unit/descriptor tokens, repeatedly, in any order.
+    # Handles things like "2 large cloves garlic" -> "garlic" by peeling
+    # 'large' (descriptor), then 'cloves' (unit) off the front.
+    while tokens:
+        first = tokens[0]
+        if first in _FILLER or first in UNITS or first in DESCRIPTORS:
+            tokens.pop(0)
+            continue
+        break
+
+    # Strip trailing descriptors ("cheese softened" -> "cheese").
+    while tokens and tokens[-1] in DESCRIPTORS:
+        tokens.pop()
+    if not tokens:
+        return ""
+
+    # Reject if the only remaining token is a unit/stop word/equipment.
+    if all(t in UNITS or t in _BAD_FINAL_TOKENS or t in _EQUIPMENT for t in tokens):
+        return ""
+    if tokens[-1] in _BAD_FINAL_TOKENS or tokens[-1] in _EQUIPMENT:
+        return ""
+
+    # Cap length to first 4 tokens (ingredient names are usually 1-3 words).
+    if len(tokens) > 4:
+        tokens = tokens[:4]
+
+    # Singularize the last token. Prefer the override table; fall back to
+    # simple suffix rules.
+    last = tokens[-1]
+    if last in _SINGULAR_OVERRIDES:
+        tokens[-1] = _SINGULAR_OVERRIDES[last]
+    elif len(last) > 4 and last.endswith("ies"):
+        tokens[-1] = last[:-3] + "y"
+    elif len(last) > 3 and last.endswith("ses"):
+        tokens[-1] = last[:-2]
+    elif len(last) > 3 and last.endswith("es") and last[-3] in "shxz":
+        tokens[-1] = last[:-2]
+    elif (
+        len(last) > 3
+        and last.endswith("s")
+        and not last.endswith("ss")
+        and not last.endswith("us")
+        and not last.endswith("is")
+    ):
+        tokens[-1] = last[:-1]
+
+    out = " ".join(tokens).strip("-' ")
+    if len(out) < 2 or len(out) > 40:
+        return ""
+    # Must contain at least one vowel/letter pair to look like a real word.
+    if not re.search(r"[a-z]{2,}", out):
+        return ""
+    return out
+
+
+def normalize_ingredient_line(line: str) -> list[str]:
+    """Return one or more normalized ingredient names from a single line."""
+    line = line.strip()
+    if not line:
+        return []
+
+    # Split on "substitute" so both halves are added as alternates.
+    parts = [line]
+    sub_match = re.search(r"\bsubstitute[sd]?\b", line, re.IGNORECASE)
+    if sub_match:
+        before = line[: sub_match.start()].rstrip(" ,.-")
+        after = line[sub_match.end():].lstrip(" ,.-")
+        parts = [p for p in (before, after) if p]
+
+    out: list[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        cleaned = _clean_phrase(part)
+        if cleaned and cleaned not in seen:
+            seen.add(cleaned)
+            out.append(cleaned)
+    return out
+
+
+# Match an explicit "Ingredients" heading and capture text until the next heading.
+_INGREDIENTS_SECTION = re.compile(
+    r"<h[1-6][^>]*>\s*(?:<[^>]+>\s*)*ingredients\b[^<]*</h[1-6]>(.*?)(?=<h[1-6]\b|$)",
+    re.IGNORECASE | re.DOTALL,
+)
+_LI_OR_P = re.compile(r"<(?:li|p|td)[^>]*>(.*?)</(?:li|p|td)>", re.DOTALL | re.IGNORECASE)
+_BR_SPLIT = re.compile(r"<br\s*/?>", re.IGNORECASE)
+_TAGS = re.compile(r"<[^>]+>")
+_DATA_URI = re.compile(r'src="data:[^"]+"', re.IGNORECASE)
+
+
+def extract_ingredients_from_html(body_html: str) -> list[str]:
+    """Pull a deduplicated list of normalized ingredient names from a recipe body."""
+    if not body_html:
+        return []
+
+    # Strip embedded base64 image payloads — they bloat the text and contain no info.
+    body_html = _DATA_URI.sub('src=""', body_html)
+
+    # Phase 1: try the explicit "Ingredients" section if present.
+    section_match = _INGREDIENTS_SECTION.search(body_html)
+    raw_lines: list[str] = []
+
+    def _harvest(scope: str, require_filter: bool) -> None:
+        for tag_match in _LI_OR_P.finditer(scope):
+            inner = tag_match.group(1)
+            for piece in _BR_SPLIT.split(inner):
+                txt = _TAGS.sub(" ", piece)
+                txt = html_lib.unescape(txt)
+                txt = re.sub(r"\s+", " ", txt).strip()
+                if not txt:
+                    continue
+                if require_filter and not _looks_like_ingredient(txt):
+                    continue
+                raw_lines.append(txt)
+
+    if section_match:
+        _harvest(section_match.group(1), require_filter=False)
+
+    # Phase 2: only fall back to whole-document scanning when no explicit
+    # Ingredients section yielded content. Otherwise we risk pulling in
+    # instruction lines and table-of-contents noise.
+    if not raw_lines:
+        _harvest(body_html, require_filter=True)
+
+    ingredients: list[str] = []
+    seen: set[str] = set()
+    for line in raw_lines:
+        for ing in normalize_ingredient_line(line):
+            if ing not in seen:
+                seen.add(ing)
+                ingredients.append(ing)
+    return ingredients
+
 
 
 def category_for(rel: Path) -> tuple[str, str]:
@@ -313,9 +615,13 @@ def main() -> None:
             page = render_recipe_page(title, category, sub, body)
             out_file.write_text(page, encoding="utf-8")
             rel_url = out_file.relative_to(OUT).as_posix()
+            # Only docx-derived pages have parseable ingredient text; PDF pages
+            # are rendered as images and yield nothing useful.
+            ingredients = extract_ingredients_from_html(body) if ext in DOCX_EXT else []
             recipes.append({
                 "title": title, "category": category, "sub": sub,
                 "url": rel_url, "type": "html",
+                "ingredients": ingredients,
             })
         else:
             out_file = out_dir / f"{slug}{ext}"
@@ -328,6 +634,7 @@ def main() -> None:
             recipes.append({
                 "title": title, "category": category, "sub": sub,
                 "url": rel_url, "type": ext.lstrip("."),
+                "ingredients": [],
             })
 
     recipes.sort(key=lambda r: (r["category"], r["sub"], r["title"].lower()))
@@ -358,6 +665,25 @@ def main() -> None:
     # Write search index
     (OUT / "recipes_index.json").write_text(
         json.dumps(recipes, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    # Build master ingredient list sorted by frequency (most common first)
+    ing_counter: Counter[str] = Counter()
+    for r in recipes:
+        for ing in r.get("ingredients", []):
+            ing_counter[ing] += 1
+    master = [
+        {"name": name, "count": count}
+        for name, count in sorted(
+            ing_counter.items(), key=lambda kv: (-kv[1], kv[0])
+        )
+    ]
+    (OUT / "ingredients_master.json").write_text(
+        json.dumps(master, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(
+        f"Extracted {sum(ing_counter.values())} ingredient mentions "
+        f"({len(master)} unique) from {sum(1 for r in recipes if r.get('ingredients'))} recipes."
     )
 
     # Build category tree
@@ -434,6 +760,47 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results .meta{color:var(--muted);font-size:.85rem}
 .empty{color:var(--muted);font-style:italic;padding:20px}
 .all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+
+/* "What do you have?" panel */
+.wdyh{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
+.wdyh-head{display:flex;align-items:center;gap:10px;width:100%;padding:14px 18px;background:linear-gradient(90deg,#fff7ec,#fff3e2);border:0;border-bottom:1px solid var(--line);font-family:inherit;font-size:1.05rem;color:var(--accent);font-weight:bold;cursor:pointer;text-align:left}
+.wdyh-head:hover{background:linear-gradient(90deg,#fff3e2,#ffe9ce)}
+.wdyh-head .wdyh-icon{font-size:1.4rem}
+.wdyh-head .wdyh-chev{margin-left:auto;transition:transform .2s ease;color:var(--accent2)}
+.wdyh[data-open="true"] .wdyh-head .wdyh-chev{transform:rotate(180deg)}
+.wdyh[data-open="true"] .wdyh-head{border-bottom-color:var(--line)}
+.wdyh-body{display:none;padding:16px 18px 18px}
+.wdyh[data-open="true"] .wdyh-body{display:block}
+.wdyh-hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.wdyh-input-wrap{position:relative}
+.wdyh-input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff;font-family:inherit}
+.wdyh-input:disabled{background:#faf2e6;color:var(--muted);cursor:not-allowed}
+.wdyh-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08);max-height:280px;overflow-y:auto;z-index:20;display:none}
+.wdyh-suggest.active{display:block}
+.wdyh-suggest button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:transparent;border:0;text-align:left;font-family:inherit;font-size:.95rem;color:var(--ink);cursor:pointer}
+.wdyh-suggest button:hover,.wdyh-suggest button.active{background:#fff3e2}
+.wdyh-suggest .wdyh-count{margin-left:auto;color:var(--muted);font-size:.8rem}
+.wdyh-suggest .wdyh-empty{padding:10px 14px;color:var(--muted);font-style:italic}
+.wdyh-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:0}
+.wdyh-chip{display:inline-flex;align-items:center;gap:6px;background:#fff3e2;border:1px solid #fbd9b3;color:var(--accent);padding:4px 6px 4px 12px;border-radius:999px;font-size:.9rem}
+.wdyh-chip button{background:transparent;border:0;color:var(--accent);font-size:1rem;line-height:1;padding:2px 6px;cursor:pointer;border-radius:999px}
+.wdyh-chip button:hover{background:rgba(194,65,12,.12)}
+.wdyh-actions{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:.85rem;color:var(--muted)}
+.wdyh-actions button{background:transparent;border:0;color:var(--accent);cursor:pointer;font-size:.85rem;font-family:inherit;text-decoration:underline}
+.wdyh-actions button:hover{color:#9a3209}
+.wdyh-matches{margin-top:18px}
+.wdyh-matches h3{margin:0 0 10px;color:var(--accent);font-size:1.05rem}
+.wdyh-match{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--ink)}
+.wdyh-match:hover{background:#fff3e2}
+.wdyh-match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.wdyh-match-title{font-weight:bold}
+.wdyh-match-cat{color:var(--muted);font-size:.85rem}
+.wdyh-match-score{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:bold}
+.wdyh-match-score.partial{background:var(--accent2)}
+.wdyh-match-need{color:var(--muted);font-size:.85rem}
+.wdyh-match-need .have{color:#16a34a;font-weight:bold}
+.wdyh-match-need .miss{color:#b45309}
+.wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
 """
 
 
@@ -561,103 +928,174 @@ IMAGE_TOGGLE_JS = r"""
 
 
 def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: int = 0) -> str:
-    sections = []
-    cat_cards = []
-    for cat in sorted(tree.keys()):
-        sub_map = tree[cat]
-        count = sum(len(v) for v in sub_map.values())
-        anchor = slugify(cat)
-        icon = ICONS.get(cat, "📄")
-        cat_cards.append(
-            f'<a class="cat" href="#cat-{anchor}"><span class="ic">{icon}</span>'
-            f'<span class="name">{escape(cat)}</span><span class="count">{count} recipes</span></a>'
-        )
-        items_html = []
-        # If has subcategories, group; else flat list
-        has_subs = any(s for s in sub_map.keys())
-        if has_subs:
-            for sub in sorted(sub_map.keys()):
-                if sub:
-                    items_html.append(f'<h3 style="color:var(--muted);margin-top:18px">{ICONS.get(sub,"")} {escape(sub)}</h3>')
-                items_html.append('<ul class="recipes">')
-                for r in sub_map[sub]:
-                    items_html.append(_recipe_li(r))
-                items_html.append("</ul>")
-        else:
-            items_html.append('<ul class="recipes">')
-            for sub in sub_map:
-                for r in sub_map[sub]:
-                    items_html.append(_recipe_li(r))
-            items_html.append("</ul>")
-        sections.append(
-            f'<section id="cat-{anchor}"><h2 class="cat-title">{icon} {escape(cat)}</h2>'
-            + "\n".join(items_html) + "</section>"
-        )
 
-    new_banner = ""
-    if new_count:
-        plural = "" if new_count == 1 else "s"
-        new_banner = (
-            f'<a class="new-banner" href="new.html">'
-            f'<span class="new-banner-tag">NEW</span>'
-            f'<span class="new-banner-text">See the {new_count} newest recipe{plural}</span>'
-            f'<span class="new-banner-arrow">&rarr;</span>'
-            f'</a>'
-        )
+    def esc(s):
+        return s.replace('{', '{{').replace('}', '}}')
 
-    return f"""<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Recipes</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🍴</text></svg>">
-<style>{BASE_CSS}</style>
-</head><body>
-<header>
-  <h1><a href="./">🍴 Recipes</a></h1>
-  <div class="search"><input id="q" type="search" placeholder="Search {total} recipes..." autocomplete="off"></div>
-</header>
-<main class="container">
-  {new_banner}
-  <div id="results" class="search-results"><ul id="results-list"></ul></div>
-  <div id="browse">
-    <div class="cats">{"".join(cat_cards)}</div>
-    {"".join(sections)}
-  </div>
-</main>
-<footer>Built from OneDrive/Recipes • {total} recipes</footer>
-<script>
+    js_block = r'''
 let RECIPES = [];
-fetch('recipes_index.json').then(r=>r.json()).then(d=>{{RECIPES=d}});
+let INGREDIENTS = [];
+fetch('recipes_index.json').then(r=>r.json()).then(d=>{RECIPES=d;});
+fetch('ingredients_master.json').then(r=>r.json()).then(d=>{INGREDIENTS=d;});
 const q = document.getElementById('q');
 const browse = document.getElementById('browse');
 const results = document.getElementById('results');
 const list = document.getElementById('results-list');
-function render(items){{
-  if(!items.length){{ list.innerHTML='<li class="empty">No matches.</li>'; return;}}
-  list.innerHTML = items.slice(0,200).map(r=>{{
-    const sub = r.sub ? ' › '+r.sub : '';
-    const newBadge = r.new ? ' <span class="tag new">NEW</span>' : '';
-    return `<li><a href="${{r.url}}">${{r.title}}</a> <span class="tag ${{r.type}}">${{r.type}}</span>${{newBadge}}<div class="meta">${{r.category}}${{sub}}</div></li>`;
-  }}).join('');
-}}
-q.addEventListener('input', () => {{
-  const term = q.value.trim().toLowerCase();
-  if(!term){{ results.classList.remove('active'); browse.style.display=''; return;}}
-  const matches = RECIPES.filter(r =>
-    r.title.toLowerCase().includes(term) ||
-    r.category.toLowerCase().includes(term) ||
-    (r.sub||'').toLowerCase().includes(term)
-  );
-  render(matches);
-  results.classList.add('active');
-  browse.style.display='none';
-}});
-</script>
-<script>""" + VIEWED_NEW_JS + """</script>
-</body></html>
-"""
 
+// --- What Do You Have Panel Logic ---
+const wdyhInput = document.getElementById('wdyh-input');
+const wdyhSuggest = document.getElementById('wdyh-suggest');
+const wdyhChips = document.getElementById('wdyh-chips');
+const wdyhMatches = document.getElementById('wdyh-matches');
+let wdyhSelected = [];
+let wdyhSuggestList = [];
+
+function renderWdyhChips() {
+    wdyhChips.innerHTML = wdyhSelected.map((name, i) =>
+        `<span class="wdyh-chip">${name}<button type="button" class="wdyh-chip-x" data-idx="${i}" aria-label="Remove">&times;</button></span>`
+    ).join('');
+}
+
+
+
+
+function renderWdyhSuggest() {
+    const val = wdyhInput.value.trim().toLowerCase();
+    if (!val) { wdyhSuggest.innerHTML = ''; wdyhSuggestList = []; return; }
+    const matches = INGREDIENTS.filter(x => x.name.includes(val) && !wdyhSelected.includes(x.name)).slice(0, 10);
+    wdyhSuggestList = matches;
+    wdyhSuggest.innerHTML = matches.length ?
+        '<ul>' + matches.map((x, i) => `<li data-idx="${i}">${x.name} <span class="wdyh-suggest-count">(${x.count})</span></li>`).join('') + '</ul>' : '';
+}
+
+function renderWdyhMatches() {
+    if (!wdyhSelected.length) {
+        wdyhMatches.innerHTML = '<div class="wdyh-empty-state">Pick some ingredients to see matching recipes!</div>';
+        return;
+    }
+    // Find recipes where every ingredient is in wdyhSelected
+    const matches = RECIPES.filter(r => {
+        if (!r.ingredients || !r.ingredients.length) return false;
+        return r.ingredients.every(ing => wdyhSelected.includes(ing));
+    });
+    if (!matches.length) {
+        wdyhMatches.innerHTML = '<div class="wdyh-empty-state">No recipes use only those ingredients. Try adding or removing some!</div>';
+        return;
+    }
+    wdyhMatches.innerHTML = '<ul class="wdyh-match-list">' + matches.map(r =>
+        `<li><a href="${r.url}">${r.title}</a> <span class="tag">${r.category}</span></li>`
+    ).join('') + '</ul>';
+}
+
+wdyhInput.addEventListener('input', renderWdyhSuggest);
+wdyhInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && wdyhSuggestList.length) {
+        // Add first suggestion
+        if (wdyhSelected.length < 10) {
+            wdyhSelected.push(wdyhSuggestList[0].name);
+            wdyhInput.value = '';
+            renderWdyhChips();
+            renderWdyhSuggest();
+            renderWdyhMatches();
+        }
+        e.preventDefault();
+    }
+});
+wdyhSuggest.addEventListener('click', function(e) {
+    const li = e.target.closest('li[data-idx]');
+    if (!li) return;
+    const idx = +li.getAttribute('data-idx');
+    if (wdyhSelected.length < 10) {
+        wdyhSelected.push(wdyhSuggestList[idx].name);
+        wdyhInput.value = '';
+        renderWdyhChips();
+        renderWdyhSuggest();
+        renderWdyhMatches();
+    }
+});
+    }
+    const btn = e.target.closest('button[data-idx]');
+    if (!btn) return;
+    const idx = +btn.getAttribute('data-idx');
+    wdyhSelected.splice(idx, 1);
+    renderWdyhChips();
+    renderWdyhSuggest();
+    renderWdyhMatches();
+});
+
+// Initial render
+setTimeout(() => {
+    renderWdyhChips();
+    renderWdyhSuggest();
+    renderWdyhMatches();
+}, 400);
+
+// --- Existing search logic ---
+function render(items){
+    if(!items.length){ list.innerHTML='<li class="empty">No matches.</li>'; return;}
+    list.innerHTML = items.slice(0,200).map(r=>{
+        const sub = r.sub ? ' › '+r.sub : '';
+        const newBadge = r.new ? ' <span class="tag new">NEW</span>' : '';
+        return `<li><a href="${r.url}">${r.title}</a> <span class="tag ${r.type}">${r.type}</span>${newBadge}<div class="meta">${r.category}${sub}</div></li>`;
+    }).join('');
+}
+q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    if(!term){ results.classList.remove('active'); browse.style.display=''; return;}
+    const matches = RECIPES.filter(r =>
+        r.title.toLowerCase().includes(term) ||
+        r.category.toLowerCase().includes(term) ||
+        (r.sub||'').toLowerCase().includes(term)
+    );
+    render(matches);
+'''
+    html = '''<!doctype html>
+    <html lang='en'><head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Recipes</title>
+    <link rel='icon' href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#127860;</text></svg>">
+    <style>{BASE_CSS}</style>
+    </head><body>
+    <header>
+        <h1><a href='./'>&#127860; Recipes</a></h1>
+        <div class='search'><input id='q' type='search' placeholder='Search {total} recipes...' autocomplete='off'></div>
+    </header>
+    <main class='container'>
+        <!-- What Do You Have Panel -->
+        <section class='wdyh-panel' id='wdyh-panel'>
+            <h2 class='wdyh-title'>What do you have?</h2>
+            <div class='wdyh-desc'>Pick up to 10 ingredients you have on hand. We\'ll show you every recipe you can make!</div>
+            <div class='wdyh-input-row'>
+                <input id='wdyh-input' class='wdyh-input' type='text' placeholder='Type an ingredient...' autocomplete='off' spellcheck='false'>
+                <div id='wdyh-suggest' class='wdyh-suggest'></div>
+            </div>
+            <div id='wdyh-chips' class='wdyh-chips'></div>
+            <div id='wdyh-matches' class='wdyh-matches'></div>
+        </section>
+        {new_banner}
+        <div id='results' class='search-results'><ul id='results-list'></ul></div>
+        <div id='browse'>
+            <div class='cats'>{cat_cards}</div>
+            {sections}
+        </div>
+    </main>
+    <footer>Built from OneDrive/Recipes • {total} recipes</footer>
+    <script>
+    {js}
+    </script>
+    <script>{viewed_new_js}</script>
+    </body></html>
+    '''.format(
+        BASE_CSS=BASE_CSS,
+        total=total,
+        new_banner=new_banner,
+        cat_cards="".join(cat_cards),
+        sections="".join(sections),
+        js=esc(js_block),
+        viewed_new_js=VIEWED_NEW_JS
+    )
+    return html
 
 def _recipe_li(r: dict) -> str:
     t = r["type"]

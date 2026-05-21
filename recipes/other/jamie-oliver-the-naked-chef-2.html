@@ -62,139 +62,54 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results .meta{color:var(--muted);font-size:.85rem}
 .empty{color:var(--muted);font-style:italic;padding:20px}
 .all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+
+/* "What do you have?" panel */
+.wdyh{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
+.wdyh-head{display:flex;align-items:center;gap:10px;width:100%;padding:14px 18px;background:linear-gradient(90deg,#fff7ec,#fff3e2);border:0;border-bottom:1px solid var(--line);font-family:inherit;font-size:1.05rem;color:var(--accent);font-weight:bold;cursor:pointer;text-align:left}
+.wdyh-head:hover{background:linear-gradient(90deg,#fff3e2,#ffe9ce)}
+.wdyh-head .wdyh-icon{font-size:1.4rem}
+.wdyh-head .wdyh-chev{margin-left:auto;transition:transform .2s ease;color:var(--accent2)}
+.wdyh[data-open="true"] .wdyh-head .wdyh-chev{transform:rotate(180deg)}
+.wdyh[data-open="true"] .wdyh-head{border-bottom-color:var(--line)}
+.wdyh-body{display:none;padding:16px 18px 18px}
+.wdyh[data-open="true"] .wdyh-body{display:block}
+.wdyh-hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.wdyh-input-wrap{position:relative}
+.wdyh-input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff;font-family:inherit}
+.wdyh-input:disabled{background:#faf2e6;color:var(--muted);cursor:not-allowed}
+.wdyh-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08);max-height:280px;overflow-y:auto;z-index:20;display:none}
+.wdyh-suggest.active{display:block}
+.wdyh-suggest button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:transparent;border:0;text-align:left;font-family:inherit;font-size:.95rem;color:var(--ink);cursor:pointer}
+.wdyh-suggest button:hover,.wdyh-suggest button.active{background:#fff3e2}
+.wdyh-suggest .wdyh-count{margin-left:auto;color:var(--muted);font-size:.8rem}
+.wdyh-suggest .wdyh-empty{padding:10px 14px;color:var(--muted);font-style:italic}
+.wdyh-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:0}
+.wdyh-chip{display:inline-flex;align-items:center;gap:6px;background:#fff3e2;border:1px solid #fbd9b3;color:var(--accent);padding:4px 6px 4px 12px;border-radius:999px;font-size:.9rem}
+.wdyh-chip button{background:transparent;border:0;color:var(--accent);font-size:1rem;line-height:1;padding:2px 6px;cursor:pointer;border-radius:999px}
+.wdyh-chip button:hover{background:rgba(194,65,12,.12)}
+.wdyh-actions{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:.85rem;color:var(--muted)}
+.wdyh-actions button{background:transparent;border:0;color:var(--accent);cursor:pointer;font-size:.85rem;font-family:inherit;text-decoration:underline}
+.wdyh-actions button:hover{color:#9a3209}
+.wdyh-matches{margin-top:18px}
+.wdyh-matches h3{margin:0 0 10px;color:var(--accent);font-size:1.05rem}
+.wdyh-match{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--ink)}
+.wdyh-match:hover{background:#fff3e2}
+.wdyh-match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.wdyh-match-title{font-weight:bold}
+.wdyh-match-cat{color:var(--muted);font-size:.85rem}
+.wdyh-match-score{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:bold}
+.wdyh-match-score.partial{background:var(--accent2)}
+.wdyh-match-need{color:var(--muted);font-size:.85rem}
+.wdyh-match-need .have{color:#16a34a;font-weight:bold}
+.wdyh-match-need .miss{color:#b45309}
+.wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
 </style>
 </head><body>
 <header><h1><a href="../../index.html">🍴 Recipes</a></h1></header>
 <main class="container">
   <div class="crumbs"><a href="../../index.html">Recipes</a> › <a href="../../index.html#cat-other">Other</a></div>
   <h1 style="color:var(--accent);margin-top:0">Jamie Oliver The Naked Chef 2</h1>
-  <article class="recipe-content"><div class="pdf-pages"><img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-001.jpg" alt="Page 1">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-002.jpg" alt="Page 2">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-003.jpg" alt="Page 3">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-004.jpg" alt="Page 4">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-005.jpg" alt="Page 5">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-006.jpg" alt="Page 6">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-007.jpg" alt="Page 7">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-008.jpg" alt="Page 8">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-009.jpg" alt="Page 9">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-010.jpg" alt="Page 10">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-011.jpg" alt="Page 11">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-012.jpg" alt="Page 12">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-013.jpg" alt="Page 13">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-014.jpg" alt="Page 14">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-015.jpg" alt="Page 15">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-016.jpg" alt="Page 16">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-017.jpg" alt="Page 17">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-018.jpg" alt="Page 18">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-019.jpg" alt="Page 19">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-020.jpg" alt="Page 20">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-021.jpg" alt="Page 21">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-022.jpg" alt="Page 22">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-023.jpg" alt="Page 23">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-024.jpg" alt="Page 24">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-025.jpg" alt="Page 25">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-026.jpg" alt="Page 26">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-027.jpg" alt="Page 27">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-028.jpg" alt="Page 28">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-029.jpg" alt="Page 29">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-030.jpg" alt="Page 30">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-031.jpg" alt="Page 31">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-032.jpg" alt="Page 32">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-033.jpg" alt="Page 33">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-034.jpg" alt="Page 34">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-035.jpg" alt="Page 35">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-036.jpg" alt="Page 36">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-037.jpg" alt="Page 37">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-038.jpg" alt="Page 38">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-039.jpg" alt="Page 39">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-040.jpg" alt="Page 40">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-041.jpg" alt="Page 41">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-042.jpg" alt="Page 42">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-043.jpg" alt="Page 43">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-044.jpg" alt="Page 44">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-045.jpg" alt="Page 45">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-046.jpg" alt="Page 46">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-047.jpg" alt="Page 47">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-048.jpg" alt="Page 48">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-049.jpg" alt="Page 49">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-050.jpg" alt="Page 50">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-051.jpg" alt="Page 51">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-052.jpg" alt="Page 52">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-053.jpg" alt="Page 53">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-054.jpg" alt="Page 54">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-055.jpg" alt="Page 55">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-056.jpg" alt="Page 56">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-057.jpg" alt="Page 57">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-058.jpg" alt="Page 58">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-059.jpg" alt="Page 59">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-060.jpg" alt="Page 60">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-061.jpg" alt="Page 61">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-062.jpg" alt="Page 62">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-063.jpg" alt="Page 63">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-064.jpg" alt="Page 64">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-065.jpg" alt="Page 65">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-066.jpg" alt="Page 66">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-067.jpg" alt="Page 67">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-068.jpg" alt="Page 68">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-069.jpg" alt="Page 69">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-070.jpg" alt="Page 70">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-071.jpg" alt="Page 71">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-072.jpg" alt="Page 72">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-073.jpg" alt="Page 73">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-074.jpg" alt="Page 74">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-075.jpg" alt="Page 75">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-076.jpg" alt="Page 76">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-077.jpg" alt="Page 77">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-078.jpg" alt="Page 78">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-079.jpg" alt="Page 79">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-080.jpg" alt="Page 80">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-081.jpg" alt="Page 81">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-082.jpg" alt="Page 82">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-083.jpg" alt="Page 83">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-084.jpg" alt="Page 84">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-085.jpg" alt="Page 85">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-086.jpg" alt="Page 86">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-087.jpg" alt="Page 87">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-088.jpg" alt="Page 88">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-089.jpg" alt="Page 89">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-090.jpg" alt="Page 90">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-091.jpg" alt="Page 91">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-092.jpg" alt="Page 92">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-093.jpg" alt="Page 93">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-094.jpg" alt="Page 94">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-095.jpg" alt="Page 95">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-096.jpg" alt="Page 96">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-097.jpg" alt="Page 97">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-098.jpg" alt="Page 98">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-099.jpg" alt="Page 99">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-100.jpg" alt="Page 100">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-101.jpg" alt="Page 101">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-102.jpg" alt="Page 102">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-103.jpg" alt="Page 103">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-104.jpg" alt="Page 104">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-105.jpg" alt="Page 105">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-106.jpg" alt="Page 106">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-107.jpg" alt="Page 107">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-108.jpg" alt="Page 108">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-109.jpg" alt="Page 109">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-110.jpg" alt="Page 110">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-111.jpg" alt="Page 111">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-112.jpg" alt="Page 112">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-113.jpg" alt="Page 113">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-114.jpg" alt="Page 114">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-115.jpg" alt="Page 115">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-116.jpg" alt="Page 116">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-117.jpg" alt="Page 117">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-118.jpg" alt="Page 118">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-119.jpg" alt="Page 119">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-120.jpg" alt="Page 120">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-121.jpg" alt="Page 121">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-122.jpg" alt="Page 122">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-123.jpg" alt="Page 123">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-124.jpg" alt="Page 124">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-125.jpg" alt="Page 125">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-126.jpg" alt="Page 126">
-<img class="pdf-page" loading="lazy" src="jamie-oliver-the-naked-chef-2_pages/page-127.jpg" alt="Page 127"></div></article>
+  <article class="recipe-content"><p>Could not convert: No module named &#x27;PIL&#x27;</p></article>
 </main>
 <footer><a href="../../index.html">← Back to all recipes</a></footer>
 <script>

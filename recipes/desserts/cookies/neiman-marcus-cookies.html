@@ -62,13 +62,54 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results .meta{color:var(--muted);font-size:.85rem}
 .empty{color:var(--muted);font-style:italic;padding:20px}
 .all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+
+/* "What do you have?" panel */
+.wdyh{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
+.wdyh-head{display:flex;align-items:center;gap:10px;width:100%;padding:14px 18px;background:linear-gradient(90deg,#fff7ec,#fff3e2);border:0;border-bottom:1px solid var(--line);font-family:inherit;font-size:1.05rem;color:var(--accent);font-weight:bold;cursor:pointer;text-align:left}
+.wdyh-head:hover{background:linear-gradient(90deg,#fff3e2,#ffe9ce)}
+.wdyh-head .wdyh-icon{font-size:1.4rem}
+.wdyh-head .wdyh-chev{margin-left:auto;transition:transform .2s ease;color:var(--accent2)}
+.wdyh[data-open="true"] .wdyh-head .wdyh-chev{transform:rotate(180deg)}
+.wdyh[data-open="true"] .wdyh-head{border-bottom-color:var(--line)}
+.wdyh-body{display:none;padding:16px 18px 18px}
+.wdyh[data-open="true"] .wdyh-body{display:block}
+.wdyh-hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.wdyh-input-wrap{position:relative}
+.wdyh-input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff;font-family:inherit}
+.wdyh-input:disabled{background:#faf2e6;color:var(--muted);cursor:not-allowed}
+.wdyh-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08);max-height:280px;overflow-y:auto;z-index:20;display:none}
+.wdyh-suggest.active{display:block}
+.wdyh-suggest button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:transparent;border:0;text-align:left;font-family:inherit;font-size:.95rem;color:var(--ink);cursor:pointer}
+.wdyh-suggest button:hover,.wdyh-suggest button.active{background:#fff3e2}
+.wdyh-suggest .wdyh-count{margin-left:auto;color:var(--muted);font-size:.8rem}
+.wdyh-suggest .wdyh-empty{padding:10px 14px;color:var(--muted);font-style:italic}
+.wdyh-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:0}
+.wdyh-chip{display:inline-flex;align-items:center;gap:6px;background:#fff3e2;border:1px solid #fbd9b3;color:var(--accent);padding:4px 6px 4px 12px;border-radius:999px;font-size:.9rem}
+.wdyh-chip button{background:transparent;border:0;color:var(--accent);font-size:1rem;line-height:1;padding:2px 6px;cursor:pointer;border-radius:999px}
+.wdyh-chip button:hover{background:rgba(194,65,12,.12)}
+.wdyh-actions{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:.85rem;color:var(--muted)}
+.wdyh-actions button{background:transparent;border:0;color:var(--accent);cursor:pointer;font-size:.85rem;font-family:inherit;text-decoration:underline}
+.wdyh-actions button:hover{color:#9a3209}
+.wdyh-matches{margin-top:18px}
+.wdyh-matches h3{margin:0 0 10px;color:var(--accent);font-size:1.05rem}
+.wdyh-match{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--ink)}
+.wdyh-match:hover{background:#fff3e2}
+.wdyh-match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.wdyh-match-title{font-weight:bold}
+.wdyh-match-cat{color:var(--muted);font-size:.85rem}
+.wdyh-match-score{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:bold}
+.wdyh-match-score.partial{background:var(--accent2)}
+.wdyh-match-need{color:var(--muted);font-size:.85rem}
+.wdyh-match-need .have{color:#16a34a;font-weight:bold}
+.wdyh-match-need .miss{color:#b45309}
+.wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
 </style>
 </head><body>
 <header><h1><a href="../../../index.html">🍴 Recipes</a></h1></header>
 <main class="container">
   <div class="crumbs"><a href="../../../index.html">Recipes</a> › <a href="../../../index.html#cat-desserts">Desserts</a> › Cookies</div>
   <h1 style="color:var(--accent);margin-top:0">Neiman-Marcus Cookies</h1>
-  <article class="recipe-content"><div class="pdf-pages"><img class="pdf-page" loading="lazy" src="neiman-marcus-cookies_pages/page-001.jpg" alt="Page 1"></div></article>
+  <article class="recipe-content"><p>Could not convert: No module named &#x27;PIL&#x27;</p></article>
 </main>
 <footer><a href="../../../index.html">← Back to all recipes</a></footer>
 <script>
