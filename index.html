@@ -62,6 +62,47 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .search-results .meta{color:var(--muted);font-size:.85rem}
 .empty{color:var(--muted);font-style:italic;padding:20px}
 .all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+
+/* "What do you have?" panel */
+.wdyh{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
+.wdyh-head{display:flex;align-items:center;gap:10px;width:100%;padding:14px 18px;background:linear-gradient(90deg,#fff7ec,#fff3e2);border:0;border-bottom:1px solid var(--line);font-family:inherit;font-size:1.05rem;color:var(--accent);font-weight:bold;cursor:pointer;text-align:left}
+.wdyh-head:hover{background:linear-gradient(90deg,#fff3e2,#ffe9ce)}
+.wdyh-head .wdyh-icon{font-size:1.4rem}
+.wdyh-head .wdyh-chev{margin-left:auto;transition:transform .2s ease;color:var(--accent2)}
+.wdyh[data-open="true"] .wdyh-head .wdyh-chev{transform:rotate(180deg)}
+.wdyh[data-open="true"] .wdyh-head{border-bottom-color:var(--line)}
+.wdyh-body{display:none;padding:16px 18px 18px}
+.wdyh[data-open="true"] .wdyh-body{display:block}
+.wdyh-hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.wdyh-input-wrap{position:relative}
+.wdyh-input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff;font-family:inherit}
+.wdyh-input:disabled{background:#faf2e6;color:var(--muted);cursor:not-allowed}
+.wdyh-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08);max-height:280px;overflow-y:auto;z-index:20;display:none}
+.wdyh-suggest.active{display:block}
+.wdyh-suggest button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:transparent;border:0;text-align:left;font-family:inherit;font-size:.95rem;color:var(--ink);cursor:pointer}
+.wdyh-suggest button:hover,.wdyh-suggest button.active{background:#fff3e2}
+.wdyh-suggest .wdyh-count{margin-left:auto;color:var(--muted);font-size:.8rem}
+.wdyh-suggest .wdyh-empty{padding:10px 14px;color:var(--muted);font-style:italic}
+.wdyh-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:0}
+.wdyh-chip{display:inline-flex;align-items:center;gap:6px;background:#fff3e2;border:1px solid #fbd9b3;color:var(--accent);padding:4px 6px 4px 12px;border-radius:999px;font-size:.9rem}
+.wdyh-chip button{background:transparent;border:0;color:var(--accent);font-size:1rem;line-height:1;padding:2px 6px;cursor:pointer;border-radius:999px}
+.wdyh-chip button:hover{background:rgba(194,65,12,.12)}
+.wdyh-actions{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:.85rem;color:var(--muted)}
+.wdyh-actions button{background:transparent;border:0;color:var(--accent);cursor:pointer;font-size:.85rem;font-family:inherit;text-decoration:underline}
+.wdyh-actions button:hover{color:#9a3209}
+.wdyh-matches{margin-top:18px}
+.wdyh-matches h3{margin:0 0 10px;color:var(--accent);font-size:1.05rem}
+.wdyh-match{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--ink)}
+.wdyh-match:hover{background:#fff3e2}
+.wdyh-match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.wdyh-match-title{font-weight:bold}
+.wdyh-match-cat{color:var(--muted);font-size:.85rem}
+.wdyh-match-score{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:bold}
+.wdyh-match-score.partial{background:var(--accent2)}
+.wdyh-match-need{color:var(--muted);font-size:.85rem}
+.wdyh-match-need .have{color:#16a34a;font-weight:bold}
+.wdyh-match-need .miss{color:#b45309}
+.wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
 </style>
 </head><body>
 <header>
@@ -70,6 +111,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 </header>
 <main class="container">
   <a class="new-banner" href="new.html"><span class="new-banner-tag">NEW</span><span class="new-banner-text">See the 151 newest recipes</span><span class="new-banner-arrow">&rarr;</span></a>
+  <div class="wdyh" id="wdyh" data-open="true"><button type="button" class="wdyh-head" id="wdyh-head" aria-expanded="true"><span class="wdyh-icon">🧺</span><span>What do you have?</span><span class="wdyh-chev">▼</span></button><div class="wdyh-body" id="wdyh-body"><p class="wdyh-hint">Add ingredients you have on hand (up to 10) and we'll show you recipes you can make.</p><div class="wdyh-input-wrap"><input id="wdyh-input" class="wdyh-input" type="text" placeholder="Loading ingredients..." autocomplete="off" spellcheck="false" disabled><div id="wdyh-suggest" class="wdyh-suggest" role="listbox"></div></div><div id="wdyh-chips" class="wdyh-chips"></div><div class="wdyh-actions"><span id="wdyh-count">0 / 10</span><button type="button" id="wdyh-clear">Clear all</button></div><div id="wdyh-matches" class="wdyh-matches"></div></div></div>
   <div id="results" class="search-results"><ul id="results-list"></ul></div>
   <div id="browse">
     <div class="cats"><a class="cat" href="#cat-appetizers"><span class="ic">🥟</span><span class="name">Appetizers</span><span class="count">12 recipes</span></a><a class="cat" href="#cat-baby-food"><span class="ic">🍼</span><span class="name">Baby Food</span><span class="count">5 recipes</span></a><a class="cat" href="#cat-beef"><span class="ic">🥩</span><span class="name">Beef</span><span class="count">13 recipes</span></a><a class="cat" href="#cat-breads"><span class="ic">🍞</span><span class="name">Breads</span><span class="count">34 recipes</span></a><a class="cat" href="#cat-breakfast"><span class="ic">🍳</span><span class="name">Breakfast</span><span class="count">10 recipes</span></a><a class="cat" href="#cat-chicken"><span class="ic">🍗</span><span class="name">Chicken</span><span class="count">17 recipes</span></a><a class="cat" href="#cat-desserts"><span class="ic">🍰</span><span class="name">Desserts</span><span class="count">60 recipes</span></a><a class="cat" href="#cat-drinks"><span class="ic">🥤</span><span class="name">Drinks</span><span class="count">6 recipes</span></a><a class="cat" href="#cat-fruit"><span class="ic">🍓</span><span class="name">Fruit</span><span class="count">3 recipes</span></a><a class="cat" href="#cat-luau"><span class="ic">🌺</span><span class="name">Luau</span><span class="count">9 recipes</span></a><a class="cat" href="#cat-other"><span class="ic">📄</span><span class="name">Other</span><span class="count">4 recipes</span></a><a class="cat" href="#cat-pasta"><span class="ic">🍝</span><span class="name">Pasta</span><span class="count">7 recipes</span></a><a class="cat" href="#cat-pork"><span class="ic">🥓</span><span class="name">Pork</span><span class="count">7 recipes</span></a><a class="cat" href="#cat-salads"><span class="ic">🥗</span><span class="name">Salads</span><span class="count">15 recipes</span></a><a class="cat" href="#cat-sandwiches"><span class="ic">🥪</span><span class="name">Sandwiches</span><span class="count">3 recipes</span></a><a class="cat" href="#cat-sauces-dips"><span class="ic">🥫</span><span class="name">Sauces  &amp; Dips</span><span class="count">33 recipes</span></a><a class="cat" href="#cat-seafood"><span class="ic">🦐</span><span class="name">Seafood</span><span class="count">27 recipes</span></a><a class="cat" href="#cat-sides"><span class="ic">🍚</span><span class="name">Sides</span><span class="count">56 recipes</span></a><a class="cat" href="#cat-snacks"><span class="ic">🍿</span><span class="name">Snacks</span><span class="count">6 recipes</span></a><a class="cat" href="#cat-soups"><span class="ic">🍲</span><span class="name">Soups</span><span class="count">10 recipes</span></a><a class="cat" href="#cat-turkey"><span class="ic">🦃</span><span class="name">Turkey</span><span class="count">1 recipes</span></a><a class="cat" href="#cat-vegetarian-tofu"><span class="ic">🥦</span><span class="name">Vegetarian (Tofu)</span><span class="count">5 recipes</span></a></div>
@@ -481,6 +523,229 @@ q.addEventListener('input', () => {
   results.classList.add('active');
   browse.style.display='none';
 });
+</script>
+<script>
+(function(){
+  var RECIPES = [];
+  var INGREDIENTS = [];
+  var selected = [];
+  var MAX_SELECTED = 10;
+  var activeSuggestIdx = -1;
+
+  var panel = document.getElementById('wdyh');
+  var head = document.getElementById('wdyh-head');
+  var body = document.getElementById('wdyh-body');
+  var input = document.getElementById('wdyh-input');
+  var suggest = document.getElementById('wdyh-suggest');
+  var chips = document.getElementById('wdyh-chips');
+  var matches = document.getElementById('wdyh-matches');
+  var clearBtn = document.getElementById('wdyh-clear');
+  var count = document.getElementById('wdyh-count');
+
+  if (!panel) return;
+
+  // Collapsible
+  head.addEventListener('click', function(){
+    var open = panel.getAttribute('data-open') === 'true';
+    panel.setAttribute('data-open', open ? 'false' : 'true');
+  });
+
+  function loadData(){
+    return Promise.all([
+      fetch('recipes_index.json').then(function(r){return r.json();}),
+      fetch('ingredients_master.json').then(function(r){return r.json();})
+    ]).then(function(arr){
+      RECIPES = arr[0];
+      INGREDIENTS = arr[1];
+      input.disabled = false;
+      input.placeholder = 'Type an ingredient (e.g. chicken, eggs, flour)...';
+    }).catch(function(){
+      input.placeholder = 'Could not load ingredient data';
+    });
+  }
+  loadData();
+
+  function updateCount(){
+    if (count) count.textContent = selected.length + ' / ' + MAX_SELECTED;
+    if (input) {
+      input.disabled = selected.length >= MAX_SELECTED;
+      if (input.disabled) input.placeholder = 'Maximum ' + MAX_SELECTED + ' ingredients selected';
+    }
+  }
+
+  function renderChips(){
+    chips.innerHTML = '';
+    selected.forEach(function(name, i){
+      var chip = document.createElement('span');
+      chip.className = 'wdyh-chip';
+      chip.textContent = name;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Remove ' + name);
+      btn.innerHTML = '&times;';
+      btn.addEventListener('click', function(){
+        selected.splice(i, 1);
+        renderChips();
+        renderMatches();
+        updateCount();
+      });
+      chip.appendChild(btn);
+      chips.appendChild(chip);
+    });
+  }
+
+  function renderSuggest(){
+    var q = input.value.trim().toLowerCase();
+    suggest.innerHTML = '';
+    activeSuggestIdx = -1;
+    if (!q || selected.length >= MAX_SELECTED){
+      suggest.classList.remove('active');
+      return;
+    }
+    var pool = INGREDIENTS
+      .filter(function(x){ return x.name.indexOf(q) !== -1 && selected.indexOf(x.name) === -1; })
+      .slice(0, 12);
+    if (!pool.length){
+      var empty = document.createElement('div');
+      empty.className = 'wdyh-empty';
+      empty.textContent = 'No matching ingredients';
+      suggest.appendChild(empty);
+      suggest.classList.add('active');
+      return;
+    }
+    pool.forEach(function(x, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('data-name', x.name);
+      b.innerHTML = '<span>' + x.name + '</span><span class="wdyh-count">' + x.count + '</span>';
+      b.addEventListener('click', function(){ addIngredient(x.name); });
+      suggest.appendChild(b);
+    });
+    suggest.classList.add('active');
+  }
+
+  function addIngredient(name){
+    if (selected.length >= MAX_SELECTED) return;
+    if (selected.indexOf(name) !== -1) return;
+    selected.push(name);
+    input.value = '';
+    renderChips();
+    renderSuggest();
+    renderMatches();
+    updateCount();
+    input.focus();
+  }
+
+  function renderMatches(){
+    if (!selected.length){
+      matches.innerHTML = '<div class="wdyh-empty-state">Pick some ingredients above to see what you can make!</div>';
+      return;
+    }
+    var sel = new Set(selected);
+    var scored = RECIPES.map(function(r){
+      var ings = r.ingredients || [];
+      if (!ings.length) return null;
+      var have = 0, miss = [];
+      ings.forEach(function(ing){
+        if (sel.has(ing)) have++; else miss.push(ing);
+      });
+      return { r: r, have: have, miss: miss, total: ings.length, ratio: have / ings.length };
+    }).filter(function(x){ return x && x.have > 0; });
+
+    scored.sort(function(a, b){
+      if (b.ratio !== a.ratio) return b.ratio - a.ratio;
+      if (a.miss.length !== b.miss.length) return a.miss.length - b.miss.length;
+      return a.r.title.localeCompare(b.r.title);
+    });
+
+    var full = scored.filter(function(x){ return x.miss.length === 0; });
+    var partial = scored.filter(function(x){ return x.miss.length > 0; }).slice(0, 20);
+
+    var html = '';
+    if (full.length){
+      html += '<h3>You can make these now (' + full.length + ')</h3>';
+      full.forEach(function(x){ html += matchCard(x, true); });
+    }
+    if (partial.length){
+      html += '<h3>Close — missing a few ingredients</h3>';
+      partial.forEach(function(x){ html += matchCard(x, false); });
+    }
+    if (!html){
+      html = '<div class="wdyh-empty-state">No recipes match those ingredients yet. Try adding more!</div>';
+    }
+    matches.innerHTML = html;
+  }
+
+  function matchCard(x, full){
+    var pct = Math.round(x.ratio * 100);
+    var need = '';
+    if (!full){
+      var preview = x.miss.slice(0, 5).map(function(m){ return '<span class="miss">' + escapeHtml(m) + '</span>'; }).join(', ');
+      var more = x.miss.length > 5 ? ' (+' + (x.miss.length - 5) + ' more)' : '';
+      need = '<div class="wdyh-match-need">Need: ' + preview + more + '</div>';
+    } else {
+      need = '<div class="wdyh-match-need"><span class="have">All ' + x.total + ' ingredients ✓</span></div>';
+    }
+    return '<a class="wdyh-match" href="' + x.r.url + '">'
+      + '<div class="wdyh-match-top">'
+        + '<span class="wdyh-match-title">' + escapeHtml(x.r.title) + '</span>'
+        + '<span class="wdyh-match-cat">' + escapeHtml(x.r.category) + '</span>'
+        + '<span class="wdyh-match-score' + (full ? '' : ' partial') + '">' + pct + '%</span>'
+      + '</div>'
+      + need
+      + '</a>';
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+
+  input.addEventListener('input', renderSuggest);
+  input.addEventListener('keydown', function(e){
+    var btns = suggest.querySelectorAll('button');
+    if (e.key === 'ArrowDown'){
+      e.preventDefault();
+      activeSuggestIdx = Math.min(activeSuggestIdx + 1, btns.length - 1);
+      btns.forEach(function(b, i){ b.classList.toggle('active', i === activeSuggestIdx); });
+    } else if (e.key === 'ArrowUp'){
+      e.preventDefault();
+      activeSuggestIdx = Math.max(activeSuggestIdx - 1, 0);
+      btns.forEach(function(b, i){ b.classList.toggle('active', i === activeSuggestIdx); });
+    } else if (e.key === 'Enter'){
+      e.preventDefault();
+      var pick = activeSuggestIdx >= 0 ? btns[activeSuggestIdx] : btns[0];
+      if (pick) addIngredient(pick.getAttribute('data-name'));
+    } else if (e.key === 'Escape'){
+      suggest.classList.remove('active');
+    } else if (e.key === 'Backspace' && !input.value && selected.length){
+      selected.pop();
+      renderChips();
+      renderMatches();
+      updateCount();
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    if (!panel.contains(e.target)) suggest.classList.remove('active');
+  });
+
+  if (clearBtn){
+    clearBtn.addEventListener('click', function(){
+      selected = [];
+      input.value = '';
+      renderChips();
+      renderSuggest();
+      renderMatches();
+      updateCount();
+    });
+  }
+
+  renderChips();
+  renderMatches();
+  updateCount();
+})();
 </script>
 <script>
 (function(){

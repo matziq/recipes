@@ -927,8 +927,356 @@ IMAGE_TOGGLE_JS = r"""
 """
 
 
-def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: int = 0) -> str:
+WDYH_JS = r"""
+(function(){
+  var RECIPES = [];
+  var INGREDIENTS = [];
+  var selected = [];
+  var MAX_SELECTED = 10;
+  var activeSuggestIdx = -1;
 
+  var panel = document.getElementById('wdyh');
+  var head = document.getElementById('wdyh-head');
+  var body = document.getElementById('wdyh-body');
+  var input = document.getElementById('wdyh-input');
+  var suggest = document.getElementById('wdyh-suggest');
+  var chips = document.getElementById('wdyh-chips');
+  var matches = document.getElementById('wdyh-matches');
+  var clearBtn = document.getElementById('wdyh-clear');
+  var count = document.getElementById('wdyh-count');
+
+  if (!panel) return;
+
+  // Collapsible
+  head.addEventListener('click', function(){
+    var open = panel.getAttribute('data-open') === 'true';
+    panel.setAttribute('data-open', open ? 'false' : 'true');
+  });
+
+  function loadData(){
+    return Promise.all([
+      fetch('recipes_index.json').then(function(r){return r.json();}),
+      fetch('ingredients_master.json').then(function(r){return r.json();})
+    ]).then(function(arr){
+      RECIPES = arr[0];
+      INGREDIENTS = arr[1];
+      input.disabled = false;
+      input.placeholder = 'Type an ingredient (e.g. chicken, eggs, flour)...';
+    }).catch(function(){
+      input.placeholder = 'Could not load ingredient data';
+    });
+  }
+  loadData();
+
+  function updateCount(){
+    if (count) count.textContent = selected.length + ' / ' + MAX_SELECTED;
+    if (input) {
+      input.disabled = selected.length >= MAX_SELECTED;
+      if (input.disabled) input.placeholder = 'Maximum ' + MAX_SELECTED + ' ingredients selected';
+    }
+  }
+
+  function renderChips(){
+    chips.innerHTML = '';
+    selected.forEach(function(name, i){
+      var chip = document.createElement('span');
+      chip.className = 'wdyh-chip';
+      chip.textContent = name;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Remove ' + name);
+      btn.innerHTML = '&times;';
+      btn.addEventListener('click', function(){
+        selected.splice(i, 1);
+        renderChips();
+        renderMatches();
+        updateCount();
+      });
+      chip.appendChild(btn);
+      chips.appendChild(chip);
+    });
+  }
+
+  function renderSuggest(){
+    var q = input.value.trim().toLowerCase();
+    suggest.innerHTML = '';
+    activeSuggestIdx = -1;
+    if (!q || selected.length >= MAX_SELECTED){
+      suggest.classList.remove('active');
+      return;
+    }
+    var pool = INGREDIENTS
+      .filter(function(x){ return x.name.indexOf(q) !== -1 && selected.indexOf(x.name) === -1; })
+      .slice(0, 12);
+    if (!pool.length){
+      var empty = document.createElement('div');
+      empty.className = 'wdyh-empty';
+      empty.textContent = 'No matching ingredients';
+      suggest.appendChild(empty);
+      suggest.classList.add('active');
+      return;
+    }
+    pool.forEach(function(x, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('data-name', x.name);
+      b.innerHTML = '<span>' + x.name + '</span><span class="wdyh-count">' + x.count + '</span>';
+      b.addEventListener('click', function(){ addIngredient(x.name); });
+      suggest.appendChild(b);
+    });
+    suggest.classList.add('active');
+  }
+
+  function addIngredient(name){
+    if (selected.length >= MAX_SELECTED) return;
+    if (selected.indexOf(name) !== -1) return;
+    selected.push(name);
+    input.value = '';
+    renderChips();
+    renderSuggest();
+    renderMatches();
+    updateCount();
+    input.focus();
+  }
+
+  function renderMatches(){
+    if (!selected.length){
+      matches.innerHTML = '<div class="wdyh-empty-state">Pick some ingredients above to see what you can make!</div>';
+      return;
+    }
+    var sel = new Set(selected);
+    var scored = RECIPES.map(function(r){
+      var ings = r.ingredients || [];
+      if (!ings.length) return null;
+      var have = 0, miss = [];
+      ings.forEach(function(ing){
+        if (sel.has(ing)) have++; else miss.push(ing);
+      });
+      return { r: r, have: have, miss: miss, total: ings.length, ratio: have / ings.length };
+    }).filter(function(x){ return x && x.have > 0; });
+
+    scored.sort(function(a, b){
+      if (b.ratio !== a.ratio) return b.ratio - a.ratio;
+      if (a.miss.length !== b.miss.length) return a.miss.length - b.miss.length;
+      return a.r.title.localeCompare(b.r.title);
+    });
+
+    var full = scored.filter(function(x){ return x.miss.length === 0; });
+    var partial = scored.filter(function(x){ return x.miss.length > 0; }).slice(0, 20);
+
+    var html = '';
+    if (full.length){
+      html += '<h3>You can make these now (' + full.length + ')</h3>';
+      full.forEach(function(x){ html += matchCard(x, true); });
+    }
+    if (partial.length){
+      html += '<h3>Close — missing a few ingredients</h3>';
+      partial.forEach(function(x){ html += matchCard(x, false); });
+    }
+    if (!html){
+      html = '<div class="wdyh-empty-state">No recipes match those ingredients yet. Try adding more!</div>';
+    }
+    matches.innerHTML = html;
+  }
+
+  function matchCard(x, full){
+    var pct = Math.round(x.ratio * 100);
+    var need = '';
+    if (!full){
+      var preview = x.miss.slice(0, 5).map(function(m){ return '<span class="miss">' + escapeHtml(m) + '</span>'; }).join(', ');
+      var more = x.miss.length > 5 ? ' (+' + (x.miss.length - 5) + ' more)' : '';
+      need = '<div class="wdyh-match-need">Need: ' + preview + more + '</div>';
+    } else {
+      need = '<div class="wdyh-match-need"><span class="have">All ' + x.total + ' ingredients ✓</span></div>';
+    }
+    return '<a class="wdyh-match" href="' + x.r.url + '">'
+      + '<div class="wdyh-match-top">'
+        + '<span class="wdyh-match-title">' + escapeHtml(x.r.title) + '</span>'
+        + '<span class="wdyh-match-cat">' + escapeHtml(x.r.category) + '</span>'
+        + '<span class="wdyh-match-score' + (full ? '' : ' partial') + '">' + pct + '%</span>'
+      + '</div>'
+      + need
+      + '</a>';
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+
+  input.addEventListener('input', renderSuggest);
+  input.addEventListener('keydown', function(e){
+    var btns = suggest.querySelectorAll('button');
+    if (e.key === 'ArrowDown'){
+      e.preventDefault();
+      activeSuggestIdx = Math.min(activeSuggestIdx + 1, btns.length - 1);
+      btns.forEach(function(b, i){ b.classList.toggle('active', i === activeSuggestIdx); });
+    } else if (e.key === 'ArrowUp'){
+      e.preventDefault();
+      activeSuggestIdx = Math.max(activeSuggestIdx - 1, 0);
+      btns.forEach(function(b, i){ b.classList.toggle('active', i === activeSuggestIdx); });
+    } else if (e.key === 'Enter'){
+      e.preventDefault();
+      var pick = activeSuggestIdx >= 0 ? btns[activeSuggestIdx] : btns[0];
+      if (pick) addIngredient(pick.getAttribute('data-name'));
+    } else if (e.key === 'Escape'){
+      suggest.classList.remove('active');
+    } else if (e.key === 'Backspace' && !input.value && selected.length){
+      selected.pop();
+      renderChips();
+      renderMatches();
+      updateCount();
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    if (!panel.contains(e.target)) suggest.classList.remove('active');
+  });
+
+  if (clearBtn){
+    clearBtn.addEventListener('click', function(){
+      selected = [];
+      input.value = '';
+      renderChips();
+      renderSuggest();
+      renderMatches();
+      updateCount();
+    });
+  }
+
+  renderChips();
+  renderMatches();
+  updateCount();
+})();
+"""
+
+
+def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: int = 0) -> str:
+    sections = []
+    cat_cards = []
+    for cat in sorted(tree.keys()):
+        sub_map = tree[cat]
+        count = sum(len(v) for v in sub_map.values())
+        anchor = slugify(cat)
+        icon = ICONS.get(cat, "\U0001F4C4")
+        cat_cards.append(
+            f'<a class="cat" href="#cat-{anchor}"><span class="ic">{icon}</span>'
+            f'<span class="name">{escape(cat)}</span><span class="count">{count} recipes</span></a>'
+        )
+        items_html = []
+        has_subs = any(s for s in sub_map.keys())
+        if has_subs:
+            for sub in sorted(sub_map.keys()):
+                if sub:
+                    items_html.append(f'<h3 style="color:var(--muted);margin-top:18px">{ICONS.get(sub,"")} {escape(sub)}</h3>')
+                items_html.append('<ul class="recipes">')
+                for r in sub_map[sub]:
+                    items_html.append(_recipe_li(r))
+                items_html.append("</ul>")
+        else:
+            items_html.append('<ul class="recipes">')
+            for sub in sub_map:
+                for r in sub_map[sub]:
+                    items_html.append(_recipe_li(r))
+            items_html.append("</ul>")
+        sections.append(
+            f'<section id="cat-{anchor}"><h2 class="cat-title">{icon} {escape(cat)}</h2>'
+            + "\n".join(items_html) + "</section>"
+        )
+
+    new_banner = ""
+    if new_count:
+        plural = "" if new_count == 1 else "s"
+        new_banner = (
+            f'<a class="new-banner" href="new.html">'
+            f'<span class="new-banner-tag">NEW</span>'
+            f'<span class="new-banner-text">See the {new_count} newest recipe{plural}</span>'
+            f'<span class="new-banner-arrow">&rarr;</span>'
+            f'</a>'
+        )
+
+    wdyh_panel = (
+        '<div class="wdyh" id="wdyh" data-open="true">'
+          '<button type="button" class="wdyh-head" id="wdyh-head" aria-expanded="true">'
+            '<span class="wdyh-icon">\U0001F9FA</span>'
+            '<span>What do you have?</span>'
+            '<span class="wdyh-chev">\u25BC</span>'
+          '</button>'
+          '<div class="wdyh-body" id="wdyh-body">'
+            '<p class="wdyh-hint">Add ingredients you have on hand (up to 10) and we\'ll show you recipes you can make.</p>'
+            '<div class="wdyh-input-wrap">'
+              '<input id="wdyh-input" class="wdyh-input" type="text" placeholder="Loading ingredients..." autocomplete="off" spellcheck="false" disabled>'
+              '<div id="wdyh-suggest" class="wdyh-suggest" role="listbox"></div>'
+            '</div>'
+            '<div id="wdyh-chips" class="wdyh-chips"></div>'
+            '<div class="wdyh-actions">'
+              '<span id="wdyh-count">0 / 10</span>'
+              '<button type="button" id="wdyh-clear">Clear all</button>'
+            '</div>'
+            '<div id="wdyh-matches" class="wdyh-matches"></div>'
+          '</div>'
+        '</div>'
+    )
+
+    return f"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recipes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>\U0001F374</text></svg>">
+<style>{BASE_CSS}</style>
+</head><body>
+<header>
+  <h1><a href="./">\U0001F374 Recipes</a></h1>
+  <div class="search"><input id="q" type="search" placeholder="Search {total} recipes..." autocomplete="off"></div>
+</header>
+<main class="container">
+  {new_banner}
+  {wdyh_panel}
+  <div id="results" class="search-results"><ul id="results-list"></ul></div>
+  <div id="browse">
+    <div class="cats">{"".join(cat_cards)}</div>
+    {"".join(sections)}
+  </div>
+</main>
+<footer>Built from OneDrive/Recipes \u2022 {total} recipes</footer>
+<script>
+let RECIPES = [];
+fetch('recipes_index.json').then(r=>r.json()).then(d=>{{RECIPES=d}});
+const q = document.getElementById('q');
+const browse = document.getElementById('browse');
+const results = document.getElementById('results');
+const list = document.getElementById('results-list');
+function render(items){{
+  if(!items.length){{ list.innerHTML='<li class="empty">No matches.</li>'; return;}}
+  list.innerHTML = items.slice(0,200).map(r=>{{
+    const sub = r.sub ? ' \u203A '+r.sub : '';
+    const newBadge = r.new ? ' <span class="tag new">NEW</span>' : '';
+    return `<li><a href="${{r.url}}">${{r.title}}</a> <span class="tag ${{r.type}}">${{r.type}}</span>${{newBadge}}<div class="meta">${{r.category}}${{sub}}</div></li>`;
+  }}).join('');
+}}
+q.addEventListener('input', () => {{
+  const term = q.value.trim().toLowerCase();
+  if(!term){{ results.classList.remove('active'); browse.style.display=''; return;}}
+  const matches = RECIPES.filter(r =>
+    r.title.toLowerCase().includes(term) ||
+    r.category.toLowerCase().includes(term) ||
+    (r.sub||'').toLowerCase().includes(term)
+  );
+  render(matches);
+  results.classList.add('active');
+  browse.style.display='none';
+}});
+</script>
+<script>{WDYH_JS}</script>
+<script>{VIEWED_NEW_JS}</script>
+</body></html>
+"""
+
+
+def _OLD_render_index_unused(tree, total, new_count=0):
+    # placeholder so the broken code below this point doesn't run
     def esc(s):
         return s.replace('{', '{{').replace('}', '}}')
 

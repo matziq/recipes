@@ -1,0 +1,37 @@
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+PIL/Pillow not installed
+Flagged 151 recipe(s) as NEW from new_recipes.json.
+Extracted 2676 ingredient mentions (906 unique) from 292 recipes.
+Built 343 recipes across 22 categories.
