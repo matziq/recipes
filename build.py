@@ -1287,8 +1287,8 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
         )
 
     wdyh_panel = (
-        '<div class="wdyh" id="wdyh" data-open="true">'
-          '<button type="button" class="wdyh-head" id="wdyh-head" aria-expanded="true">'
+        '<div class="wdyh" id="wdyh" data-open="false">'
+          '<button type="button" class="wdyh-head" id="wdyh-head" aria-expanded="false">'
             '<span class="wdyh-icon">\U0001F9FA</span>'
             '<span>What do you have?</span>'
             '<span class="wdyh-chev">\u25BC</span>'
