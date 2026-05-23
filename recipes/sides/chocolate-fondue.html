@@ -18,14 +18,24 @@ header h1 a{color:inherit;text-decoration:none}
 .search{flex:1;min-width:240px}
 .search input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff}
 .container{max-width:1100px;margin:0 auto;padding:24px 20px}
-.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
-.cat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;
-  text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
-.cat:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(194,65,12,.12)}
-.cat .ic{font-size:2.2rem;display:block}
-.cat .name{font-weight:bold;margin-top:6px;display:block}
-.cat .count{color:var(--muted);font-size:.9rem;display:block;margin-top:2px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:18px}
+.cat{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 10px 8px;text-align:center;text-decoration:none;color:var(--ink);transition:transform .12s,box-shadow .12s,border-color .12s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:0}
+.cat:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(194,65,12,.12);border-color:#fbd9b3}
+.cat .ic{font-size:1.5rem;display:block;line-height:1.1}
+.cat .name{font-weight:bold;margin-top:2px;display:block;font-size:.88rem;line-height:1.2}
+.cat .count{position:absolute;top:4px;right:4px;background:var(--accent);color:#fff;font-size:.68rem;font-weight:bold;padding:2px 7px;border-radius:999px;min-width:20px;line-height:1.35;letter-spacing:.02em}
 h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:6px}
+.cat-section{margin:0 0 14px;background:transparent;border:0;padding:0}
+.cat-section>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:bold;font-size:1.4rem;padding:8px 4px;border-bottom:2px solid var(--line);user-select:none;transition:background .12s}
+.cat-section>summary::-webkit-details-marker{display:none}
+.cat-section>summary::before{content:'B6';color:var(--accent2);font-size:.75rem;transition:transform .2s ease;display:inline-block;width:.9em;flex-shrink:0}
+.cat-section[open]>summary::before{transform:rotate(90deg)}
+.cat-section>summary:hover{background:#fff7ec}
+.cat-section>summary .cat-title-icon{font-size:1.6rem;line-height:1}
+.cat-section>summary .cat-title-name{flex:1}
+.cat-section>summary .cat-title-count{margin-left:auto;background:var(--accent);color:#fff;font-size:.72rem;font-weight:bold;padding:3px 10px;border-radius:999px;min-width:24px;text-align:center;letter-spacing:.02em}
+.cat-section[open]>:not(summary){animation:cat-section-open .18s ease-out}
+@keyframes cat-section-open{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .recipes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
 .recipes li{background:var(--card);border:1px solid var(--line);border-radius:10px}
 .recipes a{display:block;padding:12px 14px;color:var(--ink);text-decoration:none}
