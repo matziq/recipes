@@ -739,6 +739,14 @@ h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bot
 .new-banner-tag{background:#dc2626;color:#fff;font-weight:bold;letter-spacing:.5px;font-size:.78rem;padding:3px 8px;border-radius:6px;animation:pulse-new 1.6s ease-in-out infinite}
 .new-banner-text{font-weight:600;flex:1}
 .new-banner-arrow{color:#dc2626;font-size:1.2rem;font-weight:bold}
+.new-banner-row{display:flex;align-items:center;gap:12px;margin:0 0 22px;flex-wrap:wrap}
+.new-banner-row .new-banner{margin:0;flex:1;min-width:240px}
+.mark-all-read-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #fecaca;color:#dc2626;padding:10px 16px;border-radius:999px;font-family:inherit;font-size:.92rem;font-weight:bold;cursor:pointer;transition:background .15s,transform .12s,box-shadow .15s;box-shadow:0 1px 4px rgba(220,38,38,.08)}
+.mark-all-read-btn:hover{background:#fff1f0;transform:translateY(-1px);box-shadow:0 4px 12px rgba(220,38,38,.15)}
+.mark-all-read-btn:active{transform:translateY(0)}
+.mark-all-read-btn .check{font-size:1rem}
+.new-page-actions{display:flex;justify-content:flex-end;margin:0 0 18px}
+@media (max-width:520px){.new-banner-row{flex-direction:column;align-items:stretch}.new-page-actions{justify-content:stretch}.new-page-actions .mark-all-read-btn{width:100%;justify-content:center}}
 .new-page-intro{color:var(--muted);margin:6px 0 22px}
 .crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
 .crumbs a{color:var(--accent);text-decoration:none}
@@ -895,6 +903,83 @@ VIEWED_NEW_JS = r"""
       t = t.parentNode;
     }
   });
+
+  // ---- Mark all new recipes as read ----
+  function markAllAsRead(){
+    var allAnchors = document.querySelectorAll('a');
+    var added = 0;
+    for (var k = 0; k < allAnchors.length; k++){
+      var ak = allAnchors[k];
+      var badgek = ak.querySelector('.tag.new');
+      if (!badgek) continue;
+      var hk = ak.getAttribute('href');
+      if (hk && !viewed.has(hk)) { viewed.add(hk); added++; }
+      badgek.remove();
+      if (isNewPage){
+        var lik = ak.closest('li');
+        if (lik) lik.remove();
+      }
+    }
+    if (added > 0) save(viewed);
+
+    var bannerRef = document.querySelector('.new-banner');
+    if (bannerRef){
+      bannerRef.style.display = 'none';
+      var row = bannerRef.closest('.new-banner-row');
+      if (row) row.style.display = 'none';
+    }
+
+    if (isNewPage){
+      var sectionsM = document.querySelectorAll('section');
+      for (var s = 0; s < sectionsM.length; s++){
+        if (sectionsM[s].querySelectorAll('li').length === 0) sectionsM[s].remove();
+      }
+      var main3 = document.querySelector('main');
+      if (main3 && document.querySelectorAll('main section').length === 0){
+        var msg3 = document.createElement('p');
+        msg3.className = 'all-caught-up';
+        msg3.innerHTML = "\u2728 You're all caught up! No new recipes to view.";
+        main3.appendChild(msg3);
+        var h1m = document.querySelector('main h1');
+        if (h1m) h1m.style.display = 'none';
+        var introM = document.querySelector('.new-page-intro');
+        if (introM) introM.style.display = 'none';
+      }
+    }
+
+    var btnsHide = document.querySelectorAll('[data-mark-all-read]');
+    for (var m = 0; m < btnsHide.length; m++){
+      var actions = btnsHide[m].closest('.new-page-actions');
+      if (actions) actions.style.display = 'none';
+      else btnsHide[m].style.display = 'none';
+    }
+  }
+
+  // Initial visibility: if there are no NEW badges still showing, hide the buttons.
+  (function(){
+    var visibleNew = document.querySelectorAll('a .tag.new').length;
+    var initBtns = document.querySelectorAll('[data-mark-all-read]');
+    if (visibleNew === 0){
+      for (var p = 0; p < initBtns.length; p++){
+        var act = initBtns[p].closest('.new-page-actions');
+        if (act) act.style.display = 'none';
+        else initBtns[p].style.display = 'none';
+      }
+    }
+  })();
+
+  var markBtns = document.querySelectorAll('[data-mark-all-read]');
+  for (var n = 0; n < markBtns.length; n++){
+    markBtns[n].addEventListener('click', function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      var count = document.querySelectorAll('a .tag.new').length;
+      if (count === 0) return;
+      var ok = window.confirm('Mark ' + count + ' new recipe' + (count === 1 ? '' : 's') + ' as read?');
+      if (!ok) return;
+      markAllAsRead();
+    });
+  }
 })();
 """
 
@@ -1189,11 +1274,16 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
     if new_count:
         plural = "" if new_count == 1 else "s"
         new_banner = (
+            f'<div class="new-banner-row">'
             f'<a class="new-banner" href="new.html">'
             f'<span class="new-banner-tag">NEW</span>'
             f'<span class="new-banner-text">See the {new_count} newest recipe{plural}</span>'
             f'<span class="new-banner-arrow">&rarr;</span>'
             f'</a>'
+            f'<button type="button" class="mark-all-read-btn" data-mark-all-read title="Mark all new recipes as read">'
+            f'<span class="check">\u2713</span> Mark all as read'
+            f'</button>'
+            f'</div>'
         )
 
     wdyh_panel = (
@@ -1482,6 +1572,7 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
   <div class="crumbs"><a href="index.html">Recipes</a> \u203A <span class="tag new">NEW</span></div>
   <h1 style="color:var(--accent);margin-top:0">\U0001F195 {new_count} New Recipe{plural}</h1>
   <p class="new-page-intro">Click any recipe and the NEW badge disappears for you. (We remember your views in this browser.)</p>
+  <div class="new-page-actions"><button type="button" class="mark-all-read-btn" data-mark-all-read title="Mark all new recipes as read"><span class="check">\u2713</span> Mark all as read</button></div>
   {"".join(sections)}
 </main>
 <footer><a href="index.html">\u2190 Back to all recipes</a></footer>
