@@ -1942,6 +1942,27 @@
     ]
   },
   {
+    "title": "Granny Kat's Pumpkin Roll",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/granny-kats-pumpkin-roll.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "white sugar",
+      "baking soda",
+      "pumpkin pie spice",
+      "pumpkin puree",
+      "egg",
+      "lemon juice",
+      "confectioners' sugar",
+      "cream cheese",
+      "butter",
+      "vanilla extract"
+    ],
+    "new": true
+  },
+  {
     "title": "Homemade Fondant that Tastes like Buttercream",
     "category": "Desserts",
     "sub": "",
