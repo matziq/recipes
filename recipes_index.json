@@ -1712,6 +1712,22 @@
     "new": true
   },
   {
+    "title": "Chocolate Buttercream",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/chocolate-buttercream.html",
+    "type": "html",
+    "ingredients": [
+      "butter",
+      "powdered sugar",
+      "cocoa powder",
+      "heavy cream or milk",
+      "vanilla extract",
+      "salt"
+    ],
+    "new": true
+  },
+  {
     "title": "Chocolate Coconut Bars",
     "category": "Desserts",
     "sub": "",

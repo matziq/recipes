@@ -1,11 +1,11 @@
 [
   {
     "name": "salt",
-    "count": 118
+    "count": 119
   },
   {
     "name": "butter",
-    "count": 75
+    "count": 76
   },
   {
     "name": "olive oil",
@@ -81,7 +81,7 @@
   },
   {
     "name": "vanilla extract",
-    "count": 22
+    "count": 23
   },
   {
     "name": "garlic powder",
@@ -224,6 +224,10 @@
     "count": 9
   },
   {
+    "name": "powdered sugar",
+    "count": 9
+  },
+  {
     "name": "white sugar",
     "count": 9
   },
@@ -237,10 +241,6 @@
   },
   {
     "name": "mushroom",
-    "count": 8
-  },
-  {
-    "name": "powdered sugar",
     "count": 8
   },
   {
@@ -332,6 +332,10 @@
     "count": 5
   },
   {
+    "name": "cocoa powder",
+    "count": 5
+  },
+  {
     "name": "garlic salt",
     "count": 5
   },
@@ -381,10 +385,6 @@
   },
   {
     "name": "chicken",
-    "count": 4
-  },
-  {
-    "name": "cocoa powder",
     "count": 4
   },
   {
@@ -2257,6 +2257,10 @@
   },
   {
     "name": "heavy cream can sub",
+    "count": 1
+  },
+  {
+    "name": "heavy cream or milk",
     "count": 1
   },
   {
