@@ -3896,6 +3896,25 @@
     "ingredients": []
   },
   {
+    "title": "Taco Seasoning",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/taco-seasoning.html",
+    "type": "html",
+    "ingredients": [
+      "chili powder",
+      "cumin",
+      "paprika",
+      "red pepper",
+      "salt",
+      "garlic powder",
+      "onion powder",
+      "oregano",
+      "black pepper"
+    ],
+    "new": true
+  },
+  {
     "title": "Tamale Sauce",
     "category": "Sauces  & Dips",
     "sub": "",

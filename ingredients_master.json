@@ -1,7 +1,7 @@
 [
   {
     "name": "salt",
-    "count": 119
+    "count": 120
   },
   {
     "name": "butter",
@@ -20,12 +20,12 @@
     "count": 54
   },
   {
-    "name": "flour",
+    "name": "black pepper",
     "count": 50
   },
   {
-    "name": "black pepper",
-    "count": 49
+    "name": "flour",
+    "count": 50
   },
   {
     "name": "egg",
@@ -61,7 +61,7 @@
   },
   {
     "name": "cumin",
-    "count": 27
+    "count": 28
   },
   {
     "name": "cinnamon",
@@ -85,6 +85,14 @@
   },
   {
     "name": "garlic powder",
+    "count": 17
+  },
+  {
+    "name": "paprika",
+    "count": 17
+  },
+  {
+    "name": "chili powder",
     "count": 16
   },
   {
@@ -92,15 +100,11 @@
     "count": 16
   },
   {
-    "name": "paprika",
+    "name": "oregano",
     "count": 16
   },
   {
     "name": "carrot",
-    "count": 15
-  },
-  {
-    "name": "chili powder",
     "count": 15
   },
   {
@@ -109,10 +113,6 @@
   },
   {
     "name": "granulated sugar",
-    "count": 15
-  },
-  {
-    "name": "oregano",
     "count": 15
   },
   {
@@ -160,6 +160,10 @@
     "count": 13
   },
   {
+    "name": "onion powder",
+    "count": 12
+  },
+  {
     "name": "tomato",
     "count": 12
   },
@@ -177,10 +181,6 @@
   },
   {
     "name": "basil",
-    "count": 11
-  },
-  {
-    "name": "onion powder",
     "count": 11
   },
   {
@@ -432,6 +432,10 @@
     "count": 4
   },
   {
+    "name": "red pepper",
+    "count": 4
+  },
+  {
     "name": "red wine vinegar",
     "count": 4
   },
@@ -637,10 +641,6 @@
   },
   {
     "name": "red bell pepper",
-    "count": 3
-  },
-  {
-    "name": "red pepper",
     "count": 3
   },
   {
