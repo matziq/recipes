@@ -8,16 +8,16 @@ Data API.
 
 1. In the repository, open **Settings > Collaborators > Add people**.
 2. Invite the editor's GitHub account and have them accept the invitation.
-3. The editor creates a fine-grained personal access token:
-   - Resource owner: their GitHub account
-   - Repository access: **Only select repositories > recipes**
-   - Repository permissions: **Contents > Read and write**
+3. The editor creates a classic personal access token:
+   - Scope: **public_repo**
    - Expiration: 90 days or another short period
 4. Open the recipe editor, add or select a recipe, and paste the token only when
    publishing.
 
-The token remains in the active browser tab. The page does not save it in
-cookies, local storage, or repository files.
+Fine-grained tokens cannot target a repository owned by another personal
+account, so a collaborator must use the classic `public_repo` scope. The token
+remains in the active browser tab. The page does not save it in cookies, local
+storage, or repository files.
 
 ## Publishing behavior
 
