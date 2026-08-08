@@ -105,7 +105,7 @@
     <ol>
       <li>Ask the site owner to invite your GitHub account as a repository collaborator.</li>
       <li>Accept the invitation from GitHub.</li>
-      <li>Create a fine-grained token for only <code>matziq/recipes</code> with <strong>Contents: Read and write</strong>.</li>
+      <li>Create a classic GitHub token with the <strong>public_repo</strong> scope and a short expiration.</li>
       <li>Keep this page bookmarked. Paste the token only when you publish.</li>
     </ol>
     <p class="help">The token is not stored in cookies, local storage, or the recipe files. GitHub recommends giving tokens an expiration date and replacing them periodically.</p>
@@ -146,13 +146,13 @@
     <hr style="border:0;border-top:1px solid var(--cp-border);margin:24px 0">
     <h2>2. Publish</h2>
     <div class="field">
-      <label for="token">GitHub fine-grained access token</label>
+      <label for="token">GitHub classic access token</label>
       <input id="token" type="password" autocomplete="off" required>
-      <p class="help">The token needs <strong>Contents: Read and write</strong> access to <code>matziq/recipes</code>. It stays in this browser tab and is never saved by this page.</p>
+      <p class="help">Use a classic token with the <strong>public_repo</strong> scope. It stays in this browser tab and is never saved by this page.</p>
     </div>
     <div class="actions">
       <button id="publish" type="submit">Publish recipe</button>
-      <a href="https://github.com/settings/personal-access-tokens/new?name=Recipe%20Editor&amp;description=Publish%20family%20recipes&amp;target_name=matziq&amp;expires_in=90&amp;contents=write" target="_blank" rel="noopener">Create a GitHub token</a>
+      <a href="https://github.com/settings/tokens/new?scopes=public_repo&amp;description=Recipe%20Editor" target="_blank" rel="noopener">Create a GitHub token</a>
     </div>
     <div id="status" class="status hidden" role="status" aria-live="polite"></div>
   </form>
