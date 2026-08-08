@@ -1690,6 +1690,22 @@
     "new": true
   },
   {
+    "title": "A Very Berry Strawberry Bunt Cake",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "url": "recipes/desserts/cakes/a-very-berry-strawberry-bunt-cake.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Almond Joy Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/almond-joy-cookies.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
     "title": "Best White Chocolate and Macadamia Cookies",
     "category": "Desserts",
     "sub": "",
@@ -1710,6 +1726,30 @@
       "macadamia nuts - roughly"
     ],
     "new": true
+  },
+  {
+    "title": "Brown-Butter Blondies With Caramel Almonds",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/brown-butter-blondies-with-caramel-almonds.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Carol's Sugar Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/carols-sugar-cookies.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Chinese Butter Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/chinese-butter-cookies.html",
+    "type": "html",
+    "ingredients": []
   },
   {
     "title": "Chocolate Buttercream",
@@ -1774,6 +1814,14 @@
     "new": true
   },
   {
+    "title": "Chocolate Truffles",
+    "category": "Desserts",
+    "sub": "Candies",
+    "url": "recipes/desserts/candies/chocolate-truffles.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
     "title": "Cinnabon Cinnamon Rolls",
     "category": "Desserts",
     "sub": "",
@@ -1815,6 +1863,22 @@
     ]
   },
   {
+    "title": "Coconut Chews",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/coconut-chews.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Coconut Macaroons",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/coconut-macaroons.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
     "title": "Coconut Mango Sorbet",
     "category": "Desserts",
     "sub": "",
@@ -1829,6 +1893,14 @@
       "lime juice -- or",
       "pinches of freshly grated"
     ]
+  },
+  {
+    "title": "Cookie Bars",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/cookie-bars.html",
+    "type": "html",
+    "ingredients": []
   },
   {
     "title": "Cookie Butter Frosting",
@@ -1862,6 +1934,37 @@
       "c sugar",
       "chocolate chip",
       "t evaporated milk"
+    ]
+  },
+  {
+    "title": "Date Balls",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/date-balls.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Doubletree Chocolate Chips",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/doubletree-chocolate-chips.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Dubai Chocolate Bar",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/dubai-chocolate-bar.html",
+    "type": "html",
+    "ingredients": [
+      "kataifi pastry",
+      "pistachio cream",
+      "tahini",
+      "unsalted butter",
+      "salt",
+      "chocolate"
     ]
   },
   {
@@ -2024,6 +2127,30 @@
     ]
   },
   {
+    "title": "Ivy House Southern Pecan Pie",
+    "category": "Desserts",
+    "sub": "Pies",
+    "url": "recipes/desserts/pies/ivy-house-southern-pecan-pie.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Luscious Four-Layer Pumpkin Cake",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "url": "recipes/desserts/cakes/luscious-four-layer-pumpkin-cake.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Magic Bars",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/magic-bars.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
     "title": "Mango Sticky Rice",
     "category": "Desserts",
     "sub": "",
@@ -2038,6 +2165,14 @@
       "mangoe",
       "peaches or papaya"
     ]
+  },
+  {
+    "title": "Microwave Praline Candy",
+    "category": "Desserts",
+    "sub": "Candies",
+    "url": "recipes/desserts/candies/microwave-praline-candy.html",
+    "type": "html",
+    "ingredients": []
   },
   {
     "title": "Microwave Salted Caramel Popcorn",
@@ -2075,6 +2210,14 @@
     "new": true
   },
   {
+    "title": "Molten Lava Cake",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "url": "recipes/desserts/cakes/molten-lava-cake.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
     "title": "Mrs. Sigg's Snickerdoodles",
     "category": "Desserts",
     "sub": "",
@@ -2093,6 +2236,68 @@
       "cinnamon"
     ],
     "new": true
+  },
+  {
+    "title": "Neiman-Marcus Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/neiman-marcus-cookies.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Neiman-Marcus Cookies Half",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/neiman-marcus-cookies-half.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "No Bake Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/no-bake-cookies.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Nobake Peanut Butter Bars",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/nobake-peanut-butter-bars.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Peanut Butter Monster Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/peanut-butter-monster-cookies.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Peanut Butter Pie",
+    "category": "Desserts",
+    "sub": "Pies",
+    "url": "recipes/desserts/pies/peanut-butter-pie.html",
+    "type": "html",
+    "ingredients": [
+      "creamy peanut butter",
+      "cream cheese",
+      "tub of cool whip",
+      "powdered sugar",
+      "hershey bar"
+    ]
+  },
+  {
+    "title": "Pecan Coconut Triangles",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/pecan-coconut-triangles.html",
+    "type": "html",
+    "ingredients": []
   },
   {
     "title": "Pumpkin Chocolate Cheesecake Bars",
@@ -2114,6 +2319,22 @@
       "tbls butter",
       "dairy sour cream"
     ]
+  },
+  {
+    "title": "Reese's Peanut Butter Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
+    "title": "Reese's Peanut Butter Cookies Half Batch",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies-half-batch.html",
+    "type": "html",
+    "ingredients": []
   },
   {
     "title": "Salted Caramel Apple Hand Pies",
@@ -2202,6 +2423,30 @@
     "new": true
   },
   {
+    "title": "Samoa Pie",
+    "category": "Desserts",
+    "sub": "Pies",
+    "url": "recipes/desserts/pies/samoa-pie.html",
+    "type": "html",
+    "ingredients": [
+      "cream cheese",
+      "c sugar",
+      "c powdered sugar",
+      "c caramel",
+      "c heavy cream",
+      "store-bought pie crust",
+      "c sweetened shredded coconut"
+    ]
+  },
+  {
+    "title": "See's Fudge",
+    "category": "Desserts",
+    "sub": "Candies",
+    "url": "recipes/desserts/candies/sees-fudge.html",
+    "type": "html",
+    "ingredients": []
+  },
+  {
     "title": "Sophie's Shepherd's Pie",
     "category": "Desserts",
     "sub": "",
@@ -2279,30 +2524,6 @@
     "new": true
   },
   {
-    "title": "A Very Berry Strawberry Bunt Cake",
-    "category": "Desserts",
-    "sub": "Cakes",
-    "url": "recipes/desserts/cakes/a-very-berry-strawberry-bunt-cake.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Luscious Four-Layer Pumpkin Cake",
-    "category": "Desserts",
-    "sub": "Cakes",
-    "url": "recipes/desserts/cakes/luscious-four-layer-pumpkin-cake.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Molten Lava Cake",
-    "category": "Desserts",
-    "sub": "Cakes",
-    "url": "recipes/desserts/cakes/molten-lava-cake.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
     "title": "To Die For Carrot Cake",
     "category": "Desserts",
     "sub": "Cakes",
@@ -2325,212 +2546,6 @@
     "url": "recipes/desserts/cakes/white-texas-sheet-cake.html",
     "type": "html",
     "ingredients": []
-  },
-  {
-    "title": "Chocolate Truffles",
-    "category": "Desserts",
-    "sub": "Candies",
-    "url": "recipes/desserts/candies/chocolate-truffles.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Microwave Praline Candy",
-    "category": "Desserts",
-    "sub": "Candies",
-    "url": "recipes/desserts/candies/microwave-praline-candy.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "See's Fudge",
-    "category": "Desserts",
-    "sub": "Candies",
-    "url": "recipes/desserts/candies/sees-fudge.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Almond Joy Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/almond-joy-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Brown-Butter Blondies With Caramel Almonds",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/brown-butter-blondies-with-caramel-almonds.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Carol's Sugar Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/carols-sugar-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Chinese Butter Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/chinese-butter-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Coconut Chews",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/coconut-chews.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Coconut Macaroons",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/coconut-macaroons.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Cookie Bars",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/cookie-bars.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Date Balls",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/date-balls.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Doubletree Chocolate Chips",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/doubletree-chocolate-chips.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Magic Bars",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/magic-bars.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Neiman-Marcus Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/neiman-marcus-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Neiman-Marcus Cookies Half",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/neiman-marcus-cookies-half.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "No Bake Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/no-bake-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Nobake Peanut Butter Bars",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/nobake-peanut-butter-bars.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Peanut Butter Monster Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/peanut-butter-monster-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Pecan Coconut Triangles",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/pecan-coconut-triangles.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Reese's Peanut Butter Cookies",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Reese's Peanut Butter Cookies Half Batch",
-    "category": "Desserts",
-    "sub": "Cookies",
-    "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies-half-batch.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Ivy House Southern Pecan Pie",
-    "category": "Desserts",
-    "sub": "Pies",
-    "url": "recipes/desserts/pies/ivy-house-southern-pecan-pie.html",
-    "type": "html",
-    "ingredients": []
-  },
-  {
-    "title": "Peanut Butter Pie",
-    "category": "Desserts",
-    "sub": "Pies",
-    "url": "recipes/desserts/pies/peanut-butter-pie.html",
-    "type": "html",
-    "ingredients": [
-      "creamy peanut butter",
-      "cream cheese",
-      "tub of cool whip",
-      "powdered sugar",
-      "hershey bar"
-    ]
-  },
-  {
-    "title": "Samoa Pie",
-    "category": "Desserts",
-    "sub": "Pies",
-    "url": "recipes/desserts/pies/samoa-pie.html",
-    "type": "html",
-    "ingredients": [
-      "cream cheese",
-      "c sugar",
-      "c powdered sugar",
-      "c caramel",
-      "c heavy cream",
-      "store-bought pie crust",
-      "c sweetened shredded coconut"
-    ]
   },
   {
     "title": "Chocolate Peanut Butter Protein Smoothie",
