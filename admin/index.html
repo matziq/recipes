@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Recipe Editor</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--cp-bg);color:var(--cp-text);font-family:"Segoe UI",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.5}
+    header{background:var(--cp-surface);border-bottom:1px solid var(--cp-border);padding:20px}
+    header div,main{max-width:960px;margin:auto}
+    h1{margin:0;font-size:1.65rem}
+    h2{margin-top:0}
+    a{color:var(--cp-link)}
+    main{padding:24px 20px 48px}
+    .card{background:var(--cp-surface);border:1px solid var(--cp-border);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 0 2px var(--cp-border),0 1px 2px var(--cp-border)}
+    .intro{color:var(--cp-text-muted);margin-bottom:0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    label{display:block;font-weight:600;margin-bottom:6px}
+    input,select,textarea,.editor{width:100%;border:1px solid var(--cp-border-strong);border-radius:.625rem;padding:10px 12px;background:var(--cp-bg-elevated);color:var(--cp-text);font:inherit}
+    input:focus,select:focus,textarea:focus,.editor:focus{outline:3px solid var(--cp-highlight);border-color:var(--cp-accent)}
+    textarea{min-height:140px;resize:vertical}
+    .editor{min-height:260px;overflow:auto}
+    .editor img{max-width:240px;height:auto}
+    .field{margin-bottom:16px}
+    .help{color:var(--cp-text-muted);font-size:.88rem;margin:6px 0 0}
+    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    button{border:1px solid var(--cp-accent);border-radius:.625rem;padding:10px 16px;background:var(--cp-accent);color:var(--cp-accent-fg);font:inherit;font-weight:700;cursor:pointer}
+    button:hover{background:var(--cp-accent-hover)}
+    button.secondary{background:var(--cp-surface);color:var(--cp-accent)}
+    button:disabled{opacity:.55;cursor:not-allowed}
+    .status{padding:12px 14px;border:1px solid var(--cp-border);border-radius:.625rem;background:var(--cp-surface-soft);margin-top:16px}
+    .status.success{border-color:var(--cp-success)}
+    .status.error{border-color:var(--cp-danger)}
+    .hidden{display:none}
+    code{font-family:Consolas,"Courier New",Courier,monospace}
+    @media(max-width:680px){.grid{grid-template-columns:1fr}.card{padding:18px}}
+  </style>
+</head>
+<body>
+<header><div><h1>Recipe Editor</h1><p class="intro">Add or update a recipe, then publish it directly to the family recipe site.</p></div></header>
+<main>
+  <section class="card">
+    <h2>First-time access</h2>
+    <ol>
+      <li>Ask the site owner to invite your GitHub account as a repository collaborator.</li>
+      <li>Accept the invitation from GitHub.</li>
+      <li>Create a fine-grained token for only <code>matziq/recipes</code> with <strong>Contents: Read and write</strong>.</li>
+      <li>Keep this page bookmarked. Paste the token only when you publish.</li>
+    </ol>
+    <p class="help">The token is not stored in cookies, local storage, or the recipe files. GitHub recommends giving tokens an expiration date and replacing them periodically.</p>
+  </section>
+  <section class="card">
+    <h2>1. Choose what to edit</h2>
+    <div class="actions">
+      <button type="button" id="new-recipe">Add a new recipe</button>
+      <button type="button" class="secondary" id="edit-recipe">Edit selected recipe</button>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label for="recipe-picker">Existing recipe</label>
+      <select id="recipe-picker"><option>Loading recipes...</option></select>
+    </div>
+  </section>
+
+  <form id="recipe-form" class="card hidden">
+    <h2 id="form-heading">Recipe details</h2>
+    <div class="grid">
+      <div class="field"><label for="title">Recipe title</label><input id="title" required maxlength="160"></div>
+      <div class="field"><label for="category">Category</label><select id="category" required></select></div>
+    </div>
+    <div class="field">
+      <label for="ingredients">Searchable ingredients</label>
+      <textarea id="ingredients" required placeholder="One ingredient per line"></textarea>
+      <p class="help">Use simple names such as <code>chicken breast</code>, <code>garlic</code>, and <code>olive oil</code>. These power ingredient search.</p>
+    </div>
+    <div class="field">
+      <label for="content">Recipe as it will appear</label>
+      <div id="content" class="editor" contenteditable="true" role="textbox" aria-multiline="true"></div>
+      <p class="help">Type or paste ingredients and directions here. Basic headings, lists, paragraphs, and links are preserved.</p>
+    </div>
+    <div class="field">
+      <label for="photo">Optional photo</label>
+      <input id="photo" type="file" accept="image/jpeg,image/png,image/webp">
+      <p class="help">A new photo is added at the top of the recipe. Maximum size: 5 MB.</p>
+    </div>
+    <hr style="border:0;border-top:1px solid var(--cp-border);margin:24px 0">
+    <h2>2. Publish</h2>
+    <div class="field">
+      <label for="token">GitHub fine-grained access token</label>
+      <input id="token" type="password" autocomplete="off" required>
+      <p class="help">The token needs <strong>Contents: Read and write</strong> access to <code>matziq/recipes</code>. It stays in this browser tab and is never saved by this page.</p>
+    </div>
+    <div class="actions">
+      <button id="publish" type="submit">Publish recipe</button>
+      <a href="https://github.com/settings/personal-access-tokens/new?name=Recipe%20Editor&amp;description=Publish%20family%20recipes&amp;target_name=matziq&amp;expires_in=90&amp;contents=write" target="_blank" rel="noopener">Create a GitHub token</a>
+    </div>
+    <div id="status" class="status hidden" role="status" aria-live="polite"></div>
+  </form>
+</main>
+<script>
+(() => {
+  "use strict";
+  const owner = "matziq";
+  const repo = "recipes";
+  const branch = "main";
+  const picker = document.querySelector("#recipe-picker");
+  const form = document.querySelector("#recipe-form");
+  const titleInput = document.querySelector("#title");
+  const categoryInput = document.querySelector("#category");
+  const ingredientsInput = document.querySelector("#ingredients");
+  const contentInput = document.querySelector("#content");
+  const photoInput = document.querySelector("#photo");
+  const status = document.querySelector("#status");
+  const publishButton = document.querySelector("#publish");
+  let recipes = [];
+  let editing = null;
+
+  const slugify = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const escapeHtml = value => value.replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[char]);
+  const showStatus = (message, type = "") => {
+    status.textContent = message;
+    status.className = `status ${type}`.trim();
+  };
+
+  function sanitizeContent(html) {
+    const documentFragment = new DOMParser().parseFromString(`<article>${html}</article>`, "text/html");
+    documentFragment.querySelectorAll("script,style,iframe,object,embed,form").forEach(node => node.remove());
+    documentFragment.querySelectorAll("*").forEach(node => {
+      [...node.attributes].forEach(attribute => {
+        if (attribute.name.startsWith("on") ||
+            ((attribute.name === "href" || attribute.name === "src") && /^\s*javascript:/i.test(attribute.value))) {
+          node.removeAttribute(attribute.name);
+        }
+      });
+    });
+    return documentFragment.querySelector("article").innerHTML.trim();
+  }
+
+  async function loadEditor() {
+    const response = await fetch("../recipes_index.json", {cache: "no-store"});
+    if (!response.ok) throw new Error("Could not load the recipe list.");
+    recipes = await response.json();
+    recipes.sort((a, b) => a.title.localeCompare(b.title));
+    picker.innerHTML = recipes.map((recipe, index) =>
+      `<option value="${index}">${escapeHtml(recipe.title)} (${escapeHtml(recipe.category)})</option>`
+    ).join("");
+    const categories = [...new Set(recipes.map(recipe => recipe.category))].sort();
+    categoryInput.innerHTML = categories.map(category =>
+      `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`
+    ).join("");
+  }
+
+  function startNew() {
+    editing = null;
+    form.reset();
+    contentInput.innerHTML = "<h2>Ingredients</h2><ul><li></li></ul><h2>Directions</h2><ol><li></li></ol>";
+    document.querySelector("#form-heading").textContent = "Add a new recipe";
+    form.classList.remove("hidden");
+    titleInput.focus();
+  }
+
+  async function startEdit() {
+    editing = recipes[Number(picker.value)];
+    const response = await fetch(`../${editing.url}`, {cache: "no-store"});
+    if (!response.ok) throw new Error("Could not load that recipe.");
+    const page = new DOMParser().parseFromString(await response.text(), "text/html");
+    titleInput.value = editing.title;
+    categoryInput.value = editing.category;
+    ingredientsInput.value = editing.ingredients.join("\n");
+    contentInput.innerHTML = page.querySelector(".recipe-content")?.innerHTML || "";
+    photoInput.value = "";
+    document.querySelector("#form-heading").textContent = `Edit ${editing.title}`;
+    form.classList.remove("hidden");
+    titleInput.focus();
+  }
+
+  async function github(path, token, options = {}) {
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}${path}`, {
+      ...options,
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": `Bearer ${token}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+        ...(options.headers || {})
+      }
+    });
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.message || `GitHub returned ${response.status}.`);
+    }
+    return response.status === 204 ? null : response.json();
+  }
+
+  function updateIndex(indexText, oldRecipe, recipe) {
+    const page = new DOMParser().parseFromString(indexText, "text/html");
+    if (oldRecipe) {
+      page.querySelector(`a[href="${CSS.escape(oldRecipe.url)}"]`)?.closest("li")?.remove();
+    }
+    const categorySlug = slugify(recipe.category);
+    const section = page.querySelector(`#cat-${CSS.escape(categorySlug)}`);
+    if (!section) throw new Error(`The category "${recipe.category}" is not available on the recipe page.`);
+    const item = page.createElement("li");
+    item.innerHTML = `<a href="${escapeHtml(recipe.url)}">${escapeHtml(recipe.title)}<span class="tag html">html</span>${oldRecipe ? "" : ' <span class="tag new">NEW</span>'}</a>`;
+    section.querySelector(".recipes").append(item);
+    page.querySelectorAll(".cat-section").forEach(categorySection => {
+      const items = [...categorySection.querySelectorAll(".recipes > li")];
+      items.sort((a, b) => a.textContent.localeCompare(b.textContent));
+      items.forEach(entry => categorySection.querySelector(".recipes").append(entry));
+      const count = items.length;
+      categorySection.querySelector(".cat-title-count").textContent = count;
+      page.querySelector(`.cat[href="#${categorySection.id}"] .count`).textContent = count;
+    });
+    page.querySelector("#q").placeholder = `Search ${recipes.length} recipes...`;
+    return "<!doctype html>\n" + page.documentElement.outerHTML;
+  }
+
+  function updateNewPage(newText, recipe) {
+    const page = new DOMParser().parseFromString(newText, "text/html");
+    const section = [...page.querySelectorAll("section")].find(candidate =>
+      candidate.querySelector("h2")?.textContent.trim().replace(/^\S+\s*/, "") === recipe.category
+    );
+    if (section) {
+      const item = page.createElement("li");
+      item.innerHTML = `<a href="${escapeHtml(recipe.url)}">${escapeHtml(recipe.title)}<span class="tag html">html</span> <span class="tag new">NEW</span></a>`;
+      section.querySelector(".recipes").prepend(item);
+      const count = page.querySelectorAll(".recipes > li").length;
+      const heading = page.querySelector("main h1");
+      heading.textContent = `New Recipes (${count})`;
+    }
+    return "<!doctype html>\n" + page.documentElement.outerHTML;
+  }
+
+  function buildRecipePage(templateText, recipe, bodyHtml, imageName) {
+    const page = new DOMParser().parseFromString(templateText, "text/html");
+    page.title = `${recipe.title} \u2022 Recipes`;
+    const categorySlug = slugify(recipe.category);
+    const crumbLinks = page.querySelectorAll(".crumbs a");
+    crumbLinks[1].href = `../../index.html#cat-${categorySlug}`;
+    crumbLinks[1].textContent = recipe.category;
+    page.querySelector("main > h1").textContent = recipe.title;
+    page.querySelector(".recipe-content").innerHTML =
+      (imageName ? `<p><img src="${escapeHtml(imageName)}" alt="${escapeHtml(recipe.title)}"></p>` : "") +
+      sanitizeContent(bodyHtml);
+    return "<!doctype html>\n" + page.documentElement.outerHTML;
+  }
+
+  const toBase64 = async file => {
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    let binary = "";
+    for (let offset = 0; offset < bytes.length; offset += 32768) {
+      binary += String.fromCharCode(...bytes.subarray(offset, offset + 32768));
+    }
+    return btoa(binary);
+  };
+
+  async function publish(event) {
+    event.preventDefault();
+    showStatus("Preparing your recipe...");
+    publishButton.disabled = true;
+    try {
+      const token = document.querySelector("#token").value.trim();
+      if (!token) throw new Error("Enter a GitHub token.");
+      const title = titleInput.value.trim();
+      const category = categoryInput.value;
+      const ingredients = ingredientsInput.value.split(/\r?\n/).map(value => value.trim()).filter(Boolean);
+      const bodyHtml = sanitizeContent(contentInput.innerHTML);
+      if (!title || !ingredients.length || !bodyHtml) throw new Error("Complete the title, ingredients, and recipe content.");
+
+      const categorySlug = slugify(category);
+      const recipeSlug = slugify(title);
+      const url = `recipes/${categorySlug}/${recipeSlug}.html`;
+      if (!editing && recipes.some(recipe => recipe.url === url)) throw new Error("A recipe with this title already exists.");
+      const recipe = {title, category, sub: "", url, type: "html", ingredients};
+      const updatedRecipes = recipes.filter(item => item !== editing);
+      updatedRecipes.push(recipe);
+      updatedRecipes.sort((a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title));
+
+      const [indexText, newText, templateText] = await Promise.all([
+        fetch("../index.html", {cache: "no-store"}).then(response => response.text()),
+        fetch("../new.html", {cache: "no-store"}).then(response => response.text()),
+        fetch(editing ? `../${editing.url}` : `../${recipes[0].url}`, {cache: "no-store"}).then(response => response.text())
+      ]);
+      recipes = updatedRecipes;
+      const ingredientCounts = new Map();
+      recipes.flatMap(item => item.ingredients).forEach(name => ingredientCounts.set(name, (ingredientCounts.get(name) || 0) + 1));
+      const ingredientMaster = [...ingredientCounts].map(([name, count]) => ({name, count}))
+        .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+
+      const photo = photoInput.files[0];
+      if (photo && photo.size > 5 * 1024 * 1024) throw new Error("The photo must be smaller than 5 MB.");
+      const extension = photo ? ({ "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp" })[photo.type] : "";
+      if (photo && !extension) throw new Error("Use a JPG, PNG, or WebP photo.");
+      const imageName = photo ? `${recipeSlug}-photo.${extension}` : "";
+
+      showStatus("Signing in to GitHub and publishing...");
+      const reference = await github(`/git/ref/heads/${branch}`, token);
+      const parent = await github(`/git/commits/${reference.object.sha}`, token);
+      const entries = [
+        {path: url, mode: "100644", type: "blob", content: buildRecipePage(templateText, recipe, bodyHtml, imageName)},
+        {path: "recipes_index.json", mode: "100644", type: "blob", content: JSON.stringify(recipes, null, 2) + "\n"},
+        {path: "ingredients_master.json", mode: "100644", type: "blob", content: JSON.stringify(ingredientMaster, null, 2) + "\n"},
+        {path: "index.html", mode: "100644", type: "blob", content: updateIndex(indexText, editing, recipe)}
+      ];
+      if (!editing) entries.push({path: "new.html", mode: "100644", type: "blob", content: updateNewPage(newText, recipe)});
+      if (editing && editing.url !== recipe.url) entries.push({path: editing.url, mode: "100644", type: "blob", sha: null});
+      if (photo) {
+        const blob = await github("/git/blobs", token, {
+          method: "POST",
+          body: JSON.stringify({content: await toBase64(photo), encoding: "base64"})
+        });
+        entries.push({path: `recipes/${categorySlug}/${imageName}`, mode: "100644", type: "blob", sha: blob.sha});
+      }
+      const tree = await github("/git/trees", token, {
+        method: "POST",
+        body: JSON.stringify({base_tree: parent.tree.sha, tree: entries})
+      });
+      const commit = await github("/git/commits", token, {
+        method: "POST",
+        body: JSON.stringify({
+          message: `${editing ? "Update" : "Add"} recipe: ${title}`,
+          tree: tree.sha,
+          parents: [reference.object.sha]
+        })
+      });
+      await github(`/git/refs/heads/${branch}`, token, {
+        method: "PATCH",
+        body: JSON.stringify({sha: commit.sha, force: false})
+      });
+      editing = recipe;
+      showStatus("Published successfully. GitHub Pages normally updates within a minute.", "success");
+    } catch (error) {
+      showStatus(error.message, "error");
+    } finally {
+      publishButton.disabled = false;
+    }
+  }
+
+  document.querySelector("#new-recipe").addEventListener("click", startNew);
+  document.querySelector("#edit-recipe").addEventListener("click", () => startEdit().catch(error => showStatus(error.message, "error")));
+  form.addEventListener("submit", publish);
+  loadEditor().catch(error => {
+    picker.innerHTML = "<option>Recipe list unavailable</option>";
+    showStatus(error.message, "error");
+  });
+})();
+</script>
+</body>
+</html>
