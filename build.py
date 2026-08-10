@@ -821,6 +821,15 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
 """
 
+THEME_SCRIPT = """<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>"""
+
 
 # Client-side JS: hide NEW badges per-user once a recipe is viewed.
 # Stores viewed recipe URLs in localStorage under "recipesViewedNew".
@@ -1328,66 +1337,55 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recipes</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>\U0001F374</text></svg>">
-<style>{BASE_CSS}</style>
+{THEME_SCRIPT}
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
+<script src="assets/index.js" defer></script>
 </head><body>
-<header>
-  <h1><a href="./">\U0001F374 Recipes</a></h1>
-  <div class="search"><input id="q" type="search" placeholder="Search {total} recipes..." autocomplete="off"></div>
+<a class="skip-link" href="#main-content">Skip to recipes</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">\U0001F374</span><span>Family Recipes</span></a>
+    <div class="search">
+      <label class="sr-only" for="q">Search recipes</label>
+      <input id="q" type="search" placeholder="Search {total} recipes or ingredients..." autocomplete="off" enterkeyhint="search">
+      <button class="search-clear" type="button" data-search-clear aria-label="Clear search">&times;</button>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">\u263E</span></button>
+    </div>
+  </div>
 </header>
-<main class="container">
+<main class="container" id="main-content">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Our family cookbook</p>
+      <h1 id="hero-title">What sounds good today?</h1>
+      <p>Search by recipe, browse a category, or find something you can make with ingredients already in your kitchen.</p>
+    </div>
+    <div class="hero-stat" aria-label="{total} recipes"><strong>{total}</strong><span>family recipes</span></div>
+  </section>
+  <nav class="quick-actions" aria-label="Recipe shortcuts">
+    <button class="action-btn primary" type="button" data-surprise><span aria-hidden="true">\U0001F3B2</span> Surprise me</button>
+    <button class="action-btn" type="button" data-view="favorites"><span aria-hidden="true">\u2665</span> Favorites <span class="action-count" data-favorite-count>0</span></button>
+    <button class="action-btn" type="button" data-view="recent"><span aria-hidden="true">\u21BA</span> Recently viewed</button>
+  </nav>
   {new_banner}
   {wdyh_panel}
+  <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
   <div id="results" class="search-results"><ul id="results-list"></ul></div>
+  <section id="collection-view" class="collection-view" aria-live="polite">
+    <div class="collection-head"><h2 id="collection-title"></h2></div>
+    <div id="collection-grid" class="collection-grid"></div>
+  </section>
   <div id="browse">
+    <h2 class="section-label">Browse by category</h2>
     <div class="cats">{"".join(cat_cards)}</div>
     {"".join(sections)}
   </div>
 </main>
-<footer>Built from OneDrive/Recipes \u2022 {total} recipes</footer>
-<script>
-let RECIPES = [];
-fetch('recipes_index.json').then(r=>r.json()).then(d=>{{RECIPES=d}});
-const q = document.getElementById('q');
-const browse = document.getElementById('browse');
-const results = document.getElementById('results');
-const list = document.getElementById('results-list');
-function render(items){{
-  if(!items.length){{ list.innerHTML='<li class="empty">No matches.</li>'; return;}}
-  list.innerHTML = items.slice(0,200).map(r=>{{
-    const sub = r.sub ? ' \u203A '+r.sub : '';
-    const newBadge = r.new ? ' <span class="tag new">NEW</span>' : '';
-    return `<li><a href="${{r.url}}">${{r.title}}</a> <span class="tag ${{r.type}}">${{r.type}}</span>${{newBadge}}<div class="meta">${{r.category}}${{sub}}</div></li>`;
-  }}).join('');
-}}
-q.addEventListener('input', () => {{
-  const term = q.value.trim().toLowerCase();
-  if(!term){{ results.classList.remove('active'); browse.style.display=''; return;}}
-  const matches = RECIPES.filter(r =>
-    r.title.toLowerCase().includes(term) ||
-    r.category.toLowerCase().includes(term) ||
-    (r.sub||'').toLowerCase().includes(term)
-  );
-  render(matches);
-  results.classList.add('active');
-  browse.style.display='none';
-}});
-
-// Open the target category section when navigating via #cat-... hashes
-// (so the compact category cards both scroll AND expand the section).
-function openSectionFromHash(){{
-  const h = location.hash;
-  if(!h || h.length < 2) return;
-  let target;
-  try {{ target = document.querySelector(h); }} catch(e) {{ return; }}
-  if(target && target.tagName === 'DETAILS'){{
-    target.open = true;
-    target.scrollIntoView({{behavior:'smooth', block:'start'}});
-  }}
-}}
-window.addEventListener('hashchange', openSectionFromHash);
-openSectionFromHash();
-</script>
+<footer class="site-footer">Made for our family \u2022 {total} recipes \u2022 <a href="admin/">Manage recipes</a></footer>
 <script>{WDYH_JS}</script>
 <script>{VIEWED_NEW_JS}</script>
 </body></html>
@@ -1568,7 +1566,7 @@ def _recipe_li(r: dict) -> str:
     t = r["type"]
     new_badge = ' <span class="tag new">NEW</span>' if r.get("new") else ''
     return (
-        f'<li><a href="{escape(r["url"])}">{escape(r["title"])}'
+        f'<li><a href="{escape(r["url"])}"><span class="recipe-name">{escape(r["title"])}</span>'
         f'<span class="tag {t}">{t}</span>{new_badge}</a></li>'
     )
 
@@ -1593,18 +1591,27 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>New Recipes \u2022 Recipes</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>\U0001F374</text></svg>">
-<style>{BASE_CSS}</style>
+{THEME_SCRIPT}
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head><body class="new-page">
-<header><h1><a href="index.html">\U0001F374 Recipes</a></h1></header>
-<main class="container">
+<a class="skip-link" href="#main-content">Skip to new recipes</a>
+<header class="site-header"><div class="header-inner header-simple">
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">\U0001F374</span><span>Family Recipes</span></a>
+  <div class="header-actions">
+    <a class="icon-btn" href="index.html" aria-label="All recipes" title="All recipes">\u2302</a>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">\u263E</span></button>
+  </div>
+</div></header>
+<main class="container" id="main-content">
   <div class="crumbs"><a href="index.html">Recipes</a> \u203A <span class="tag new">NEW</span></div>
-  <h1 style="color:var(--accent);margin-top:0">\U0001F195 {new_count} New Recipe{plural}</h1>
-  <p class="new-page-intro">Click any recipe and the NEW badge disappears for you. (We remember your views in this browser.)</p>
+  <h1 class="page-title">{new_count} New Recipe{plural}</h1>
+  <p class="new-page-intro">Open any recipe and its NEW badge disappears for you. This browser remembers what you have viewed.</p>
   <div class="new-page-actions"><button type="button" class="mark-all-read-btn" data-mark-all-read title="Mark all new recipes as read"><span class="check">\u2713</span> Mark all as read</button></div>
   {"".join(sections)}
 </main>
-<footer><a href="index.html">\u2190 Back to all recipes</a></footer>
+<footer class="site-footer"><a href="index.html">\u2190 Back to all recipes</a></footer>
 <script>""" + VIEWED_NEW_JS + """</script>
 </body></html>
 """
@@ -1622,17 +1629,37 @@ def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)} • Recipes</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🍴</text></svg>">
-<style>{BASE_CSS}</style>
-</head><body>
-<header><h1><a href="{root}index.html">🍴 Recipes</a></h1></header>
-<main class="container">
+{THEME_SCRIPT}
+<link rel="icon" href="{root}favicon.svg">
+<link rel="stylesheet" href="{root}assets/site.css">
+<script src="{root}assets/site.js" defer></script>
+<script src="{root}assets/recipe.js" defer></script>
+</head><body class="recipe-page" data-recipe-title="{escape(title)}" data-recipe-category="{escape(category)}" data-root="{root}">
+<a class="skip-link" href="#main-content">Skip to recipe</a>
+<header class="site-header"><div class="header-inner header-simple">
+  <a class="brand" href="{root}index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
+  <div class="header-actions">
+    <a class="icon-btn" href="{root}index.html" aria-label="All recipes" title="All recipes">⌂</a>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">☾</span></button>
+  </div>
+</div></header>
+<main class="container" id="main-content">
   <div class="crumbs">{crumbs}</div>
-  <h1 style="color:var(--accent);margin-top:0">{escape(title)}</h1>
+  <div class="recipe-title-row"><h1 class="page-title">{escape(title)}</h1></div>
+  <div class="recipe-toolbar" aria-label="Recipe tools">
+    <button class="action-btn" type="button" data-favorite data-title="{escape(title)}" data-category="{escape(category)}" aria-pressed="false"><span data-favorite-icon aria-hidden="true">♡</span><span class="button-label" data-favorite-label>Save</span></button>
+    <button class="action-btn" type="button" data-cook-mode aria-pressed="false"><span aria-hidden="true">◉</span><span class="button-label">Cook mode</span></button>
+    <button class="action-btn" type="button" data-share><span aria-hidden="true">↗</span><span class="button-label">Share</span></button>
+    <button class="action-btn" type="button" data-print><span aria-hidden="true">▣</span><span class="button-label">Print</span></button>
+    <button class="action-btn" type="button" data-text-size aria-label="Change text size" title="Change text size">A+</button>
+    <div class="progress-wrap"><span data-progress-label>Ready</span><div class="progress-track" aria-hidden="true"><div class="progress-bar" data-progress-bar></div></div><button class="icon-btn" type="button" data-reset-progress aria-label="Reset checklist" title="Reset checklist">↺</button></div>
+  </div>
+  <div class="cook-mode-banner" role="status">Cook mode is on: larger text and screen wake lock when supported.</div>
   <article class="recipe-content">{body}</article>
+  <section class="related" data-related hidden><h2>More from {escape(category)}</h2><div class="related-grid" data-related-grid></div></section>
 </main>
-<footer><a href="{root}index.html">← Back to all recipes</a></footer>
-<script>""" + IMAGE_TOGGLE_JS + """</script>
+<button class="back-to-top" type="button" data-back-to-top aria-label="Back to top" title="Back to top">↑</button>
+<footer class="site-footer"><a href="{root}index.html">← Back to all recipes</a></footer>
 </body></html>
 """
 

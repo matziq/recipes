@@ -263,13 +263,15 @@
     const section = page.querySelector(`#cat-${CSS.escape(categorySlug)}`);
     if (!section) throw new Error(`The category "${recipe.category}" is not available on the recipe page.`);
     const item = page.createElement("li");
-    item.innerHTML = `<a href="${escapeHtml(recipe.url)}">${escapeHtml(recipe.title)}<span class="tag html">html</span>${oldRecipe ? "" : ' <span class="tag new">NEW</span>'}</a>`;
+    item.innerHTML = `<a href="${escapeHtml(recipe.url)}"><span class="recipe-name">${escapeHtml(recipe.title)}</span><span class="tag html">html</span>${oldRecipe ? "" : ' <span class="tag new">NEW</span>'}</a>`;
     section.querySelector(".recipes").append(item);
     page.querySelectorAll(".cat-section").forEach(categorySection => {
-      const items = [...categorySection.querySelectorAll(".recipes > li")];
-      items.sort((a, b) => a.textContent.localeCompare(b.textContent));
-      items.forEach(entry => categorySection.querySelector(".recipes").append(entry));
-      const count = items.length;
+      categorySection.querySelectorAll(".recipes").forEach(recipeList => {
+        const items = [...recipeList.querySelectorAll(":scope > li")];
+        items.sort((a, b) => a.textContent.localeCompare(b.textContent));
+        items.forEach(entry => recipeList.append(entry));
+      });
+      const count = categorySection.querySelectorAll(".recipes > li").length;
       categorySection.querySelector(".cat-title-count").textContent = count;
       page.querySelector(`.cat[href="#${categorySection.id}"] .count`).textContent = count;
     });
@@ -284,11 +286,11 @@
     );
     if (section) {
       const item = page.createElement("li");
-      item.innerHTML = `<a href="${escapeHtml(recipe.url)}">${escapeHtml(recipe.title)}<span class="tag html">html</span> <span class="tag new">NEW</span></a>`;
+      item.innerHTML = `<a href="${escapeHtml(recipe.url)}"><span class="recipe-name">${escapeHtml(recipe.title)}</span><span class="tag html">html</span> <span class="tag new">NEW</span></a>`;
       section.querySelector(".recipes").prepend(item);
       const count = page.querySelectorAll(".recipes > li").length;
       const heading = page.querySelector("main h1");
-      heading.textContent = `New Recipes (${count})`;
+      heading.textContent = `${count} New Recipes`;
     }
     return "<!doctype html>\n" + page.documentElement.outerHTML;
   }
@@ -296,11 +298,22 @@
   function buildRecipePage(templateText, recipe, bodyHtml, imageName) {
     const page = new DOMParser().parseFromString(templateText, "text/html");
     page.title = `${recipe.title} \u2022 Recipes`;
+    page.body.dataset.recipeTitle = recipe.title;
+    page.body.dataset.recipeCategory = recipe.category;
+    page.body.dataset.recipeUrl = recipe.url;
     const categorySlug = slugify(recipe.category);
     const crumbLinks = page.querySelectorAll(".crumbs a");
     crumbLinks[1].href = `../../index.html#cat-${categorySlug}`;
     crumbLinks[1].textContent = recipe.category;
-    page.querySelector("main > h1").textContent = recipe.title;
+    page.querySelector(".page-title").textContent = recipe.title;
+    const favorite = page.querySelector("[data-favorite]");
+    if (favorite) {
+      favorite.dataset.title = recipe.title;
+      favorite.dataset.category = recipe.category;
+      favorite.dataset.url = recipe.url;
+    }
+    const relatedHeading = page.querySelector("[data-related] h2");
+    if (relatedHeading) relatedHeading.textContent = `More from ${recipe.category}`;
     page.querySelector(".recipe-content").innerHTML =
       (imageName ? `<p><img src="${escapeHtml(imageName)}" alt="${escapeHtml(recipe.title)}"></p>` : "") +
       sanitizeContent(bodyHtml);

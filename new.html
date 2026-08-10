@@ -3,271 +3,170 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>New Recipes • Recipes</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🍴</text></svg>">
-<style>
-:root{
-  --bg:#fff8f1; --card:#fff; --ink:#3b2a1a; --muted:#7a6a55;
-  --accent:#c2410c; --accent2:#f59e0b; --line:#f1e4d2;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:Georgia,'Iowan Old Style',serif;background:var(--bg);color:var(--ink);line-height:1.55}
-header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,#fff7ec,#fff8f1);
-  border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-header h1{margin:0;font-size:1.4rem;color:var(--accent)}
-header h1 a{color:inherit;text-decoration:none}
-.search{flex:1;min-width:240px}
-.search input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff}
-.container{max-width:1100px;margin:0 auto;padding:24px 20px}
-.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:18px}
-.cat{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 10px 8px;text-align:center;text-decoration:none;color:var(--ink);transition:transform .12s,box-shadow .12s,border-color .12s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:0}
-.cat:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(194,65,12,.12);border-color:#fbd9b3}
-.cat .ic{font-size:1.5rem;display:block;line-height:1.1}
-.cat .name{font-weight:bold;margin-top:2px;display:block;font-size:.88rem;line-height:1.2}
-.cat .count{position:absolute;top:4px;right:4px;background:var(--accent);color:#fff;font-size:.68rem;font-weight:bold;padding:2px 7px;border-radius:999px;min-width:20px;line-height:1.35;letter-spacing:.02em}
-h2.cat-title{color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:6px}
-.cat-section{margin:0 0 14px;background:transparent;border:0;padding:0}
-.cat-section>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:bold;font-size:1.4rem;padding:8px 4px;border-bottom:2px solid var(--line);user-select:none;transition:background .12s}
-.cat-section>summary::-webkit-details-marker{display:none}
-.cat-section>summary::before{content:'\25B6';color:var(--accent2);font-size:.75rem;transition:transform .2s ease;display:inline-block;width:.9em;flex-shrink:0}
-.cat-section[open]>summary::before{transform:rotate(90deg)}
-.cat-section>summary:hover{background:#fff7ec}
-.cat-section>summary .cat-title-icon{font-size:1.6rem;line-height:1}
-.cat-section>summary .cat-title-name{flex:1}
-.cat-section>summary .cat-title-count{margin-left:auto;background:var(--accent);color:#fff;font-size:.72rem;font-weight:bold;padding:3px 10px;border-radius:999px;min-width:24px;text-align:center;letter-spacing:.02em}
-.cat-section[open]>:not(summary){animation:cat-section-open .18s ease-out}
-@keyframes cat-section-open{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
-.recipes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
-.recipes li{background:var(--card);border:1px solid var(--line);border-radius:10px}
-.recipes a{display:block;padding:12px 14px;color:var(--ink);text-decoration:none}
-.recipes a:hover{background:#fff3e2}
-.tag{font-size:.7rem;background:var(--accent2);color:#fff;padding:2px 6px;border-radius:6px;margin-left:6px;vertical-align:middle}
-.tag.pdf{background:#ef4444}
-.tag.html{background:#16a34a}
-.tag.jpg,.tag.jpeg,.tag.png{background:#3b82f6}
-.tag.new{background:#dc2626;font-weight:bold;letter-spacing:.5px;animation:pulse-new 1.6s ease-in-out infinite}
-@keyframes pulse-new{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
-.new-banner{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1f0,#fff8f1);border:1px solid #fecaca;border-left:6px solid #dc2626;border-radius:12px;padding:14px 18px;margin:0 0 22px;text-decoration:none;color:var(--ink);box-shadow:0 1px 4px rgba(220,38,38,.08);transition:transform .12s ease, box-shadow .12s ease}
-.new-banner:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(220,38,38,.15)}
-.new-banner-tag{background:#dc2626;color:#fff;font-weight:bold;letter-spacing:.5px;font-size:.78rem;padding:3px 8px;border-radius:6px;animation:pulse-new 1.6s ease-in-out infinite}
-.new-banner-text{font-weight:600;flex:1}
-.new-banner-arrow{color:#dc2626;font-size:1.2rem;font-weight:bold}
-.new-banner-row{display:flex;align-items:center;gap:12px;margin:0 0 22px;flex-wrap:wrap}
-.new-banner-row .new-banner{margin:0;flex:1;min-width:240px}
-.mark-all-read-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #fecaca;color:#dc2626;padding:10px 16px;border-radius:999px;font-family:inherit;font-size:.92rem;font-weight:bold;cursor:pointer;transition:background .15s,transform .12s,box-shadow .15s;box-shadow:0 1px 4px rgba(220,38,38,.08)}
-.mark-all-read-btn:hover{background:#fff1f0;transform:translateY(-1px);box-shadow:0 4px 12px rgba(220,38,38,.15)}
-.mark-all-read-btn:active{transform:translateY(0)}
-.mark-all-read-btn .check{font-size:1rem}
-.new-page-actions{display:flex;justify-content:flex-end;margin:0 0 18px}
-@media (max-width:520px){.new-banner-row{flex-direction:column;align-items:stretch}.new-page-actions{justify-content:stretch}.new-page-actions .mark-all-read-btn{width:100%;justify-content:center}}
-.new-page-intro{color:var(--muted);margin:6px 0 22px}
-.crumbs{color:var(--muted);font-size:.95rem;margin-bottom:14px}
-.crumbs a{color:var(--accent);text-decoration:none}
-.recipe-content{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
-.recipe-content img{display:block;max-width:min(220px,100%);height:auto;margin:10px 0;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:zoom-in;transition:max-width .18s ease,box-shadow .18s ease,transform .18s ease}
-.recipe-content img:hover{box-shadow:0 6px 22px rgba(194,65,12,.18);transform:translateY(-1px)}
-.recipe-content img.image-expanded{max-width:100%;cursor:zoom-out;box-shadow:0 8px 28px rgba(0,0,0,.14)}
-.recipe-content img:focus{outline:3px solid rgba(245,158,11,.5);outline-offset:3px}
-.recipe-content table{border-collapse:collapse;margin:12px 0}
-.recipe-content td,.recipe-content th{border:1px solid var(--line);padding:6px 10px}
-.pdf-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
-.pdf-page{background:#fff}
-footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
-.search-results{display:none}
-.search-results.active{display:block}
-.search-results ul{list-style:none;padding:0;margin:0}
-.search-results li{padding:10px;border-bottom:1px solid var(--line)}
-.search-results a{color:var(--accent);text-decoration:none;font-weight:bold}
-.search-results .meta{color:var(--muted);font-size:.85rem}
-.empty{color:var(--muted);font-style:italic;padding:20px}
-.all-caught-up{text-align:center;color:var(--muted);font-size:1.1rem;margin:40px 0;padding:30px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
-
-/* "What do you have?" panel */
-.wdyh{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
-.wdyh-head{display:flex;align-items:center;gap:10px;width:100%;padding:14px 18px;background:linear-gradient(90deg,#fff7ec,#fff3e2);border:0;border-bottom:1px solid var(--line);font-family:inherit;font-size:1.05rem;color:var(--accent);font-weight:bold;cursor:pointer;text-align:left}
-.wdyh-head:hover{background:linear-gradient(90deg,#fff3e2,#ffe9ce)}
-.wdyh-head .wdyh-icon{font-size:1.4rem}
-.wdyh-head .wdyh-chev{margin-left:auto;transition:transform .2s ease;color:var(--accent2)}
-.wdyh[data-open="true"] .wdyh-head .wdyh-chev{transform:rotate(180deg)}
-.wdyh[data-open="true"] .wdyh-head{border-bottom-color:var(--line)}
-.wdyh-body{display:none;padding:16px 18px 18px}
-.wdyh[data-open="true"] .wdyh-body{display:block}
-.wdyh-hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
-.wdyh-input-wrap{position:relative}
-.wdyh-input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:1rem;background:#fff;font-family:inherit}
-.wdyh-input:disabled{background:#faf2e6;color:var(--muted);cursor:not-allowed}
-.wdyh-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08);max-height:280px;overflow-y:auto;z-index:20;display:none}
-.wdyh-suggest.active{display:block}
-.wdyh-suggest button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:transparent;border:0;text-align:left;font-family:inherit;font-size:.95rem;color:var(--ink);cursor:pointer}
-.wdyh-suggest button:hover,.wdyh-suggest button.active{background:#fff3e2}
-.wdyh-suggest .wdyh-count{margin-left:auto;color:var(--muted);font-size:.8rem}
-.wdyh-suggest .wdyh-empty{padding:10px 14px;color:var(--muted);font-style:italic}
-.wdyh-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:0}
-.wdyh-chip{display:inline-flex;align-items:center;gap:6px;background:#fff3e2;border:1px solid #fbd9b3;color:var(--accent);padding:4px 6px 4px 12px;border-radius:999px;font-size:.9rem}
-.wdyh-chip button{background:transparent;border:0;color:var(--accent);font-size:1rem;line-height:1;padding:2px 6px;cursor:pointer;border-radius:999px}
-.wdyh-chip button:hover{background:rgba(194,65,12,.12)}
-.wdyh-actions{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:.85rem;color:var(--muted)}
-.wdyh-actions button{background:transparent;border:0;color:var(--accent);cursor:pointer;font-size:.85rem;font-family:inherit;text-decoration:underline}
-.wdyh-actions button:hover{color:#9a3209}
-.wdyh-matches{margin-top:18px}
-.wdyh-matches h3{margin:0 0 10px;color:var(--accent);font-size:1.05rem}
-.wdyh-match{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--ink)}
-.wdyh-match:hover{background:#fff3e2}
-.wdyh-match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.wdyh-match-title{font-weight:bold}
-.wdyh-match-cat{color:var(--muted);font-size:.85rem}
-.wdyh-match-score{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:bold}
-.wdyh-match-score.partial{background:var(--accent2)}
-.wdyh-match-need{color:var(--muted);font-size:.85rem}
-.wdyh-match-need .have{color:#16a34a;font-weight:bold}
-.wdyh-match-need .miss{color:#b45309}
-.wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
-</style>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head><body class="new-page">
-<header><h1><a href="index.html">🍴 Recipes</a></h1></header>
-<main class="container">
+<a class="skip-link" href="#main-content">Skip to new recipes</a>
+<header class="site-header"><div class="header-inner header-simple">
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
+  <div class="header-actions">
+    <a class="icon-btn" href="index.html" aria-label="All recipes" title="All recipes">⌂</a>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">☾</span></button>
+  </div>
+</div></header>
+<main class="container" id="main-content">
   <div class="crumbs"><a href="index.html">Recipes</a> › <span class="tag new">NEW</span></div>
-  <h1 style="color:var(--accent);margin-top:0">New Recipes (155)</h1>
-  <p class="new-page-intro">Click any recipe and the NEW badge disappears for you. (We remember your views in this browser.)</p>
-  <div class="new-page-actions"><button type="button" class="mark-all-read-btn" data-mark-all-read="" title="Mark all new recipes as read"><span class="check">✓</span> Mark all as read</button></div>
-  <section><h2 class="cat-title">🥟 Appetizers</h2><ul class="recipes"><li><a href="recipes/appetizers/jalapeño-poppers.html">Jalapeño Poppers<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/appetizers/quinoa-stuffed-peppers.html">Quinoa Stuffed Peppers<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥩 Beef</h2><ul class="recipes"><li><a href="recipes/beef/best-beef-dip-ever.html">Best Beef Dip Ever<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/beef/birria-slow-cooker.html">Birria (Slow Cooker)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/beef/carne-asada-tacos.html">Carne Asada Tacos<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/beef/copycat-crunchwrap-supreme.html">Copycat Crunchwrap Supreme<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/beef/perfect-pan-seared-steak.html">Perfect Pan-Seared Steak<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/beef/roasted-corned-beef-and-cabbage-with-horseradish-cream-sauce.html">Roasted Corned Beef and Cabbage with Horseradish Cream Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍞 Breads</h2><ul class="recipes"><li><a href="recipes/breads/amazingly-easy-irish-soda-bread.html">Amazingly Easy Irish Soda Bread<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/california-roll-sushi-bowl.html">California Roll Sushi Bowl<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/cinnamon-sugar-soft-pretzels-recipe.html">Cinnamon Sugar Soft Pretzels Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/crunch-roll-sushi-bowl-with-easy-eel-sauce.html">Crunch Roll Sushi Bowl with Easy Eel Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/easy-homemade-soft-pretzels-recipe.html">Easy Homemade Soft Pretzels Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/monkey-bread.html">Monkey Bread<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/my-best-pumpkin-bread.html">My Best Pumpkin Bread<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/no-fail-focaccia.html">No Fail Focaccia<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/pretzel-hamburger-buns.html">Pretzel Hamburger Buns<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/rosemary-bread-macaroni-grill-copycat-recipe.html">Rosemary Bread {Macaroni Grill Copycat Recipe}<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/slow-cooker-chicken-tortilla-soup.html">Slow Cooker Chicken Tortilla Soup<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breads/soft-pretzel-bites.html">Soft Pretzel Bites<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍳 Breakfast</h2><ul class="recipes"><li><a href="recipes/breakfast/best-huevos-rancheros-recipe.html">Best Huevos Rancheros Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breakfast/german-apple-pancake.html">German Apple Pancake<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breakfast/high-protein-buttermilk-pancakes-your-moms-recipe-upgraded.html">High-Protein Buttermilk Pancakes (Your Mom’s Recipe, Upgraded)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breakfast/pumpkin-pancakes.html">Pumpkin Pancakes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/breakfast/yeast-waffles.html">Yeast Waffles<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍗 Chicken</h2><ul class="recipes"><li><a href="recipes/chicken/chicken-bacon-avocado-chopped-salad-with-lemon-vinaigrette.html">Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/chicken-tikka-masala-recipe-better-than-takeout.html">Chicken Tikka Masala Recipe (Better Than Takeout)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/crispy-poblano-chicken-tacos-with-avocado-jalapeño-salsa.html">Crispy Poblano Chicken Tacos with Avocado-Jalapeño Salsa<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/grilled-boneless-chicken-thighs.html">Grilled Boneless Chicken Thighs<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/huli-huli-chicken-with-amazing-huli-huli-sauce.html">Huli Huli Chicken with Amazing Huli Huli Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/italian-grinder-chicken-salad.html">Italian Grinder Chicken Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/panang-curry.html">Panang curry<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/thai-peanut-chicken-wraps.html">Thai Peanut Chicken Wraps<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/chicken/the-best-greek-chicken-marinade.html">THE BEST Greek Chicken Marinade<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍰 Desserts</h2><ul class="recipes"><li><a href="recipes/desserts/dubai-chocolate-bar.html">Dubai Chocolate Bar<span class="tag html">html</span> <span class="tag new">NEW</span></a></li><li><a href="recipes/desserts/best-white-chocolate-and-macadamia-cookies.html">Best White Chocolate and Macadamia Cookies<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/chocolate-buttercream.html">Chocolate Buttercream<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/chocolate-coconut-bars.html">Chocolate Coconut Bars<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/chocolate-fondue.html">Chocolate Fondue<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/cookie-butter-frosting.html">Cookie Butter Frosting<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/easy-tiramisu-mousse.html">Easy Tiramisu Mousse<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/everyday-cinnamon-rolls.html">Everyday Cinnamon Rolls<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/frosting-for-sugar-cookies.html">Frosting for Sugar Cookies<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/granny-kats-pumpkin-roll.html">Granny Kat's Pumpkin Roll<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/homemade-fondant-that-tastes-like-buttercream.html">Homemade Fondant that Tastes like Buttercream<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/molten-chocolate-mug-cake.html">Molten Chocolate Mug Cake<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/mrs-siggs-snickerdoodles.html">Mrs. Sigg's Snickerdoodles<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/salted-caramel-apple-hand-pies.html">Salted Caramel Apple Hand Pies<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/salted-caramel-bread-pudding.html">Salted Caramel Bread Pudding<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/salted-caramel-ice-cream.html">Salted Caramel Ice Cream<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/salted-caramel-6-layer-chocolate-cake.html">Salted-Caramel 6-Layer Chocolate Cake<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/sophies-shepherds-pie.html">Sophie's Shepherd's Pie<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/the-best-rice-krispies-treats-recipe.html">The BEST Rice Krispies Treats Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/desserts/the-most-amazing-chocolate-cake.html">The Most Amazing Chocolate Cake<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥤 Drinks</h2><ul class="recipes"><li><a href="recipes/drinks/chocolate-peanut-butter-protein-smoothie.html">Chocolate Peanut Butter Protein Smoothie<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/drinks/copycat-chick-fil-a-frosted-lemonade.html">CopyCat Chick-fil-A Frosted Lemonade<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍓 Fruit</h2><ul class="recipes"><li><a href="recipes/fruit/summer-peach-fruit-salad.html">Summer Peach Fruit Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍝 Pasta</h2><ul class="recipes"><li><a href="recipes/pasta/basil-lemon-pasta-salad.html">Basil Lemon Pasta Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/pasta/mongolian-beef-ramen.html">Mongolian Beef Ramen<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/pasta/pesto-cavatappi.html">Pesto Cavatappi<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥓 Pork</h2><ul class="recipes"><li><a href="recipes/pork/crockpot-bbq-ribs.html">Crockpot BBQ Ribs<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/pork/sausage-stuffing.html">Sausage Stuffing<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/pork/tacos-al-pastor-3-methods.html">Tacos al Pastor (3 Methods)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥗 Salads</h2><ul class="recipes"><li><a href="recipes/salads/basil-lemon-pasta-salad.html">Basil Lemon Pasta Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/caprese-avocado-salad.html">Caprese Avocado Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/chicken-bacon-avocado-chopped-salad-with-lemon-vinaigrette.html">Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/cobb-salad.html">Cobb Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/creamy-cucumber-tomato-salad-recipe.html">Creamy Cucumber Tomato Salad Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/cucumber-salad-dressing.html">Cucumber Salad Dressing<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/greek-salad-dressing-the-best.html">Greek Salad Dressing (The BEST!)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/healthy-greek-salad-dressing.html">Healthy Greek Salad Dressing<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/indian-cucumber-salad.html">Indian Cucumber Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/mediterranean-three-bean-salad-high-protein-high-fiber.html">Mediterranean Three Bean Salad (High Protein, High Fiber)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/salads/summer-peach-fruit-salad.html">Summer Peach Fruit Salad<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥪 Sandwiches</h2><ul class="recipes"><li><a href="recipes/sandwiches/chicken-taco-seasoning-recipe.html">Chicken Taco Seasoning Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sandwiches/grilled-chicken-pesto-panini.html">Grilled Chicken &amp; Pesto Panini<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥫 Sauces  &amp; Dips</h2><ul class="recipes"><li><a href="recipes/sauces-dips/authentic-homemade-ranchero-sauce-recipe.html">Authentic Homemade Ranchero Sauce Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/best-ranchero-sauce-recipe.html">Best Ranchero Sauce Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/creamy-garlic-lime-cilantro-sauce.html">Creamy Garlic Lime Cilantro Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/creamy-red-enchilada-sauce-recipe.html">Creamy Red Enchilada Sauce Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/cucumber-salad-dressing.html">Cucumber Salad Dressing<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/easy-baja-sauce-for-tacos-and-more.html">Easy Baja Sauce (for Tacos and more!)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/easy-red-enchilada-sauce-15-minute-recipe.html">Easy Red Enchilada Sauce {15 minute Recipe}<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/gravy-recipe-tastes-like-kfc-but-a-million-times-better.html">Gravy recipe (tastes like KFC - but a million times better!)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/guajillo-sauce.html">Guajillo Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/homemade-ranchero-sauce.html">Homemade Ranchero Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/homemade-russian-sauce.html">Homemade Russian Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/kicked-up-cheddar-cheese-sauce.html">Kicked-Up Cheddar Cheese Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/louisiana-remoulade-sauce.html">Louisiana Remoulade Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/pineapple-habanero-hot-sauce.html">Pineapple Habanero Hot Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/quick-and-tasty-ranchero-sauce-recipe-perfect-for-any-dish.html">Quick And Tasty Ranchero Sauce Recipe - Perfect For Any Dish<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/ranchero-sauce.html">Ranchero Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/sweet-spicy-sriracha-chili-dipping-sauce-recipe.html">Sweet &amp; Spicy Sriracha Chili Dipping Sauce Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/taco-seasoning.html">Taco Seasoning<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/tamale-sauce.html">Tamale Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/the-best-greek-chicken-marinade.html">THE BEST Greek Chicken Marinade<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sauces-dips/white-pizza-sauce-recipe-quick-easy.html">White Pizza Sauce Recipe (Quick &amp; Easy)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🦐 Seafood</h2><ul class="recipes"><li><a href="recipes/seafood/best-easy-healthy-baked-salmon.html">Best Easy Healthy Baked Salmon<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/best-shrimp-boil-recipe.html">BEST Shrimp Boil Recipe!<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/california-spicy-crab-stuffed-avocado.html">California Spicy Crab Stuffed Avocado<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/chef-johns-shrimp-and-grits.html">Chef John's Shrimp and Grits<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/crunch-roll-sushi-bowl-with-easy-eel-sauce.html">Crunch Roll Sushi Bowl with Easy Eel Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/grilled-salmon-with-avocado-salsa-recipe.html">Grilled Salmon with Avocado Salsa Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/margarita-grilled-shrimp-kabobs.html">Margarita Grilled Shrimp Kabobs<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/red-lobster-copycat-pina-colada-sauce.html">Red Lobster Copycat Pina Colada Sauce<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/seafood-pizza.html">Seafood Pizza<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/seafood-salad-recipe.html">Seafood Salad Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/shrimp-and-asparagus-stir-fry-recipe-by-tasty.html">Shrimp And Asparagus Stir-Fry Recipe by Tasty<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/spicy-shrimp-tacos-with-avocado-crema.html">Spicy Shrimp Tacos with Avocado Crema<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/seafood/sushi-rice.html">Sushi Rice<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍚 Sides</h2><ul class="recipes"><li><a href="recipes/sides/best-copycat-zuppa-toscana-recipe.html">BEST Copycat Zuppa Toscana Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/best-white-chocolate-and-macadamia-cookies.html">Best White Chocolate and Macadamia Cookies<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/birria-slow-cooker.html">Birria (Slow Cooker)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/brazilan-style-black-beans-in-pressure-cooker.html">Brazilan Style Black Beans in Pressure Cooker<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/brazilian-style-rice.html">Brazilian Style Rice<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/brown-butter-honey-glazed-carrots.html">Brown Butter Honey Glazed Carrots<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/cheesy-baked-grits.html">Cheesy Baked Grits<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/chocolate-fondue.html">Chocolate Fondue<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/chunky-portabella-veggie-burgers.html">Chunky Portabella Veggie Burgers<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/chuys-creamy-jalapeno-dip.html">Chuy's Creamy Jalapeno Dip<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/cilantro-lime-crema-recipe.html">Cilantro Lime Crema recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/cinnamon-sugar-soft-pretzels-recipe.html">Cinnamon Sugar Soft Pretzels Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/copycat-crunchwrap-supreme.html">Copycat Crunchwrap Supreme<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/copycat-texas-roadhouse-butter.html">Copycat Texas Roadhouse Butter<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/crispy-parmesan-garlic-edamame.html">Crispy Parmesan Garlic Edamame<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/easy-homemade-soft-pretzels-recipe.html">Easy Homemade Soft Pretzels Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/everyday-cinnamon-rolls.html">Everyday Cinnamon Rolls<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/frijoles-puercos.html">Frijoles Puercos<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/garlic-rubbed-roasted-cabbage-steaks.html">Garlic Rubbed Roasted Cabbage Steaks<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/grilled-sweet-potatoes.html">Grilled Sweet Potatoes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/healthy-pumpkin-oatmeal-blender-pancakes.html">Healthy Pumpkin Oatmeal Blender Pancakes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/homemade-fondant-that-tastes-like-buttercream.html">Homemade Fondant that Tastes like Buttercream<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/lion-house-rolls.html">Lion House Rolls<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/panang-curry.html">Panang curry<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/perfect-jasmine-rice.html">Perfect Jasmine Rice<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/pumpkin-pancakes.html">Pumpkin Pancakes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/roasted-whole-carrots-with-honey-and-feta.html">Roasted Whole Carrots with Honey and Feta<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/rosemary-parmesan-roasted-potatoes.html">Rosemary Parmesan Roasted Potatoes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/saucy-sesame-meatballs.html">Saucy Sesame Meatballs<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/sausage-stuffing.html">Sausage Stuffing<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/scalloped-potatoes.html">Scalloped Potatoes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/slow-cooker-carnitas.html">Slow Cooker Carnitas<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html">Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/strawberry-buttermilk-pancakes-with-nutella-syrup.html">Strawberry Buttermilk Pancakes with Nutella Syrup<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/sushi-rice.html">Sushi Rice<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/tacos-al-pastor-3-methods.html">Tacos al Pastor (3 Methods)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/the-best-asparagus-in-under-10-minutes.html">The Best Asparagus in Under 10 Minutes<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/the-best-rice-krispies-treats-recipe.html">The BEST Rice Krispies Treats Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/sides/yeast-waffles.html">Yeast Waffles<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍿 Snacks</h2><ul class="recipes"><li><a href="recipes/snacks/soft-pretzel-bites.html">Soft Pretzel Bites<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/snacks/sweet-and-salty-peanut-butter-pretzel-bites.html">Sweet and Salty Peanut Butter Pretzel Bites<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍲 Soups</h2><ul class="recipes"><li><a href="recipes/soups/10-minute-chili-lime-almonds.html">10-Minute Chili Lime Almonds<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/soups/creamy-mushroom-chicken-and-wild-rice-soup.html">Creamy Mushroom Chicken and Wild Rice Soup<span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
-<li><a href="recipes/soups/tex-mex-chili-gravy-mexican-brown-gravy.html">Tex Mex Chili Gravy (Mexican Brown Gravy)<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥦 Vegetarian (Tofu)</h2><ul class="recipes"><li><a href="recipes/vegetarian-tofu/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html">Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe<span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section>
+  <h1 class="page-title">154 New Recipes</h1>
+  <p class="new-page-intro">Open any recipe and its NEW badge disappears for you. This browser remembers what you have viewed.</p>
+  <div class="new-page-actions"><button type="button" class="mark-all-read-btn" data-mark-all-read title="Mark all new recipes as read"><span class="check">✓</span> Mark all as read</button></div>
+  <section><h2 class="cat-title">🥟 Appetizers</h2><ul class="recipes"><li><a href="recipes/appetizers/jalapeño-poppers.html"><span class="recipe-name">Jalapeño Poppers</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/appetizers/quinoa-stuffed-peppers.html"><span class="recipe-name">Quinoa Stuffed Peppers</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥩 Beef</h2><ul class="recipes"><li><a href="recipes/beef/best-beef-dip-ever.html"><span class="recipe-name">Best Beef Dip Ever</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/beef/birria-slow-cooker.html"><span class="recipe-name">Birria (Slow Cooker)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/beef/carne-asada-tacos.html"><span class="recipe-name">Carne Asada Tacos</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/beef/copycat-crunchwrap-supreme.html"><span class="recipe-name">Copycat Crunchwrap Supreme</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/beef/perfect-pan-seared-steak.html"><span class="recipe-name">Perfect Pan-Seared Steak</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/beef/roasted-corned-beef-and-cabbage-with-horseradish-cream-sauce.html"><span class="recipe-name">Roasted Corned Beef and Cabbage with Horseradish Cream Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍞 Breads</h2><ul class="recipes"><li><a href="recipes/breads/amazingly-easy-irish-soda-bread.html"><span class="recipe-name">Amazingly Easy Irish Soda Bread</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/california-roll-sushi-bowl.html"><span class="recipe-name">California Roll Sushi Bowl</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/cinnamon-sugar-soft-pretzels-recipe.html"><span class="recipe-name">Cinnamon Sugar Soft Pretzels Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/crunch-roll-sushi-bowl-with-easy-eel-sauce.html"><span class="recipe-name">Crunch Roll Sushi Bowl with Easy Eel Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/easy-homemade-soft-pretzels-recipe.html"><span class="recipe-name">Easy Homemade Soft Pretzels Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/monkey-bread.html"><span class="recipe-name">Monkey Bread</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/my-best-pumpkin-bread.html"><span class="recipe-name">My Best Pumpkin Bread</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/no-fail-focaccia.html"><span class="recipe-name">No Fail Focaccia</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/pretzel-hamburger-buns.html"><span class="recipe-name">Pretzel Hamburger Buns</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/rosemary-bread-macaroni-grill-copycat-recipe.html"><span class="recipe-name">Rosemary Bread {Macaroni Grill Copycat Recipe}</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/slow-cooker-chicken-tortilla-soup.html"><span class="recipe-name">Slow Cooker Chicken Tortilla Soup</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breads/soft-pretzel-bites.html"><span class="recipe-name">Soft Pretzel Bites</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍳 Breakfast</h2><ul class="recipes"><li><a href="recipes/breakfast/best-huevos-rancheros-recipe.html"><span class="recipe-name">Best Huevos Rancheros Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breakfast/german-apple-pancake.html"><span class="recipe-name">German Apple Pancake</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breakfast/high-protein-buttermilk-pancakes-your-moms-recipe-upgraded.html"><span class="recipe-name">High-Protein Buttermilk Pancakes (Your Mom’s Recipe, Upgraded)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breakfast/pumpkin-pancakes.html"><span class="recipe-name">Pumpkin Pancakes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/breakfast/yeast-waffles.html"><span class="recipe-name">Yeast Waffles</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍗 Chicken</h2><ul class="recipes"><li><a href="recipes/chicken/chicken-bacon-avocado-chopped-salad-with-lemon-vinaigrette.html"><span class="recipe-name">Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/chicken-tikka-masala-recipe-better-than-takeout.html"><span class="recipe-name">Chicken Tikka Masala Recipe (Better Than Takeout)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/crispy-poblano-chicken-tacos-with-avocado-jalapeño-salsa.html"><span class="recipe-name">Crispy Poblano Chicken Tacos with Avocado-Jalapeño Salsa</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/grilled-boneless-chicken-thighs.html"><span class="recipe-name">Grilled Boneless Chicken Thighs</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/huli-huli-chicken-with-amazing-huli-huli-sauce.html"><span class="recipe-name">Huli Huli Chicken with Amazing Huli Huli Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/italian-grinder-chicken-salad.html"><span class="recipe-name">Italian Grinder Chicken Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/panang-curry.html"><span class="recipe-name">Panang curry</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/thai-peanut-chicken-wraps.html"><span class="recipe-name">Thai Peanut Chicken Wraps</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/chicken/the-best-greek-chicken-marinade.html"><span class="recipe-name">THE BEST Greek Chicken Marinade</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍰 Desserts</h2><ul class="recipes"><li><a href="recipes/desserts/best-white-chocolate-and-macadamia-cookies.html"><span class="recipe-name">Best White Chocolate and Macadamia Cookies</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/chocolate-buttercream.html"><span class="recipe-name">Chocolate Buttercream</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/chocolate-coconut-bars.html"><span class="recipe-name">Chocolate Coconut Bars</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/chocolate-fondue.html"><span class="recipe-name">Chocolate Fondue</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/cookie-butter-frosting.html"><span class="recipe-name">Cookie Butter Frosting</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/easy-tiramisu-mousse.html"><span class="recipe-name">Easy Tiramisu Mousse</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/everyday-cinnamon-rolls.html"><span class="recipe-name">Everyday Cinnamon Rolls</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/frosting-for-sugar-cookies.html"><span class="recipe-name">Frosting for Sugar Cookies</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/granny-kats-pumpkin-roll.html"><span class="recipe-name">Granny Kat&#x27;s Pumpkin Roll</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/homemade-fondant-that-tastes-like-buttercream.html"><span class="recipe-name">Homemade Fondant that Tastes like Buttercream</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/molten-chocolate-mug-cake.html"><span class="recipe-name">Molten Chocolate Mug Cake</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/mrs-siggs-snickerdoodles.html"><span class="recipe-name">Mrs. Sigg&#x27;s Snickerdoodles</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/salted-caramel-apple-hand-pies.html"><span class="recipe-name">Salted Caramel Apple Hand Pies</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/salted-caramel-bread-pudding.html"><span class="recipe-name">Salted Caramel Bread Pudding</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/salted-caramel-ice-cream.html"><span class="recipe-name">Salted Caramel Ice Cream</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/salted-caramel-6-layer-chocolate-cake.html"><span class="recipe-name">Salted-Caramel 6-Layer Chocolate Cake</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/sophies-shepherds-pie.html"><span class="recipe-name">Sophie&#x27;s Shepherd&#x27;s Pie</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/the-best-rice-krispies-treats-recipe.html"><span class="recipe-name">The BEST Rice Krispies Treats Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/desserts/the-most-amazing-chocolate-cake.html"><span class="recipe-name">The Most Amazing Chocolate Cake</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥤 Drinks</h2><ul class="recipes"><li><a href="recipes/drinks/chocolate-peanut-butter-protein-smoothie.html"><span class="recipe-name">Chocolate Peanut Butter Protein Smoothie</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/drinks/copycat-chick-fil-a-frosted-lemonade.html"><span class="recipe-name">CopyCat Chick-fil-A Frosted Lemonade</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍓 Fruit</h2><ul class="recipes"><li><a href="recipes/fruit/summer-peach-fruit-salad.html"><span class="recipe-name">Summer Peach Fruit Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍝 Pasta</h2><ul class="recipes"><li><a href="recipes/pasta/basil-lemon-pasta-salad.html"><span class="recipe-name">Basil Lemon Pasta Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/pasta/mongolian-beef-ramen.html"><span class="recipe-name">Mongolian Beef Ramen</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/pasta/pesto-cavatappi.html"><span class="recipe-name">Pesto Cavatappi</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥓 Pork</h2><ul class="recipes"><li><a href="recipes/pork/crockpot-bbq-ribs.html"><span class="recipe-name">Crockpot BBQ Ribs</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/pork/sausage-stuffing.html"><span class="recipe-name">Sausage Stuffing</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/pork/tacos-al-pastor-3-methods.html"><span class="recipe-name">Tacos al Pastor (3 Methods)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥗 Salads</h2><ul class="recipes"><li><a href="recipes/salads/basil-lemon-pasta-salad.html"><span class="recipe-name">Basil Lemon Pasta Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/caprese-avocado-salad.html"><span class="recipe-name">Caprese Avocado Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/chicken-bacon-avocado-chopped-salad-with-lemon-vinaigrette.html"><span class="recipe-name">Chicken Bacon Avocado Chopped Salad with Lemon Vinaigrette</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/cobb-salad.html"><span class="recipe-name">Cobb Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/creamy-cucumber-tomato-salad-recipe.html"><span class="recipe-name">Creamy Cucumber Tomato Salad Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/cucumber-salad-dressing.html"><span class="recipe-name">Cucumber Salad Dressing</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/greek-salad-dressing-the-best.html"><span class="recipe-name">Greek Salad Dressing (The BEST!)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/healthy-greek-salad-dressing.html"><span class="recipe-name">Healthy Greek Salad Dressing</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/indian-cucumber-salad.html"><span class="recipe-name">Indian Cucumber Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/mediterranean-three-bean-salad-high-protein-high-fiber.html"><span class="recipe-name">Mediterranean Three Bean Salad (High Protein, High Fiber)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/salads/summer-peach-fruit-salad.html"><span class="recipe-name">Summer Peach Fruit Salad</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥪 Sandwiches</h2><ul class="recipes"><li><a href="recipes/sandwiches/chicken-taco-seasoning-recipe.html"><span class="recipe-name">Chicken Taco Seasoning Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sandwiches/grilled-chicken-pesto-panini.html"><span class="recipe-name">Grilled Chicken &amp; Pesto Panini</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥫 Sauces  &amp; Dips</h2><ul class="recipes"><li><a href="recipes/sauces-dips/authentic-homemade-ranchero-sauce-recipe.html"><span class="recipe-name">Authentic Homemade Ranchero Sauce Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/best-ranchero-sauce-recipe.html"><span class="recipe-name">Best Ranchero Sauce Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/creamy-garlic-lime-cilantro-sauce.html"><span class="recipe-name">Creamy Garlic Lime Cilantro Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/creamy-red-enchilada-sauce-recipe.html"><span class="recipe-name">Creamy Red Enchilada Sauce Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/cucumber-salad-dressing.html"><span class="recipe-name">Cucumber Salad Dressing</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/easy-baja-sauce-for-tacos-and-more.html"><span class="recipe-name">Easy Baja Sauce (for Tacos and more!)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/easy-red-enchilada-sauce-15-minute-recipe.html"><span class="recipe-name">Easy Red Enchilada Sauce {15 minute Recipe}</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/gravy-recipe-tastes-like-kfc-but-a-million-times-better.html"><span class="recipe-name">Gravy recipe (tastes like KFC - but a million times better!)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/guajillo-sauce.html"><span class="recipe-name">Guajillo Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/homemade-ranchero-sauce.html"><span class="recipe-name">Homemade Ranchero Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/homemade-russian-sauce.html"><span class="recipe-name">Homemade Russian Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/kicked-up-cheddar-cheese-sauce.html"><span class="recipe-name">Kicked-Up Cheddar Cheese Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/louisiana-remoulade-sauce.html"><span class="recipe-name">Louisiana Remoulade Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/pineapple-habanero-hot-sauce.html"><span class="recipe-name">Pineapple Habanero Hot Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/quick-and-tasty-ranchero-sauce-recipe-perfect-for-any-dish.html"><span class="recipe-name">Quick And Tasty Ranchero Sauce Recipe - Perfect For Any Dish</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/ranchero-sauce.html"><span class="recipe-name">Ranchero Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/sweet-spicy-sriracha-chili-dipping-sauce-recipe.html"><span class="recipe-name">Sweet &amp; Spicy Sriracha Chili Dipping Sauce Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/taco-seasoning.html"><span class="recipe-name">Taco Seasoning</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/tamale-sauce.html"><span class="recipe-name">Tamale Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/the-best-greek-chicken-marinade.html"><span class="recipe-name">THE BEST Greek Chicken Marinade</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sauces-dips/white-pizza-sauce-recipe-quick-easy.html"><span class="recipe-name">White Pizza Sauce Recipe (Quick &amp; Easy)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🦐 Seafood</h2><ul class="recipes"><li><a href="recipes/seafood/best-easy-healthy-baked-salmon.html"><span class="recipe-name">Best Easy Healthy Baked Salmon</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/best-shrimp-boil-recipe.html"><span class="recipe-name">BEST Shrimp Boil Recipe!</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/california-spicy-crab-stuffed-avocado.html"><span class="recipe-name">California Spicy Crab Stuffed Avocado</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/chef-johns-shrimp-and-grits.html"><span class="recipe-name">Chef John&#x27;s Shrimp and Grits</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/crunch-roll-sushi-bowl-with-easy-eel-sauce.html"><span class="recipe-name">Crunch Roll Sushi Bowl with Easy Eel Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/grilled-salmon-with-avocado-salsa-recipe.html"><span class="recipe-name">Grilled Salmon with Avocado Salsa Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/margarita-grilled-shrimp-kabobs.html"><span class="recipe-name">Margarita Grilled Shrimp Kabobs</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/red-lobster-copycat-pina-colada-sauce.html"><span class="recipe-name">Red Lobster Copycat Pina Colada Sauce</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/seafood-pizza.html"><span class="recipe-name">Seafood Pizza</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/seafood-salad-recipe.html"><span class="recipe-name">Seafood Salad Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/shrimp-and-asparagus-stir-fry-recipe-by-tasty.html"><span class="recipe-name">Shrimp And Asparagus Stir-Fry Recipe by Tasty</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/spicy-shrimp-tacos-with-avocado-crema.html"><span class="recipe-name">Spicy Shrimp Tacos with Avocado Crema</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/seafood/sushi-rice.html"><span class="recipe-name">Sushi Rice</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍚 Sides</h2><ul class="recipes"><li><a href="recipes/sides/best-copycat-zuppa-toscana-recipe.html"><span class="recipe-name">BEST Copycat Zuppa Toscana Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/best-white-chocolate-and-macadamia-cookies.html"><span class="recipe-name">Best White Chocolate and Macadamia Cookies</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/birria-slow-cooker.html"><span class="recipe-name">Birria (Slow Cooker)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/brazilan-style-black-beans-in-pressure-cooker.html"><span class="recipe-name">Brazilan Style Black Beans in Pressure Cooker</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/brazilian-style-rice.html"><span class="recipe-name">Brazilian Style Rice</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/brown-butter-honey-glazed-carrots.html"><span class="recipe-name">Brown Butter Honey Glazed Carrots</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/cheesy-baked-grits.html"><span class="recipe-name">Cheesy Baked Grits</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/chocolate-fondue.html"><span class="recipe-name">Chocolate Fondue</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/chunky-portabella-veggie-burgers.html"><span class="recipe-name">Chunky Portabella Veggie Burgers</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/chuys-creamy-jalapeno-dip.html"><span class="recipe-name">Chuy&#x27;s Creamy Jalapeno Dip</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/cilantro-lime-crema-recipe.html"><span class="recipe-name">Cilantro Lime Crema recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/cinnamon-sugar-soft-pretzels-recipe.html"><span class="recipe-name">Cinnamon Sugar Soft Pretzels Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/copycat-crunchwrap-supreme.html"><span class="recipe-name">Copycat Crunchwrap Supreme</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/copycat-texas-roadhouse-butter.html"><span class="recipe-name">Copycat Texas Roadhouse Butter</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/crispy-parmesan-garlic-edamame.html"><span class="recipe-name">Crispy Parmesan Garlic Edamame</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/easy-homemade-soft-pretzels-recipe.html"><span class="recipe-name">Easy Homemade Soft Pretzels Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/everyday-cinnamon-rolls.html"><span class="recipe-name">Everyday Cinnamon Rolls</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/frijoles-puercos.html"><span class="recipe-name">Frijoles Puercos</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/garlic-rubbed-roasted-cabbage-steaks.html"><span class="recipe-name">Garlic Rubbed Roasted Cabbage Steaks</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/grilled-sweet-potatoes.html"><span class="recipe-name">Grilled Sweet Potatoes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/healthy-pumpkin-oatmeal-blender-pancakes.html"><span class="recipe-name">Healthy Pumpkin Oatmeal Blender Pancakes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/homemade-fondant-that-tastes-like-buttercream.html"><span class="recipe-name">Homemade Fondant that Tastes like Buttercream</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/lion-house-rolls.html"><span class="recipe-name">Lion House Rolls</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/panang-curry.html"><span class="recipe-name">Panang curry</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/perfect-jasmine-rice.html"><span class="recipe-name">Perfect Jasmine Rice</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/pumpkin-pancakes.html"><span class="recipe-name">Pumpkin Pancakes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/roasted-whole-carrots-with-honey-and-feta.html"><span class="recipe-name">Roasted Whole Carrots with Honey and Feta</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/rosemary-parmesan-roasted-potatoes.html"><span class="recipe-name">Rosemary Parmesan Roasted Potatoes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/saucy-sesame-meatballs.html"><span class="recipe-name">Saucy Sesame Meatballs</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/sausage-stuffing.html"><span class="recipe-name">Sausage Stuffing</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/scalloped-potatoes.html"><span class="recipe-name">Scalloped Potatoes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/slow-cooker-carnitas.html"><span class="recipe-name">Slow Cooker Carnitas</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html"><span class="recipe-name">Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/strawberry-buttermilk-pancakes-with-nutella-syrup.html"><span class="recipe-name">Strawberry Buttermilk Pancakes with Nutella Syrup</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/sushi-rice.html"><span class="recipe-name">Sushi Rice</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/tacos-al-pastor-3-methods.html"><span class="recipe-name">Tacos al Pastor (3 Methods)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/the-best-asparagus-in-under-10-minutes.html"><span class="recipe-name">The Best Asparagus in Under 10 Minutes</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/the-best-rice-krispies-treats-recipe.html"><span class="recipe-name">The BEST Rice Krispies Treats Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/sides/yeast-waffles.html"><span class="recipe-name">Yeast Waffles</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍿 Snacks</h2><ul class="recipes"><li><a href="recipes/snacks/soft-pretzel-bites.html"><span class="recipe-name">Soft Pretzel Bites</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/snacks/sweet-and-salty-peanut-butter-pretzel-bites.html"><span class="recipe-name">Sweet and Salty Peanut Butter Pretzel Bites</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🍲 Soups</h2><ul class="recipes"><li><a href="recipes/soups/10-minute-chili-lime-almonds.html"><span class="recipe-name">10-Minute Chili Lime Almonds</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/soups/creamy-mushroom-chicken-and-wild-rice-soup.html"><span class="recipe-name">Creamy Mushroom Chicken and Wild Rice Soup</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li>
+<li><a href="recipes/soups/tex-mex-chili-gravy-mexican-brown-gravy.html"><span class="recipe-name">Tex Mex Chili Gravy (Mexican Brown Gravy)</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section><section><h2 class="cat-title">🥦 Vegetarian (Tofu)</h2><ul class="recipes"><li><a href="recipes/vegetarian-tofu/spinach-mushroom-and-ricotta-stuffed-zucchini-boats-recipe.html"><span class="recipe-name">Spinach, Mushroom, and Ricotta Stuffed Zucchini Boats Recipe</span><span class="tag html">html</span> <span class="tag new">NEW</span></a></li></ul></section>
 </main>
-<footer><a href="index.html">← Back to all recipes</a></footer>
+<footer class="site-footer"><a href="index.html">← Back to all recipes</a></footer>
 <script>
 (function(){
   var KEY = 'recipesViewedNew';
@@ -436,5 +335,4 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
   }
 })();
 </script>
-
 </body></html>
