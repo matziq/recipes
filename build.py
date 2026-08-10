@@ -1342,7 +1342,7 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
 <script src="assets/index.js" defer></script>
-</head><body>
+</head><body class="home-page">
 <a class="skip-link" href="#main-content">Skip to recipes</a>
 <header class="site-header">
   <div class="header-inner">
@@ -1360,7 +1360,7 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
 <main class="container" id="main-content">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow">Our family cookbook</p>
+      <p class="eyebrow"><span aria-hidden="true">\U0001F342</span> Our family cookbook</p>
       <h1 id="hero-title">What sounds good today?</h1>
       <p>Search by recipe, browse a category, or find something you can make with ingredients already in your kitchen.</p>
     </div>
@@ -1371,6 +1371,36 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
     <button class="action-btn" type="button" data-view="favorites"><span aria-hidden="true">\u2665</span> Favorites <span class="action-count" data-favorite-count>0</span></button>
     <button class="action-btn" type="button" data-view="recent"><span aria-hidden="true">\u21BA</span> Recently viewed</button>
   </nav>
+  <dialog class="surprise-dialog" id="surprise-dialog" aria-labelledby="surprise-title">
+    <div class="surprise-shell">
+      <div class="surprise-head">
+        <div><p class="eyebrow"><span aria-hidden="true">\U0001F341</span> Seasonal surprise</p><h2 id="surprise-title">What kind of recipe?</h2></div>
+        <form method="dialog"><button class="icon-btn surprise-close" aria-label="Close surprise picker" title="Close">&times;</button></form>
+      </div>
+      <p class="surprise-intro">Choose a meal, or let the time of day and Northern Hemisphere season guide the pick.</p>
+      <div id="surprise-choices">
+        <p class="surprise-context" id="surprise-context"></p>
+        <div class="surprise-choice-grid">
+          <button class="surprise-choice smart" type="button" data-surprise-choice="smart"><span class="surprise-choice-icon" aria-hidden="true">\u2728</span><span>Pick for right now</span></button>
+          <button class="surprise-choice" type="button" data-surprise-choice="breakfast"><span class="surprise-choice-icon" aria-hidden="true">\U0001F373</span><span>Breakfast</span></button>
+          <button class="surprise-choice" type="button" data-surprise-choice="lunch"><span class="surprise-choice-icon" aria-hidden="true">\U0001F96A</span><span>Lunch</span></button>
+          <button class="surprise-choice" type="button" data-surprise-choice="dinner"><span class="surprise-choice-icon" aria-hidden="true">\U0001F37D\uFE0F</span><span>Dinner</span></button>
+          <button class="surprise-choice" type="button" data-surprise-choice="dessert"><span class="surprise-choice-icon" aria-hidden="true">\U0001F370</span><span>Dessert</span></button>
+          <button class="surprise-choice" type="button" data-surprise-choice="snack"><span class="surprise-choice-icon" aria-hidden="true">\U0001F34E</span><span>Snack or drink</span></button>
+        </div>
+      </div>
+      <div class="surprise-result" id="surprise-result" hidden>
+        <span class="surprise-result-icon" aria-hidden="true">\U0001F342</span>
+        <h3 id="surprise-recipe-title"></h3>
+        <p id="surprise-recipe-meta"></p>
+        <div class="surprise-result-actions">
+          <a class="action-btn primary" id="surprise-open" href="#">Open recipe</a>
+          <button class="action-btn" type="button" data-surprise-again>Pick another</button>
+          <button class="action-btn" type="button" data-surprise-back>Change meal</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
   {new_banner}
   {wdyh_panel}
   <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
