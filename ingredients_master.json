@@ -33,7 +33,7 @@
   },
   {
     "name": "sugar",
-    "count": 48
+    "count": 49
   },
   {
     "name": "kosher salt",
@@ -72,15 +72,15 @@
     "count": 25
   },
   {
+    "name": "vanilla extract",
+    "count": 24
+  },
+  {
     "name": "baking powder",
     "count": 23
   },
   {
     "name": "brown sugar",
-    "count": 23
-  },
-  {
-    "name": "vanilla extract",
     "count": 23
   },
   {
@@ -116,6 +116,10 @@
     "count": 15
   },
   {
+    "name": "heavy cream",
+    "count": 15
+  },
+  {
     "name": "parsley",
     "count": 15
   },
@@ -125,6 +129,10 @@
   },
   {
     "name": "green onion",
+    "count": 14
+  },
+  {
+    "name": "lime juice",
     "count": 14
   },
   {
@@ -144,15 +152,7 @@
     "count": 13
   },
   {
-    "name": "heavy cream",
-    "count": 13
-  },
-  {
     "name": "lime",
-    "count": 13
-  },
-  {
-    "name": "lime juice",
     "count": 13
   },
   {
@@ -184,6 +184,10 @@
     "count": 11
   },
   {
+    "name": "powdered sugar",
+    "count": 11
+  },
+  {
     "name": "shrimp",
     "count": 11
   },
@@ -208,6 +212,10 @@
     "count": 10
   },
   {
+    "name": "white sugar",
+    "count": 10
+  },
+  {
     "name": "bacon",
     "count": 9
   },
@@ -221,14 +229,6 @@
   },
   {
     "name": "mexican oregano",
-    "count": 9
-  },
-  {
-    "name": "powdered sugar",
-    "count": 9
-  },
-  {
-    "name": "white sugar",
     "count": 9
   },
   {
@@ -604,6 +604,10 @@
     "count": 3
   },
   {
+    "name": "milk chocolate",
+    "count": 3
+  },
+  {
     "name": "monterey jack cheese",
     "count": 3
   },
@@ -677,6 +681,10 @@
   },
   {
     "name": "white wine vinegar",
+    "count": 3
+  },
+  {
+    "name": "whole milk",
     "count": 3
   },
   {
@@ -868,6 +876,10 @@
     "count": 2
   },
   {
+    "name": "egg yolks",
+    "count": 2
+  },
+  {
     "name": "epazote",
     "count": 2
   },
@@ -985,10 +997,6 @@
   },
   {
     "name": "mexican cheese blend",
-    "count": 2
-  },
-  {
-    "name": "milk chocolate",
     "count": 2
   },
   {
@@ -1230,6 +1238,10 @@
   {
     "name": "zucchini",
     "count": 2
+  },
+  {
+    "name": "Ferrero Rocher chocolates",
+    "count": 1
   },
   {
     "name": "adobo sauce",
@@ -1600,6 +1612,10 @@
     "count": 1
   },
   {
+    "name": "caramel popcorn",
+    "count": 1
+  },
+  {
     "name": "cashew piece",
     "count": 1
   },
@@ -1749,6 +1765,10 @@
   },
   {
     "name": "coconut flavoring",
+    "count": 1
+  },
+  {
+    "name": "coconut water",
     "count": 1
   },
   {
@@ -1984,6 +2004,10 @@
     "count": 1
   },
   {
+    "name": "fine salt",
+    "count": 1
+  },
+  {
     "name": "finish steaks in f",
     "count": 1
   },
@@ -2045,6 +2069,14 @@
   },
   {
     "name": "fruit",
+    "count": 1
+  },
+  {
+    "name": "full-fat coconut milk",
+    "count": 1
+  },
+  {
+    "name": "full-fat cream",
     "count": 1
   },
   {
@@ -2329,6 +2361,10 @@
   },
   {
     "name": "instant vanilla pudding",
+    "count": 1
+  },
+  {
+    "name": "instant vanilla pudding mix",
     "count": 1
   },
   {
@@ -2656,6 +2692,10 @@
     "count": 1
   },
   {
+    "name": "oat milk",
+    "count": 1
+  },
+  {
     "name": "oil spray",
     "count": 1
   },
@@ -2909,6 +2949,10 @@
   },
   {
     "name": "potato wedge",
+    "count": 1
+  },
+  {
+    "name": "powdered peanut butter",
     "count": 1
   },
   {
@@ -3496,7 +3540,15 @@
     "count": 1
   },
   {
+    "name": "unsweetened cocoa powder",
+    "count": 1
+  },
+  {
     "name": "v juice",
+    "count": 1
+  },
+  {
+    "name": "vanilla protein powder",
     "count": 1
   },
   {
