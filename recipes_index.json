@@ -570,6 +570,26 @@
     ]
   },
   {
+    "title": "Butter Naan",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/butter-naan.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "instant dry yeast",
+      "kosher salt",
+      "baking soda",
+      "baking powder",
+      "yogurt",
+      "water",
+      "butter",
+      "cilantro",
+      "neutral oil"
+    ],
+    "new": true
+  },
+  {
     "title": "California Roll Sushi Bowl",
     "category": "Breads",
     "sub": "",
@@ -5168,6 +5188,23 @@
       "cilantro",
       "lime"
     ]
+  },
+  {
+    "title": "Jeera Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/jeera-rice.html",
+    "type": "html",
+    "ingredients": [
+      "basmati rice",
+      "water",
+      "ghee",
+      "cumin seed",
+      "thai green chile",
+      "kosher salt",
+      "cilantro"
+    ],
+    "new": true
   },
   {
     "title": "Latkes",
