@@ -833,5 +833,15 @@
     "category": "Desserts",
     "title": "Milk Chocolate Ice Cream",
     "added": "2026-08-10"
+  },
+  {
+    "category": "Sides",
+    "title": "Jeera Rice",
+    "added": "2026-08-15"
+  },
+  {
+    "category": "Breads",
+    "title": "Butter Naan",
+    "added": "2026-08-15"
   }
 ]

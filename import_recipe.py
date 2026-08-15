@@ -18,7 +18,11 @@ from urllib.parse import urlparse
 
 import requests
 from docx import Document
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.shared import Inches
+from PIL import Image
 
 ONEDRIVE_RECIPES = Path(r"d:/OneDrive/Recipes")
 SITE_DIR = Path(__file__).parent
@@ -157,18 +161,67 @@ def extract_image_url(image_data) -> str | None:
     return None
 
 
+def add_hyperlink(paragraph, text: str, url: str, *, italic: bool = False) -> None:
+    """Append an external hyperlink to a python-docx paragraph."""
+    relationship_id = paragraph.part.relate_to(url, RT.HYPERLINK, is_external=True)
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("r:id"), relationship_id)
+
+    run = OxmlElement("w:r")
+    properties = OxmlElement("w:rPr")
+    color = OxmlElement("w:color")
+    color.set(qn("w:val"), "0563C1")
+    properties.append(color)
+    underline = OxmlElement("w:u")
+    underline.set(qn("w:val"), "single")
+    properties.append(underline)
+    if italic:
+        properties.append(OxmlElement("w:i"))
+    run.append(properties)
+
+    text_node = OxmlElement("w:t")
+    text_node.text = text
+    run.append(text_node)
+    hyperlink.append(run)
+    paragraph._p.append(hyperlink)
+
+
+def normalize_image(content: bytes) -> BytesIO:
+    """Return an embeddable JPEG/PNG stream, converting formats such as WebP."""
+    image = Image.open(BytesIO(content))
+    if image.format in {"JPEG", "PNG"}:
+        return BytesIO(content)
+
+    if image.mode in {"RGBA", "LA"}:
+        background = Image.new("RGB", image.size, "white")
+        background.paste(image, mask=image.getchannel("A"))
+        image = background
+    else:
+        image = image.convert("RGB")
+
+    converted = BytesIO()
+    image.save(converted, format="JPEG", quality=90, optimize=True)
+    converted.seek(0)
+    return converted
+
+
 def download_image(url: str) -> BytesIO | None:
     try:
         resp = requests.get(url, headers=BROWSER_HEADERS, timeout=30)
         resp.raise_for_status()
-        return BytesIO(resp.content)
+        return normalize_image(resp.content)
     except Exception as exc:
         # Try the same curl_cffi fallback used for HTML fetches.
         try:
             from curl_cffi import requests as cffi_requests  # type: ignore
-            r2 = cffi_requests.get(url, impersonate="chrome124", timeout=30)
+            r2 = cffi_requests.get(
+                url,
+                impersonate="chrome124",
+                timeout=30,
+                headers={"Referer": urlparse(url)._replace(path="/").geturl()},
+            )
             if r2.status_code == 200 and r2.content:
-                return BytesIO(r2.content)
+                return normalize_image(r2.content)
         except Exception:
             pass
         print(f"Warning: could not download image {url}: {exc}")
@@ -224,15 +277,14 @@ def build_docx(recipe: dict, source_url: str, out_path: Path, include_image: boo
     doc.add_heading(title, level=1)
 
     # Hero image (optional)
-    if include_image:
-        img_url = extract_image_url(recipe.get("image"))
-        if img_url:
-            img_data = download_image(img_url)
-            if img_data is not None:
-                try:
-                    doc.add_picture(img_data, width=Inches(5.0))
-                except Exception as exc:
-                    print(f"Warning: could not embed image: {exc}")
+    img_url = extract_image_url(recipe.get("image")) if include_image else None
+    if img_url:
+        img_data = download_image(img_url)
+        if img_data is not None:
+            try:
+                doc.add_picture(img_data, width=Inches(5.0))
+            except Exception as exc:
+                print(f"Warning: could not embed image: {exc}")
 
     desc = strip_html(recipe.get("description", ""))
     if desc:
@@ -290,8 +342,14 @@ def build_docx(recipe: dict, source_url: str, out_path: Path, include_image: boo
     # Source
     doc.add_paragraph()
     p = doc.add_paragraph()
-    r = p.add_run(f"Source: {source_url}")
+    r = p.add_run("Recipe source: ")
     r.italic = True
+    add_hyperlink(p, source_url, source_url, italic=True)
+    if img_url:
+        p = doc.add_paragraph()
+        r = p.add_run("Image source: ")
+        r.italic = True
+        add_hyperlink(p, img_url, img_url, italic=True)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(out_path)
