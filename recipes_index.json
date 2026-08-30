@@ -1732,17 +1732,32 @@
     "new": true
   },
   {
+    "title": "Butterbeer Ice Cream (Ninja Creami)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/butterbeer-ice-cream-ninja-creami.html",
+    "type": "html",
+    "ingredients": [
+      "butter",
+      "packed brown sugar",
+      "vanilla extract",
+      "heavy whipping cream",
+      "milk"
+    ],
+    "new": true
+  },
+  {
     "title": "Caramel Popcorn Ice Cream",
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/caramel-popcorn-ice-cream.html",
     "type": "html",
     "ingredients": [
-      "caramel popcorn",
+      "g caramel popcorn",
       "full-fat cream",
-      "sugar",
+      "g sugar",
       "vanilla extract",
-      "whole milk"
+      "milk"
     ],
     "new": true
   },
@@ -1874,9 +1889,9 @@
     "ingredients": [
       "full-fat coconut milk",
       "coconut water",
-      "white sugar",
-      "lime juice",
-      "fine salt"
+      "g white sugar or",
+      "juice of lime",
+      "salt"
     ],
     "new": true
   },
@@ -1921,13 +1936,14 @@
     "url": "recipes/desserts/dubai-chocolate-bar.html",
     "type": "html",
     "ingredients": [
-      "kataifi pastry",
-      "pistachio cream",
+      "g dried kataifi pastry",
+      "g unsalted butter",
+      "g pistachio cream",
       "tahini",
-      "unsalted butter",
       "salt",
-      "chocolate"
-    ]
+      "g dark or milk"
+    ],
+    "new": true
   },
   {
     "title": "Easy Tiramisu Mousse",
@@ -1992,12 +2008,12 @@
     "url": "recipes/desserts/ferrero-rocher-ice-cream.html",
     "type": "html",
     "ingredients": [
-      "Ferrero Rocher chocolates",
-      "unsweetened cocoa powder",
-      "oat milk",
-      "heavy cream",
-      "powdered sugar",
-      "egg yolks"
+      "g ferrero rocher chocolate",
+      "g unsweetened cocoa powder",
+      "g oat milk",
+      "g heavy cream",
+      "g powdered sugar",
+      "egg yolk"
     ],
     "new": true
   },
@@ -2140,11 +2156,11 @@
     "url": "recipes/desserts/milk-chocolate-ice-cream.html",
     "type": "html",
     "ingredients": [
-      "egg yolks",
+      "egg yolk",
       "powdered sugar",
       "heavy cream",
-      "whole milk",
-      "milk chocolate"
+      "milk",
+      "g good-quality milk chocolate"
     ],
     "new": true
   },
@@ -2197,9 +2213,9 @@
     "url": "recipes/desserts/peanut-butter-protein-ice-cream.html",
     "type": "html",
     "ingredients": [
-      "whole milk",
-      "powdered peanut butter",
-      "vanilla protein powder",
+      "milk",
+      "g powdered peanut butter",
+      "scoop vanilla protein powder",
       "instant vanilla pudding mix"
     ],
     "new": true
