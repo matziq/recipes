@@ -13,6 +13,24 @@
     ]
   },
   {
+    "title": "Asparagus Cheese Tart",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/appetizers/asparagus-cheese-tart.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "sheet frozen puff pastry",
+      "parmesan cheese",
+      "gruyere cheese",
+      "asparagus",
+      "olive oil",
+      "thyme",
+      "salt and pepper"
+    ],
+    "new": true
+  },
+  {
     "title": "Blazing Monster Eyes",
     "category": "Appetizers",
     "sub": "",
@@ -1209,6 +1227,24 @@
     ]
   },
   {
+    "title": "Favorite Pancakes",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/favorite-pancakes.html",
+    "type": "html",
+    "ingredients": [
+      "egg",
+      "buttermilk",
+      "vegetable oil or melted",
+      "gold medal flour",
+      "sugar",
+      "baking powder",
+      "soda",
+      "salt"
+    ],
+    "new": true
+  },
+  {
     "title": "German Apple Pancake",
     "category": "Breakfast",
     "sub": "",
@@ -1323,6 +1359,32 @@
       "ginger",
       "salt",
       "cooking spray"
+    ],
+    "new": true
+  },
+  {
+    "title": "Pumpkin Pancakes with Nutella Syrup",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/pumpkin-pancakes-with-nutella-syrup.html",
+    "type": "html",
+    "ingredients": [
+      "c pumpkin",
+      "c whole wheat flour",
+      "c white flour",
+      "c oats",
+      "c milk",
+      "egg",
+      "t coconut oil",
+      "t vinegar",
+      "t brown sugar",
+      "t baking powder",
+      "t baking soda",
+      "t allspice",
+      "t cinnamon",
+      "t ground ginger",
+      "t nutmeg",
+      "t salt"
     ],
     "new": true
   },
@@ -2445,6 +2507,24 @@
     "ingredients": []
   },
   {
+    "title": "White Chocolate Raspberry Cake",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "url": "recipes/desserts/cakes/white-chocolate-raspberry-cake.html",
+    "type": "html",
+    "ingredients": [
+      "egg white",
+      "c oil",
+      "vanilla",
+      "c buttermilk",
+      "white cake mix",
+      "white chocolate jell-o instant",
+      "c white chocolate chip",
+      "c sour cream"
+    ],
+    "new": true
+  },
+  {
     "title": "White Texas Sheet Cake",
     "category": "Desserts",
     "sub": "Cakes",
@@ -2619,6 +2699,20 @@
     "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies-half-batch.html",
     "type": "html",
     "ingredients": []
+  },
+  {
+    "title": "Shakeology No-Bake Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/shakeology-no-bake-cookies.html",
+    "type": "html",
+    "ingredients": [
+      "chocolate or vanilla shakeology",
+      "all-natural peanut butter",
+      "quick-cooking rolled oats",
+      "honey"
+    ],
+    "new": true
   },
   {
     "title": "Ivy House Southern Pecan Pie",

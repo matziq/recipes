@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Favorite Pancakes • Recipes</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<link rel="icon" href="../../favicon.svg">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/site.js" defer></script>
+<script src="../../assets/recipe.js" defer></script>
+</head><body class="recipe-page" data-recipe-title="Favorite Pancakes" data-recipe-category="Breakfast" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to recipe</a>
+<header class="site-header"><div class="header-inner header-simple">
+  <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
+  <div class="header-actions">
+    <a class="icon-btn" href="../../index.html" aria-label="All recipes" title="All recipes">⌂</a>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">☾</span></button>
+  </div>
+</div></header>
+<main class="container" id="main-content">
+  <div class="crumbs"><a href="../../index.html">Recipes</a> › <a href="../../index.html#cat-breakfast">Breakfast</a></div>
+  <div class="recipe-title-row"><h1 class="page-title">Favorite Pancakes</h1></div>
+  <div class="recipe-toolbar" aria-label="Recipe tools">
+    <button class="action-btn" type="button" data-favorite data-title="Favorite Pancakes" data-category="Breakfast" aria-pressed="false"><span data-favorite-icon aria-hidden="true">♡</span><span class="button-label" data-favorite-label>Save</span></button>
+    <button class="action-btn" type="button" data-cook-mode aria-pressed="false"><span aria-hidden="true">◉</span><span class="button-label">Cook mode</span></button>
+    <button class="action-btn" type="button" data-share><span aria-hidden="true">↗</span><span class="button-label">Share</span></button>
+    <button class="action-btn" type="button" data-print><span aria-hidden="true">▣</span><span class="button-label">Print</span></button>
+    <button class="action-btn" type="button" data-text-size aria-label="Change text size" title="Change text size">A+</button>
+    <div class="progress-wrap"><span data-progress-label>Ready</span><div class="progress-track" aria-hidden="true"><div class="progress-bar" data-progress-bar></div></div><button class="icon-btn" type="button" data-reset-progress aria-label="Reset checklist" title="Reset checklist">↺</button></div>
+  </div>
+  <div class="cook-mode-banner" role="status">Cook mode is on: larger text and screen wake lock when supported.</div>
+  <article class="recipe-content"><h1>Favorite Pancakes</h1><p>The good old-fashioned buttermilk kind, from the classic Gold Medal flour cookbook. Light, tangy and reliable, with variations for sweet milk and blueberry pancakes.</p><p>Yield: 10 four-inch pancakes</p><h2>Ingredients</h2><ul><li>1 egg</li><li>1 cup buttermilk</li><li>2 tbsp. vegetable oil or melted shortening</li><li>1 cup Gold Medal flour</li><li>1 tbsp. sugar</li><li>1 tsp. baking powder</li><li>1/2 tsp. soda</li><li>1/2 tsp. salt</li></ul><h2>Instructions</h2><ol><li>Blend egg, milk and oil. Measure flour by the dip-level-pour method or by sifting.</li><li>Blend the dry ingredients together. Add to the liquids; beat with a rotary beater until all the flour is moistened. (Batter will be slightly lumpy.)</li><li>Grease a heated griddle, if necessary. To test, sprinkle with drops of water. When the water sizzles, the griddle heat is just right.</li><li>Pour batter from a pitcher or the tip of a large spoon in pools slightly apart (for perfectly round cakes).</li><li>Turn the pancakes as soon as they are puffed and full of bubbles, but before the bubbles break. Turn and brown on the other side.</li><li>Serve immediately with butter and syrup. If necessary, keep the pancakes hot by placing them between the folds of a warm towel in a warm oven. (Don't stack them!)</li></ol><h2>Notes</h2><ul><li>Sweet Milk Pancakes: Make Favorite Pancakes, except substitute sweet milk for the buttermilk, add 2 tsp. more baking powder and omit the soda. For extra lightness, beat the egg yolk, add the milk, etc., then fold in the stiffly beaten egg white.</li><li>Blueberry Pancakes: Make Favorite Pancakes, except add 1/2 cup drained fresh or frozen berries to the batter, folding them in carefully at the last.</li><li>Ferry Farm Sauce (as it was made by George Washington's mother): Heat together slowly over hot water 1 cup strained honey and 1/2 cup maple syrup. Remove from heat and blend in 1 tsp. cinnamon.</li><li>To make pancakes thick or thin as desired: add a little more liquid to thin them; make them thicker by adding a little more flour.</li></ul></article>
+  <section class="related" data-related hidden><h2>More from Breakfast</h2><div class="related-grid" data-related-grid></div></section>
+</main>
+<button class="back-to-top" type="button" data-back-to-top aria-label="Back to top" title="Back to top">↑</button>
+<footer class="site-footer"><a href="../../index.html">← Back to all recipes</a></footer>
+</body></html>
