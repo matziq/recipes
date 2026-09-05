@@ -3090,6 +3090,30 @@
     ]
   },
   {
+    "title": "Mac N Cheese (No Bake Edition)",
+    "category": "Pasta",
+    "sub": "",
+    "url": "recipes/pasta/mac-n-cheese-no-bake-edition.html",
+    "type": "html",
+    "ingredients": [
+      "pasta",
+      "butter",
+      "velveeta cheese",
+      "jalapeno",
+      "garlic",
+      "sriracha",
+      "pepper",
+      "mustard",
+      "kosher salt",
+      "milk",
+      "cream of chicken soup",
+      "sour cream",
+      "cheddar cheese",
+      "mozzarella cheese"
+    ],
+    "new": true
+  },
+  {
     "title": "Mongolian Beef Ramen",
     "category": "Pasta",
     "sub": "",
