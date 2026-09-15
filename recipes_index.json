@@ -756,6 +756,23 @@
     ]
   },
   {
+    "title": "Garlic Rosemary Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/garlic-rosemary-bread.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "sugar",
+      "salt",
+      "quick yeast",
+      "water",
+      "rosemary sprig",
+      "garlic clove"
+    ],
+    "new": true
+  },
+  {
     "title": "Grandma's Quick Rolls",
     "category": "Breads",
     "sub": "",

@@ -1,7 +1,7 @@
 [
   {
     "name": "salt",
-    "count": 125
+    "count": 126
   },
   {
     "name": "butter",
@@ -17,11 +17,11 @@
   },
   {
     "name": "water",
-    "count": 56
+    "count": 57
   },
   {
     "name": "flour",
-    "count": 52
+    "count": 53
   },
   {
     "name": "egg",
@@ -33,7 +33,7 @@
   },
   {
     "name": "sugar",
-    "count": 49
+    "count": 50
   },
   {
     "name": "kosher salt",
@@ -44,11 +44,11 @@
     "count": 34
   },
   {
-    "name": "baking soda",
-    "count": 32
+    "name": "garlic clove",
+    "count": 33
   },
   {
-    "name": "garlic clove",
+    "name": "baking soda",
     "count": 32
   },
   {
@@ -3100,6 +3100,10 @@
     "count": 1
   },
   {
+    "name": "quick yeast",
+    "count": 1
+  },
+  {
     "name": "quick-cooking oats",
     "count": 1
   },
@@ -3177,6 +3181,10 @@
   },
   {
     "name": "root beer extract",
+    "count": 1
+  },
+  {
+    "name": "rosemary sprig",
     "count": 1
   },
   {
