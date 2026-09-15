@@ -711,6 +711,23 @@
     "new": true
   },
   {
+    "title": "Dutch Oven Garlic Rosemary Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/dutch-oven-garlic-rosemary-bread.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "sugar",
+      "salt",
+      "quick yeast",
+      "water",
+      "rosemary sprig",
+      "garlic clove"
+    ],
+    "new": true
+  },
+  {
     "title": "Easy Homemade Soft Pretzels Recipe",
     "category": "Breads",
     "sub": "",
@@ -753,6 +770,22 @@
       "t ground cinnamon",
       "t ground nutmeg",
       "t ground clove"
+    ]
+  },
+  {
+    "title": "Garlic Rosemary Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/garlic-rosemary-bread.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "sugar",
+      "salt",
+      "quick yeast",
+      "water",
+      "rosemary sprig",
+      "garlic clove"
     ]
   },
   {

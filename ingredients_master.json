@@ -1,7 +1,7 @@
 [
   {
     "name": "salt",
-    "count": 125
+    "count": 127
   },
   {
     "name": "butter",
@@ -12,19 +12,23 @@
     "count": 66
   },
   {
+    "name": "water",
+    "count": 58
+  },
+  {
     "name": "garlic",
     "count": 57
   },
   {
-    "name": "water",
-    "count": 56
-  },
-  {
     "name": "flour",
-    "count": 52
+    "count": 54
   },
   {
     "name": "egg",
+    "count": 51
+  },
+  {
+    "name": "sugar",
     "count": 51
   },
   {
@@ -32,12 +36,12 @@
     "count": 50
   },
   {
-    "name": "sugar",
-    "count": 49
-  },
-  {
     "name": "kosher salt",
     "count": 39
+  },
+  {
+    "name": "garlic clove",
+    "count": 34
   },
   {
     "name": "milk",
@@ -45,10 +49,6 @@
   },
   {
     "name": "baking soda",
-    "count": 32
-  },
-  {
-    "name": "garlic clove",
     "count": 32
   },
   {
@@ -1084,6 +1084,10 @@
     "count": 2
   },
   {
+    "name": "quick yeast",
+    "count": 2
+  },
+  {
     "name": "ramen noodles",
     "count": 2
   },
@@ -1109,6 +1113,10 @@
   },
   {
     "name": "romaine lettuce",
+    "count": 2
+  },
+  {
+    "name": "rosemary sprig",
     "count": 2
   },
   {
