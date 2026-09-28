@@ -2590,6 +2590,50 @@
     "ingredients": []
   },
   {
+    "title": "Browned Butter + Chocolate Chip Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/browned-butter-chocolate-chip-cookies.html",
+    "type": "html",
+    "ingredients": [
+      "browned butter",
+      "brown sugar",
+      "granulated sugar",
+      "aged vanilla extract",
+      "egg",
+      "egg yolk",
+      "cake flour",
+      "flour",
+      "cornstarch",
+      "baking soda",
+      "kosher salt",
+      "solid milk chocolate",
+      "semisweet chocolate chip",
+      "walnut",
+      "water"
+    ],
+    "new": true
+  },
+  {
+    "title": "Butter Toffee Bars",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/butter-toffee-bars.html",
+    "type": "html",
+    "ingredients": [
+      "butter",
+      "flour",
+      "baking powder",
+      "table salt",
+      "granulated sugar",
+      "packed brown sugar",
+      "egg",
+      "aged vanilla extract",
+      "english toffee bit"
+    ],
+    "new": true
+  },
+  {
     "title": "Carol's Sugar Cookies",
     "category": "Desserts",
     "sub": "Cookies",
@@ -2813,6 +2857,25 @@
       "spoonful of chocolate milk",
       "water"
     ]
+  },
+  {
+    "title": "Horchata",
+    "category": "Drinks",
+    "sub": "",
+    "url": "recipes/drinks/horchata.html",
+    "type": "html",
+    "ingredients": [
+      "white rice",
+      "cinnamon stick",
+      "slivered almond",
+      "evaporated milk",
+      "granulated sugar",
+      "aged vanilla extract",
+      "almond milk",
+      "water",
+      "ice"
+    ],
+    "new": true
   },
   {
     "title": "Root Beer",

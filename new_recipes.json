@@ -893,5 +893,20 @@
     "category": "Breads",
     "title": "Garlic Rosemary Bread",
     "added": "2026-09-15"
+  },
+  {
+    "category": "Drinks",
+    "title": "Horchata",
+    "added": "2026-09-28"
+  },
+  {
+    "category": "Desserts",
+    "title": "Browned Butter + Chocolate Chip Cookies",
+    "added": "2026-09-28"
+  },
+  {
+    "category": "Desserts",
+    "title": "Butter Toffee Bars",
+    "added": "2026-09-28"
   }
 ]

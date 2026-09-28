@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Horchata • Recipes</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<link rel="icon" href="../../favicon.svg">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/site.js" defer></script>
+<script src="../../assets/recipe.js" defer></script>
+</head><body class="recipe-page" data-recipe-title="Horchata" data-recipe-category="Drinks" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to recipe</a>
+<header class="site-header"><div class="header-inner header-simple">
+  <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
+  <div class="header-actions">
+    <a class="icon-btn" href="../../index.html" aria-label="All recipes" title="All recipes">⌂</a>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">☾</span></button>
+  </div>
+</div></header>
+<main class="container" id="main-content">
+  <div class="crumbs"><a href="../../index.html">Recipes</a> › <a href="../../index.html#cat-drinks">Drinks</a></div>
+  <div class="recipe-title-row"><h1 class="page-title">Horchata</h1></div>
+  <div class="recipe-toolbar" aria-label="Recipe tools">
+    <button class="action-btn" type="button" data-favorite data-title="Horchata" data-category="Drinks" aria-pressed="false"><span data-favorite-icon aria-hidden="true">♡</span><span class="button-label" data-favorite-label>Save</span></button>
+    <button class="action-btn" type="button" data-cook-mode aria-pressed="false"><span aria-hidden="true">◉</span><span class="button-label">Cook mode</span></button>
+    <button class="action-btn" type="button" data-share><span aria-hidden="true">↗</span><span class="button-label">Share</span></button>
+    <button class="action-btn" type="button" data-print><span aria-hidden="true">▣</span><span class="button-label">Print</span></button>
+    <button class="action-btn" type="button" data-text-size aria-label="Change text size" title="Change text size">A+</button>
+    <div class="progress-wrap"><span data-progress-label>Ready</span><div class="progress-track" aria-hidden="true"><div class="progress-bar" data-progress-bar></div></div><button class="icon-btn" type="button" data-reset-progress aria-label="Reset checklist" title="Reset checklist">↺</button></div>
+  </div>
+  <div class="cook-mode-banner" role="status">Cook mode is on: larger text and screen wake lock when supported.</div>
+  <article class="recipe-content"><h1>Horchata</h1><p>A refreshing rice and almond drink with cinnamon and vanilla, served over ice.</p><p>Yield: 7 cups | Prep: 10 minutes, plus at least 6 hours soaking (or overnight) | Cook: None</p><h2>Ingredients</h2><ul><li>1 cup (200g) uncooked white rice, jasmine recommended</li><li>1 cinnamon stick</li><li>1/2 cup (43g) slivered almonds</li><li>1 can (12 oz / 340g) evaporated milk</li><li>2/3 cup (132g) granulated sugar, plus more to taste</li><li>1 tablespoon aged vanilla extract</li><li>1 1/2 cups (360ml) almond milk</li><li>4 1/4 cups (1 liter) water, plus additional water for rinsing and soaking</li><li>Ice, for serving</li><li>Cinnamon sticks, for serving (optional)</li></ul><h2>Instructions</h2><ol><li>Place the rice in a fine-mesh strainer and rinse under cold running water until the water runs clear.</li><li>Put the rice, cinnamon stick, and almonds in a medium bowl. Add enough water to cover, soak for at least 6 hours or overnight, then drain.</li><li>Transfer the drained rice, cinnamon, and almonds to a blender. Add the evaporated milk and sugar, then blend on high for 3-5 minutes until smooth.</li><li>Pour through cheesecloth into a pitcher. Mix in the vanilla and almond milk, then stir in the measured 4 1/4 cups (1 liter) of water.</li><li>Taste and add more sugar if desired. Pour over ice and add a cinnamon stick to each glass if you like.</li></ol><h2>Notes</h2><p>For a dairy-free variation, replace the evaporated milk with canned sweetened coconut cream. Adjust the added sugar to taste because the coconut cream is sweetened; evaporated milk is not sweetened condensed milk.</p><p>Added to the family collection from a supplied recipe photo.</p></article>
+  <section class="related" data-related hidden><h2>More from Drinks</h2><div class="related-grid" data-related-grid></div></section>
+</main>
+<button class="back-to-top" type="button" data-back-to-top aria-label="Back to top" title="Back to top">↑</button>
+<footer class="site-footer"><a href="../../index.html">← Back to all recipes</a></footer>
+</body></html>
