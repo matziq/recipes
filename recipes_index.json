@@ -4327,6 +4327,21 @@
     "new": true
   },
   {
+    "title": "Vanilla Bean Paste",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/vanilla-bean-paste.html",
+    "type": "html",
+    "ingredients": [
+      "extracted vanilla bean pod",
+      "sugar",
+      "food-grade drinking alcohol",
+      "honey",
+      "xanthan gum"
+    ],
+    "new": true
+  },
+  {
     "title": "Warm Chocolate Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
