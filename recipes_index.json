@@ -2321,6 +2321,21 @@
     ]
   },
   {
+    "title": "Sally's Favorite Rice Krispie Treats",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/sallys-favorite-rice-krispie-treats.html",
+    "type": "html",
+    "ingredients": [
+      "butter",
+      "marshmallow",
+      "vanilla extract",
+      "salt",
+      "crispy rice cereal"
+    ],
+    "new": true
+  },
+  {
     "title": "Salted Caramel Apple Hand Pies",
     "category": "Desserts",
     "sub": "",

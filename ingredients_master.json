@@ -1,11 +1,11 @@
 [
   {
     "name": "salt",
-    "count": 126
+    "count": 127
   },
   {
     "name": "butter",
-    "count": 80
+    "count": 81
   },
   {
     "name": "olive oil",
@@ -72,11 +72,11 @@
     "count": 26
   },
   {
-    "name": "cinnamon",
-    "count": 25
+    "name": "vanilla extract",
+    "count": 26
   },
   {
-    "name": "vanilla extract",
+    "name": "cinnamon",
     "count": 25
   },
   {
@@ -372,6 +372,10 @@
     "count": 5
   },
   {
+    "name": "marshmallow",
+    "count": 5
+  },
+  {
     "name": "peanut butter",
     "count": 5
   },
@@ -441,10 +445,6 @@
   },
   {
     "name": "imitation crab",
-    "count": 4
-  },
-  {
-    "name": "marshmallow",
     "count": 4
   },
   {
@@ -1941,6 +1941,10 @@
   },
   {
     "name": "creole seasoning",
+    "count": 1
+  },
+  {
+    "name": "crispy rice cereal",
     "count": 1
   },
   {
