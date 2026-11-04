@@ -488,6 +488,30 @@
     ]
   },
   {
+    "title": "Restaurant-Style Steak Fajitas",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/restaurant-style-steak-fajitas.html",
+    "type": "html",
+    "ingredients": [
+      "lime",
+      "avocado oil",
+      "serrano pepper",
+      "soy sauce",
+      "agave",
+      "garlic clove",
+      "cilantro leaf",
+      "cumin",
+      "chile powder",
+      "salt",
+      "flank steak",
+      "onion",
+      "bell pepper",
+      "flour tortilla"
+    ],
+    "new": true
+  },
+  {
     "title": "Roasted Corned Beef and Cabbage with Horseradish Cream Sauce",
     "category": "Beef",
     "sub": "",
@@ -709,6 +733,22 @@
       "olive oil"
     ],
     "new": true
+  },
+  {
+    "title": "Dutch Oven Garlic Rosemary Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/dutch-oven-garlic-rosemary-bread.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "sugar",
+      "salt",
+      "quick yeast",
+      "water",
+      "rosemary sprig",
+      "garlic clove"
+    ]
   },
   {
     "title": "Easy Homemade Soft Pretzels Recipe",
@@ -1494,6 +1534,38 @@
       "pre-shredded reduced-fat mexican cheese",
       "sour cream"
     ]
+  },
+  {
+    "title": "Chicken Fajitas",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/chicken-fajitas.html",
+    "type": "html",
+    "ingredients": [
+      "and pounds chicken thigh",
+      "lime juice",
+      "soy sauce",
+      "liquid smoke",
+      "cumin",
+      "kosher salt",
+      "chili powder",
+      "paprika",
+      "onion powder",
+      "cayenne pepper",
+      "cilantro",
+      "garlic",
+      "vegetable oil",
+      "butter",
+      "red",
+      "onion",
+      "flour tortilla",
+      "monterey jack cheese",
+      "sour cream",
+      "chipotle mayo",
+      "guacamole",
+      "lime wedge"
+    ],
+    "new": true
   },
   {
     "title": "Chicken Tikka Masala Recipe (Better Than Takeout)",
@@ -3777,6 +3849,31 @@
     "new": true
   },
   {
+    "title": "Reuben Sandwich",
+    "category": "Sandwiches",
+    "sub": "",
+    "url": "recipes/sandwiches/reuben-sandwich.html",
+    "type": "html",
+    "ingredients": [
+      "corned beef",
+      "olive oil",
+      "rye bread",
+      "butter",
+      "sauerkraut",
+      "swiss cheese",
+      "mayonnaise",
+      "chili garlic sauce",
+      "lemon juice",
+      "creamy horseradish",
+      "garlic clove",
+      "worcestershire sauce",
+      "onion",
+      "paprika",
+      "salt and pepper"
+    ],
+    "new": true
+  },
+  {
     "title": "Spinach Feta Croissants",
     "category": "Sandwiches",
     "sub": "",
@@ -4792,6 +4889,29 @@
       "shrimp of or pound",
       "parsley"
     ]
+  },
+  {
+    "title": "Shrimp Fajitas",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/seafood/shrimp-fajitas.html",
+    "type": "html",
+    "ingredients": [
+      "vegetable oil",
+      "bell pepper",
+      "onion",
+      "chili powder",
+      "cumin",
+      "garlic powder",
+      "onion powder",
+      "paprika",
+      "cilantro",
+      "shrimp",
+      "lime wedge",
+      "flour tortillas and fajita",
+      "salt and pepper"
+    ],
+    "new": true
   },
   {
     "title": "Shrimp Mojo A Ajo",
