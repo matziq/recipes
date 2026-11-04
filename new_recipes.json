@@ -918,5 +918,25 @@
     "category": "Desserts",
     "title": "Sally's Favorite Rice Krispie Treats",
     "added": "2026-10-13"
+  },
+  {
+    "category": "Sandwiches",
+    "title": "Reuben Sandwich",
+    "added": "2026-11-04"
+  },
+  {
+    "category": "Chicken",
+    "title": "Chicken Fajitas",
+    "added": "2026-11-04"
+  },
+  {
+    "category": "Seafood",
+    "title": "Shrimp Fajitas",
+    "added": "2026-11-04"
+  },
+  {
+    "category": "Beef",
+    "title": "Restaurant-Style Steak Fajitas",
+    "added": "2026-11-04"
   }
 ]
