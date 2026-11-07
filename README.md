@@ -6,7 +6,7 @@ A static site for browsing my family recipe collection. Built from `d:\OneDrive\
 
 ## Categories
 
-22 categories, 416 entries (including 5 explicitly incomplete recipes and 6 reference exceptions). `.docx` files are converted to HTML for inline browsing;
+22 categories, 425 entries (including 5 explicitly incomplete recipes and 6 reference exceptions). `.docx` files are converted to HTML for inline browsing;
 PDF pages are rendered as local images within recipe pages.
 
 ## Build
@@ -43,6 +43,18 @@ their pages summarize the subject without copying manual tables or images. No
 substitute is advertised as a tested completion of the original. Suggested ingredient
 quantities are excluded from original-recipe ingredient indexing. Mom's Dressing
 retains its 165 F food-safety requirement.
+
+The nine distinct complete substitute/comparison recipes are stored in
+`imported_recipes.json` and generated with the same reviewed recipe renderer.
+Every exception's primary substitute link stays within this collection; external
+links remain as author/source citations. Shared sources are imported once, and
+materially different formulas are not conflated with existing family recipes.
+Ingredient facts and cooking details are retained with independently worded
+directions; no protected prose or photos are imported. Complete substitutes are
+not untested hybrid completions of the original. Bread-machine size alternatives
+are labeled as separate batches, and machine-specific cycle/capacity limitations
+remain explicit. The manufacturer finger-gelatin page supplies an actual complete
+recipe with envelope weights, not a guessed tablespoon conversion.
 
 The build excludes that folder from automatic discovery and publishes only its
 reviewed `added` entries and explicitly labeled factual `incomplete` entries

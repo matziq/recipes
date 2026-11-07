@@ -570,6 +570,24 @@
     ]
   },
   {
+    "title": "100% Whole Wheat Bread Machine Bread (PJ Hamel)",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/100-whole-wheat-bread-machine-bread-pj-hamel.html",
+    "type": "html",
+    "ingredients": [
+      "lukewarm water",
+      "olive oil or vegetable",
+      "honey or maple syrup",
+      "golden whole wheat flour",
+      "sunflower",
+      "vital wheat gluten",
+      "table salt",
+      "instant yeast"
+    ],
+    "new": true
+  },
+  {
     "title": "African Flat Bread",
     "category": "Breads",
     "sub": "",
@@ -639,6 +657,23 @@
     ]
   },
   {
+    "title": "Bread Machine Multigrain Bread (Bread Dad)",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/bread-machine-multigrain-bread-bread-dad.html",
+    "type": "html",
+    "ingredients": [
+      "milk",
+      "butter",
+      "bread flour",
+      "multigrain hot cereal",
+      "packed light brown sugar",
+      "salt",
+      "bread machine yeast"
+    ],
+    "new": true
+  },
+  {
     "title": "Butter Naan",
     "category": "Breads",
     "sub": "",
@@ -655,6 +690,23 @@
       "butter",
       "cilantro",
       "neutral oil"
+    ],
+    "new": true
+  },
+  {
+    "title": "Buttermilk Biscuits (Holly Nilsson)",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/buttermilk-biscuits-holly-nilsson.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "baking powder",
+      "granulated sugar",
+      "baking soda",
+      "salt",
+      "butter",
+      "buttermilk"
     ],
     "new": true
   },
@@ -776,6 +828,23 @@
       "rosemary sprig",
       "garlic clove"
     ]
+  },
+  {
+    "title": "Easy Bread Machine Bread (PJ Hamel)",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/easy-bread-machine-bread-pj-hamel.html",
+    "type": "html",
+    "ingredients": [
+      "lukewarm water",
+      "lukewarm milk",
+      "butter",
+      "unbleached all-purpose flour",
+      "granulated sugar",
+      "table salt",
+      "active dry yeast or"
+    ],
+    "new": true
   },
   {
     "title": "Easy Homemade Soft Pretzels Recipe",
@@ -1605,6 +1674,21 @@
       "country breakfast sausage",
       "jalapeno",
       "fried egg"
+    ],
+    "new": true
+  },
+  {
+    "title": "Sausage Gravy (Holly Nilsson)",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/sausage-gravy-holly-nilsson.html",
+    "type": "html",
+    "ingredients": [
+      "pork breakfast sausage",
+      "butter or bacon fat",
+      "flour",
+      "milk",
+      "salt and black pepper"
     ],
     "new": true
   },
@@ -2870,6 +2954,27 @@
     "new": true
   },
   {
+    "title": "Yeast-Raised Doughnuts (Susan Reid)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/yeast-raised-doughnuts-susan-reid.html",
+    "type": "html",
+    "ingredients": [
+      "unbleached all-purpose flour",
+      "granulated sugar",
+      "table salt",
+      "instant yeast or active",
+      "nutmeg",
+      "egg",
+      "milk",
+      "butter",
+      "vanilla extract",
+      "peanut oil or vegetable",
+      "sugar"
+    ],
+    "new": true
+  },
+  {
     "title": "A Very Berry Strawberry Bunt Cake",
     "category": "Desserts",
     "sub": "Cakes",
@@ -2908,6 +3013,28 @@
     "url": "recipes/desserts/cakes/tres-leches.html",
     "type": "html",
     "ingredients": []
+  },
+  {
+    "title": "White Chocolate Raspberry Bundt Cake (Erica Walker)",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "url": "recipes/desserts/cakes/white-chocolate-raspberry-bundt-cake-erica-walker.html",
+    "type": "html",
+    "ingredients": [
+      "white cake mix",
+      "instant white chocolate pudding",
+      "sour cream",
+      "egg",
+      "water",
+      "oil",
+      "white chocolate chip",
+      "red raspberry preserve",
+      "cream cheese",
+      "butter",
+      "powdered sugar",
+      "vanilla"
+    ],
+    "new": true
   },
   {
     "title": "White Chocolate Raspberry Cake",
@@ -5866,6 +5993,28 @@
     "new": true
   },
   {
+    "title": "Crock Pot Stuffing (Holly Nilsson)",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/crock-pot-stuffing-holly-nilsson.html",
+    "type": "html",
+    "ingredients": [
+      "butter",
+      "black pepper",
+      "salt",
+      "poultry seasoning",
+      "yellow onion",
+      "celery",
+      "white bread cube",
+      "brown bread cube",
+      "parsley",
+      "thyme",
+      "chicken broth",
+      "egg"
+    ],
+    "new": true
+  },
+  {
     "title": "Damon's Pecan-Crusted Fluffy Sweet Potatoes",
     "category": "Sides",
     "sub": "",
@@ -6666,6 +6815,20 @@
       "fruit",
       "your favorite cereal"
     ]
+  },
+  {
+    "title": "Finger Gelatin (Jell-O Kitchen)",
+    "category": "Snacks",
+    "sub": "",
+    "url": "recipes/snacks/finger-gelatin-jell-o-kitchen.html",
+    "type": "html",
+    "ingredients": [
+      "raspberry-flavored jell-o gelatin",
+      "knox unflavored gelatin",
+      "boiling water",
+      "cooking spray"
+    ],
+    "new": true
   },
   {
     "title": "Finger Jello (Incomplete)",

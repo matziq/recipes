@@ -27,6 +27,7 @@ OUT = Path(__file__).parent
 RECIPES_OUT = OUT / "recipes"
 NEW_RECIPES_JSON = OUT / "new_recipes.json"
 MORE_RECIPES_REVIEW = OUT / "more_recipes_review.json"
+IMPORTED_RECIPES = OUT / "imported_recipes.json"
 
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 DOCX_EXT = {".docx"}
@@ -598,11 +599,61 @@ def load_reviewed_recipes() -> list[dict]:
                 raise ValueError(f"Incomplete suggestion evidence for {relative}")
             if not suggestion["source_url"].startswith("https://"):
                 raise ValueError(f"Suggestion source must use HTTPS: {relative}")
+            if suggestion.get("recipe_url"):
+                target = suggestion["recipe_url"]
+                if not target.startswith("recipes/") or ".." in Path(target).parts or not target.endswith(".html") or not suggestion.get("recipe_title"):
+                    raise ValueError(f"Invalid suggested internal recipe destination: {relative}")
     actual = {str(path.relative_to(root)) for path in root.rglob("*") if path.is_file()}
     if seen != actual:
         raise ValueError(f"More Recipes inventory changed; review added/removed files: {seen ^ actual}")
     return [entry for entry in entries if entry["status"] == "added" or
             (entry["status"] in {"incomplete", "reference"} and entry.get("url"))]
+
+
+def load_imported_recipes() -> list[dict]:
+    """Render reviewed, independently worded imports without copying source images."""
+    entries = json.loads(IMPORTED_RECIPES.read_text(encoding="utf-8"))
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("Imported recipes must be a nonempty list")
+    sources: set[str] = set()
+    urls: set[str] = set()
+    for entry in entries:
+        required = ("title", "category", "source_url", "attribution", "yield", "ingredient_groups", "instructions")
+        if not all(entry.get(key) for key in required):
+            raise ValueError("Imported recipe requires complete ingredients, instructions, yield, and attribution")
+        if not isinstance(entry["ingredient_groups"], list) or not isinstance(entry["instructions"], list):
+            raise ValueError("Imported ingredients and instructions must be lists")
+        if not entry["source_url"].startswith("https://"):
+            raise ValueError("Imported recipe source must use HTTPS")
+        url = f'recipes/{slugify(entry["category"])}/'
+        if entry.get("sub"):
+            url += slugify(entry["sub"]) + "/"
+        url += slugify(entry["title"]) + ".html"
+        if entry["source_url"] in sources or url in urls:
+            raise ValueError("Duplicate imported recipe source or destination")
+        sources.add(entry["source_url"])
+        urls.add(url)
+        body = (
+            '<p>This complete substitute is separate from the incomplete original. Ingredient quantities '
+            'and cooking facts follow the cited published recipe; directions are independently worded. '
+            'No source photographs or protected article text are reproduced. This site has not test-cooked it.</p>'
+            f'<p><strong>Yield:</strong> {escape(entry["yield"])}</p>'
+            '<h2>Ingredients</h2>'
+        )
+        for group in entry["ingredient_groups"]:
+            if not group.get("items") or not all(isinstance(item, str) and item.strip() for item in group["items"]):
+                raise ValueError("Imported ingredient group must contain ingredient facts")
+            if group.get("title"):
+                body += f'<h3>{escape(group["title"])}</h3>'
+            body += "<ul>" + "".join(f"<li>{escape(item)}</li>" for item in group["items"]) + "</ul>"
+        if not all(isinstance(step, str) and step.strip() for step in entry["instructions"]):
+            raise ValueError("Imported recipe must contain cooking instructions")
+        body += "<h2>Instructions</h2><ol>" + "".join(
+            f"<li>{escape(step)}</li>" for step in entry["instructions"]) + "</ol>"
+        for note in entry.get("notes", []):
+            body += f"<p>{escape(note)}</p>"
+        entry.update(status="imported", source=entry["source_url"], sub=entry.get("sub", ""), url=url, body_html=body)
+    return entries
 
 
 def render_reviewed_recipe(entry: dict) -> dict:
@@ -646,12 +697,24 @@ def render_reviewed_recipe(entry: dict) -> dict:
         ) + body
     original_body = body
     for suggestion in entry.get("suggestions", []):
+        imported_link = ""
+        if suggestion.get("recipe_url"):
+            target = OUT / suggestion["recipe_url"]
+            if not target.is_file():
+                raise ValueError(f"Suggested imported recipe does not exist: {target}")
+            href = Path(os.path.relpath(target, destination.parent)).as_posix()
+            imported_link = (
+                f'<p><strong>Complete substitute in this collection:</strong> <a href="{escape(href)}">'
+                f'{escape(suggestion["recipe_title"])}</a>. Use its complete formula as a separate recipe, '
+                'not as evidence that the original missing details were recovered.</p>'
+            )
         body += (
             '<section aria-label="Suggested completion" style="border:2px dashed #2563eb;padding:1rem;margin-top:1.5rem">'
             '<h2>Suggested completion - not part of the original source</h2>'
             f'<h3>{escape(suggestion["title"])}</h3>'
             '<p>This is an optional adaptation or substitute, not a recovered original or a tested completion. '
             'The original remains an exception. Do not silently combine incompatible ingredient formulas.</p>'
+            f'{imported_link}'
             f'<p><strong>Evidence and rationale:</strong> {escape(suggestion["evidence"])}</p>'
             f'<p><strong>Confidence:</strong> {escape(suggestion["confidence"])}</p>'
             f'<p><strong>Source:</strong> <a href="{escape(suggestion["source_url"])}">'
@@ -660,7 +723,13 @@ def render_reviewed_recipe(entry: dict) -> dict:
         )
     if entry.get("note"):
         body += f'<p><strong>Source note:</strong> {escape(entry["note"])}</p>'
-    body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'
+    if entry["status"] == "imported":
+        body += (
+            f'<p class="recipe-source"><strong>Recipe source:</strong> <a href="{escape(entry["source_url"])}">'
+            f'{escape(entry["attribution"])}</a>. Reviewed November 7, 2026.</p>'
+        )
+    else:
+        body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'
     destination.write_text(
         render_recipe_page(entry["title"], entry["category"], entry["sub"], body),
         encoding="utf-8",
@@ -686,6 +755,14 @@ def _force_rm(func, path, exc):
 
 def main() -> None:
     reviewed_recipes = load_reviewed_recipes()
+    imported_recipes = load_imported_recipes()
+    imported_by_url = {recipe["url"]: recipe for recipe in imported_recipes}
+    for entry in reviewed_recipes:
+        for suggestion in entry.get("suggestions", []):
+            if suggestion.get("recipe_url"):
+                imported = imported_by_url.get(suggestion["recipe_url"])
+                if not imported or imported["source_url"] != suggestion["source_url"] or imported["title"] != suggestion["recipe_title"]:
+                    raise ValueError(f"Suggested import does not match its cited source: {entry['title']}")
     if RECIPES_OUT.exists():
         shutil.rmtree(RECIPES_OUT, onerror=_force_rm)
     RECIPES_OUT.mkdir(parents=True, exist_ok=True)
@@ -746,6 +823,7 @@ def main() -> None:
                 "ingredients": [],
             })
 
+    recipes.extend(render_reviewed_recipe(entry) for entry in imported_recipes)
     recipes.extend(render_reviewed_recipe(entry) for entry in reviewed_recipes)
     recipes.sort(key=lambda r: (r["category"], r["sub"], r["title"].lower()))
 

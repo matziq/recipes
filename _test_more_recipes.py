@@ -143,6 +143,85 @@ class ReviewedRecipesTests(unittest.TestCase):
                 build.render_reviewed_recipe({"source": self.entry["source"], "url": "recipes/existing.html"})
         self.assertEqual(destination.read_text(encoding="utf-8"), "keep")
 
+    def import_entry(self):
+        return {"title": "Test Complete Recipe", "category": "Breads",
+                "source_url": "https://example.com/recipe", "attribution": "Example author",
+                "yield": "1 loaf", "ingredient_groups": [{"items": ["1 cup flour"]}],
+                "instructions": ["Bake until done."]}
+
+    def load_imports(self, entries):
+        path = self.root / "imports.json"
+        path.write_text(json.dumps(entries), encoding="utf-8")
+        with patch.object(build, "IMPORTED_RECIPES", path):
+            return build.load_imported_recipes()
+
+    def test_import_requires_complete_fact_groups(self):
+        for key in ("yield", "attribution", "ingredient_groups", "instructions"):
+            entry = self.import_entry()
+            del entry[key]
+            with self.assertRaisesRegex(ValueError, "requires complete"):
+                self.load_imports([entry])
+        with self.assertRaisesRegex(ValueError, "must contain ingredient facts"):
+            self.load_imports([{**self.import_entry(), "ingredient_groups": [{"items": []}]}])
+        with self.assertRaisesRegex(ValueError, "must be lists"):
+            self.load_imports([{**self.import_entry(), "instructions": "not steps"}])
+
+    def test_import_duplicates_and_insecure_citations_fail(self):
+        entry = self.import_entry()
+        with self.assertRaisesRegex(ValueError, "Duplicate imported"):
+            self.load_imports([entry, entry])
+        with self.assertRaisesRegex(ValueError, "Duplicate imported"):
+            self.load_imports([entry, {**entry, "source_url": "https://example.com/other"}])
+        with self.assertRaisesRegex(ValueError, "must use HTTPS"):
+            self.load_imports([{**entry, "source_url": "http://example.com"}])
+
+    def test_complete_import_has_lists_and_attribution_without_images(self):
+        entry = self.load_imports([self.import_entry()])[0]
+        with patch.object(build, "OUT", self.root):
+            recipe = build.render_reviewed_recipe(entry)
+        page = (self.root / recipe["url"]).read_text(encoding="utf-8")
+        self.assertIn("<ul><li>1 cup flour</li></ul>", page)
+        self.assertIn("<ol><li>Bake until done.</li></ol>", page)
+        self.assertIn("https://example.com/recipe", page)
+        self.assertIn("Example author", page)
+        self.assertIn("separate from the incomplete original", page)
+        self.assertNotIn("<img", page)
+
+    def test_internal_suggestion_link_preserves_original_list_order(self):
+        original = "<ul><li>Original flour</li><li>Original sugar</li></ul>"
+        entry = {**self.entry, "status": "incomplete", "url": "recipes/breads/original.html",
+                 "title": "Original (Incomplete)", "body_html": original, "missing": "Method absent.",
+                 "category": "Breads", "sub": "", "suggestions": [{
+                     **self.suggestion(), "recipe_url": "recipes/desserts/import.html",
+                     "recipe_title": "Separate complete recipe"}]}
+        target = self.root / entry["suggestions"][0]["recipe_url"]
+        target.parent.mkdir(parents=True)
+        target.write_text("complete", encoding="utf-8")
+        with patch.object(build, "OUT", self.root):
+            recipe = build.render_reviewed_recipe(entry)
+        page = (self.root / recipe["url"]).read_text(encoding="utf-8")
+        self.assertIn('href="../desserts/import.html"', page)
+        self.assertIn(original, page)
+        self.assertEqual(page.count("<li>"), 2)
+        self.assertNotIn("<li", page.split('aria-label="Suggested completion"', 1)[1])
+
+    def test_internal_suggestion_requires_safe_destination(self):
+        for url in ("../outside.html", "recipes/../../outside.html", "https://example.com", "recipes/missing.txt"):
+            self.write_review([{**self.entry, "suggestions": [{
+                **self.suggestion(), "recipe_url": url, "recipe_title": "Complete"}]}])
+            with self.assertRaisesRegex(ValueError, "Invalid suggested internal"):
+                build.load_reviewed_recipes()
+
+    def test_missing_imported_target_fails_explicitly(self):
+        entry = {**self.entry, "status": "incomplete", "url": "recipes/original.html",
+                 "title": "Original (Incomplete)", "body_html": "<p>Known facts.</p>",
+                 "missing": "Method absent.", "category": "Breads", "sub": "",
+                 "suggestions": [{**self.suggestion(), "recipe_url": "recipes/missing.html",
+                                  "recipe_title": "Missing complete recipe"}]}
+        with patch.object(build, "OUT", self.root):
+            with self.assertRaisesRegex(ValueError, "does not exist"):
+                build.render_reviewed_recipe(entry)
+
 
 if __name__ == "__main__":
     unittest.main()
