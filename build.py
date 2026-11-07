@@ -590,11 +590,19 @@ def load_reviewed_recipes() -> list[dict]:
         if entry["status"] == "incomplete" and entry.get("url"):
             if not entry.get("body_html") or not entry.get("missing") or not entry["title"].endswith(" (Incomplete)"):
                 raise ValueError(f"Incomplete publication requires factual content, missing details, and a labeled title: {relative}")
+        if entry["status"] == "reference" and entry.get("url"):
+            if not entry.get("body_html") or not entry.get("missing") or not entry.get("suggestions") or not entry["title"].endswith(" (Exception)"):
+                raise ValueError(f"Reference publication requires factual content, missing details, and an exception title: {relative}")
+        for suggestion in entry.get("suggestions", []):
+            if not all(suggestion.get(key) for key in ("title", "source_url", "attribution", "evidence", "confidence", "body_html")):
+                raise ValueError(f"Incomplete suggestion evidence for {relative}")
+            if not suggestion["source_url"].startswith("https://"):
+                raise ValueError(f"Suggestion source must use HTTPS: {relative}")
     actual = {str(path.relative_to(root)) for path in root.rglob("*") if path.is_file()}
     if seen != actual:
         raise ValueError(f"More Recipes inventory changed; review added/removed files: {seen ^ actual}")
     return [entry for entry in entries if entry["status"] == "added" or
-            (entry["status"] == "incomplete" and entry.get("url"))]
+            (entry["status"] in {"incomplete", "reference"} and entry.get("url"))]
 
 
 def render_reviewed_recipe(entry: dict) -> dict:
@@ -626,14 +634,30 @@ def render_reviewed_recipe(entry: dict) -> dict:
         body = f'<img class="pdf-page" src="{slug}_pages/page-001.jpg" alt="{escape(entry["title"])} recipe from the supplied collection">'
     else:
         raise ValueError(f"Unsupported reviewed source: {source}")
-    if entry["status"] == "incomplete":
+    if entry["status"] in {"incomplete", "reference"}:
+        warning = ("Incomplete recipe - not ready to cook" if entry["status"] == "incomplete"
+                   else "Reference exception - original instructions incomplete")
         body = (
             '<aside role="note" aria-label="Incomplete recipe" style="border:3px solid #b45309;padding:1rem">'
-            '<h2>Incomplete recipe - not ready to cook</h2>'
+            f'<h2>{warning}</h2>'
             f'<p>{escape(entry["missing"])}</p>'
-            '<p>This entry preserves only the available source facts. Missing details have not been guessed. '
+            '<p>The original-source section preserves only the available facts. Missing original details remain unresolved. '
             'Do not treat it as a complete recipe.</p></aside>'
         ) + body
+    original_body = body
+    for suggestion in entry.get("suggestions", []):
+        body += (
+            '<section aria-label="Suggested completion" style="border:2px dashed #2563eb;padding:1rem;margin-top:1.5rem">'
+            '<h2>Suggested completion - not part of the original source</h2>'
+            f'<h3>{escape(suggestion["title"])}</h3>'
+            '<p>This is an optional adaptation or substitute, not a recovered original or a tested completion. '
+            'The original remains an exception. Do not silently combine incompatible ingredient formulas.</p>'
+            f'<p><strong>Evidence and rationale:</strong> {escape(suggestion["evidence"])}</p>'
+            f'<p><strong>Confidence:</strong> {escape(suggestion["confidence"])}</p>'
+            f'<p><strong>Source:</strong> <a href="{escape(suggestion["source_url"])}">'
+            f'{escape(suggestion["attribution"])}</a>. Evidence checked November 7, 2026; ratings may change.</p>'
+            f'{suggestion["body_html"]}</section>'
+        )
     if entry.get("note"):
         body += f'<p><strong>Source note:</strong> {escape(entry["note"])}</p>'
     body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'
@@ -644,7 +668,7 @@ def render_reviewed_recipe(entry: dict) -> dict:
     return {
         "title": entry["title"], "category": entry["category"], "sub": entry["sub"],
         "url": entry["url"], "type": "html",
-        "ingredients": extract_ingredients_from_html(body),
+        "ingredients": extract_ingredients_from_html(original_body),
     }
 
 

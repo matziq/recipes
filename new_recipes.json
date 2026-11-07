@@ -1118,5 +1118,35 @@
     "category": "Snacks",
     "title": "Finger Jello (Incomplete)",
     "date": "2026-11-07"
+  },
+  {
+    "category": "Breads",
+    "title": "Basic Bread (bake-bake rapid mode) (Exception)",
+    "added": "2026-11-07"
+  },
+  {
+    "category": "Breads",
+    "title": "Basic II Bread (bake-bake rapid mode) (Exception)",
+    "added": "2026-11-07"
+  },
+  {
+    "category": "Breads",
+    "title": "Multigrain Breads 1 (Exception)",
+    "added": "2026-11-07"
+  },
+  {
+    "category": "Breads",
+    "title": "Multigrain Breads (Exception)",
+    "added": "2026-11-07"
+  },
+  {
+    "category": "Breads",
+    "title": "Sandwich Bread (white, wheat, other) (Exception)",
+    "added": "2026-11-07"
+  },
+  {
+    "category": "Breads",
+    "title": "Whole Wheat Bread (Exception)",
+    "added": "2026-11-07"
   }
 ]

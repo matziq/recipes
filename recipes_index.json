@@ -1322,6 +1322,60 @@
     ]
   },
   {
+    "title": "Basic Bread (bake-bake rapid mode) (Exception)",
+    "category": "Breads",
+    "sub": "Breadmaker Bread",
+    "url": "recipes/breads/breadmaker-bread/basic-bread-bake-bake-rapid-mode-exception.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
+    "title": "Basic II Bread (bake-bake rapid mode) (Exception)",
+    "category": "Breads",
+    "sub": "Breadmaker Bread",
+    "url": "recipes/breads/breadmaker-bread/basic-ii-bread-bake-bake-rapid-mode-exception.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
+    "title": "Multigrain Breads (Exception)",
+    "category": "Breads",
+    "sub": "Breadmaker Bread",
+    "url": "recipes/breads/breadmaker-bread/multigrain-breads-exception.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
+    "title": "Multigrain Breads 1 (Exception)",
+    "category": "Breads",
+    "sub": "Breadmaker Bread",
+    "url": "recipes/breads/breadmaker-bread/multigrain-breads-1-exception.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
+    "title": "Sandwich Bread (white, wheat, other) (Exception)",
+    "category": "Breads",
+    "sub": "Breadmaker Bread",
+    "url": "recipes/breads/breadmaker-bread/sandwich-bread-white-wheat-other-exception.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
+    "title": "Whole Wheat Bread (Exception)",
+    "category": "Breads",
+    "sub": "Breadmaker Bread",
+    "url": "recipes/breads/breadmaker-bread/whole-wheat-bread-exception.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
     "title": "Bacon And Green Chili Quiche",
     "category": "Breakfast",
     "sub": "",

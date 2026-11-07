@@ -76,6 +76,51 @@ class ReviewedRecipesTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "inventory changed"):
             build.load_reviewed_recipes()
 
+    def suggestion(self):
+        return {"title": "Optional substitute", "source_url": "https://example.com/recipe",
+                "attribution": "Independent author", "evidence": "Same ingredient family, different ratios.",
+                "confidence": "Moderate; untested.", "body_html": "<p>Suggested ingredient facts.</p>"}
+
+    def test_reference_requires_exception_label_and_suggestion(self):
+        entry = {**self.entry, "status": "reference", "url": "recipes/exception.html",
+                 "title": "Recipe (Exception)", "body_html": "<p>Manual subject only.</p>",
+                 "missing": "Operating method absent.", "category": "Breads", "sub": ""}
+        self.write_review([entry])
+        with self.assertRaisesRegex(ValueError, "Reference publication requires"):
+            build.load_reviewed_recipes()
+        entry["suggestions"] = [self.suggestion()]
+        self.write_review([entry])
+        self.assertEqual(build.load_reviewed_recipes(), [entry])
+        entry["title"] = "Recipe"
+        self.write_review([entry])
+        with self.assertRaisesRegex(ValueError, "Reference publication requires"):
+            build.load_reviewed_recipes()
+
+    def test_suggestion_requires_complete_evidence_and_https(self):
+        suggestion = self.suggestion()
+        del suggestion["confidence"]
+        self.write_review([{**self.entry, "suggestions": [suggestion]}])
+        with self.assertRaisesRegex(ValueError, "Incomplete suggestion evidence"):
+            build.load_reviewed_recipes()
+        suggestion = {**self.suggestion(), "source_url": "http://example.com"}
+        self.write_review([{**self.entry, "suggestions": [suggestion]}])
+        with self.assertRaisesRegex(ValueError, "Suggestion source must use HTTPS"):
+            build.load_reviewed_recipes()
+
+    def test_suggestion_is_separate_and_not_ingredient_indexed(self):
+        entry = {**self.entry, "status": "incomplete", "url": "recipes/suggestion.html",
+                 "title": "Recipe (Incomplete)", "body_html": "<p>Original facts.</p>",
+                 "missing": "Method absent.", "category": "Breads", "sub": "",
+                 "suggestions": [self.suggestion()]}
+        with patch.object(build, "OUT", self.root), patch.object(
+                build, "extract_ingredients_from_html", return_value=[]) as extract:
+            result = build.render_reviewed_recipe(entry)
+        page = (self.root / result["url"]).read_text(encoding="utf-8")
+        self.assertLess(page.index("Original facts"), page.index("Suggested completion -"))
+        self.assertIn("not a recovered original or a tested completion", page)
+        self.assertIn("https://example.com/recipe", page)
+        self.assertNotIn("Suggested ingredient facts", extract.call_args.args[0])
+
     def test_duplicate_source_is_rejected(self):
         self.write_review([self.entry, self.entry])
         with self.assertRaisesRegex(ValueError, "Duplicate reviewed source"):
