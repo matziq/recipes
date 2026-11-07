@@ -587,10 +587,14 @@ def load_reviewed_recipes() -> list[dict]:
             raise ValueError(f"Source changed; review it again before publishing: {path}")
         if entry["status"] not in {"added", "represented", "incomplete", "reference"}:
             raise ValueError(f"Invalid review status for {relative}")
+        if entry["status"] == "incomplete" and entry.get("url"):
+            if not entry.get("body_html") or not entry.get("missing") or not entry["title"].endswith(" (Incomplete)"):
+                raise ValueError(f"Incomplete publication requires factual content, missing details, and a labeled title: {relative}")
     actual = {str(path.relative_to(root)) for path in root.rglob("*") if path.is_file()}
     if seen != actual:
         raise ValueError(f"More Recipes inventory changed; review added/removed files: {seen ^ actual}")
-    return [entry for entry in entries if entry["status"] == "added"]
+    return [entry for entry in entries if entry["status"] == "added" or
+            (entry["status"] == "incomplete" and entry.get("url"))]
 
 
 def render_reviewed_recipe(entry: dict) -> dict:
@@ -622,6 +626,14 @@ def render_reviewed_recipe(entry: dict) -> dict:
         body = f'<img class="pdf-page" src="{slug}_pages/page-001.jpg" alt="{escape(entry["title"])} recipe from the supplied collection">'
     else:
         raise ValueError(f"Unsupported reviewed source: {source}")
+    if entry["status"] == "incomplete":
+        body = (
+            '<aside role="note" aria-label="Incomplete recipe" style="border:3px solid #b45309;padding:1rem">'
+            '<h2>Incomplete recipe - not ready to cook</h2>'
+            f'<p>{escape(entry["missing"])}</p>'
+            '<p>This entry preserves only the available source facts. Missing details have not been guessed. '
+            'Do not treat it as a complete recipe.</p></aside>'
+        ) + body
     if entry.get("note"):
         body += f'<p><strong>Source note:</strong> {escape(entry["note"])}</p>'
     body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'

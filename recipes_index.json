@@ -1540,6 +1540,21 @@
     "new": true
   },
   {
+    "title": "Red Door Skillet (Incomplete)",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/breakfast/red-door-skillet-incomplete.html",
+    "type": "html",
+    "ingredients": [
+      "batch mile high biscuit",
+      "hashbrowns bag size unspecified",
+      "country breakfast sausage",
+      "jalapeno",
+      "fried egg"
+    ],
+    "new": true
+  },
+  {
     "title": "Yeast Waffles",
     "category": "Breakfast",
     "sub": "",
@@ -2017,6 +2032,26 @@
       "mayonnaise",
       "dijon mustard",
       "kosher salt"
+    ],
+    "new": true
+  },
+  {
+    "title": "Basic Berliner (Incomplete)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/basic-berliner-incomplete.html",
+    "type": "html",
+    "ingredients": [
+      "active dry yeast",
+      "milk",
+      "bread flour",
+      "flour",
+      "sugar",
+      "salt",
+      "nutmeg",
+      "egg",
+      "vanilla extract",
+      "butter"
     ],
     "new": true
   },
@@ -2839,6 +2874,24 @@
     "new": true
   },
   {
+    "title": "White Chocolate Raspberry Cake (Incomplete)",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "url": "recipes/desserts/cakes/white-chocolate-raspberry-cake-incomplete.html",
+    "type": "html",
+    "ingredients": [
+      "egg white",
+      "oil",
+      "vanilla",
+      "buttermilk",
+      "white cake mix package",
+      "white chocolate jell-o instant",
+      "white chocolate chip",
+      "sour cream"
+    ],
+    "new": true
+  },
+  {
     "title": "White Texas Sheet Cake",
     "category": "Desserts",
     "sub": "Cakes",
@@ -3095,6 +3148,25 @@
       "all-natural peanut butter",
       "quick-cooking rolled oats",
       "honey"
+    ],
+    "new": true
+  },
+  {
+    "title": "Swig Sugar Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/swig-sugar-cookies.html",
+    "type": "html",
+    "ingredients": [
+      "avocado oil",
+      "granulated sugar",
+      "powdered sugar",
+      "each baking soda",
+      "sour cream",
+      "egg",
+      "vanilla extract",
+      "flour",
+      "cream or milk"
     ],
     "new": true
   },
@@ -6044,6 +6116,23 @@
     ]
   },
   {
+    "title": "Mom's Dressing (Incomplete)",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/moms-dressing-incomplete.html",
+    "type": "html",
+    "ingredients": [
+      "bread cube",
+      "margarine",
+      "onion",
+      "celery and leaf",
+      "salt",
+      "pepper",
+      "sage"
+    ],
+    "new": true
+  },
+  {
     "title": "Panang curry",
     "category": "Sides",
     "sub": "",
@@ -6523,6 +6612,19 @@
       "fruit",
       "your favorite cereal"
     ]
+  },
+  {
+    "title": "Finger Jello (Incomplete)",
+    "category": "Snacks",
+    "sub": "",
+    "url": "recipes/snacks/finger-jello-incomplete.html",
+    "type": "html",
+    "ingredients": [
+      "knox gelatin",
+      "boiling water",
+      "jell-o"
+    ],
+    "new": true
   },
   {
     "title": "Power Treat",

@@ -52,6 +52,25 @@ class ReviewedRecipesTests(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             build.load_reviewed_recipes()
 
+    def test_incomplete_entries_require_warning_data(self):
+        self.write_review([{**self.entry, "status": "incomplete", "url": "recipes/incomplete.html",
+                            "title": "Recipe"}])
+        with self.assertRaisesRegex(ValueError, "Incomplete publication requires"):
+            build.load_reviewed_recipes()
+
+    def test_reviewed_incomplete_entry_is_published_with_warning(self):
+        entry = {**self.entry, "status": "incomplete", "url": "recipes/incomplete.html",
+                 "title": "Recipe (Incomplete)", "body_html": "<p>Known ingredient facts.</p>",
+                 "missing": "Baking directions are missing.", "category": "Breads", "sub": ""}
+        self.write_review([entry])
+        self.assertEqual(build.load_reviewed_recipes(), [entry])
+        with patch.object(build, "OUT", self.root):
+            result = build.render_reviewed_recipe(entry)
+        page = (self.root / result["url"]).read_text(encoding="utf-8")
+        self.assertIn("Incomplete recipe - not ready to cook", page)
+        self.assertIn(entry["missing"], page)
+        self.assertLess(page.index("Incomplete recipe - not ready to cook"), page.index("Known ingredient facts"))
+
     def test_unreviewed_file_requires_review(self):
         (self.file.parent / "New.docx").write_bytes(b"new")
         with self.assertRaisesRegex(ValueError, "inventory changed"):

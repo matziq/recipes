@@ -334,7 +334,13 @@
     "source": "Breakfast\\Red Door Skillet.docx",
     "sha256": "a89a534f5c64cf0c2cf4962ec8ab70071c3d615d4533c38629f02b217b9b1088",
     "status": "incomplete",
-    "reason": "Ingredient/assembly list only; no complete preparation directions, and referenced biscuit and gravy recipes are absent."
+    "reason": "Published as an explicitly incomplete factual entry. The skillet cooking/assembly method, exact biscuit and gravy recipes, hashbrown bag size, and bacon/cheese quantities are missing. The Allrecipes references do not identify exact URLs; no different biscuit or gravy recipe has been substituted.",
+    "title": "Red Door Skillet (Incomplete)",
+    "category": "Breakfast",
+    "sub": "",
+    "body_html": "<h2>Available ingredient facts</h2><ul><li>1 batch Mile High Biscuits (source references Allrecipes)</li><li>Double batch white gravy (source references Allrecipes)</li><li>1/2 bag frozen hashbrowns; bag size unspecified</li><li>1/2 pound ground country breakfast sausage</li><li>Crumbled bacon; quantity unspecified</li><li>Grated cheese; quantity unspecified</li><li>2 jalapenos, briefly cooked in sausage grease</li><li>5-8 fried eggs (source also says 1 or 2 per person)</li></ul><p>The source says it feeds 4. It provides no complete skillet preparation method.</p>",
+    "url": "recipes/breakfast/red-door-skillet-incomplete.html",
+    "missing": "The skillet cooking/assembly method, exact biscuit and gravy recipes, hashbrown bag size, and bacon/cheese quantities are missing. The Allrecipes references do not identify exact URLs; no different biscuit or gravy recipe has been substituted."
   },
   {
     "source": "Chicken\\Chicken and Goat Cheese Roll-ups.docx",
@@ -427,7 +433,13 @@
     "source": "Desserts\\Cakes\\IMG_6831.jpeg",
     "sha256": "ad47104c7bba8941b8692edf3b584354ce452f48786e123d3a96eb8719966e4d",
     "status": "incomplete",
-    "reason": "White Chocolate Raspberry Cake ingredient card only; no baking directions."
+    "reason": "Published as an explicitly incomplete factual entry. The card has no mixing method, pan size, baking temperature/time, or raspberry ingredient/filling quantity despite its title. No reverse-side recipe was supplied or unequivocal original identified.",
+    "title": "White Chocolate Raspberry Cake (Incomplete)",
+    "category": "Desserts",
+    "sub": "Cakes",
+    "body_html": "<h2>Available ingredient facts</h2><ul><li>4 egg whites</li><li>1/3 cup oil</li><li>2 teaspoons vanilla (Mexican clear)</li><li>3/4 cup buttermilk</li><li>1 white cake mix (Duncan Hines); package size unspecified</li><li>1 (3.3-ounce) package white chocolate Jell-O instant pudding, not cook-and-serve</li><li>1/2 cup white chocolate chips</li><li>3/4 cup sour cream</li></ul>",
+    "url": "recipes/desserts/cakes/white-chocolate-raspberry-cake-incomplete.html",
+    "missing": "The card has no mixing method, pan size, baking temperature/time, or raspberry ingredient/filling quantity despite its title. No reverse-side recipe was supplied or unequivocal original identified."
   },
   {
     "source": "Desserts\\Cakes\\Luscious Four-Layer Pumpkin Cake.docx",
@@ -573,8 +585,14 @@
   {
     "source": "Desserts\\Cookies\\Swig Sugar Cookies.docx",
     "sha256": "d57dc1c18538f26f85475229067264639ba9f02316ec297202d8b3cb29d4112d",
-    "status": "incomplete",
-    "reason": "Avocado oil quantity is written as '3/4' without a measurement unit; do not guess."
+    "status": "added",
+    "reason": "Missing oil unit recovered from unequivocally identified Mel's Kitchen Cafe original (3/4 cup). Supplied avocado-oil variant retained with attribution and concise adapted directions.",
+    "title": "Swig Sugar Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "body_html": "<h2>Available ingredient facts</h2><ul><li>Cookies: 1 cup butter, softened</li><li>3/4 cup avocado oil (cup unit recovered from original)</li><li>1 1/4 cups granulated sugar</li><li>3/4 cup powdered sugar</li><li>1/2 teaspoon each baking soda, cream of tartar, and salt</li><li>2 tablespoons sour cream</li><li>2 large eggs</li><li>1 teaspoon vanilla extract</li><li>5 1/2 cups all-purpose flour</li><li>Granulated sugar for pressing</li><li>Frosting: 3/4 cup butter, softened</li><li>2 tablespoons sour cream</li><li>1 teaspoon vanilla extract</li><li>6 cups powdered sugar</li><li>1-2 tablespoons cream or milk</li></ul><h2>Instructions (concise adaptation)</h2><ol><li>Heat oven to 350 F (325 F convection). Line baking sheets with parchment.</li><li>Beat butter, oil, both sugars, baking soda, cream of tartar, and salt until creamy, 1-2 minutes. Beat in sour cream, eggs, and vanilla for another 1-2 minutes.</li><li>Mix in flour just until combined. Roll approximately 3-tablespoon portions into balls, spacing them several inches apart.</li><li>Dip the greased base of a flat-bottomed glass into granulated sugar and press each ball to 1/4-1/2 inch thick, dipping again between cookies.</li><li>The supplied version specifies 10-12 minutes until just set, without browned edges. The current original instead specifies 7-9 minutes until edges are set. This page preserves the supplied version rather than silently replacing its timing.</li><li>Cool briefly on the sheets, then completely on a rack. Beat frosting butter, sour cream and vanilla until smooth; mix in powdered sugar and cream or milk to a spreadable consistency. Frost cooled cookies; the supplied version says to serve chilled.</li></ol><p>Yield: 30 cookies.</p><p>Original identified: <a href=\"https://www.melskitchencafe.com/the-best-swig-sugar-cookies/\">Mel Gunnell, Mel's Kitchen Cafe, The Best Swig Sugar Cookies</a>. The cookie/frosting cup quantities, yield, and distinctive preparation sequence match the supplied document. The original explicitly gives 3/4 cup oil; only that missing unit was recovered. The supplied avocado-oil substitution is retained. Current original weight conversions, oil options, and baking time differ and were not substituted. Directions are newly summarized, not copied.</p>",
+    "url": "recipes/desserts/cookies/swig-sugar-cookies.html",
+    "recovered_from": "https://www.melskitchencafe.com/the-best-swig-sugar-cookies/"
   },
   {
     "source": "Desserts\\cream puffs.docx",
@@ -616,7 +634,13 @@
     "source": "Desserts\\IMG_2126.jpg",
     "sha256": "a46dceb31aab3565cc8e3920fce0d905a8072c36088626749c9c7e823d73f845",
     "status": "incomplete",
-    "reason": "Basic Berliner cookbook page refers to frying directions in another recipe; incomplete and protected cookbook material."
+    "reason": "Published as an explicitly incomplete factual entry. Final cutting/filling choices and baking or frying directions, including oil temperature and cooking time, belong to other unsupplied cookbook recipes. The spread is not a complete standalone doughnut recipe; no missing cookbook content has been reconstructed.",
+    "title": "Basic Berliner (Incomplete)",
+    "category": "Desserts",
+    "sub": "",
+    "body_html": "<h2>Available ingredient facts</h2><ul><li>3 1/4 teaspoons active dry yeast, or 4 1/2 tablespoons fresh yeast</li><li>1 1/2 cups room-temperature whole milk</li><li>3 cups bread flour</li><li>3/4 cup all-purpose flour</li><li>1/4 cup sugar</li><li>1 1/2 teaspoons salt</li><li>1/8 teaspoon grated nutmeg</li><li>1 large egg</li><li>1 teaspoon vanilla extract</li><li>6 tablespoons unsalted butter, softened</li></ul><p>The photographed cookbook spread describes a yeast-raised dough base, yielding about twelve 3-inch doughnuts, and refers to other recipes for final baking or frying. Only factual ingredient quantities and this short summary are represented here; the photograph, narrative, procedural expression, and variations are not reproduced. The book title and author are not visible in the supplied spread.</p>",
+    "url": "recipes/desserts/basic-berliner-incomplete.html",
+    "missing": "Final cutting/filling choices and baking or frying directions, including oil temperature and cooking time, belong to other unsupplied cookbook recipes. The spread is not a complete standalone doughnut recipe; no missing cookbook content has been reconstructed."
   },
   {
     "source": "Desserts\\IMG_6832.jpeg",
@@ -1047,13 +1071,20 @@
     "source": "Sides\\20241225_131820 2.jpg",
     "sha256": "345f3d05378f0f5bbbb075a1f796b8fcb972fa6f11214b7ef126dbc3c2e9ba01",
     "status": "incomplete",
-    "reason": "Mom's Dressing front card; beaten egg has no quantity. The back card does not resolve it."
+    "reason": "Published as an explicitly incomplete factual entry. Both cards were reviewed together. The egg amount, poultry seasoning quantity, pan size, and doneness endpoint remain unspecified. The one-hour estimate alone does not establish safety; egg-containing stuffing/dressing must reach 165 F (food-safety guidance, not a recovered source detail).",
+    "title": "Mom's Dressing (Incomplete)",
+    "category": "Sides",
+    "sub": "",
+    "body_html": "<h2>Available ingredient facts</h2><ul><li>6 quarts bread cubes (source says three 1-pound loaves)</li><li>1 pound margarine</li><li>1 1/4 cups finely minced onion</li><li>3 cups chopped celery and leaves</li><li>2 tablespoons salt</li><li>1 teaspoon pepper</li><li>2 tablespoons sage</li><li>Poultry seasoning; quantity unspecified</li><li>Hot water, enough to moisten; quantity unspecified</li><li>Beaten egg; quantity unspecified</li><li>PAM for the pan; quantity unspecified</li></ul><h2>Available preparation facts</h2><p>The front card calls for melting the margarine, cooking the onion until yellow, then combining bread cubes, celery, seasonings and hot water and adding beaten egg last. The back card says to spray the pan with PAM and cook at 350 F for approximately 1 hour. These facts are not a complete or verified cooking method.</p><p>Reviewed together with the back card: More Recipes / Sides / 20241225_131825~2.jpg.</p>",
+    "url": "recipes/sides/moms-dressing-incomplete.html",
+    "missing": "Both cards were reviewed together. The egg amount, poultry seasoning quantity, pan size, and doneness endpoint remain unspecified. The one-hour estimate alone does not establish safety; egg-containing stuffing/dressing must reach 165 F (food-safety guidance, not a recovered source detail)."
   },
   {
     "source": "Sides\\20241225_131825~2.jpg",
     "sha256": "923ab1d2b16f58f3c8b0463b718fcf0fa07cc1344188ad272a9b2b13aba378bd",
-    "status": "incomplete",
-    "reason": "Back of Mom's Dressing card; incomplete without the front and its unspecified egg quantity."
+    "status": "represented",
+    "reason": "Back card combined with the front in Mom's Dressing (Incomplete); it supplies 350 F and approximately 1 hour but does not resolve the missing egg amount or other details.",
+    "url": "recipes/sides/moms-dressing-incomplete.html"
   },
   {
     "source": "Sides\\Arroz con Gandules.docx",
@@ -1205,7 +1236,13 @@
     "source": "Snacks\\Finger Jello.pdf",
     "sha256": "42cb04625b76bd01ffb842f7f935b0233aedae92323f834edb38fa91302272f5",
     "status": "incomplete",
-    "reason": "Ingredient list only, with no preparation or setting directions."
+    "reason": "Published as an explicitly incomplete factual entry. The card lists only ingredients. Mixing/dissolving sequence, container size, chilling/setting time, and cutting directions are absent. No unequivocally identified original source supplies them.",
+    "title": "Finger Jello (Incomplete)",
+    "category": "Snacks",
+    "sub": "",
+    "body_html": "<h2>Available ingredient facts</h2><ul><li>1 1/3 tablespoons Knox gelatin</li><li>1 1/3 cups boiling water</li><li>3 ounces Jell-O</li></ul>",
+    "url": "recipes/snacks/finger-jello-incomplete.html",
+    "missing": "The card lists only ingredients. Mixing/dissolving sequence, container size, chilling/setting time, and cutting directions are absent. No unequivocally identified original source supplies them."
   },
   {
     "source": "Snacks\\Pumpkin Seeds.docx",
