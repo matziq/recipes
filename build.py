@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import html as html_lib
+import hashlib
 import json
 import os
 import re
@@ -19,11 +20,13 @@ from pathlib import Path
 
 import fitz  # PyMuPDF
 import mammoth
+from PIL import Image, ImageOps
 
 SOURCE = Path(r"d:/OneDrive/Recipes")
 OUT = Path(__file__).parent
 RECIPES_OUT = OUT / "recipes"
 NEW_RECIPES_JSON = OUT / "new_recipes.json"
+MORE_RECIPES_REVIEW = OUT / "more_recipes_review.json"
 
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 DOCX_EXT = {".docx"}
@@ -543,6 +546,8 @@ def select_best_files(verbose: bool = True) -> list[Path]:
         if ext not in IMAGE_EXT and ext not in DOCX_EXT and ext not in PDF_EXT:
             continue
         rel = src.relative_to(SOURCE)
+        if rel.parts[0] == "More Recipes":
+            continue
         category, sub = category_for(rel)
         key = (category, sub, normalize_title(src.stem))
         candidates.setdefault(key, []).append(src)
@@ -564,6 +569,73 @@ def select_best_files(verbose: bool = True) -> list[Path]:
     return chosen
 
 
+def load_reviewed_recipes() -> list[dict]:
+    """Only publish explicitly reviewed recipes from the supplemental folder."""
+    entries = json.loads(MORE_RECIPES_REVIEW.read_text(encoding="utf-8"))
+    root = SOURCE / "More Recipes"
+    seen: set[str] = set()
+    for entry in entries:
+        relative = Path(entry["source"])
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError(f"Invalid reviewed source path: {relative}")
+        if entry["source"] in seen:
+            raise ValueError(f"Duplicate reviewed source: {relative}")
+        seen.add(entry["source"])
+        path = root / relative
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest != entry["sha256"]:
+            raise ValueError(f"Source changed; review it again before publishing: {path}")
+        if entry["status"] not in {"added", "represented", "incomplete", "reference"}:
+            raise ValueError(f"Invalid review status for {relative}")
+    actual = {str(path.relative_to(root)) for path in root.rglob("*") if path.is_file()}
+    if seen != actual:
+        raise ValueError(f"More Recipes inventory changed; review added/removed files: {seen ^ actual}")
+    return [entry for entry in entries if entry["status"] == "added"]
+
+
+def render_reviewed_recipe(entry: dict) -> dict:
+    source = SOURCE / "More Recipes" / entry["source"]
+    destination = OUT / entry["url"]
+    if destination.exists():
+        raise ValueError(f"Reviewed recipe would overwrite an existing recipe: {destination}")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    slug = destination.stem
+    if "body_html" in entry:
+        body = entry["body_html"]
+    elif source.suffix.lower() in DOCX_EXT:
+        body = convert_docx(source, destination)
+    elif source.suffix.lower() in PDF_EXT:
+        body = convert_pdf_pages(source, destination.parent, slug)
+        if entry.get("rotation"):
+            for path in (destination.parent / f"{slug}_pages").glob("*.jpg"):
+                with Image.open(path) as image:
+                    rotated = image.rotate(entry["rotation"], expand=True)
+                rotated.save(path, quality=90)
+    elif source.suffix.lower() in IMAGE_EXT:
+        directory = destination.parent / f"{slug}_pages"
+        directory.mkdir()
+        image_path = directory / "page-001.jpg"
+        with Image.open(source) as image:
+            image = ImageOps.exif_transpose(image).convert("RGB")
+            image.thumbnail((2200, 2200))
+            image.save(image_path, quality=90)
+        body = f'<img class="pdf-page" src="{slug}_pages/page-001.jpg" alt="{escape(entry["title"])} recipe from the supplied collection">'
+    else:
+        raise ValueError(f"Unsupported reviewed source: {source}")
+    if entry.get("note"):
+        body += f'<p><strong>Source note:</strong> {escape(entry["note"])}</p>'
+    body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'
+    destination.write_text(
+        render_recipe_page(entry["title"], entry["category"], entry["sub"], body),
+        encoding="utf-8",
+    )
+    return {
+        "title": entry["title"], "category": entry["category"], "sub": entry["sub"],
+        "url": entry["url"], "type": "html",
+        "ingredients": extract_ingredients_from_html(body),
+    }
+
+
 def _force_rm(func, path, exc):
     try:
         os.chmod(path, stat.S_IWRITE)
@@ -577,6 +649,7 @@ def _force_rm(func, path, exc):
 
 
 def main() -> None:
+    reviewed_recipes = load_reviewed_recipes()
     if RECIPES_OUT.exists():
         shutil.rmtree(RECIPES_OUT, onerror=_force_rm)
     RECIPES_OUT.mkdir(parents=True, exist_ok=True)
@@ -637,6 +710,7 @@ def main() -> None:
                 "ingredients": [],
             })
 
+    recipes.extend(render_reviewed_recipe(entry) for entry in reviewed_recipes)
     recipes.sort(key=lambda r: (r["category"], r["sub"], r["title"].lower()))
 
     # Apply NEW flag from new_recipes.json (case-insensitive match on category + title)

@@ -1,0 +1,1284 @@
+[
+  {
+    "source": "Appetizers\\Blazing Monster Eyes.docx",
+    "sha256": "98a09e4aefcf4684e7ef5a0bb7ea208c21aca32cb6cf89e7d9e71b1fcabc560a",
+    "status": "represented",
+    "url": "recipes/appetizers/blazing-monster-eyes.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Appetizers\\Crab and Mango Empanadas.docx",
+    "sha256": "d2bae3d717b7e66eadd6b3fad3c41b7f47aabf6f1bf8a219c5a527cbda61ac86",
+    "status": "represented",
+    "url": "recipes/appetizers/crab-and-mango-empanadas.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Appetizers\\Empanadas de Cangrejo  y  Mango.docx",
+    "sha256": "d808857c07596571326c2488e13dfb008d58dcd3053bd94e9142e806d002f921",
+    "status": "represented",
+    "url": "recipes/appetizers/empanadas-de-cangrejo-y-mango.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Appetizers\\Florentine Artichoke Dip.docx",
+    "sha256": "1915fd62a911a17d575806ce5e0a2872ad97fc28d1f182a9e098c980c4b2fef1",
+    "status": "represented",
+    "url": "recipes/appetizers/florentine-artichoke-dip.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Appetizers\\olive cheese ball.docx",
+    "sha256": "413e99ba3cd145cfed5fb2a98af3f0706b6195ec05a894e4e778e4470abaa1b9",
+    "status": "represented",
+    "url": "recipes/appetizers/olive-cheese-ball.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\African Peanut Soup.docx",
+    "sha256": "bac4d7eb404fca9a1c2fbcd8cf8935f5815273ab9fc3891019a5c83fec47e48c",
+    "status": "represented",
+    "url": "recipes/beef/african-peanut-soup.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\Amazing Meatballs.docx",
+    "sha256": "aacd0a0841a90c670ab588786351de3ef41e61e367f9b72aac11b775f3e04cfc",
+    "status": "represented",
+    "url": "recipes/beef/amazing-meatballs.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\Beef Kabobs.docx",
+    "sha256": "836f97f9b8220f38c550607d705ce34422872afde441cf5fabc7a96158b7dad5",
+    "status": "represented",
+    "url": "recipes/beef/beef-kabobs.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\Best at home steak.docx",
+    "sha256": "c9c0a07e1674c1b8ced95543bb45739f7fe65d43661cb76cd6b756d6af72847e",
+    "status": "represented",
+    "url": "recipes/beef/best-at-home-steak.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\burritos.docx",
+    "sha256": "b0c2d9e940086e19fd5e38a4dc308b431b76c68ba9887d8eebeaf60d9933a40a",
+    "status": "represented",
+    "url": "recipes/beef/burritos.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\Finger Steaks.pdf",
+    "sha256": "cc7c0e1e11a53a6230971ce767bcf598056ffea4032a24d280387d56d2a14efe",
+    "status": "added",
+    "title": "Finger Steaks",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/finger-steaks.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Beef\\Grandmas's Yummy Meatloaf.docx",
+    "sha256": "f75d9a23a74191673d73b0d520632f3b55e683b12cf751bfa22c65638a1ea019",
+    "status": "represented",
+    "url": "recipes/beef/grandmass-yummy-meatloaf.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Beef\\Pumpkin Dinner.pdf",
+    "sha256": "2ed4e7f62acfe17c8ccf0661291da0cf63273c51e9b29eb7551391cd9b0162ad",
+    "status": "added",
+    "title": "Pumpkin Dinner",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/pumpkin-dinner.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "rotation": 90
+  },
+  {
+    "source": "Breads\\100% Whole Wheat Bread.docx",
+    "sha256": "9ff5e3c92cd334f66ec8345dd804ea03e7f8d13cde5b31774b0b8553622fc7fc",
+    "status": "represented",
+    "url": "recipes/breads/100-whole-wheat-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\African Flat Bread.pdf",
+    "sha256": "ba7469e02cb0e27a30e3abb611bae4f54917fc3090b1d241f5f268ebf93efb60",
+    "status": "added",
+    "title": "African Flat Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/african-flat-bread.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\100% Whole Wheat Bread.docx",
+    "sha256": "eeaff619d7c5222a76d194fcc362459cbb07a811211fd64b62a56a2f5fa0184a",
+    "status": "represented",
+    "url": "recipes/breads/100-whole-wheat-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\Basic Bread (bake-bake rapid mode).jpg",
+    "sha256": "0c6b9257e05a045573743c377d5d838c076348d3a888e21e92a864af69e02fbc",
+    "status": "reference",
+    "reason": "Breadmaker manual recipe tables and program names; no complete operating/preparation instructions. Retained locally, not reproduced as a protected collection."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\Basic II Bread (bake-bake rapid mode).jpg",
+    "sha256": "cfb365f92b05c4d4c57ac5d5070c5c18b57c060b8bff962ad2c663e6bdbe5940",
+    "status": "reference",
+    "reason": "Breadmaker manual recipe tables and program names; no complete operating/preparation instructions. Retained locally, not reproduced as a protected collection."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\Multigrain Breads 1.jpg",
+    "sha256": "8aefbf375fe3170945688cda12bac3851b7db08f5ebac3837d0fe2ddb57e10f2",
+    "status": "reference",
+    "reason": "Breadmaker manual recipe tables and program names; no complete operating/preparation instructions. Retained locally, not reproduced as a protected collection."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\Multigrain Breads.jpg",
+    "sha256": "fdbd5eaba74f06e351fa8f2ccdcd097d0393ef1bf92739406ac1aa080d3089a2",
+    "status": "reference",
+    "reason": "Breadmaker manual recipe tables and program names; no complete operating/preparation instructions. Retained locally, not reproduced as a protected collection."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\Sandwich Bread (white, wheat, other).jpg",
+    "sha256": "6848ce2cb716ec68c4240e739617687e225eef277bb306198f360d5e94985ff1",
+    "status": "reference",
+    "reason": "Breadmaker manual recipe tables and program names; no complete operating/preparation instructions. Retained locally, not reproduced as a protected collection."
+  },
+  {
+    "source": "Breads\\Breadmaker Bread\\Whole Wheat Bread.jpg",
+    "sha256": "cbfa645571249a48a925504c9ffdd8169359b28ad797bdde7e9b0801b0339048",
+    "status": "reference",
+    "reason": "Breadmaker manual recipe tables and program names; no complete operating/preparation instructions. Retained locally, not reproduced as a protected collection."
+  },
+  {
+    "source": "Breads\\Cranberry Nut Bread.docx",
+    "sha256": "0c1d2794af9b559b128f73f3bf4304653d295cd5b5fecba93f332ee1c1b7e728",
+    "status": "represented",
+    "url": "recipes/breads/cranberry-nut-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Exquisite Pumpkin Bread.docx",
+    "sha256": "3e61c813855bbf6644b519345d4ef37912801abf3f8aeb470c28013f96b7e95e",
+    "status": "represented",
+    "url": "recipes/breads/exquisite-pumpkin-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Fleischmann’s Pizza Crust.pdf",
+    "sha256": "20983044a3a94e9880058a0d885c3eac578a0a1c1091a280aa09cda26cb4ed22",
+    "status": "added",
+    "title": "Fleischmann's 30-Minute Pizza Crust",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/fleischmanns-30-minute-pizza-crust.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>1 3/4 to 2 1/4 cups all-purpose flour</li><li>1 packet Fleischmann&#x27;s Pizza Crust Yeast</li><li>1 1/2 teaspoons sugar</li><li>3/4 teaspoon salt</li><li>2/3 cup very warm water (120-130 F)</li><li>3 tablespoons oil</li><li>Pizza sauce, toppings, and cheese</li></ul><h2>Instructions</h2><ol><li>Heat the oven to 425 F. Mix 1 cup flour with the undissolved yeast, sugar, and salt.</li><li>Stir in water and oil for about 1 minute. Add enough remaining flour to make a soft, slightly sticky dough.</li><li>Knead on a floured surface for about 4 minutes, adding flour as needed, until smooth and elastic.</li><li>Pat into a greased pizza pan or roll into a 12-inch circle and transfer to a greased pan. Add sauce, toppings, and cheese.</li><li>Bake on the bottom oven rack for 12-15 minutes, until the crust browns and cheese bubbles.</li></ol><p>Source attribution: Fleischmann&#x27;s package recipe, titled 30-Minute Pizza. Makes one regular 12-inch crust or two thin crusts. Directions adapted from the supplied clipping.</p>"
+  },
+  {
+    "source": "Breads\\Grandma's quick Rolls.docx",
+    "sha256": "1ad94d25339fb5acf14b6f9f22b29ab79eb4e85a4268eb3860473070f231cb6c",
+    "status": "represented",
+    "url": "recipes/breads/grandmas-quick-rolls.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Grandma's Rolls.docx",
+    "sha256": "be02b3c81a9b25711ff13c5a5a7a1c6eec5db669899a6994c748b591c0b2e375",
+    "status": "represented",
+    "url": "recipes/breads/grandmas-rolls.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Grissini Breadsticks.docx",
+    "sha256": "8078a895b1b2b04f6fb77a770e29c4e9311bce5355d847d1bd9375f9df1ea18a",
+    "status": "added",
+    "title": "Grissini Breadsticks",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/grissini-breadsticks.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>1 cup warm water (105-115 F)</li><li>2 1/4 teaspoons active dry yeast (1 package)</li><li>1/4 cup olive oil</li><li>2 1/2 cups all-purpose flour</li><li>1/2 cup semolina flour</li><li>2 teaspoons honey</li><li>2 teaspoons salt</li><li>Seasoning: 1 tablespoon each dried oregano, dried basil, dried parsley, red pepper flakes, and granulated garlic; 1 1/2 teaspoons dried rosemary; 1 teaspoon each fennel seeds and kosher salt</li></ul><h2>Instructions</h2><ol><li>Dissolve active dry yeast in the warm water and wait 5-10 minutes for foam. Stir in oil and honey. For instant yeast, mix it with the flour instead.</li><li>Combine both flours and salt, then add to the liquid. Knead 10 minutes until smooth; hand-kneaded dough may need 2 tablespoons extra flour. Rest 5 minutes.</li><li>Stretch into a 14-by-4-inch rectangle. Brush with olive oil, cover the top and sides with plastic wrap, and proof at room temperature for 1 hour.</li><li>Heat the oven to 450 F. Uncover and oil the dough again. Divide into quarters and keep unused portions covered.</li><li>Pulse the seasoning ingredients in a small food processor. Press 2 teaspoons of seasoning onto each dough quarter, reaching the edges. Cut each quarter into 6 strips.</li><li>Stretch each strip to 14-16 inches, twist, and arrange on parchment-lined baking sheets.</li><li>Bake one sheet at a time for 10-12 minutes, turning the sticks after 6 minutes, until lightly browned.</li></ol><p>Other toppings named in the source: coarse salt and pepper, sesame, Parmesan, poppy seeds, sun-dried tomato, or fennel and salt.</p>"
+  },
+  {
+    "source": "Breads\\IMG_1168.JPG",
+    "sha256": "0f0b7520c206cac745418b7885f0e27ac511ad7cf78c3844ef2d43142ce7b1cd",
+    "status": "represented",
+    "url": "recipes/desserts/cinnabon-cinnamon-rolls.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Breads\\Mimi's Carrot Bread.docx",
+    "sha256": "0b63a77a5437fb4d078453a8ff459088010aa0f58c4c2f8be49df07cb87e6a77",
+    "status": "represented",
+    "url": "recipes/breads/mimis-carrot-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Navajo Fry Bread.pdf",
+    "sha256": "2d9d875034c56c34c58f367c3c54e62d012a7b33ba96a9bd6d9204ea2c7b2ff7",
+    "status": "added",
+    "title": "Navajo Fry Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/navajo-fry-bread.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>3 cups flour</li><li>2 teaspoons baking powder (3 teaspoons at high altitude)</li><li>1 teaspoon salt</li><li>1 1/2 cups warm water or milk</li><li>1 tablespoon oil</li><li>Vegetable oil for frying</li></ul><h2>Instructions</h2><ol><li>Combine the ingredients, adding liquid gradually to form dough. Knead on a lightly floured surface until smooth without stickiness.</li><li>Cover and rest 1 hour. Divide into small balls and flatten into circles 1/4-1/2 inch thick.</li><li>Heat 1/2 inch vegetable oil in a skillet. Fry the circles until browned on both sides, then drain on paper towels.</li></ol><p>Directions adapted from the supplied single-recipe sheet.</p>"
+  },
+  {
+    "source": "Breads\\Oat Bran Muffins.docx",
+    "sha256": "30564c318ba15bfaf614ba50b84ad838174ee26c0dacfc53ddb961b6be8839ef",
+    "status": "represented",
+    "url": "recipes/breads/oat-bran-muffins.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Pita Bread.docx",
+    "sha256": "1694ba7465d117b081a4b3914b4adb0a25df786bace4af94b79ebefc31c71848",
+    "status": "represented",
+    "url": "recipes/breads/homemade-pita-bread-recipe.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Breads\\pizza crust.docx",
+    "sha256": "f74cef373c24897b1919b931032e66c64aa31f29003906ce9e18fbd7ebd56a90",
+    "status": "represented",
+    "url": "recipes/breads/pizza-crust.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Pizzeria Uno Pizza Crust.docx",
+    "sha256": "4fc79cd5dbe3c484521f7754f293e4fcd6a184f2ac9e3d8db554264e158d330c",
+    "status": "represented",
+    "url": "recipes/breads/pizzeria-uno-pizza-crust.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Raspberry-Cream Cheese Muffins.docx",
+    "sha256": "c9c972ae3ffa17e723dfb7f7c5a0ddb60a321a2928955d653009b00f00799100",
+    "status": "represented",
+    "url": "recipes/breads/raspberry-cream-cheese-muffins.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Red Lobster Cheddar Bay Biscuits.docx",
+    "sha256": "1c8dfeb9effea34d68aca8b09adb5d3674c1c917ae9f46f62af97d1a94254753",
+    "status": "represented",
+    "url": "recipes/breads/red-lobster-cheddar-bay-biscuits.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Sacrament Bread.docx",
+    "sha256": "0049d3934f3eaffb9ead76227c31cf5cbab0a31182ab12560771dedd5f62eb71",
+    "status": "represented",
+    "url": "recipes/breads/sacrament-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Traditional Irish Soda Bread.docx",
+    "sha256": "5a328148c65f04c11bd7d08eec217f7f397d28752d5c9a28c77516150da0d977",
+    "status": "represented",
+    "url": "recipes/breads/traditional-irish-soda-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Travis' Pizza Crust.docx",
+    "sha256": "b56e633f45e3b7a6ea4f71381b388064630ff334d0206f0574b45c1e62b72cae",
+    "status": "represented",
+    "url": "recipes/breads/travis-pizza-crust.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breads\\Tropical Banana Loaf.docx",
+    "sha256": "1ce92d5cbc8e6677453978b667b94d75204e4668ad0489034d5dc8378c3726ec",
+    "status": "represented",
+    "url": "recipes/breads/tropical-banana-loaf.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breakfast\\Bacon and Green Chili Quiche.docx",
+    "sha256": "8b744bd21efec4e990f630e56c62f302e2a85f892911309cb624e8bd70362bb6",
+    "status": "represented",
+    "url": "recipes/breakfast/bacon-and-green-chili-quiche.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breakfast\\Crème Brulee French Toast.docx",
+    "sha256": "d49096b73bd85741c4a80f8749c12c05e797e1d56118154afb9bb799a32d98a4",
+    "status": "represented",
+    "url": "recipes/breakfast/crème-brulee-french-toast.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breakfast\\Mom's Waffles.docx",
+    "sha256": "35815d11c19dbc06df7b9418e6e9b04ddc2449b55b4239e06b82435e3c2623f9",
+    "status": "represented",
+    "url": "recipes/breakfast/moms-waffles.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breakfast\\Overnight French Toast.docx",
+    "sha256": "3fb8071f82e4ba2f7d96520d26a6cacf3d3b4450fd0d2dfd8bfff3d8b90efc1b",
+    "status": "represented",
+    "url": "recipes/breakfast/overnight-french-toast.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Breakfast\\Red Door Skillet.docx",
+    "sha256": "a89a534f5c64cf0c2cf4962ec8ab70071c3d615d4533c38629f02b217b9b1088",
+    "status": "incomplete",
+    "reason": "Ingredient/assembly list only; no complete preparation directions, and referenced biscuit and gravy recipes are absent."
+  },
+  {
+    "source": "Chicken\\Chicken and Goat Cheese Roll-ups.docx",
+    "sha256": "b67229fc4728adf662e34587ecdafdfd0eb578bcdaf990976c1bb18629b968de",
+    "status": "represented",
+    "url": "recipes/chicken/chicken-and-goat-cheese-roll-ups.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Chicken Caesar Wraps.docx",
+    "sha256": "63aa5203b2167d7781314dbfae2b85866728ab2cd63832cd0299b9689ddea0fe",
+    "status": "represented",
+    "url": "recipes/chicken/chicken-caesar-wraps.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Chicken Chile Tostadas.docx",
+    "sha256": "34741065118e75387514da1db1a68922513a9af9f9b128a50e3aa35a00221b47",
+    "status": "represented",
+    "url": "recipes/chicken/chicken-chile-tostadas.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Chicken Enchiladas.docx",
+    "sha256": "f760ac10cd9ae223aed059e98b1b310af67ea88f969c53bd0db552f4beef4f6d",
+    "status": "added",
+    "title": "Chicken Enchiladas",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/chicken-enchiladas.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Chicken\\Hot Chicken Salad.docx",
+    "sha256": "65e83f45685a38f5551c3931b114c548e5225bf63c0aeb8860be796a1ed721e4",
+    "status": "represented",
+    "url": "recipes/chicken/hot-chicken-salad.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Provolone & Mushroom Chicken.docx",
+    "sha256": "2f58e3fb3c43de25af7e0db412b5d9c673bf790e381c270d8e2e34a399a85c92",
+    "status": "represented",
+    "url": "recipes/chicken/provolone-mushroom-chicken.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Quick Chicken Pad Thai.jpg",
+    "sha256": "9e958acda4bcb16777c53283eb73cfc85b842903765f632f5084dea4f17a58c5",
+    "status": "represented",
+    "url": "recipes/pasta/quick-chicken-pad-thai.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Shredded Chicken for tacos.pdf",
+    "sha256": "d36a5693f1aa19fad6e2c0488b4309bd9930044d41faf9a5a43da4f59240f19a",
+    "status": "added",
+    "title": "Shredded Chicken for Tacos",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/shredded-chicken-for-tacos.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>4 skinless, boneless chicken breasts</li><li>2 cans chicken broth</li><li>2 packets chicken taco seasoning</li></ul><h2>Instructions</h2><ol><li>Boil the chicken in broth until cooked through; the source estimates 10-15 minutes.</li><li>Remove and shred with two forks, keeping the broth.</li><li>Put the shredded chicken in a large skillet with the reserved broth and taco seasoning. Stir and simmer about 10 minutes.</li></ol><p>Directions adapted from the supplied sheet. Food safety: verify chicken reaches 165 F rather than relying on the estimated cooking time.</p>"
+  },
+  {
+    "source": "Chicken\\T's coq au vin.docx",
+    "sha256": "6cf2a7ef5b53a4efe472b16023c5ccc9e8106de3750a66f4a902bdfd16ca50c4",
+    "status": "represented",
+    "url": "recipes/chicken/ts-coq-au-vin.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Chicken\\Tonya's Chicken Salad.docx",
+    "sha256": "78a2d0b760b311071a74bced7e1df5078e1efc03033e460a885f7a4920b46cb1",
+    "status": "added",
+    "title": "Tonya's Chicken Salad",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/tonyas-chicken-salad.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Desserts\\20241229_150736.jpg",
+    "sha256": "ff423af441c8fa082632c1125790072c3bf798a5bbea806b897aaeaaf88e8019",
+    "status": "represented",
+    "url": "recipes/desserts/cinnabon-cinnamon-rolls.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Desserts\\Cakes\\IMG_6831.jpeg",
+    "sha256": "ad47104c7bba8941b8692edf3b584354ce452f48786e123d3a96eb8719966e4d",
+    "status": "incomplete",
+    "reason": "White Chocolate Raspberry Cake ingredient card only; no baking directions."
+  },
+  {
+    "source": "Desserts\\Cakes\\Luscious Four-Layer Pumpkin Cake.docx",
+    "sha256": "33a9e83735ccb57184414a708691d22201f62b062376cf8624c10faacc111d00",
+    "status": "represented",
+    "url": "recipes/desserts/cakes/luscious-four-layer-pumpkin-cake.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cakes\\Tres Leches.docx",
+    "sha256": "83861f75959258bdf384cac00b2e54da2e7d65c94a780fa5886afd7cb30a9e5b",
+    "status": "represented",
+    "url": "recipes/desserts/cakes/tres-leches.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Candies\\Chocolate Truffles.docx",
+    "sha256": "2c0d615b73da3370670e9aced5885b4bf53a422c8839e0d6ae29323d5f0bf240",
+    "status": "represented",
+    "url": "recipes/desserts/candies/chocolate-truffles.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Candies\\See's Fudge.docx",
+    "sha256": "16fbb97941440f9d39147610bba2cea11f61dddb7b64dcbf2add7002e9f066d9",
+    "status": "represented",
+    "url": "recipes/desserts/candies/sees-fudge.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Chocolate Cream Filling.docx",
+    "sha256": "f1963c29dfff6b090b95b352afc0b9fb347be6f7ecaf03892c6d149133ce799d",
+    "status": "represented",
+    "url": "recipes/desserts/chocolate-cream-filling.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cinnabon Cinnamon Rolls.docx",
+    "sha256": "b13daf545a318ef3db457eb21242677b5cd0e4f0dd5b45ec508cfa1cd77042a3",
+    "status": "represented",
+    "url": "recipes/desserts/cinnabon-cinnamon-rolls.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Classic Chocolate Pudding.docx",
+    "sha256": "11ff7ada937f5321c70272bcbf90ebd84449ca3c4aa89404783f1af01d001662",
+    "status": "represented",
+    "url": "recipes/desserts/classic-chocolate-pudding.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Almond Joy Cookies.docx",
+    "sha256": "ebe4b8b922ce1f30e834d137d19ec567e671cd32bd70a30922276c65547ff449",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/almond-joy-cookies.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Carol's Sugar Cookies.docx",
+    "sha256": "8e974dff758e29cb9a8c4ae256e0578fafaee6c00246183f7b5865cc07ad15cf",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/carols-sugar-cookies.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Coconut Chews.docx",
+    "sha256": "4a7cc013d544dcacaae0526f4f0388cdbc021ddd7c1cd750e4d3732fe0ef782d",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/coconut-chews.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Coconut Macaroons.docx",
+    "sha256": "6a3624b1bf24d495f38d2bc75113a7827c907abc162eb3cca697871f5c709680",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/coconut-macaroons.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Cranberry Coconut Macaroons.pdf",
+    "sha256": "bd3368ab802df9c41dc9848e9abf0cbf302abd23380dce4487ac3c33d7d2ef89",
+    "status": "added",
+    "title": "Cranberry Coconut Macaroons",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/cranberry-coconut-macaroons.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>1 cup fresh cranberries, rinsed and finely chopped</li><li>2/3 cup flour</li><li>1 (14-ounce) bag sweetened shredded coconut</li><li>1/4 teaspoon salt</li><li>1 teaspoon vanilla</li><li>1 (14-ounce) can sweetened condensed milk</li><li>1/2 cup chocolate chips (optional)</li></ul><h2>Instructions</h2><ol><li>Heat the oven to 325 F and line a baking sheet with parchment.</li><li>Toss the cranberries with flour, then thoroughly mix in the remaining ingredients.</li><li>Drop teaspoonfuls onto the sheet. Bake about 20 minutes until golden.</li><li>Remove from the sheet to cool; keep in an airtight container.</li></ol><p>About 35 cookies. Adapted from the supplied recipe clipping; no author is identified on it.</p>"
+  },
+  {
+    "source": "Desserts\\Cookies\\Date Balls.docx",
+    "sha256": "f53753f107b88b666c8a990865839882e351216e519d732068bd6d3ce0d61337",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/date-balls.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Magic Bars.docx",
+    "sha256": "4f3773a47f75eda4fd43372c9b971868d9ef821f3faedd7611b835b69b28bbdc",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/magic-bars.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Neiman-Marcus Cookies.docx",
+    "sha256": "b3bf415945bbf5801d22df9b51bdac9c24bdd392c1fb02fa88f26193ddf931fe",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/neiman-marcus-cookies.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\No Bake Cookies.docx",
+    "sha256": "32b3b26b55e70ae9f8842342692e802afc6835d532be77faf79264d9933db015",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/no-bake-cookies.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Pecan Coconut Triangles.docx",
+    "sha256": "14ce78ba60e6725a19bbea92ed1648de8206babb97255f6e8357691a2e44bcca",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/pecan-coconut-triangles.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Quaker Oatmeal Cookies.pdf",
+    "sha256": "fb91f819aeeca4ff44924c0a60fd648b327ca97ac12ce0e8cee6a1fbbaefbcbf",
+    "status": "added",
+    "title": "Quaker Oatmeal Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/quaker-oatmeal-cookies.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "rotation": 180
+  },
+  {
+    "source": "Desserts\\Cookies\\Reese's Peanut Butter Cookies.docx",
+    "sha256": "88d50dc89164157df1770aa8196f9119e9678aed5702ab4d9730595d189bfa21",
+    "status": "represented",
+    "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Cookies\\Swig Sugar Cookies.docx",
+    "sha256": "d57dc1c18538f26f85475229067264639ba9f02316ec297202d8b3cb29d4112d",
+    "status": "incomplete",
+    "reason": "Avocado oil quantity is written as '3/4' without a measurement unit; do not guess."
+  },
+  {
+    "source": "Desserts\\cream puffs.docx",
+    "sha256": "f99f2c2e1a77bbb6887f0c6a5f29ef78ac4c2661ea72507e211420fd39a68a73",
+    "status": "represented",
+    "url": "recipes/desserts/cream-puffs.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Dessert Crepes.pdf",
+    "sha256": "52b7b0b3956cac519ca82ca45e99dda17c3f08144665893754fa910f1ea5d23d",
+    "status": "added",
+    "title": "Easy Dessert Crepes",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/easy-dessert-crepes.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>1 1/2 cups flour</li><li>1 tablespoon sugar</li><li>1/2 teaspoon baking powder</li><li>1/2 teaspoon salt</li><li>2 cups milk</li><li>1/2 teaspoon vanilla</li><li>2 eggs</li><li>2 tablespoons butter, melted</li></ul><h2>Instructions</h2><ol><li>Mix flour, sugar, baking powder, and salt. Beat in the other ingredients until smooth.</li><li>Lightly butter a 6-8-inch crepe pan. Pour in a scant 1/4 cup batter and immediately rotate to cover the bottom.</li><li>Cook until lightly browned, turn, and brown the other side. Stack with waxed paper between crepes and keep covered.</li><li>Fill with applesauce, sweetened strawberries, currant jelly, or raspberry jam, then roll with the attractive side out and dust with powdered sugar.</li></ol><p>Makes 12 crepes. Other source fillings: thawed sweetened blackberries with Cool Whip; or whip 3 3/4 cups cream with 1/4 cup powdered sugar, fold in 3/4 cup sliced strawberries, and use about 2 tablespoons per crepe. Directions adapted from the supplied sheet.</p>"
+  },
+  {
+    "source": "Desserts\\Fruit Pizza.docx",
+    "sha256": "d76c42ec07f40bc5f08db8ddca85263a1d49051e71c68a7706c3783985d830d2",
+    "status": "represented",
+    "url": "recipes/desserts/fruit-pizza.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Homemade Ice Cream.docx",
+    "sha256": "9f5e391aa4da94b5dd4d8f6db19d87bb0e292dbd85fc0c0b8d09f1aa8b671421",
+    "status": "added",
+    "title": "Homemade Ice Cream (Evaporated Milk)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/homemade-ice-cream-evaporated-milk.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "note": "Food safety: this is an uncooked egg recipe; use pasteurized eggs. Can size and freezer capacity are not specified in the source."
+  },
+  {
+    "source": "Desserts\\IMG_2126.jpg",
+    "sha256": "a46dceb31aab3565cc8e3920fce0d905a8072c36088626749c9c7e823d73f845",
+    "status": "incomplete",
+    "reason": "Basic Berliner cookbook page refers to frying directions in another recipe; incomplete and protected cookbook material."
+  },
+  {
+    "source": "Desserts\\IMG_6832.jpeg",
+    "sha256": "e5b53473a49489b6429f97f6a1739fd2908d07dcbb306d6fe212a6cf05a08d9a",
+    "status": "added",
+    "title": "Vanilla Buttercream (Cakes by Rayno)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/vanilla-buttercream-cakes-by-rayno.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Desserts\\Mango Sticky Rice.docx",
+    "sha256": "5d0108ffa07eb8c082842045ed527907e0a7162487f8393c8f86d64b070031b5",
+    "status": "represented",
+    "url": "recipes/desserts/mango-sticky-rice.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Microwave Salted Caramel Popcorn.docx",
+    "sha256": "061213d23ca64911d6a7faa874f6a12ffffd28ccb734074e45791c9e92360929",
+    "status": "represented",
+    "url": "recipes/desserts/microwave-salted-caramel-popcorn.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Pies\\Peanut Butter Pie.docx",
+    "sha256": "497e8bbe914659fb604a64867f28f8a484d32d7b44902193285fb98c6c9fd835",
+    "status": "added",
+    "title": "Peanut Butter Pie (Chunky Peanut Butter)",
+    "category": "Desserts",
+    "sub": "Pies",
+    "url": "recipes/desserts/pies/peanut-butter-pie-chunky-peanut-butter.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Desserts\\Pies\\Samoa Pie.docx",
+    "sha256": "ebc546ea913c3c227b001a4961c14647bc7cd71a1a1708701d93a079886a00a5",
+    "status": "represented",
+    "url": "recipes/desserts/pies/samoa-pie.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Pumpkin Chocolate Cheesecake Bars.docx",
+    "sha256": "81c72fddb7e0df3cb48f4f65c6f7ee96505ef4ce9280d542edf6d905117718a7",
+    "status": "represented",
+    "url": "recipes/desserts/pumpkin-chocolate-cheesecake-bars.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Desserts\\Wonderful Stuff.pdf",
+    "sha256": "4f388cf1a3df6b2ee5b8333f07425d5873f37691f4100410387485e070000ea9",
+    "status": "added",
+    "title": "Wonderful Stuff",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/wonderful-stuff.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "rotation": 90
+  },
+  {
+    "source": "Drinks\\Italian Soda.pdf",
+    "sha256": "e8c9f15267ec28c2e5eee903e67170534c68685ea2a2b91c8096307807f50918",
+    "status": "added",
+    "title": "Italian Soda",
+    "category": "Drinks",
+    "sub": "",
+    "url": "recipes/drinks/italian-soda.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Drinks\\Root Beer.docx",
+    "sha256": "46e7bf9305c6d2f16af51eb27d471bb087bc102c69d77c9dc3e1c6bdf99a58cf",
+    "status": "represented",
+    "url": "recipes/drinks/root-beer.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Drinks\\Volcanic Punch.docx",
+    "sha256": "f0a25e967de3192005640afdac1b38692a064257d4183734e60dd47405066dce",
+    "status": "represented",
+    "url": "recipes/drinks/volcanic-punch.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Drinks\\Wassail.docx",
+    "sha256": "e3afa3795c7dbf4395549f804fc5ad97a619b4a907c27081fbc0a81c1d08d22c",
+    "status": "represented",
+    "url": "recipes/drinks/wassail.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Fruit\\Fruit Compote.docx",
+    "sha256": "e10b50f4eac76952b9d872c04f8b23e422dda00d3ff8a381f81f50df54980cba",
+    "status": "represented",
+    "url": "recipes/fruit/fruit-compote.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Fruit\\Strawberry-Kiwi Salad with Basil.docx",
+    "sha256": "323761e46798e42bc6c6b5865fbc889fcfa2a13e3396889542ae89e1e1ac5d46",
+    "status": "represented",
+    "url": "recipes/fruit/strawberry-kiwi-salad-with-basil.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Homemade Pizza\\Famous Stapelman Family Pizza.docx",
+    "sha256": "87f19e25afbc0940b635723a4d887f46a38f54c6f23befdced57bd7749448341",
+    "status": "added",
+    "title": "Famous Stapelman Family Pizza",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/famous-stapelman-family-pizza.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Luau\\Aloha Sweet Potatoes.docx",
+    "sha256": "e64cbd166b588bdfddedf87d7dfd2aae23d6e18798d5d7b938bddac1a26b81f5",
+    "status": "represented",
+    "url": "recipes/luau/aloha-sweet-potatoes.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\Chicken Luau.docx",
+    "sha256": "9dd174ee1becb60b878ba693b24859b042a01fd5be598116cc7f89e4fa101b29",
+    "status": "represented",
+    "url": "recipes/luau/chicken-luau.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\Haupia.docx",
+    "sha256": "697cf35f9b94a705037840c3db3162fa251768f0216f88c3babbf461591e8809",
+    "status": "represented",
+    "url": "recipes/luau/haupia.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\Hawaiian Macaroni-Potato Salad.docx",
+    "sha256": "07dc4738e6b984664cb923d65a47852f342827f011091fb07075137bc3a713f3",
+    "status": "represented",
+    "url": "recipes/luau/hawaiian-macaroni-potato-salad.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\Hawaiian Sweet Bread.docx",
+    "sha256": "c1b846df84ca4f64b5b9589c60928c4913817aaa89e68bdf8003529e105668c7",
+    "status": "represented",
+    "url": "recipes/luau/hawaiian-sweet-bread.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\OVEN KALUA PIG.docx",
+    "sha256": "d319e3951dc5a6b2ab1d3088420c2a13618709761074311645cbb813985ee42c",
+    "status": "represented",
+    "url": "recipes/luau/oven-kalua-pig.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\Pineapple Upside-Down Cake.docx",
+    "sha256": "2958e27ac9e8deb7421f5a64402ab3eecd018eb6936552672efdee3b54786326",
+    "status": "represented",
+    "url": "recipes/luau/pineapple-upside-down-cake.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\Teriyaki Chicken.docx",
+    "sha256": "6b88187e5ef2e62a79fc157c6cca282a4545fda606bbd1bbff23180f78239929",
+    "status": "represented",
+    "url": "recipes/luau/teriyaki-chicken.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Luau\\VOLCANIC PUNCH.docx",
+    "sha256": "7ae0bcfab228d6526f97371c32f6bdaa14a7668de28ed29d84755cbe6f1ceb8e",
+    "status": "represented",
+    "url": "recipes/drinks/volcanic-punch.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Pasta\\Cavatappi Pasta.docx",
+    "sha256": "758a9bcd99a51f74113c190873e1c17880292477a12fbfb747d1ceda3267bf6c",
+    "status": "represented",
+    "url": "recipes/pasta/pesto-cavatappi.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Pasta\\Jack's Famous Italian Spaghetti.docx",
+    "sha256": "f2f4790b320f1d59f39a9396edbc5c21c3775fc132a7f3e6d19f1bfa4b7f2589",
+    "status": "represented",
+    "url": "recipes/pasta/jacks-famous-italian-spaghetti.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Pasta\\Mac 'n Cheese.jpg",
+    "sha256": "309da6ea49d265300c89d2ac9b3ba674a223821c55a13d92658e58b4081d2137",
+    "status": "represented",
+    "url": "recipes/pasta/mac-n-cheese-no-bake-edition.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Pasta\\Quick Chicken Pad Thai.docx",
+    "sha256": "84ba4ef2c6ac03297749ad2c641e1ad0e867b5300f8b5a931fdc1daf794bf5da",
+    "status": "represented",
+    "url": "recipes/pasta/quick-chicken-pad-thai.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Pork\\Cafe Rio Pork.docx",
+    "sha256": "a29a3dec784ccd093e24cb7fcc93fa43e1ec7e4c8b375c153351da0906ae3ff0",
+    "status": "represented",
+    "url": "recipes/pork/cafe-rio-pork.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Pork\\Spiced Shredded Pork.pdf",
+    "sha256": "e245c950622ed0d9a9b3a44f56b80f0c47df73aab66e95406e8d574ee39f5720",
+    "status": "added",
+    "title": "Spiced Shredded Pork",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/spiced-shredded-pork.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>1 pound pork tenderloin</li><li>2 (14 1/2-ounce) cans low-sodium chicken stock (about 4 cups)</li><li>2 small onions, finely chopped (about 1/2 cup)</li><li>1/2 fresh jalapeno with seeds, finely chopped</li><li>1/2 bunch cilantro (2 1/2-3 cups), plus garnish</li><li>1/4 teaspoon ground cumin</li><li>1 bay leaf</li><li>Coarse salt and freshly ground pepper</li><li>2 tablespoons unsalted butter, melted</li><li>1 tablespoon extra-virgin olive oil</li></ul><h2>Instructions</h2><ol><li>Preheat the broiler. Combine pork, stock, half the onion, jalapeno, cilantro, cumin, bay leaf, and 1/2 teaspoon salt in a saucepan. Bring to a boil, then simmer, stirring occasionally.</li><li>The source specifies 10-15 minutes and 140 F before broiling. Transfer to a rimmed baking sheet and shred into 2-inch pieces.</li><li>Add the remaining onion, butter, and oil, and season with salt and pepper. Broil 4-7 minutes until golden.</li></ol><p>Adapted from the supplied sheet. Food safety: the source&#x27;s 140 F interim temperature is not the final safe temperature. Whole-cut pork must reach 145 F and rest at least 3 minutes before serving.</p>"
+  },
+  {
+    "source": "Pork\\Wahoo's Hawaiian Pork Bowls.docx",
+    "sha256": "337f41a9e1dbc4c45c874813610044c0946c4e1f0cf46ea366313292b287441a",
+    "status": "added",
+    "title": "Wahoo's Hawaiian Pork Bowls",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/wahoos-hawaiian-pork-bowls.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "note": "Source cooking times are estimates; verify pork is cooked safely rather than relying on time alone."
+  },
+  {
+    "source": "Salads\\Aunt Regina's Cranberry Salad.docx",
+    "sha256": "f8d311762400a5484f8f1b6d3dcca0bdca2f67f7f06fd00b6f0029c00e2504f8",
+    "status": "added",
+    "title": "Aunt Regina's Cranberry Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/aunt-reginas-cranberry-salad.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Salads\\Chinese Cabbage Salad.docx",
+    "sha256": "90a12990e625492a7831a21bd82d19c662b10822821bf14ee664ae922d4e563d",
+    "status": "represented",
+    "url": "recipes/salads/chinese-cabbage-salad.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Salads\\Fiery Chicken Spinach Salad.docx",
+    "sha256": "ab67d965f3f1966fcc0992934c879810109b7b0b5f23c25e13ceb8ae0572ec56",
+    "status": "represented",
+    "url": "recipes/salads/fiery-chicken-spinach-salad.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Salads\\Grandma Barbie's Green Glow Crunch.docx",
+    "sha256": "f18bf787c29526f69cfa2ecf1c65685da2369482c132d35ca9affa0bf1aafa46",
+    "status": "represented",
+    "url": "recipes/salads/grandma-barbies-green-glow-crunch.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Salads\\Greek Couscous Salad.docx",
+    "sha256": "79dd31fc844e6dd9a15933ce48e88f07c10b192e7cf81e1f3a4b6e179c21eb0f",
+    "status": "added",
+    "title": "Greek Couscous Salad (Frozen Broccoli)",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/greek-couscous-salad-frozen-broccoli.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Salads\\raspberry spinach salad.docx",
+    "sha256": "05005324fe3a459698feaa9650327b5e025ad4b174f5e64c28cfcc1fb8f05c44",
+    "status": "represented",
+    "url": "recipes/salads/raspberry-spinach-salad.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sandwiches\\Gobbler.docx",
+    "sha256": "a01d14480b00bcb9be6f8eb367144960846e8ff09ee48683aafd8790f976ce8f",
+    "status": "added",
+    "title": "Spicy Pickle Gobbler",
+    "category": "Sandwiches",
+    "sub": "",
+    "url": "recipes/sandwiches/spicy-pickle-gobbler.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Sandwiches\\Spinach Feta Croissants.docx",
+    "sha256": "bad9e78f75c681992665f0d80e03ac514f3e8e9a6f01343ee1231ad988f5c237",
+    "status": "represented",
+    "url": "recipes/sandwiches/spinach-feta-croissants.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\Avocado Salsa.docx",
+    "sha256": "86b6c782e9ccaf01be31b570476d391f1215a4f67e8c0ecade2326ba3c640d4d",
+    "status": "represented",
+    "url": "recipes/sauces-dips/avocado-salsa.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\Jalapeno Tartar Sauce.docx",
+    "sha256": "24af0654ff5274aa32b514a02f9b645e1b69412ec67802eb18cf6372308ba64c",
+    "status": "represented",
+    "url": "recipes/sauces-dips/jalapeno-tartar-sauce.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\Jalapeno-Spiked Cherry Preserves.docx",
+    "sha256": "693c89b6b07a9cfac03c4025dd1be01ae5fc126ba35c8e4316c1e40050609fa8",
+    "status": "represented",
+    "url": "recipes/sauces-dips/jalapeno-spiked-cherry-preserves.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\Mexican Black Bean Dip.docx",
+    "sha256": "8da20991edb124f9175ebd563fb08615ebd0bea7a56b61e0f36def6a0823d8ef",
+    "status": "represented",
+    "url": "recipes/sauces-dips/mexican-black-bean-dip.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\Salsa.docx",
+    "sha256": "69f5c6be4925f35cd1bbc22b5e679d3ba94be5a3913c63b5f1830ca7a012c092",
+    "status": "represented",
+    "url": "recipes/sauces-dips/salsa.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\The Best Cheese Fondue Ever.docx",
+    "sha256": "b1c593e585b89a3d1240a7d6b9e5d4398e989366a2fce0e0f1d207a7b3b0cbdc",
+    "status": "represented",
+    "url": "recipes/sauces-dips/the-best-cheese-fondue-ever.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sauces  & Dips\\Warm Chocolate Sauce.docx",
+    "sha256": "0af15b71348dd7ae3a252ce6ca7c3a8ec864938caaf32c99681f60849549a42d",
+    "status": "represented",
+    "url": "recipes/sauces-dips/warm-chocolate-sauce.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Broiled Tilapia Parmesan.docx",
+    "sha256": "ebb9c17580d19d70f225d460e53af82b48358451678611c05ffa8a12259783f9",
+    "status": "represented",
+    "url": "recipes/seafood/broiled-tilapia-parmesan.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Copelands Hot Crab Claws.docx",
+    "sha256": "78b00fc3c12f7cc8482d7b5301ee1233047f2e5d0217b24cb462fcd6d7d103b9",
+    "status": "represented",
+    "url": "recipes/seafood/copelands-hot-crab-claws.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Grilled Salmon.docx",
+    "sha256": "ea9e5c8561dda75aab5e5d25c9095f4b1c983545e1cfd1bf17b58b8610ee9f8f",
+    "status": "represented",
+    "url": "recipes/seafood/grilled-salmon.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Macadamia Coconut-Crusted Shrimp.docx",
+    "sha256": "c6a03a630cb5a81c1ab3fa51b91734b0dfcfbf58902029fea5a9a39cda34196a",
+    "status": "represented",
+    "url": "recipes/seafood/macadamia-coconut-crusted-shrimp.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\PF Chang's Kung Pao Shrimp.docx",
+    "sha256": "90facb824f1dea0b5c4bba5c2a0da6c8ee60388b32c574a7ff0270037eab8b58",
+    "status": "represented",
+    "url": "recipes/seafood/pf-changs-kung-pao-shrimp.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Rabago's Shrimp Coctail.docx",
+    "sha256": "0169f278718ea07744b3786e6de999bcddb85f95db0951a02ddc435f13848d21",
+    "status": "represented",
+    "url": "recipes/seafood/rabagos-shrimp-coctail.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Shrimp Mojo A Ajo.docx",
+    "sha256": "2b61ebf0f420e3b11722542c43322c65d65028ce62c7fd21acffe12cd7e1db06",
+    "status": "represented",
+    "url": "recipes/seafood/shrimp-mojo-a-ajo.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Shrimp Mojo A Ojo.pdf",
+    "sha256": "3538d2d7640387386a86af560d66ee4dcd00e131844b442b0b8d16f54f7d38c9",
+    "status": "represented",
+    "url": "recipes/seafood/shrimp-mojo-a-ajo.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Seafood\\Stuffed Salmon.docx",
+    "sha256": "4b475dc57f94a4c734ce900c416a4e8927688a9df1e16f1c9a22331c090d4543",
+    "status": "represented",
+    "url": "recipes/seafood/stuffed-salmon.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Sushi Rice.pdf",
+    "sha256": "12101d86a1218ced21bc5a79494482c343d0809dca7fce6c5bd13a384e3b96c2",
+    "status": "represented",
+    "url": "recipes/seafood/sushi-rice.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Seafood\\Thai Coconut Shrimp.docx",
+    "sha256": "9462da44af406fbdb345ca2102008c2b015d72e94a69b21b2b97383abc5007c9",
+    "status": "represented",
+    "url": "recipes/seafood/thai-coconut-shrimp.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\20241225_131820 2.jpg",
+    "sha256": "345f3d05378f0f5bbbb075a1f796b8fcb972fa6f11214b7ef126dbc3c2e9ba01",
+    "status": "incomplete",
+    "reason": "Mom's Dressing front card; beaten egg has no quantity. The back card does not resolve it."
+  },
+  {
+    "source": "Sides\\20241225_131825~2.jpg",
+    "sha256": "923ab1d2b16f58f3c8b0463b718fcf0fa07cc1344188ad272a9b2b13aba378bd",
+    "status": "incomplete",
+    "reason": "Back of Mom's Dressing card; incomplete without the front and its unspecified egg quantity."
+  },
+  {
+    "source": "Sides\\Arroz con Gandules.docx",
+    "sha256": "53b5d622c72298c8839d5da352eb654e5991d58b73c5cd91f32cc65d5fdd46e1",
+    "status": "represented",
+    "url": "recipes/sides/arroz-con-gandules.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Attach0.jpg",
+    "sha256": "a8c36b0d786c0fe254b162214f87bda5efd530b60fdaa499e140cfc9999c2a56",
+    "status": "added",
+    "title": "Red Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/red-rice.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Sides\\Black-Eyed Pea Baked Squash.docx",
+    "sha256": "1347ad79d0287ee0b042ab653747056da2274571d49b2a06664a09e99af535e4",
+    "status": "represented",
+    "url": "recipes/sides/black-eyed-pea-baked-squash.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Brazilian Black Beans.pdf",
+    "sha256": "13916ea0297194bf62ce5085365b730fe7b550f0d85241e49a42829a6ff9984f",
+    "status": "added",
+    "title": "Simone's Brazilian Black Beans",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/simones-brazilian-black-beans.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>2 cups black beans</li><li>6 cups water</li><li>1 onion, diced</li><li>6 garlic cloves, finely diced</li><li>3 bay leaves</li><li>2 sausage links (chorizo or another preferred sausage)</li><li>Kosher salt</li><li>2 tablespoons oil for sauteing</li><li>Pepper to season</li></ul><h2>Instructions</h2><ol><li>Soak the beans overnight, then rinse and remove small stones. Put in a pressure cooker with water 4 inches above the beans, as directed in the source. Cook 30 minutes, following the cooker&#x27;s safety instructions.</li><li>Saute the onion and garlic in 2 tablespoons oil. Add 4 large spoonfuls of cooked beans, mash with a fork, and season with salt and pepper.</li><li>Return the skillet contents to the beans. Add sausage and cook another 15 minutes, checking doneness and water level and adding water if needed.</li><li>Slice the cooked sausage and return it to the beans.</li></ol><p>Source attribution: Simone&#x27;s Brazilian Black Beans (For a pressure cooker). The ingredient list gives 6 cups water; the directions separately call for 4 inches above the beans. Both source statements are retained; no pressure setting is specified. Do not exceed your cooker&#x27;s bean-fill limit.</p>"
+  },
+  {
+    "source": "Sides\\Caramelized Onions.docx",
+    "sha256": "bf1604864e8322d2e04de5e8a0cb148dd7f7be668f6d89850d5f3f73899b976a",
+    "status": "represented",
+    "url": "recipes/sides/caramelized-onions.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Cheesy Potato Gratin.docx",
+    "sha256": "b58760dfb9c61277615c323b8838d077c9871a7d75684b70e9896802df95c18c",
+    "status": "represented",
+    "url": "recipes/sides/cheesy-potato-gratin.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Cilantro Lime Rice.docx",
+    "sha256": "fcbd938b47c44139f566d741a805b1a25c88da8aac97cf3977ef234a0736710b",
+    "status": "added",
+    "title": "Cilantro Lime Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/cilantro-lime-rice.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Sides\\Garlic Mashed Potatoes with Blue Cheese.docx",
+    "sha256": "d27d769d671a4c09d17c10a45da41b86515c503ba6f155d39b54460cbcb3984f",
+    "status": "represented",
+    "url": "recipes/sides/garlic-mashed-potatoes-with-blue-cheese.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Green Beans with Walnuts & Garlic.pdf",
+    "sha256": "89a3f34b22db816dd86a80204a4e5e74e1f89f48a7a200ba3f57f0aff912a1ab",
+    "status": "represented",
+    "url": "recipes/sides/green-beans-with-walnuts-and-garlic.html",
+    "reason": "Same recipe under a descriptive alternate title; ingredients and method checked."
+  },
+  {
+    "source": "Sides\\Green Beans with Walnuts and Garlic.docx",
+    "sha256": "bc4529b5c2c10f5f0d4da27a9e5dc4fef500b54e8c81939f97d9934e61bd4112",
+    "status": "represented",
+    "url": "recipes/sides/green-beans-with-walnuts-and-garlic.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Mexican Black Beans (quick easy version).docx",
+    "sha256": "9f57dfccfc222cec2b71f16a0118da54ab67f0e8496cbd8643ff1e97db594950",
+    "status": "added",
+    "title": "Mexican Black Beans (Quick Easy Version)",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/mexican-black-beans-quick-easy-version.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Sides\\Mexican Sweet Corn Cake.docx",
+    "sha256": "909fe557f4214d91b1f80760423a1d220081cee2cab4ca51ff2a12dd53683946",
+    "status": "represented",
+    "url": "recipes/sides/mexican-sweet-corn-cake.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Red Beans with Cheese.pdf",
+    "sha256": "808c0a9563107aca5fe8a1b633b14f7b6f721b6967d1bf023c63c76c150af9ee",
+    "status": "added",
+    "title": "Red Beans with Cheese",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/red-beans-with-cheese.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "body_html": "<h2>Ingredients</h2><ul><li>2 (19-ounce) cans kidney beans (about 4 cups), drained and rinsed</li><li>2 (14 1/2-ounce) cans low-sodium chicken stock (about 4 cups)</li><li>2 bay leaves</li><li>1 medium onion, quartered</li><li>1 fresh jalapeno with seeds, quartered</li><li>1/2 teaspoon ground cumin</li><li>Coarse salt</li><li>1/4 cup grated cotija cheese</li></ul><h2>Instructions</h2><ol><li>Combine beans, stock, bay leaves, onion, jalapeno, cumin, and 1/2 teaspoon salt in a saucepan. Bring to a boil, then briskly simmer 15 minutes, stirring occasionally.</li><li>Strain and keep 1/2 cup cooking liquid. Discard the onion, jalapeno, and bay leaves.</li><li>Return beans and reserved liquid to the pan with 2 tablespoons cheese. Mash about half the beans, leaving the rest whole.</li><li>Serve warm with the remaining 2 tablespoons cheese.</li></ol><p>Directions adapted from the supplied single-recipe sheet.</p>"
+  },
+  {
+    "source": "Sides\\Red Lobster White Cheddar Mashed Potatoes.docx",
+    "sha256": "cf67015c91eaa84eb4bb642c5712c46836f6d3a30ff6228128a3850dff51936d",
+    "status": "represented",
+    "url": "recipes/sides/red-lobster-white-cheddar-mashed-potatoes.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Spicy Sweet Potato Wedges.docx",
+    "sha256": "a747d4fbab5a37b86a40c9ae4919383b47e62e99e683aa6694ec7f9bcc0b7b67",
+    "status": "represented",
+    "url": "recipes/sides/spicy-sweet-potato-wedges.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Sweet Potato Casserole.docx",
+    "sha256": "b742c8f9318327f6bd6a076fe41d142ce1f0b6c1c4d31779a015ef1ff4974cc1",
+    "status": "represented",
+    "url": "recipes/sides/sweet-potato-casserole.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Sides\\Tonya’s Baked Beans.jpg",
+    "sha256": "d6b7f511e709f7d7c2d8219b66386105d451d0419abc3948a1c225b9461285ad",
+    "status": "added",
+    "title": "Tonya's Baked Beans",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/tonyas-baked-beans.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant."
+  },
+  {
+    "source": "Snacks\\Aunt Regina's Granola.docx",
+    "sha256": "0c1cbbb63d8a138b0f939391ec9d40a0d8ac471cfc0fdc5aa293403779e412f9",
+    "status": "represented",
+    "url": "recipes/snacks/aunt-reginas-granola.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Snacks\\Finger Jello.pdf",
+    "sha256": "42cb04625b76bd01ffb842f7f935b0233aedae92323f834edb38fa91302272f5",
+    "status": "incomplete",
+    "reason": "Ingredient list only, with no preparation or setting directions."
+  },
+  {
+    "source": "Snacks\\Pumpkin Seeds.docx",
+    "sha256": "e05e7957598c5420e7ce00baf649d8088198bb6024a3c9d45fee329f3039d77b",
+    "status": "represented",
+    "url": "recipes/snacks/pumpkin-seeds.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Soups\\Black Bean Soup.docx",
+    "sha256": "6cd9b1ecbe2defde10b736da8c97fb49d14d54a01939bae3cc950bddfd8a6275",
+    "status": "represented",
+    "url": "recipes/soups/black-bean-soup.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Soups\\Butternut Squash Soup.docx",
+    "sha256": "65a9c927635d016874b98f4f881df81fed33bad7f05b2bd5e633ddd3ccad8f2b",
+    "status": "represented",
+    "url": "recipes/soups/butternut-squash-soup.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Soups\\La Madeleine's Tomato-Basil Soup.docx",
+    "sha256": "1ee6edd672e7cb0e4135a87f3ed36cebb44842d18c3f6ad6b07e7cb63467cbf6",
+    "status": "represented",
+    "url": "recipes/soups/la-madeleines-tomato-basil-soup.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Soups\\Pablano Soup.docx",
+    "sha256": "4babb008f7b9c6e5fd0841170bcda699cbfc2e71146f436fbdd2168f96f9c826",
+    "status": "represented",
+    "url": "recipes/soups/pablano-soup.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Soups\\Slow Cooker Chicken Tortilla Soup Recipe.docx",
+    "sha256": "9ec0cf756c3501e7495832e4c9a7aa64cb37bcbc685035a3e5bc281088623f5b",
+    "status": "added",
+    "title": "Chicken Tortilla Soup (Chicken Breast Version)",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/soups/chicken-tortilla-soup-chicken-breast-version.html",
+    "reason": "Complete source recipe; no equivalent indexed recipe, or a materially different ingredient/method variant.",
+    "note": "Food safety: thaw frozen chicken before slow cooking and verify it reaches 165 F. This differs from the source's allowance for frozen chicken."
+  },
+  {
+    "source": "Soups\\Tortellini Soup.docx",
+    "sha256": "362b30fa13c8521a959bfb4d27c03e0751ad30424aaaad5a24d1e055ba40748d",
+    "status": "represented",
+    "url": "recipes/soups/tortellini-soup.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Turkey\\Apple Cider-Brined Turkey.docx",
+    "sha256": "80a58d215cbc23153d09582b8ce1c2a5161ee4a44f287e8b6046e9803a4cadc6",
+    "status": "represented",
+    "url": "recipes/turkey/apple-cider-brined-turkey.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Vegetarian (Tofu)\\Marinated & Grilled Mushrooms.docx",
+    "sha256": "abdf1a70f91f6792dfce5da41ea1074adf0b7b0f60f615da2cfb27319d5fc11e",
+    "status": "represented",
+    "url": "recipes/vegetarian-tofu/marinated-grilled-mushrooms.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  },
+  {
+    "source": "Vegetarian (Tofu)\\Thai Sticky Rice.docx",
+    "sha256": "da498e530bf59e7b268f594a627fe9bb9670bdadf2c70ddb408f9541e2c641f4",
+    "status": "represented",
+    "url": "recipes/vegetarian-tofu/thai-sticky-rice.html",
+    "reason": "Existing indexed recipe; source content checked against the current version, including PDF-backed pages."
+  }
+]

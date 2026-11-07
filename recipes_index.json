@@ -441,6 +441,15 @@
     "new": true
   },
   {
+    "title": "Finger Steaks",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/finger-steaks.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
     "title": "Grandmas's Yummy Meatloaf",
     "category": "Beef",
     "sub": "",
@@ -465,6 +474,15 @@
       "wine and stock and",
       "potato wedge"
     ],
+    "new": true
+  },
+  {
+    "title": "Pumpkin Dinner",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/beef/pumpkin-dinner.html",
+    "type": "html",
+    "ingredients": [],
     "new": true
   },
   {
@@ -550,6 +568,15 @@
       "grain wheat flour",
       "active yeast"
     ]
+  },
+  {
+    "title": "African Flat Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/african-flat-bread.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
   },
   {
     "title": "Amazingly Easy Irish Soda Bread",
@@ -796,6 +823,39 @@
     ]
   },
   {
+    "title": "Famous Stapelman Family Pizza",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/famous-stapelman-family-pizza.html",
+    "type": "html",
+    "ingredients": [
+      "very warm water",
+      "t yeast",
+      "sugar",
+      "flour",
+      "salt",
+      "t olive oil"
+    ],
+    "new": true
+  },
+  {
+    "title": "Fleischmann's 30-Minute Pizza Crust",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/fleischmanns-30-minute-pizza-crust.html",
+    "type": "html",
+    "ingredients": [
+      "to cups all-purpose flour",
+      "fleischmann's pizza crust yeast",
+      "sugar",
+      "salt",
+      "very warm water",
+      "oil",
+      "pizza sauce"
+    ],
+    "new": true
+  },
+  {
     "title": "Garlic Rosemary Bread",
     "category": "Breads",
     "sub": "",
@@ -845,6 +905,24 @@
       "egg",
       "c flour"
     ]
+  },
+  {
+    "title": "Grissini Breadsticks",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/grissini-breadsticks.html",
+    "type": "html",
+    "ingredients": [
+      "water",
+      "active dry yeast",
+      "olive oil",
+      "flour",
+      "semolina flour",
+      "honey",
+      "salt",
+      "seasoning tablespoon each dried"
+    ],
+    "new": true
   },
   {
     "title": "Homemade Pita Bread Recipe",
@@ -934,6 +1012,22 @@
       "salt",
       "clarified butter or vegetable"
     ]
+  },
+  {
+    "title": "Navajo Fry Bread",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/breads/navajo-fry-bread.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "baking powder",
+      "salt",
+      "water or milk",
+      "oil",
+      "vegetable oil for frying"
+    ],
+    "new": true
   },
   {
     "title": "No Fail Focaccia",
@@ -1536,6 +1630,39 @@
     ]
   },
   {
+    "title": "Chicken Enchiladas",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/chicken-enchiladas.html",
+    "type": "html",
+    "ingredients": [
+      "chicken tender",
+      "chicken broth",
+      "olive oil",
+      "spinach",
+      "baby portabella mushroom",
+      "green chili",
+      "sour cream",
+      "green chili sauce",
+      "cheese",
+      "cilantro",
+      "avocado",
+      "tortilla",
+      "black beans",
+      "chili powder",
+      "coriander powder",
+      "paprika",
+      "to teaspoon salt",
+      "garlic powder",
+      "onion powder",
+      "cumin powder",
+      "black pepper powder",
+      "mexican oregano",
+      "cayenne pepper powder"
+    ],
+    "new": true
+  },
+  {
     "title": "Chicken Fajitas",
     "category": "Chicken",
     "sub": "",
@@ -1799,6 +1926,18 @@
     ]
   },
   {
+    "title": "Shredded Chicken for Tacos",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/shredded-chicken-for-tacos.html",
+    "type": "html",
+    "ingredients": [
+      "chicken broth",
+      "chicken taco seasoning"
+    ],
+    "new": true
+  },
+  {
     "title": "T's Coq Au Vin",
     "category": "Chicken",
     "sub": "",
@@ -1857,6 +1996,27 @@
       "oregano",
       "kosher salt",
       "black pepper"
+    ],
+    "new": true
+  },
+  {
+    "title": "Tonya's Chicken Salad",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/tonyas-chicken-salad.html",
+    "type": "html",
+    "ingredients": [
+      "chicken part",
+      "olive oil",
+      "seedless grape",
+      "almond",
+      "celery rib",
+      "scallion",
+      "dill",
+      "parsley",
+      "mayonnaise",
+      "dijon mustard",
+      "kosher salt"
     ],
     "new": true
   },
@@ -2097,6 +2257,24 @@
     "new": true
   },
   {
+    "title": "Easy Dessert Crepes",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/easy-dessert-crepes.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "sugar",
+      "baking powder",
+      "salt",
+      "milk",
+      "vanilla",
+      "egg",
+      "butter"
+    ],
+    "new": true
+  },
+  {
     "title": "Easy Tiramisu Mousse",
     "category": "Desserts",
     "sub": "",
@@ -2256,6 +2434,20 @@
       "sugar",
       "flavoring"
     ]
+  },
+  {
+    "title": "Homemade Ice Cream (Evaporated Milk)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/homemade-ice-cream-evaporated-milk.html",
+    "type": "html",
+    "ingredients": [
+      "egg",
+      "sugar",
+      "flavoring",
+      "evaporated milk"
+    ],
+    "new": true
   },
   {
     "title": "Ice Cream (Vanilla)",
@@ -2571,6 +2763,24 @@
     "new": true
   },
   {
+    "title": "Vanilla Buttercream (Cakes by Rayno)",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/vanilla-buttercream-cakes-by-rayno.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
+    "title": "Wonderful Stuff",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/desserts/wonderful-stuff.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
     "title": "A Very Berry Strawberry Bunt Cake",
     "category": "Desserts",
     "sub": "Cakes",
@@ -2761,6 +2971,23 @@
     "ingredients": []
   },
   {
+    "title": "Cranberry Coconut Macaroons",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/cranberry-coconut-macaroons.html",
+    "type": "html",
+    "ingredients": [
+      "cranberry",
+      "flour",
+      "coconut",
+      "salt",
+      "vanilla",
+      "condensed milk",
+      "chocolate chip"
+    ],
+    "new": true
+  },
+  {
     "title": "Date Balls",
     "category": "Desserts",
     "sub": "Cookies",
@@ -2833,6 +3060,15 @@
     "ingredients": []
   },
   {
+    "title": "Quaker Oatmeal Cookies",
+    "category": "Desserts",
+    "sub": "Cookies",
+    "url": "recipes/desserts/cookies/quaker-oatmeal-cookies.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
     "title": "Reese's Peanut Butter Cookies",
     "category": "Desserts",
     "sub": "Cookies",
@@ -2883,6 +3119,21 @@
       "powdered sugar",
       "hershey bar"
     ]
+  },
+  {
+    "title": "Peanut Butter Pie (Chunky Peanut Butter)",
+    "category": "Desserts",
+    "sub": "Pies",
+    "url": "recipes/desserts/pies/peanut-butter-pie-chunky-peanut-butter.html",
+    "type": "html",
+    "ingredients": [
+      "chunky peanut butter",
+      "cream cheese",
+      "tub of cool whip",
+      "powdered sugar",
+      "hershey bar"
+    ],
+    "new": true
   },
   {
     "title": "Samoa Pie",
@@ -2962,6 +3213,15 @@
       "water",
       "ice"
     ],
+    "new": true
+  },
+  {
+    "title": "Italian Soda",
+    "category": "Drinks",
+    "sub": "",
+    "url": "recipes/drinks/italian-soda.html",
+    "type": "html",
+    "ingredients": [],
     "new": true
   },
   {
@@ -3443,6 +3703,26 @@
     "new": true
   },
   {
+    "title": "Spiced Shredded Pork",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/spiced-shredded-pork.html",
+    "type": "html",
+    "ingredients": [
+      "pork tenderloin",
+      "chicken stock",
+      "onion",
+      "jalapeno with seed",
+      "cilantro",
+      "cumin",
+      "bay leaf",
+      "salt and freshly ground",
+      "butter",
+      "olive oil"
+    ],
+    "new": true
+  },
+  {
     "title": "Tacos al Pastor (3 Methods)",
     "category": "Pork",
     "sub": "",
@@ -3475,12 +3755,53 @@
     "new": true
   },
   {
+    "title": "Wahoo's Hawaiian Pork Bowls",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/pork/wahoos-hawaiian-pork-bowls.html",
+    "type": "html",
+    "ingredients": [
+      "pork roast",
+      "ono s hawaiian seasoning",
+      "onion",
+      "liquid smoke",
+      "brown or white rice",
+      "water for white",
+      "chicken bouillon for white",
+      "onion or a dash",
+      "oil",
+      "lime",
+      "cook rice in above",
+      "add juice of lime",
+      "or cans black beans",
+      "carrot",
+      "garlic",
+      "jalapeno",
+      "red bell pepper"
+    ],
+    "new": true
+  },
+  {
     "title": "Walnut Crusted Pork Chops With Wild Rice",
     "category": "Pork",
     "sub": "",
     "url": "recipes/pork/walnut-crusted-pork-chops-with-wild-rice.html",
     "type": "html",
     "ingredients": []
+  },
+  {
+    "title": "Aunt Regina's Cranberry Salad",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/aunt-reginas-cranberry-salad.html",
+    "type": "html",
+    "ingredients": [
+      "cranberry",
+      "sugar",
+      "pineapple",
+      "heavy whipping cream"
+    ],
+    "new": true
   },
   {
     "title": "Basil Lemon Pasta Salad",
@@ -3691,6 +4012,27 @@
     ]
   },
   {
+    "title": "Greek Couscous Salad (Frozen Broccoli)",
+    "category": "Salads",
+    "sub": "",
+    "url": "recipes/salads/greek-couscous-salad-frozen-broccoli.html",
+    "type": "html",
+    "ingredients": [
+      "couscous",
+      "t salt",
+      "t black pepper",
+      "t olive oil",
+      "t lemon juice",
+      "broccoli - heated",
+      "basil",
+      "feta cheese",
+      "kalamata olive",
+      "artichoke heart",
+      "sun dried tomato"
+    ],
+    "new": true
+  },
+  {
     "title": "Greek Salad Dressing (The BEST!)",
     "category": "Salads",
     "sub": "",
@@ -3871,6 +4213,15 @@
       "paprika",
       "salt and pepper"
     ],
+    "new": true
+  },
+  {
+    "title": "Spicy Pickle Gobbler",
+    "category": "Sandwiches",
+    "sub": "",
+    "url": "recipes/sandwiches/spicy-pickle-gobbler.html",
+    "type": "html",
+    "ingredients": [],
     "new": true
   },
   {
@@ -5300,6 +5651,25 @@
     "new": true
   },
   {
+    "title": "Cilantro Lime Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/cilantro-lime-rice.html",
+    "type": "html",
+    "ingredients": [
+      "rice",
+      "water",
+      "cubes chicken bouillon",
+      "onion",
+      "cilantro",
+      "oil",
+      "lime",
+      "cook rice in above",
+      "add juice of lime"
+    ],
+    "new": true
+  },
+  {
     "title": "Cinnamon Sugar Soft Pretzels Recipe",
     "category": "Sides",
     "sub": "",
@@ -5645,6 +6015,17 @@
     "new": true
   },
   {
+    "title": "Mexican Black Beans (Quick Easy Version)",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/mexican-black-beans-quick-easy-version.html",
+    "type": "html",
+    "ingredients": [
+      "black beans"
+    ],
+    "new": true
+  },
+  {
     "title": "Mexican Sweet Corn Cake",
     "category": "Sides",
     "sub": "",
@@ -5726,6 +6107,24 @@
     "new": true
   },
   {
+    "title": "Red Beans with Cheese",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/red-beans-with-cheese.html",
+    "type": "html",
+    "ingredients": [
+      "kidney beans",
+      "chicken stock",
+      "bay leaf",
+      "onion",
+      "jalapeno with seed",
+      "cumin",
+      "salt",
+      "cotija cheese"
+    ],
+    "new": true
+  },
+  {
     "title": "Red Lobster White Cheddar Mashed Potatoes",
     "category": "Sides",
     "sub": "",
@@ -5740,6 +6139,15 @@
       "salt",
       "white pepper"
     ]
+  },
+  {
+    "title": "Red Rice",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/red-rice.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
   },
   {
     "title": "Roasted Whole Carrots with Honey and Feta",
@@ -5835,6 +6243,25 @@
       "yukon gold potato",
       "freshly-grated sharp cheddar cheese",
       "freshly-grated parmesan cheese"
+    ],
+    "new": true
+  },
+  {
+    "title": "Simone's Brazilian Black Beans",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/simones-brazilian-black-beans.html",
+    "type": "html",
+    "ingredients": [
+      "black beans",
+      "water",
+      "onion",
+      "garlic clove",
+      "bay leaf",
+      "sausage link",
+      "kosher salt",
+      "oil for sauteing",
+      "pepper to season"
     ],
     "new": true
   },
@@ -6036,6 +6463,15 @@
     "new": true
   },
   {
+    "title": "Tonya's Baked Beans",
+    "category": "Sides",
+    "sub": "",
+    "url": "recipes/sides/tonyas-baked-beans.html",
+    "type": "html",
+    "ingredients": [],
+    "new": true
+  },
+  {
     "title": "Yeast Waffles",
     "category": "Sides",
     "sub": "",
@@ -6220,6 +6656,31 @@
       "lemon juice",
       "brown sugar"
     ]
+  },
+  {
+    "title": "Chicken Tortilla Soup (Chicken Breast Version)",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/soups/chicken-tortilla-soup-chicken-breast-version.html",
+    "type": "html",
+    "ingredients": [
+      "or frozen chicken breast",
+      "fire roasted diced tomato",
+      "enchilada sauce",
+      "onion",
+      "green chile pepper",
+      "garlic",
+      "chicken stock",
+      "cumin",
+      "chili powder",
+      "salt",
+      "black pepper",
+      "bay leaf",
+      "corn",
+      "cilantro",
+      "corn tortilla"
+    ],
+    "new": true
   },
   {
     "title": "Creamy Mushroom Chicken and Wild Rice Soup",
