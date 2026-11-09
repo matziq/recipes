@@ -30,28 +30,50 @@
     var label = document.querySelector("[data-progress-label]");
     if (bar) bar.style.transform = "scaleX(" + ratio + ")";
     if (label) label.textContent = items.length ? done + " / " + items.length : "Ready";
-    window.RecipesApp.write(progressKey, items.map(function (item) {
-      return item.classList.contains("is-done");
-    }));
+    var saved = [];
+    items.forEach(function (item) {
+      saved[Number(item.getAttribute("data-progress-index"))] = item.classList.contains("is-done");
+    });
+    window.RecipesApp.write(progressKey, saved);
   }
 
   function initChecklists() {
     var saved = window.RecipesApp.read(progressKey, []);
-    Array.from(content.querySelectorAll("ul li, ol li")).forEach(function (item, index) {
+    var items = Array.from(content.querySelectorAll("ul li, ol li"));
+    var used = new Set();
+    var valid = items.every(function (item, index) {
+      var slot = item.getAttribute("data-progress-index") ?? String(index);
+      if (!/^\d+$/.test(slot) || !Number.isSafeInteger(Number(slot)) || used.has(Number(slot))) return false;
+      used.add(Number(slot));
+      return true;
+    });
+    if (!valid) {
+      console.error("Invalid recipe checklist progress indices", recipe.url);
+      window.RecipesApp.toast("Recipe checklist needs repair; saved progress was not changed");
+      return;
+    }
+    items.forEach(function (item, index) {
+      var slot = Number(item.getAttribute("data-progress-index") ?? index);
+      item.setAttribute("data-progress-index", String(slot));
       item.classList.add("checkable");
       item.setAttribute("role", "checkbox");
       item.setAttribute("tabindex", "0");
-      item.setAttribute("aria-checked", String(Boolean(saved[index])));
-      item.classList.toggle("is-done", Boolean(saved[index]));
+      item.setAttribute("aria-checked", String(Boolean(saved[slot])));
+      item.classList.toggle("is-done", Boolean(saved[slot]));
       function toggle() {
         var done = !item.classList.contains("is-done");
         item.classList.toggle("is-done", done);
         item.setAttribute("aria-checked", String(done));
         updateProgress();
       }
-      item.addEventListener("click", toggle);
+      item.addEventListener("click", function (event) {
+        if (event.target.closest("a, button, input, select, textarea") ||
+            event.target.closest("li.checkable") !== item) return;
+        toggle();
+      });
       item.addEventListener("keydown", function (event) {
         if (event.key === " " || event.key === "Enter") {
+          if (event.target !== item) return;
           event.preventDefault();
           toggle();
         }

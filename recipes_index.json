@@ -98,12 +98,10 @@
       "cilantro",
       "lump crabmeat",
       "jalape o pepper",
+      "prepared empanada dough",
       "water",
       "egg",
-      "make the filling",
-      "assemble the empanada",
-      "bake",
-      "calories g fat g"
+      "cooking spray"
     ]
   },
   {
@@ -169,7 +167,8 @@
     "ingredients": [
       "butter",
       "cream cheese",
-      "black olive"
+      "black olive",
+      "garlic salt"
     ]
   },
   {
@@ -299,11 +298,14 @@
       "c water",
       "t red pepper flake",
       "t garlic powder",
+      "salt pepper",
       "carrot",
       "sweet potato",
       "russet potato",
       "tomato",
-      "c peanut butter"
+      "c peanut butter",
+      "stew beef",
+      "beef w bone"
     ]
   },
   {
@@ -312,7 +314,18 @@
     "sub": "",
     "url": "recipes/beef/amazing-meatballs.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "beef",
+      "bread crumb",
+      "egg",
+      "t onion salt",
+      "t garlic salt",
+      "t italian seasoning",
+      "t thyme",
+      "rosemary",
+      "t oregano",
+      "t salt"
+    ]
   },
   {
     "title": "Beef Kabobs",
@@ -326,9 +339,10 @@
       "curry powder",
       "cayenne pepper",
       "beef top sirloin steak",
+      "salt",
       "beef seasoning",
       "balsamic vinegar",
-      "salt",
+      "splash of red wine",
       "black pepper"
     ]
   },
@@ -339,9 +353,9 @@
     "url": "recipes/beef/best-at-home-steak.html",
     "type": "html",
     "ingredients": [
-      "preheat your oven to",
-      "sear in hot skillet",
-      "finish steaks in f"
+      "mixed black",
+      "kosher salt",
+      "red pepper"
     ]
   },
   {
@@ -393,7 +407,16 @@
     "sub": "",
     "url": "recipes/beef/burritos.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "hamburger meat",
+      "pinto beans",
+      "lime juice",
+      "garlic salt",
+      "onion salt",
+      "cayenne pepper",
+      "cheese",
+      "tortilla"
+    ]
   },
   {
     "title": "Carne Asada Tacos",
@@ -446,7 +469,17 @@
     "sub": "",
     "url": "recipes/beef/finger-steaks.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "round steak",
+      "ketchup or tomato sauce",
+      "vinegar",
+      "salt",
+      "tabasco",
+      "garlic salt",
+      "pepper",
+      "flour",
+      "oil"
+    ],
     "new": true
   },
   {
@@ -455,7 +488,17 @@
     "sub": "",
     "url": "recipes/beef/grandmass-yummy-meatloaf.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "beef",
+      "egg",
+      "stack of saltine cracker",
+      "t dried onion",
+      "t salt",
+      "t ground black pepper",
+      "c milk",
+      "tomato sauce",
+      "tomato soup"
+    ]
   },
   {
     "title": "Perfect Pan-Seared Steak",
@@ -482,7 +525,17 @@
     "sub": "",
     "url": "recipes/beef/pumpkin-dinner.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "pumpkin",
+      "beef",
+      "brown sugar",
+      "onion",
+      "soy sauce",
+      "mushroom",
+      "cream of mushroom or",
+      "rice",
+      "water chestnut"
+    ],
     "new": true
   },
   {
@@ -559,7 +612,6 @@
     "url": "recipes/breads/100-whole-wheat-bread.html",
     "type": "html",
     "ingredients": [
-      "grain wheat bread",
       "water",
       "oil",
       "agave nectar",
@@ -593,7 +645,14 @@
     "sub": "",
     "url": "recipes/breads/african-flat-bread.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "active dry yeast",
+      "sugar",
+      "water",
+      "flour",
+      "salt",
+      "clarified butter or vegetable"
+    ],
     "new": true
   },
   {
@@ -632,7 +691,8 @@
       "baking soda",
       "salt",
       "flour",
-      "instant vanilla or chocolate"
+      "instant vanilla or chocolate",
+      "nut"
     ]
   },
   {
@@ -653,7 +713,8 @@
       "vegetable oil",
       "vanilla extract",
       "egg",
-      "walnut"
+      "walnut",
+      "cooking spray"
     ]
   },
   {
@@ -740,14 +801,13 @@
     "ingredients": [
       "yeast or x g",
       "honey or sugar",
+      "just over pint tepid",
+      "just over lb strong",
       "salt",
       "cumin seed",
       "coriander seed",
       "g tin chickpea",
-      "dissolve the yeast and",
-      "mx in the cumin",
-      "roll",
-      "they take about four"
+      "flour for dusting"
     ]
   },
   {
@@ -777,14 +837,14 @@
     "url": "recipes/breads/cranberry-nut-bread.html",
     "type": "html",
     "ingredients": [
-      "min",
-      "g g saturated",
+      "nonstick cooking spray",
       "flour",
       "whole-wheat flour",
       "granulated sugar",
       "cinnamon",
       "salt",
       "baking soda",
+      "egg white",
       "applesauce",
       "buttermilk",
       "cranberry",
@@ -954,9 +1014,7 @@
       "eggs well",
       "yeast dissolved in water",
       "c warm water",
-      "salt",
-      "c flour",
-      "degrees for - minute"
+      "salt"
     ]
   },
   {
@@ -1139,7 +1197,8 @@
       "canola oil",
       "vanilla extract",
       "egg white",
-      "thin-skinned orange"
+      "thin-skinned orange",
+      "cooking spray"
     ]
   },
   {
@@ -1270,7 +1329,15 @@
     "sub": "",
     "url": "recipes/breads/sacrament-bread.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "g bread flour",
+      "g salt",
+      "g powdered milk",
+      "g sugar",
+      "butter",
+      "water",
+      "yeast"
+    ]
   },
   {
     "title": "Slow Cooker Chicken Tortilla Soup",
@@ -1573,9 +1640,7 @@
       "granulated sugar",
       "baking powder",
       "baking soda",
-      "cooking oil",
-      "preheat a skillet over",
-      "when the edges appear"
+      "cooking oil"
     ]
   },
   {
@@ -1609,6 +1674,7 @@
       "maple syrup",
       "vanilla",
       "salt",
+      "powdered sugar",
       "walnut"
     ]
   },
@@ -1670,8 +1736,11 @@
     "type": "html",
     "ingredients": [
       "batch mile high biscuit",
+      "double batch white gravy",
       "hashbrowns bag size unspecified",
       "country breakfast sausage",
+      "bacon quantity unspecified",
+      "cheese quantity unspecified",
       "jalapeno",
       "fried egg"
     ],
@@ -1755,7 +1824,18 @@
     "sub": "",
     "url": "recipes/chicken/chicken-caesar-wraps.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "chicken tenderloin",
+      "lemon juice",
+      "garlic salt",
+      "onion salt",
+      "cayenne pepper",
+      "seasoning salt",
+      "jalape o cheddar wrap",
+      "caesar dressing",
+      "muenster cheese",
+      "avocado"
+    ]
   },
   {
     "title": "Chicken Chile Tostadas",
@@ -1791,6 +1871,7 @@
     "ingredients": [
       "chicken tender",
       "chicken broth",
+      "chicken taco seasoning",
       "olive oil",
       "spinach",
       "baby portabella mushroom",
@@ -2104,12 +2185,14 @@
       "bay leaf",
       "marjoram",
       "paprika",
+      "burgundy",
       "olive oil",
       "white onion",
       "portabella mushroom top",
       "bacon",
       "new potato",
-      "water"
+      "water",
+      "cilantro"
     ]
   },
   {
@@ -2168,8 +2251,10 @@
       "dill",
       "parsley",
       "mayonnaise",
+      "juice of lemon",
       "dijon mustard",
-      "kosher salt"
+      "kosher salt",
+      "pepper"
     ],
     "new": true
   },
@@ -2410,7 +2495,8 @@
       "t clear vanilla",
       "c sugar",
       "chocolate chip",
-      "t evaporated milk"
+      "t evaporated milk",
+      "powdered sugar"
     ]
   },
   {
@@ -2477,7 +2563,8 @@
       "cinnamon",
       "banana",
       "banana liqueur",
-      "myers rum"
+      "myers rum",
+      "vanilla ice cream"
     ]
   },
   {
@@ -2605,7 +2692,8 @@
     "ingredients": [
       "egg",
       "sugar",
-      "flavoring"
+      "flavoring",
+      "skim milk"
     ]
   },
   {
@@ -2618,7 +2706,9 @@
       "egg",
       "sugar",
       "flavoring",
-      "evaporated milk"
+      "evaporated milk",
+      "ice",
+      "salt"
     ],
     "new": true
   },
@@ -2633,7 +2723,8 @@
       "c sugar",
       "evaporated milk",
       "t vanilla",
-      "heavy whipping cream"
+      "heavy whipping cream",
+      "milk"
     ]
   },
   {
@@ -2754,7 +2845,8 @@
       "salt",
       "chocolate chip",
       "tbls butter",
-      "dairy sour cream"
+      "dairy sour cream",
+      "nutmeg"
     ]
   },
   {
@@ -2941,7 +3033,12 @@
     "sub": "",
     "url": "recipes/desserts/vanilla-buttercream-cakes-by-rayno.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "butter",
+      "powdered sugar",
+      "vanilla",
+      "heavy whipping cream"
+    ],
     "new": true
   },
   {
@@ -2950,7 +3047,15 @@
     "sub": "",
     "url": "recipes/desserts/wonderful-stuff.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "golden graham cereal",
+      "corn chex",
+      "coconut",
+      "almond",
+      "sugar",
+      "karo syrup",
+      "butter or margarine"
+    ],
     "new": true
   },
   {
@@ -2980,7 +3085,16 @@
     "sub": "Cakes",
     "url": "recipes/desserts/cakes/a-very-berry-strawberry-bunt-cake.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "packaged white cake mix",
+      "vegetable oil",
+      "strawberry jell-o",
+      "egg",
+      "strawberries with juice",
+      "strawberry",
+      "sugar",
+      "water"
+    ]
   },
   {
     "title": "Luscious Four-Layer Pumpkin Cake",
@@ -2988,7 +3102,17 @@
     "sub": "Cakes",
     "url": "recipes/desserts/cakes/luscious-four-layer-pumpkin-cake.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "yellow cake mix",
+      "pumpkin",
+      "egg",
+      "milk",
+      "vegetable oil",
+      "pumpkin pie spice",
+      "cream cheese",
+      "powdered sugar",
+      "pecan"
+    ]
   },
   {
     "title": "Molten Lava Cake",
@@ -2996,7 +3120,19 @@
     "sub": "Cakes",
     "url": "recipes/desserts/cakes/molten-lava-cake.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "chocolate chip",
+      "butter",
+      "powdered sugar",
+      "egg",
+      "egg yolk",
+      "vanilla extract",
+      "flour",
+      "caramel sauce for drizzling",
+      "ice cream",
+      "smuckers chocolate magic shell",
+      "cooking spray"
+    ]
   },
   {
     "title": "To Die For Carrot Cake",
@@ -3004,7 +3140,24 @@
     "sub": "Cakes",
     "url": "recipes/desserts/cakes/to-die-for-carrot-cake.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "applesauce or oil",
+      "granulated sugar",
+      "egg",
+      "flour",
+      "baking soda",
+      "baking powder",
+      "salt",
+      "cinnamon",
+      "carrot",
+      "coconut",
+      "nut",
+      "vanilla",
+      "pineapple in juice",
+      "butter",
+      "cream cheese",
+      "powdered sugar"
+    ]
   },
   {
     "title": "Tres Leches",
@@ -3012,7 +3165,19 @@
     "sub": "Cakes",
     "url": "recipes/desserts/cakes/tres-leches.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "egg",
+      "sugar",
+      "vanilla",
+      "baking powder",
+      "flour",
+      "milk",
+      "evaporated milk",
+      "condensed milk",
+      "egg yolk",
+      "honey",
+      "egg white"
+    ]
   },
   {
     "title": "White Chocolate Raspberry Bundt Cake (Erica Walker)",
@@ -3078,7 +3243,21 @@
     "sub": "Cakes",
     "url": "recipes/desserts/cakes/white-texas-sheet-cake.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "flour",
+      "sugar",
+      "baking powder",
+      "salt",
+      "baking soda",
+      "butter",
+      "water",
+      "egg",
+      "sour cream",
+      "almond extract",
+      "milk",
+      "confectioners' sugar",
+      "walnut"
+    ]
   },
   {
     "title": "Chocolate Truffles",
@@ -3086,7 +3265,13 @@
     "sub": "Candies",
     "url": "recipes/desserts/candies/chocolate-truffles.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "bittersweet chocolate",
+      "tempered bittersweet chocolate",
+      "tempered white chocolate",
+      "sifted dutch-process cocoa",
+      "coconut"
+    ]
   },
   {
     "title": "Microwave Praline Candy",
@@ -3094,7 +3279,13 @@
     "sub": "Candies",
     "url": "recipes/desserts/candies/microwave-praline-candy.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "pecan half",
+      "butter",
+      "brown sugar",
+      "condensed milk",
+      "vanilla"
+    ]
   },
   {
     "title": "See's Fudge",
@@ -3102,7 +3293,14 @@
     "sub": "Candies",
     "url": "recipes/desserts/candies/sees-fudge.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "chocolate chip",
+      "egg",
+      "powdered sugar",
+      "vanilla",
+      "broken nut"
+    ]
   },
   {
     "title": "Almond Joy Cookies",
@@ -3110,7 +3308,17 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/almond-joy-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "white sugar",
+      "egg",
+      "flour",
+      "baking soda",
+      "salt",
+      "coconut",
+      "chocolate chip",
+      "slivered almond"
+    ]
   },
   {
     "title": "Brown-Butter Blondies With Caramel Almonds",
@@ -3118,7 +3326,18 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/brown-butter-blondies-with-caramel-almonds.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "dark brown sugar",
+      "egg",
+      "vanilla",
+      "flour",
+      "sea salt",
+      "almond",
+      "light brown sugar",
+      "honey",
+      "heavy cream"
+    ]
   },
   {
     "title": "Browned Butter + Chocolate Chip Cookies",
@@ -3170,7 +3389,16 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/carols-sugar-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "sugar",
+      "butter",
+      "egg",
+      "vanilla",
+      "buttermilk",
+      "flour",
+      "soda",
+      "salt"
+    ]
   },
   {
     "title": "Chinese Butter Cookies",
@@ -3178,7 +3406,13 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/chinese-butter-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "powdered sugar",
+      "egg",
+      "vanilla",
+      "flour source alternative cup"
+    ]
   },
   {
     "title": "Coconut Chews",
@@ -3186,7 +3420,17 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/coconut-chews.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "sugar",
+      "flour",
+      "salt",
+      "brown sugar",
+      "egg",
+      "vanilla",
+      "flaked coconut",
+      "nut"
+    ]
   },
   {
     "title": "Coconut Macaroons",
@@ -3194,7 +3438,15 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/coconut-macaroons.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "flaked coconut",
+      "salt",
+      "vanilla",
+      "margarine or butter",
+      "flour",
+      "condensed milk",
+      "semisweet chocolate chip"
+    ]
   },
   {
     "title": "Cookie Bars",
@@ -3202,7 +3454,18 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/cookie-bars.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "brown sugar",
+      "white sugar",
+      "vanilla",
+      "egg",
+      "flour",
+      "cornstarch",
+      "salt",
+      "baking soda",
+      "milk chocolate chip"
+    ]
   },
   {
     "title": "Cranberry Coconut Macaroons",
@@ -3227,7 +3490,15 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/date-balls.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "date",
+      "pecan",
+      "powdered sugar",
+      "brown sugar",
+      "coconut flake",
+      "rice krispy"
+    ]
   },
   {
     "title": "Doubletree Chocolate Chips",
@@ -3235,7 +3506,21 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/doubletree-chocolate-chips.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "plus tbsp granulated sugar",
+      "packed light brown sugar",
+      "egg",
+      "vanilla",
+      "lemon juice",
+      "flour",
+      "rolled oats",
+      "baking soda",
+      "salt",
+      "cinnamon",
+      "nestle tollhouse semisweet chocolate",
+      "walnut"
+    ]
   },
   {
     "title": "Magic Bars",
@@ -3243,7 +3528,15 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/magic-bars.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "graham cracker crumb",
+      "butter",
+      "chocolate chip",
+      "butterscotch chip",
+      "walnut",
+      "coconut",
+      "condensed milk"
+    ]
   },
   {
     "title": "Neiman-Marcus Cookies",
@@ -3251,7 +3544,21 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/neiman-marcus-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "sugar",
+      "brown sugar",
+      "egg",
+      "vanilla",
+      "flour",
+      "oatmeal",
+      "salt",
+      "baking powder",
+      "baking soda",
+      "chocolate chip",
+      "nut",
+      "coconut"
+    ]
   },
   {
     "title": "Neiman-Marcus Cookies Half",
@@ -3259,7 +3566,21 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/neiman-marcus-cookies-half.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "sugar",
+      "brown sugar",
+      "egg",
+      "vanilla",
+      "flour",
+      "oatmeal",
+      "salt",
+      "baking powder",
+      "baking soda",
+      "chocolate chip",
+      "nut",
+      "coconut"
+    ]
   },
   {
     "title": "No Bake Cookies",
@@ -3267,7 +3588,16 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/no-bake-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "sugar",
+      "milk",
+      "butter",
+      "cocoa",
+      "salt",
+      "oats",
+      "coconut",
+      "vanilla"
+    ]
   },
   {
     "title": "Nobake Peanut Butter Bars",
@@ -3275,7 +3605,13 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/nobake-peanut-butter-bars.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "butter",
+      "graham cracker crumb",
+      "confectioners' sugar",
+      "plus tbsp creamy peanut",
+      "semisweet chocolate chip"
+    ]
   },
   {
     "title": "Peanut Butter Monster Cookies",
@@ -3283,7 +3619,20 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/peanut-butter-monster-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "flour",
+      "salt",
+      "baking soda",
+      "butter",
+      "peanut butter",
+      "brown sugar",
+      "granulated sugar",
+      "egg",
+      "vanilla",
+      "peanut butter cup",
+      "peanut butter chocolate chip",
+      "reese's pieces or mini"
+    ]
   },
   {
     "title": "Pecan Coconut Triangles",
@@ -3291,7 +3640,19 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/pecan-coconut-triangles.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "flour",
+      "powdered sugar",
+      "salt",
+      "butter",
+      "egg",
+      "packed brown sugar",
+      "pecan",
+      "coconut",
+      "honey",
+      "light cream",
+      "vanilla"
+    ]
   },
   {
     "title": "Quaker Oatmeal Cookies",
@@ -3299,7 +3660,17 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/quaker-oatmeal-cookies.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "margarine",
+      "packed brown sugar",
+      "granulated sugar",
+      "egg",
+      "vanilla",
+      "flour",
+      "baking soda",
+      "salt",
+      "oats"
+    ],
     "new": true
   },
   {
@@ -3308,7 +3679,18 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "soft butter",
+      "egg",
+      "brown sugar",
+      "white sugar",
+      "creamy peanut butter",
+      "vanilla",
+      "flour",
+      "baking soda",
+      "salt",
+      "reese's peanut butter cup"
+    ]
   },
   {
     "title": "Reese's Peanut Butter Cookies Half Batch",
@@ -3316,7 +3698,18 @@
     "sub": "Cookies",
     "url": "recipes/desserts/cookies/reeses-peanut-butter-cookies-half-batch.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "soft butter",
+      "egg",
+      "brown sugar",
+      "white sugar",
+      "creamy peanut butter",
+      "vanilla",
+      "flour",
+      "baking soda",
+      "salt",
+      "reese's peanut butter cup"
+    ]
   },
   {
     "title": "Shakeology No-Bake Cookies",
@@ -3339,6 +3732,7 @@
     "url": "recipes/desserts/cookies/swig-sugar-cookies.html",
     "type": "html",
     "ingredients": [
+      "cookies cup butter",
       "avocado oil",
       "granulated sugar",
       "powdered sugar",
@@ -3347,6 +3741,8 @@
       "egg",
       "vanilla extract",
       "flour",
+      "granulated sugar for pressing",
+      "frosting cup butter",
       "cream or milk"
     ],
     "new": true
@@ -3357,7 +3753,13 @@
     "sub": "Pies",
     "url": "recipes/desserts/pies/ivy-house-southern-pecan-pie.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "egg",
+      "yellow sugar",
+      "white karo syrup",
+      "pecan",
+      "vanilla extract"
+    ]
   },
   {
     "title": "Peanut Butter Pie",
@@ -3370,7 +3772,8 @@
       "cream cheese",
       "tub of cool whip",
       "powdered sugar",
-      "hershey bar"
+      "hershey bar",
+      "oreo pie crust"
     ]
   },
   {
@@ -3384,7 +3787,8 @@
       "cream cheese",
       "tub of cool whip",
       "powdered sugar",
-      "hershey bar"
+      "hershey bar",
+      "chocolate pie crust"
     ],
     "new": true
   },
@@ -3401,7 +3805,8 @@
       "c caramel",
       "c heavy cream",
       "store-bought pie crust",
-      "c sweetened shredded coconut"
+      "c sweetened shredded coconut",
+      "chocolate"
     ]
   },
   {
@@ -3474,7 +3879,13 @@
     "sub": "",
     "url": "recipes/drinks/italian-soda.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "half-and-half",
+      "syrup",
+      "ice",
+      "carbonated water",
+      "cream"
+    ],
     "new": true
   },
   {
@@ -3500,7 +3911,8 @@
       "fruit punch concentrate",
       "oz-can pineapple juice",
       "cream of coconut",
-      "ginger ale"
+      "ginger ale",
+      "ice cube"
     ]
   },
   {
@@ -3593,7 +4005,8 @@
       "chicken tender",
       "spinach",
       "coconut milk",
-      "sugar"
+      "sugar",
+      "onion chip"
     ]
   },
   {
@@ -3624,6 +4037,7 @@
       "petite peas",
       "green onion",
       "egg",
+      "salt and pepper",
       "mayonnaise"
     ]
   },
@@ -3651,7 +4065,9 @@
     "url": "recipes/luau/oven-kalua-pig.html",
     "type": "html",
     "ingredients": [
-      "pork loin"
+      "pork loin",
+      "sea salt",
+      "liquid smoke"
     ]
   },
   {
@@ -3692,7 +4108,8 @@
       "fruit punch concentrate",
       "oz-can pineapple juice",
       "cream of coconut",
-      "ginger ale"
+      "ginger ale",
+      "ice cube"
     ]
   },
   {
@@ -3765,6 +4182,8 @@
       "giant can of tomato",
       "tomato sauce",
       "tomato paste",
+      "italian seasonings oregano",
+      "salt",
       "olive",
       "mushroom"
     ]
@@ -3883,7 +4302,10 @@
       "garlic clove",
       "green onions with top",
       "prepared pad thai sauce",
-      "bean sprouts"
+      "bean sprouts",
+      "peanut",
+      "cilantro",
+      "lime wedge"
     ]
   },
   {
@@ -3892,7 +4314,24 @@
     "sub": "",
     "url": "recipes/pork/cafe-rio-pork.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "pork roast",
+      "salsa",
+      "dr pepper",
+      "brown sugar",
+      "buttermilk ranch dressing",
+      "milk",
+      "mayonnaise",
+      "cilantro",
+      "tomatillo",
+      "serrano pepper",
+      "rice",
+      "water",
+      "cubes chicken bouillon",
+      "onion",
+      "oil",
+      "lime"
+    ]
   },
   {
     "title": "Cajun Pork Chops",
@@ -3900,7 +4339,18 @@
     "sub": "",
     "url": "recipes/pork/cajun-pork-chops.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "paprika",
+      "cumin",
+      "rubbed sage",
+      "pepper",
+      "garlic powder",
+      "cayenne",
+      "butter",
+      "oil",
+      "center-cut pork chop",
+      "salt"
+    ]
   },
   {
     "title": "Crockpot BBQ Ribs",
@@ -3936,7 +4386,16 @@
     "sub": "",
     "url": "recipes/pork/ribs.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "garlic powder",
+      "onion powder",
+      "salt",
+      "cayenne",
+      "black pepper",
+      "white pepper",
+      "brown sugar",
+      "paprika"
+    ]
   },
   {
     "title": "Sausage Stuffing",
@@ -4018,19 +4477,26 @@
       "ono s hawaiian seasoning",
       "onion",
       "liquid smoke",
+      "herdez guacamole salsa",
+      "ranch dressing",
       "brown or white rice",
       "water for white",
       "chicken bouillon for white",
       "onion or a dash",
       "oil",
       "lime",
-      "cook rice in above",
-      "add juice of lime",
       "or cans black beans",
       "carrot",
       "garlic",
       "jalapeno",
-      "red bell pepper"
+      "red bell pepper",
+      "salsa",
+      "tomato",
+      "avocado",
+      "sour cream",
+      "cilantro",
+      "napa cabbage",
+      "queso fresco"
     ],
     "new": true
   },
@@ -4040,7 +4506,28 @@
     "sub": "",
     "url": "recipes/pork/walnut-crusted-pork-chops-with-wild-rice.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "trimmed -oz bone-in center-cut",
+      "worcestershire sauce",
+      "kosher salt",
+      "dijon mustard",
+      "sherry",
+      "honey",
+      "sage",
+      "black pepper",
+      "walnut",
+      "bacon slice",
+      "chicken broth",
+      "onion",
+      "carrot",
+      "seeded jalapeno",
+      "garlic clove",
+      "spinach",
+      "mushroom",
+      "granny smith apple",
+      "rice",
+      "flat-leaf parsley"
+    ]
   },
   {
     "title": "Aunt Regina's Cranberry Salad",
@@ -4125,6 +4612,7 @@
     "type": "html",
     "ingredients": [
       "coleslaw mix",
+      "or head cabbage",
       "green onion",
       "chicken or cooked chicken",
       "ramen noodles",
@@ -4136,9 +4624,7 @@
       "soy sauce",
       "salt",
       "pepper",
-      "flavor packets from ramen",
-      "to prepare the dressing",
-      "keep all steps separate"
+      "flavor packets from ramen"
     ]
   },
   {
@@ -4474,7 +4960,14 @@
     "sub": "",
     "url": "recipes/sandwiches/spicy-pickle-gobbler.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "peppered turkey",
+      "artichoke heart",
+      "portabella mushroom",
+      "feta cheese",
+      "sun-dried tomato mayo",
+      "panini bread"
+    ],
     "new": true
   },
   {
@@ -4522,7 +5015,16 @@
     "sub": "",
     "url": "recipes/sauces-dips/avocado-salsa.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "plum tomatoes cut into",
+      "onion cut into wedge",
+      "packed fresh cilantro leaf",
+      "jalapeno pepper",
+      "garlic",
+      "salt",
+      "avocado",
+      "tortilla chip"
+    ]
   },
   {
     "title": "Bbq Sauce",
@@ -4530,7 +5032,20 @@
     "sub": "",
     "url": "recipes/sauces-dips/bbq-sauce.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "garlic",
+      "jack daniel",
+      "black pepper",
+      "salt",
+      "ketchup",
+      "apple cider vinegar",
+      "liquid smoke",
+      "worcestershire sauce",
+      "packed brown sugar",
+      "pepper sauce",
+      "onion",
+      "tomato paste"
+    ]
   },
   {
     "title": "Best Ranchero Sauce Recipe",
@@ -4564,8 +5079,7 @@
       "tomatillo",
       "white onion",
       "garlic",
-      "chiles de arbol",
-      "source https mexicanmademeatless com"
+      "chiles de arbol"
     ]
   },
   {
@@ -4706,7 +5220,14 @@
     "sub": "",
     "url": "recipes/sauces-dips/guacamole.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "avocado",
+      "lime juice",
+      "garlic salt",
+      "onion salt",
+      "jalapeno pepper",
+      "cilantro"
+    ]
   },
   {
     "title": "Guajillo Sauce",
@@ -4775,7 +5296,15 @@
     "sub": "",
     "url": "recipes/sauces-dips/jalapeno-tartar-sauce.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "mayonnaise",
+      "caper",
+      "dill relish",
+      "lime or lemon juice",
+      "jalape o",
+      "dashes of tabasco sauce",
+      "salt"
+    ]
   },
   {
     "title": "Jalapeno-Spiked Cherry Preserves",
@@ -4783,7 +5312,18 @@
     "sub": "",
     "url": "recipes/sauces-dips/jalapeno-spiked-cherry-preserves.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "sugar",
+      "water",
+      "cider vinegar",
+      "ginger",
+      "cinnamon",
+      "salt",
+      "nutmeg",
+      "jalape o pepper",
+      "sweet cherry",
+      "granny smith apple"
+    ]
   },
   {
     "title": "Kicked-Up Cheddar Cheese Sauce",
@@ -4834,7 +5374,8 @@
       "c medium-hot salsa",
       "c cilantro leaf",
       "lemon juice",
-      "garlic l clove"
+      "garlic l clove",
+      "cayenne pepper"
     ]
   },
   {
@@ -4927,7 +5468,13 @@
     "sub": "",
     "url": "recipes/sauces-dips/salsa.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "green chilies by old",
+      "jalape os by old",
+      "red pepper",
+      "tomato",
+      "garlic salt"
+    ]
   },
   {
     "title": "Salsa Macha – The Mexican Chile Oil You’ll Want to Put on Everything",
@@ -4972,7 +5519,14 @@
     "sub": "",
     "url": "recipes/sauces-dips/sweet-and-hot-garlic-sauce.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "unbleached cane sugar",
+      "water",
+      "white vinegar",
+      "garlic",
+      "salt",
+      "srirachi sauce"
+    ]
   },
   {
     "title": "Taco Seasoning",
@@ -5354,7 +5908,8 @@
       "red pepper",
       "shrimp",
       "green onion",
-      "chile pod"
+      "chile pod",
+      "sesame oil"
     ]
   },
   {
@@ -5370,6 +5925,7 @@
       "red pepper flake",
       "paprika",
       "lemon juice",
+      "salt and freshly ground",
       "parsley"
     ]
   },
@@ -5384,7 +5940,9 @@
       "cilantro",
       "shrimp",
       "ketchup",
-      "onion"
+      "onion",
+      "lemon juice to cover",
+      "louisiana sauce"
     ]
   },
   {
@@ -5491,6 +6049,7 @@
       "cumin",
       "paprika",
       "shrimp of or pound",
+      "salt and freshly ground",
       "parsley"
     ]
   },
@@ -5525,10 +6084,12 @@
     "type": "html",
     "ingredients": [
       "dozen jumbo shrimp",
-      "butter",
       "olive oil",
+      "salt",
+      "butter",
       "garlic clove",
-      "lime juice"
+      "lime juice",
+      "shopped cilantro"
     ]
   },
   {
@@ -5604,6 +6165,7 @@
       "ginger",
       "to jalapeno chili",
       "cilantro leaf",
+      "juice and zest of",
       "salt",
       "light",
       "olive oil",
@@ -5715,6 +6277,7 @@
       "to cups bread crumb",
       "butter or margarine",
       "granulated sugar",
+      "salt",
       "onion",
       "black pepper"
     ]
@@ -5828,7 +6391,19 @@
     "sub": "",
     "url": "recipes/sides/cheesy-potato-gratin.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "baking potato",
+      "havarti cheese",
+      "cheddar cheese",
+      "monterey jack cheese",
+      "flour",
+      "t garlic powder",
+      "t cayenne pepper",
+      "fat free",
+      "chicken flavored bouillon granule",
+      "parmesan cheese",
+      "corn flakes or bread"
+    ]
   },
   {
     "title": "Chocolate Fondue",
@@ -5916,9 +6491,7 @@
       "onion",
       "cilantro",
       "oil",
-      "lime",
-      "cook rice in above",
-      "add juice of lime"
+      "lime"
     ],
     "new": true
   },
@@ -6083,7 +6656,13 @@
     "sub": "",
     "url": "recipes/sides/firecracker-broccoli.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "sesame oil",
+      "broccoli floret",
+      "vegetable stock",
+      "salt",
+      "sweet and hot garlic"
+    ]
   },
   {
     "title": "Frijoles Puercos",
@@ -6140,13 +6719,13 @@
     "type": "html",
     "ingredients": [
       "green beans",
+      "salt",
       "parsley",
       "walnut half",
       "garlic clove",
       "chicken bouillon cube",
       "black pepper",
-      "olive oil",
-      "beans into boiling"
+      "olive oil"
     ]
   },
   {
@@ -6158,7 +6737,8 @@
     "ingredients": [
       "asparagus",
       "olive oil",
-      "garlic"
+      "garlic",
+      "salt and pepper"
     ]
   },
   {
@@ -6296,7 +6876,14 @@
     "url": "recipes/sides/mexican-black-beans-quick-easy-version.html",
     "type": "html",
     "ingredients": [
-      "black beans"
+      "black beans",
+      "cumin",
+      "garlic salt",
+      "onion salt",
+      "cayenne pepper",
+      "salsa",
+      "queso fresca",
+      "jalapen chopped onion"
     ],
     "new": true
   },
@@ -6331,7 +6918,11 @@
       "celery and leaf",
       "salt",
       "pepper",
-      "sage"
+      "sage",
+      "poultry seasoning quantity unspecified",
+      "water",
+      "egg quantity unspecified",
+      "pam"
     ],
     "new": true
   },
@@ -6438,7 +7029,15 @@
     "sub": "",
     "url": "recipes/sides/red-rice.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "tsp- tbsp butter",
+      "water",
+      "tomato sauce",
+      "onion",
+      "rice",
+      "cumin",
+      "salt"
+    ],
     "new": true
   },
   {
@@ -6587,6 +7186,7 @@
     "type": "html",
     "ingredients": [
       "sweet potato",
+      "cooking spray",
       "sugar",
       "salt",
       "red pepper",
@@ -6760,7 +7360,16 @@
     "sub": "",
     "url": "recipes/sides/tonyas-baked-beans.html",
     "type": "html",
-    "ingredients": [],
+    "ingredients": [
+      "hamburger",
+      "beans",
+      "mustard",
+      "salt and pepper",
+      "onion",
+      "catsup",
+      "worcestershire sauce",
+      "brown sugar"
+    ],
     "new": true
   },
   {
@@ -6852,7 +7461,8 @@
     "ingredients": [
       "peanut butter",
       "milk",
-      "honey"
+      "honey",
+      "nut"
     ]
   },
   {
@@ -6936,7 +7546,10 @@
       "chicken broth",
       "milk",
       "salt",
-      "pepper"
+      "pepper",
+      "cheddar cheese",
+      "bacon",
+      "scallion"
     ]
   },
   {
@@ -6954,7 +7567,10 @@
       "to teaspoons chopped jalape",
       "to -ounce cans black",
       "petite diced tomatoes in",
-      "low-salt chicken broth"
+      "low-salt chicken broth",
+      "cilantro",
+      "green onion",
+      "feta cheese"
     ]
   },
   {
@@ -6973,7 +7589,8 @@
       "cream",
       "curry powder",
       "lemon juice",
-      "brown sugar"
+      "brown sugar",
+      "salt and white pepper"
     ]
   },
   {
@@ -6997,7 +7614,9 @@
       "bay leaf",
       "corn",
       "cilantro",
-      "corn tortilla"
+      "corn tortilla",
+      "vegetable oil",
+      "lime juice"
     ],
     "new": true
   },
@@ -7036,6 +7655,7 @@
       "washed fresh basil leaf",
       "heavy cream",
       "sweet",
+      "salt",
       "cracked black pepper"
     ]
   },
@@ -7084,7 +7704,7 @@
       "lipton onion soup mix",
       "or cubes bouillon",
       "v juice",
-      "mushrooms into thick slice"
+      "season"
     ]
   },
   {
@@ -7119,7 +7739,8 @@
       "or cups chicken broth",
       "or frozen tortellini",
       "spinach",
-      "stewed tomato"
+      "stewed tomato",
+      "parmesan cheese"
     ]
   },
   {
@@ -7190,6 +7811,7 @@
     "type": "html",
     "ingredients": [
       "water-packed extra firm tofu",
+      "cooking spray",
       "sugar",
       "thai fish sauce",
       "vegetable oil",
@@ -7226,6 +7848,10 @@
     "sub": "",
     "url": "recipes/vegetarian-tofu/thai-sticky-rice.html",
     "type": "html",
-    "ingredients": []
+    "ingredients": [
+      "sticky rice",
+      "cool water for soaking",
+      "water for steaming"
+    ]
   }
 ]

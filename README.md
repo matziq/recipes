@@ -6,8 +6,12 @@ A static site for browsing my family recipe collection. Built from `d:\OneDrive\
 
 ## Categories
 
-22 categories, 425 entries (including 5 explicitly incomplete recipes and 6 reference exceptions). `.docx` files are converted to HTML for inline browsing;
-PDF pages are rendered as local images within recipe pages.
+22 categories, 425 entries (including 5 explicitly incomplete recipes and
+10 intentional reference pages). Actual recipes have standard Ingredients and
+Instructions sections with ingredient checklists. Reviewed scan recipes include
+searchable ingredient facts and concise methods; unresolved source gaps remain
+disclosed rather than guessed. Protected cookbook and breadmaker collections
+are reference summaries, not reproduced collections.
 
 ## Build
 
@@ -15,7 +19,31 @@ PDF pages are rendered as local images within recipe pages.
 python build.py
 ```
 
-Requires `mammoth` (`pip install mammoth`).
+Dependencies are listed in `requirements.txt`.
+
+```powershell
+python -m unittest discover -p "_test_*.py" -v
+```
+
+## Recipe presentation and saved progress
+
+`recipe_structure_review.json` binds reviewed presentation changes to source
+SHA-256 fingerprints and the converter's original HTML. `recipe_structure.py`
+turns reviewed paragraph, line-break, and layout-table ingredients into semantic
+lists; scan transcriptions live in that same manifest. The build stops explicitly
+when a reviewed source or converter body changes. Update the review deliberately;
+do not infer amounts or methods from recipe names.
+
+Existing list items retain their original progress slots. Newly added ingredient
+and instruction items use subsequent slots even when displayed earlier, preserving
+the existing URL-based saved-progress keys. Citation links remain usable without
+toggling checklist items. Tests inventory every indexed page, verify legacy item
+fingerprints and progress-slot uniqueness, and exercise keyboard/link behavior.
+
+The six breadmaker exceptions, first-tastes ideas, quick dinner ideas, healthy
+snack ideas, and the supplied full cookbook are explicitly identified as reference
+material, not standalone recipes. They have section explanations instead of invented
+ingredient checklists or cooking instructions.
 
 ## More Recipes reconciliation
 

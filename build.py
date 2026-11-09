@@ -20,7 +20,9 @@ from pathlib import Path
 
 import fitz  # PyMuPDF
 import mammoth
+from bs4 import BeautifulSoup
 from PIL import Image, ImageOps
+from recipe_structure import load_plans, normalize_body
 
 SOURCE = Path(r"d:/OneDrive/Recipes")
 OUT = Path(__file__).parent
@@ -28,6 +30,7 @@ RECIPES_OUT = OUT / "recipes"
 NEW_RECIPES_JSON = OUT / "new_recipes.json"
 MORE_RECIPES_REVIEW = OUT / "more_recipes_review.json"
 IMPORTED_RECIPES = OUT / "imported_recipes.json"
+STRUCTURE_PLANS: dict = {}
 
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 DOCX_EXT = {".docx"}
@@ -65,18 +68,20 @@ def convert_docx(src: Path, dst_html: Path) -> str:
     return result.value or "<p><em>(empty document)</em></p>"
 
 
-def convert_pdf_pages(src: Path, out_dir: Path, slug: str) -> str:
-    """Render each PDF page to a JPEG and return HTML body that displays them."""
+def convert_pdf_pages(src: Path, out_dir: Path, slug: str, render_images: bool = True) -> str:
+    """Return converter markup; omit unused scan assets for reviewed transcriptions."""
     images_dir = out_dir / f"{slug}_pages"
-    images_dir.mkdir(parents=True, exist_ok=True)
+    if render_images:
+        images_dir.mkdir(parents=True, exist_ok=True)
     parts: list[str] = []
     zoom = PDF_DPI / 72.0
     matrix = fitz.Matrix(zoom, zoom)
     with fitz.open(src) as doc:
         for i, page in enumerate(doc, start=1):
-            pix = page.get_pixmap(matrix=matrix, alpha=False)
             img_path = images_dir / f"page-{i:03d}.jpg"
-            pix.pil_save(img_path, format="JPEG", quality=82, optimize=True)
+            if render_images:
+                pix = page.get_pixmap(matrix=matrix, alpha=False)
+                pix.pil_save(img_path, format="JPEG", quality=82, optimize=True)
             rel = f"{slug}_pages/{img_path.name}"
             parts.append(
                 f'<img class="pdf-page" loading="lazy" src="{rel}" alt="Page {i}">'
@@ -348,6 +353,10 @@ def extract_ingredients_from_html(body_html: str) -> list[str]:
 
     # Strip embedded base64 image payloads — they bloat the text and contain no info.
     body_html = _DATA_URI.sub('src=""', body_html)
+    soup = BeautifulSoup(body_html, "html.parser")
+    if soup.find("h2", string="Reference, not a standalone recipe"):
+        return []
+    reviewed_items = soup.select("li.recipe-ingredient")
 
     # Phase 1: try the explicit "Ingredients" section if present.
     section_match = _INGREDIENTS_SECTION.search(body_html)
@@ -366,7 +375,9 @@ def extract_ingredients_from_html(body_html: str) -> list[str]:
                     continue
                 raw_lines.append(txt)
 
-    if section_match:
+    if reviewed_items:
+        raw_lines.extend(item.get_text(" ", strip=True) for item in reviewed_items)
+    elif section_match:
         _harvest(section_match.group(1), require_filter=False)
 
     # Phase 2: only fall back to whole-document scanning when no explicit
@@ -668,7 +679,8 @@ def render_reviewed_recipe(entry: dict) -> dict:
     elif source.suffix.lower() in DOCX_EXT:
         body = convert_docx(source, destination)
     elif source.suffix.lower() in PDF_EXT:
-        body = convert_pdf_pages(source, destination.parent, slug)
+        body = convert_pdf_pages(source, destination.parent, slug,
+                                 not STRUCTURE_PLANS.get(entry["url"], {}).get("body_html"))
         if entry.get("rotation"):
             for path in (destination.parent / f"{slug}_pages").glob("*.jpg"):
                 with Image.open(path) as image:
@@ -676,12 +688,13 @@ def render_reviewed_recipe(entry: dict) -> dict:
                 rotated.save(path, quality=90)
     elif source.suffix.lower() in IMAGE_EXT:
         directory = destination.parent / f"{slug}_pages"
-        directory.mkdir()
         image_path = directory / "page-001.jpg"
-        with Image.open(source) as image:
-            image = ImageOps.exif_transpose(image).convert("RGB")
-            image.thumbnail((2200, 2200))
-            image.save(image_path, quality=90)
+        if not STRUCTURE_PLANS.get(entry["url"], {}).get("body_html"):
+            directory.mkdir()
+            with Image.open(source) as image:
+                image = ImageOps.exif_transpose(image).convert("RGB")
+                image.thumbnail((2200, 2200))
+                image.save(image_path, quality=90)
         body = f'<img class="pdf-page" src="{slug}_pages/page-001.jpg" alt="{escape(entry["title"])} recipe from the supplied collection">'
     else:
         raise ValueError(f"Unsupported reviewed source: {source}")
@@ -730,6 +743,8 @@ def render_reviewed_recipe(entry: dict) -> dict:
         )
     else:
         body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'
+    if STRUCTURE_PLANS:
+        body = normalize_body(body, entry["url"], STRUCTURE_PLANS)
     destination.write_text(
         render_recipe_page(entry["title"], entry["category"], entry["sub"], body),
         encoding="utf-8",
@@ -737,7 +752,7 @@ def render_reviewed_recipe(entry: dict) -> dict:
     return {
         "title": entry["title"], "category": entry["category"], "sub": entry["sub"],
         "url": entry["url"], "type": "html",
-        "ingredients": extract_ingredients_from_html(original_body),
+        "ingredients": extract_ingredients_from_html(body if STRUCTURE_PLANS else original_body),
     }
 
 
@@ -754,6 +769,8 @@ def _force_rm(func, path, exc):
 
 
 def main() -> None:
+    global STRUCTURE_PLANS
+    STRUCTURE_PLANS = load_plans(SOURCE)
     reviewed_recipes = load_reviewed_recipes()
     imported_recipes = load_imported_recipes()
     imported_by_url = {recipe["url"]: recipe for recipe in imported_recipes}
@@ -794,16 +811,20 @@ def main() -> None:
             try:
                 if ext in DOCX_EXT:
                     body = convert_docx(src, out_file)
+                elif STRUCTURE_PLANS.get(out_file.relative_to(OUT).as_posix(), {}).get("reference_summary_only"):
+                    body = ""
                 else:
-                    body = convert_pdf_pages(src, out_dir, slug_used)
+                    body = convert_pdf_pages(
+                        src, out_dir, slug_used,
+                        not STRUCTURE_PLANS.get(out_file.relative_to(OUT).as_posix(), {}).get("body_html"))
             except Exception as e:
-                body = f"<p>Could not convert: {escape(str(e))}</p>"
+                raise RuntimeError(f"Could not convert recipe source: {src}") from e
+            rel_url = out_file.relative_to(OUT).as_posix()
+            body = normalize_body(body, rel_url, STRUCTURE_PLANS)
             page = render_recipe_page(title, category, sub, body)
             out_file.write_text(page, encoding="utf-8")
             rel_url = out_file.relative_to(OUT).as_posix()
-            # Only docx-derived pages have parseable ingredient text; PDF pages
-            # are rendered as images and yield nothing useful.
-            ingredients = extract_ingredients_from_html(body) if ext in DOCX_EXT else []
+            ingredients = extract_ingredients_from_html(body)
             recipes.append({
                 "title": title, "category": category, "sub": sub,
                 "url": rel_url, "type": "html",
