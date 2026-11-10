@@ -210,7 +210,7 @@ class ReviewedRecipesTests(unittest.TestCase):
         self.assertIn('href="../desserts/import.html"', page)
         article = BeautifulSoup(page, "html.parser").select_one(".recipe-content")
         self.assertEqual([li.get_text() for li in article.select("li")], ["Original flour", "Original sugar"])
-        self.assertNotIn("<li", page.split('aria-label="Suggested completion"', 1)[1])
+        self.assertFalse(article.select('[aria-label="Suggested completion"] li'))
 
     def test_internal_suggestion_requires_safe_destination(self):
         for url in ("../outside.html", "recipes/../../outside.html", "https://example.com", "recipes/missing.txt"):

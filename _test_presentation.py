@@ -86,8 +86,8 @@ class CollectionPresentationTests(unittest.TestCase):
                     self.assertTrue(text_of(item))
                 shopping = page.select_one(".shopping-list")
                 self.assertFalse(shopping.find_parent(class_="recipe-content"))
-                self.assertLess(str(page).index('class="shopping-list"'),
-                                str(page).index('class="recipe-content"'))
+                self.assertLess(str(page).index('class="recipe-content"'),
+                                str(page).index('class="shopping-list"'))
                 self.assertEqual([text_of(li) for li in shopping.select("li")],
                                  [text_of(li) for li in ingredients])
                 self.assertFalse(shopping.select("[data-progress-index], [role=checkbox], input"))
@@ -154,6 +154,9 @@ class CollectionPresentationTests(unittest.TestCase):
                     self.assertEqual(panel.name, "details")
                     self.assertNotIn("open", panel.attrs)
                     self.assertEqual(panel.find(recursive=False).name, "summary")
+                self.assertEqual(article.find_next_sibling("details")["class"], ["shopping-list"])
+                self.assertEqual(page.select_one(".shopping-list").find_next_sibling("details")["class"],
+                                 ["dish-note"])
                 panels = article.select("details.cooking-section")
                 self.assertTrue(panels)
                 self.assertTrue(all("open" in panel.attrs for panel in panels))

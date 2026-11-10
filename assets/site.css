@@ -695,6 +695,7 @@ html[data-theme="dark"] .recipe-page[data-food-family="baby"] { --food-bg: #2033
   overflow-wrap: anywhere;
 }
 .shopping-list h2 { margin: 0 0 8px; }
+.recipe-content + .shopping-list { margin-top: 24px; }
 .recipe-page summary { cursor: pointer; min-height: 44px; align-content: center; }
 .recipe-page summary h2, .recipe-page summary h3 { display: inline; margin: 0; font-size: 1.25rem; }
 .recipe-page summary:focus-visible, .recipe-content img:focus-visible {

@@ -1917,9 +1917,9 @@ def render_recipe_page(title: str, category: str, sub: str, body: str, url: str 
     <div class="progress-wrap"><span data-progress-label>Ready</span><div class="progress-track" aria-hidden="true"><div class="progress-bar" data-progress-bar></div></div><button class="icon-btn" type="button" data-reset-progress aria-label="Reset checklist" title="Reset checklist">↺</button></div>
   </div>
   <div class="cook-mode-banner" role="status">Cook mode is on: larger text and screen wake lock when supported.</div>
+  <article class="recipe-content">{body}</article>
 {shopping}
 {about}
-  <article class="recipe-content">{body}</article>
   <section class="related" data-related hidden><h2>More from {escape(category)}</h2><div class="related-grid" data-related-grid></div></section>
 </main>
 <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top" title="Back to top">↑</button>

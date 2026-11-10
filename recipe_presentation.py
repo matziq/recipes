@@ -180,7 +180,7 @@ def prepare_cooking_body(body: str, url: str, reviews: dict) -> tuple[str, str]:
     shopping = (
         '<details class="shopping-list">'
         '<summary><h2>Shopping list</h2></summary>'
-        '<p class="shopping-hint">Planning reference only; cooking checkboxes are below. '
+        '<p class="shopping-hint">Planning reference only; use the checkboxes in the recipe for cooking progress. '
         'Amounts and alternatives are copied from this recipe, not added together. '
         'Choose one labeled formula or size where alternatives are given; include only '
         'the components you intend to make. Check source limitations before cooking.</p>'
@@ -191,7 +191,7 @@ def prepare_cooking_body(body: str, url: str, reviews: dict) -> tuple[str, str]:
         reason = escape(text_of(warning.find("p"))) + " " if warning else ""
         shopping += (f'<p class="shopping-warning" role="note"><strong>{label}</strong> {reason}'
                      'This planning copy does not recover missing amounts or steps. '
-                     'Read the original recipe warnings and source notes below.</p>')
+                     'Read the original recipe warnings and source notes before cooking.</p>')
     for group in groups:
         shopping += f'<div class="shopping-group"><h3>{escape(group["title"])}</h3><ul>'
         shopping += "".join(f"<li>{escape(text)}</li>" for text in group["items"])

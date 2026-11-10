@@ -44,7 +44,7 @@ fingerprints and progress-slot uniqueness, and exercise keyboard/link behavior.
 with rationales, food-family exceptions, and the few ingredient facts originally
 misformatted as headings or embedded in methods. `recipe_presentation.py` gives all
 cooking items explicit semantics, keeps non-cooking notes/references out of checklists,
-and produces static, grouped shopping lists above the recipe. Shopping lists copy
+and produces static, grouped shopping lists below the recipe. Shopping lists copy
 ingredient facts without aggregating quantities, combining alternate sizes/formulas,
 or sharing cooking-progress state. Missing amounts/methods remain disclosed; six
 ingredient-only sources intentionally have no invented step checklist.
@@ -56,7 +56,7 @@ with the same title comparison in client-side search. Broad food-family backgrou
 have visible text labels, light/dark palettes, mobile layouts, and neutral print styles.
 Saved progress retains inactive legacy slots as well as active cooking slots.
 Native keyboard-accessible disclosures keep Shopping list and About this dish /
-Did you know? closed by default, with Ingredients and Instructions independently
+Did you know? below the recipe and closed by default, with Ingredients and Instructions independently
 open by default, including interleaved components. Cook mode opens cooking sections.
 Printing opens all meaningful disclosures and restores their screen states afterward.
 Images start as small aspect-ratio-preserving previews; click, Enter or Space toggles
