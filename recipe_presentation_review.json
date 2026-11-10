@@ -1,0 +1,185 @@
+{
+  "recipes/beef/african-peanut-soup.html": {
+    "category": "Soups",
+    "reason": "The source simmers root vegetables, tomatoes and peanut butter in liquid; it is soup, not a beef dish."
+  },
+  "recipes/beef/red-beans-and-rice.html": {
+    "category": "Sides",
+    "reason": "The base formula is beans served over rice, with optional sausage rather than beef."
+  },
+  "recipes/breads/california-roll-sushi-bowl.html": {
+    "category": "Seafood",
+    "reason": "The source assembles crab, rice and cucumber with a soy-based sauce; there is no bread dough."
+  },
+  "recipes/breads/crunch-roll-sushi-bowl-with-easy-eel-sauce.html": {
+    "category": "Seafood",
+    "reason": "The source assembles imitation crab and sushi rice with eel sauce, not bread."
+  },
+  "recipes/breads/slow-cooker-chicken-tortilla-soup.html": {
+    "category": "Soups",
+    "reason": "Chicken and vegetables cook in broth; tortilla strips are a soup garnish, not a bread recipe."
+  },
+  "recipes/desserts/sophies-shepherds-pie.html": {
+    "category": "Main Dishes",
+    "reason": "Lamb mince, tomatoes, gravy and mashed potatoes form a savory main; it is neither dessert nor beef."
+  },
+  "recipes/sandwiches/chicken-taco-seasoning-recipe.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The formula mixes dry seasonings only; it belongs beside Taco Seasoning, not sandwiches."
+  },
+  "recipes/seafood/red-lobster-copycat-pina-colada-sauce.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The coconut-pineapple dipping sauce contains no seafood; shrimp are a serving suggestion."
+  },
+  "recipes/seafood/sushi-rice.html": {
+    "category": "Sides",
+    "reason": "This formula cooks and seasons rice alone, with no seafood."
+  },
+  "recipes/pork/sausage-stuffing.html": {
+    "category": "Sides",
+    "reason": "The bread-cube stuffing is a holiday side; sausage is a component, not a pork main."
+  },
+  "recipes/soups/10-minute-chili-lime-almonds.html": {
+    "category": "Snacks",
+    "reason": "Almonds are pan-toasted with chili and lime; no soup or broth is made."
+  },
+  "recipes/soups/tex-mex-chili-gravy-mexican-brown-gravy.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The roux-thickened gravy is a sauce for Tex-Mex dishes, not a soup."
+  },
+  "recipes/vegetarian-tofu/thai-sticky-rice.html": {
+    "category": "Sides",
+    "reason": "The method steams plain rice; no tofu or vegetarian main formula is supplied."
+  },
+  "recipes/sides/best-copycat-zuppa-toscana-recipe.html": {
+    "category": "Soups",
+    "reason": "Sausage, potato and kale cook in a broth-and-cream soup."
+  },
+  "recipes/sides/best-white-chocolate-and-macadamia-cookies.html": {
+    "category": "Desserts",
+    "reason": "Butter, sugar, chocolate and nuts are baked as cookies, not a savory side."
+  },
+  "recipes/sides/birria-slow-cooker.html": {
+    "category": "Beef",
+    "reason": "Beef chuck is slow-cooked in a chile sauce and served as a stew or tacos."
+  },
+  "recipes/sides/blueberry-brie-jalapeño-poppers.html": {
+    "category": "Appetizers",
+    "reason": "The source describes baked cheese-filled jalapeno halves as a sweet-spicy appetizer."
+  },
+  "recipes/sides/chocolate-fondue.html": {
+    "category": "Desserts",
+    "reason": "Chocolate and cream form a sweet dessert dip."
+  },
+  "recipes/sides/chunky-portabella-veggie-burgers.html": {
+    "category": "Vegetarian (Tofu)",
+    "reason": "Mushrooms, beans and broccoli form vegetarian burger patties, not a side dish."
+  },
+  "recipes/sides/chuys-creamy-jalapeno-dip.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The source blends a creamy jalapeno dipping sauce."
+  },
+  "recipes/sides/cilantro-lime-crema-recipe.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The crema is a sauce to drizzle on tacos or serve as a dip."
+  },
+  "recipes/sides/cinnamon-sugar-soft-pretzels-recipe.html": {
+    "category": "Breads",
+    "reason": "Yeasted pretzel dough is shaped, baked and coated with cinnamon sugar."
+  },
+  "recipes/sides/copycat-crunchwrap-supreme.html": {
+    "category": "Beef",
+    "reason": "Ground beef, tortillas, cheese and vegetables form a complete filled main dish."
+  },
+  "recipes/sides/copycat-texas-roadhouse-butter.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The formula makes a sweet butter spread, not a standalone side."
+  },
+  "recipes/sides/easy-homemade-soft-pretzels-recipe.html": {
+    "category": "Breads",
+    "reason": "A kneaded yeast dough is shaped and baked into pretzels."
+  },
+  "recipes/sides/everyday-cinnamon-rolls.html": {
+    "category": "Desserts",
+    "reason": "Filled and glazed sweet yeast rolls belong beside the existing dessert cinnamon rolls."
+  },
+  "recipes/sides/healthy-pumpkin-oatmeal-blender-pancakes.html": {
+    "category": "Breakfast",
+    "reason": "The batter is cooked as breakfast pancakes, not a savory side."
+  },
+  "recipes/sides/homemade-fondant-that-tastes-like-buttercream.html": {
+    "category": "Desserts",
+    "reason": "The source makes sweet cake-decorating fondant."
+  },
+  "recipes/sides/jalapeño-crema.html": {
+    "category": "Sauces  & Dips",
+    "reason": "The blended crema is a taco topping or dipping sauce."
+  },
+  "recipes/sides/lion-house-rolls.html": {
+    "category": "Breads",
+    "reason": "The recipe kneads, rises and bakes yeast dinner rolls."
+  },
+  "recipes/sides/panang-curry.html": {
+    "category": "Chicken",
+    "reason": "The formula cooks chicken with vegetables in coconut curry sauce over rice."
+  },
+  "recipes/sides/pumpkin-pancakes.html": {
+    "category": "Breakfast",
+    "reason": "Pumpkin batter is griddle-cooked as breakfast pancakes."
+  },
+  "recipes/sides/saucy-sesame-meatballs.html": {
+    "category": "Appetizers",
+    "reason": "The source explicitly serves the sauced bite-size meatballs as a game-day appetizer."
+  },
+  "recipes/sides/slow-cooker-carnitas.html": {
+    "category": "Pork",
+    "reason": "Slow-cooked pork is shredded and crisped as carnitas, a main or taco filling."
+  },
+  "recipes/sides/strawberry-buttermilk-pancakes-with-nutella-syrup.html": {
+    "category": "Breakfast",
+    "reason": "The source serves strawberry pancakes with Nutella syrup for breakfast or brunch."
+  },
+  "recipes/sides/tacos-al-pastor-3-methods.html": {
+    "category": "Pork",
+    "reason": "The three alternative methods cook marinated pork for tacos."
+  },
+  "recipes/sides/the-best-rice-krispies-treats-recipe.html": {
+    "category": "Desserts",
+    "reason": "Marshmallow-bound sweet cereal bars are dessert treats, not a savory side."
+  },
+  "recipes/sides/yeast-waffles.html": {
+    "category": "Breakfast",
+    "reason": "The fermented batter cooks in a waffle iron as breakfast waffles."
+  },
+  "recipes/luau/aloha-sweet-potatoes.html": {"family": "sides"},
+  "recipes/luau/haupia.html": {"family": "desserts"},
+  "recipes/luau/hawaiian-macaroni-potato-salad.html": {"family": "sides"},
+  "recipes/luau/hawaiian-sweet-bread.html": {"family": "breads"},
+  "recipes/luau/pineapple-upside-down-cake.html": {"family": "desserts"},
+  "recipes/luau/volcanic-punch.html": {"family": "drinks"},
+  "recipes/breakfast/moms-waffles.html": {
+    "shopping_labels": ["Standard waffles - choose one formula", "Richer waffles - use instead of standard formula"]
+  },
+  "recipes/beef/best-at-home-steak.html": {
+    "split_ingredient_headings": {
+      "Steak, cut and amount unspecified|Olive oil for coating|Garlic-infused extra-virgin olive oil for basting|Sugar, small amount suggested|Seasoning blend": {
+        "items": ["Steak, cut and amount unspecified", "Olive oil for coating", "Garlic-infused extra-virgin olive oil for basting", "Sugar, small amount suggested"],
+        "heading": "Seasoning blend"
+      }
+    }
+  },
+  "recipes/breads/100-whole-wheat-bread-machine-bread-pj-hamel.html": {
+    "additional_instructions": [
+      "Complete oven alternative with the same ingredients: mix and knead 8-10 minutes until smooth and slightly tacky; cover and rise 1-1 1/2 hours until doubled. Deflate, shape in a greased 8 1/2 by 4 1/2-inch pan, and rise another 1-1 1/2 hours until doubled. Bake at 375 F about 35 minutes, until the center is 190 F, then remove from the pan and cool."
+    ]
+  },
+  "recipes/beef/burritos.html": {
+    "additional_ingredients": ["Fat free refried beans – just as many cans as makes the right combo of meat and beans that you like"],
+    "method_ingredient_facts": [{
+      "evidence": "Cook hamburger meat in a package of taco seasoning.",
+      "title": "Shared assembly seasoning (specified in the method)",
+      "items": ["1 package taco seasoning"]
+    }],
+    "shopping_labels": ["Dried-bean option and shared filling / tortillas", "Shared assembly seasoning", "Faster alternative - use refried beans instead of dried pinto beans"]
+  }
+}

@@ -23,6 +23,10 @@ import mammoth
 from bs4 import BeautifulSoup
 from PIL import Image, ImageOps
 from recipe_structure import load_plans, normalize_body
+from recipe_presentation import (
+    browse_category, FAMILY_LABELS, FAMILIES, load_presentation_reviews,
+    prepare_cooking_body, recipe_sort_key, sort_text,
+)
 
 SOURCE = Path(r"d:/OneDrive/Recipes")
 OUT = Path(__file__).parent
@@ -31,6 +35,7 @@ NEW_RECIPES_JSON = OUT / "new_recipes.json"
 MORE_RECIPES_REVIEW = OUT / "more_recipes_review.json"
 IMPORTED_RECIPES = OUT / "imported_recipes.json"
 STRUCTURE_PLANS: dict = {}
+PRESENTATION_REVIEWS = load_presentation_reviews()
 
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 DOCX_EXT = {".docx"}
@@ -45,7 +50,7 @@ ICONS = {
     "Seafood": "🦐", "Sides": "🍚", "Snacks": "🍿", "Soups": "🍲",
     "Turkey": "🦃", "Vegetarian (Tofu)": "🥦",
     "Cakes": "🎂", "Candies": "🍬", "Cookies": "🍪", "Pies": "🥧",
-    "Other": "📄",
+    "Other": "📄", "Main Dishes": "\U0001F37D",
 }
 
 
@@ -745,12 +750,14 @@ def render_reviewed_recipe(entry: dict) -> dict:
         body += f'<p class="recipe-source"><strong>Recipe source:</strong> More Recipes / {escape(entry["source"].replace(chr(92), " / "))}. Original source files are unchanged.</p>'
     if STRUCTURE_PLANS:
         body = normalize_body(body, entry["url"], STRUCTURE_PLANS)
+    category, sub = browse_category(entry["url"], entry["category"], entry["sub"], PRESENTATION_REVIEWS)
+    body, shopping = prepare_cooking_body(body, entry["url"], PRESENTATION_REVIEWS)
     destination.write_text(
-        render_recipe_page(entry["title"], entry["category"], entry["sub"], body),
+        render_recipe_page(entry["title"], category, sub, body, entry["url"], shopping),
         encoding="utf-8",
     )
     return {
-        "title": entry["title"], "category": entry["category"], "sub": entry["sub"],
+        "title": entry["title"], "category": category, "sub": sub,
         "url": entry["url"], "type": "html",
         "ingredients": extract_ingredients_from_html(body if STRUCTURE_PLANS else original_body),
     }
@@ -821,7 +828,9 @@ def main() -> None:
                 raise RuntimeError(f"Could not convert recipe source: {src}") from e
             rel_url = out_file.relative_to(OUT).as_posix()
             body = normalize_body(body, rel_url, STRUCTURE_PLANS)
-            page = render_recipe_page(title, category, sub, body)
+            category, sub = browse_category(rel_url, category, sub, PRESENTATION_REVIEWS)
+            body, shopping = prepare_cooking_body(body, rel_url, PRESENTATION_REVIEWS)
+            page = render_recipe_page(title, category, sub, body, rel_url, shopping)
             out_file.write_text(page, encoding="utf-8")
             rel_url = out_file.relative_to(OUT).as_posix()
             ingredients = extract_ingredients_from_html(body)
@@ -846,9 +855,9 @@ def main() -> None:
 
     recipes.extend(render_reviewed_recipe(entry) for entry in imported_recipes)
     recipes.extend(render_reviewed_recipe(entry) for entry in reviewed_recipes)
-    recipes.sort(key=lambda r: (r["category"], r["sub"], r["title"].lower()))
+    recipes.sort(key=recipe_sort_key)
 
-    # Apply NEW flag from new_recipes.json (case-insensitive match on category + title)
+    # Original URL categories still identify NEW entries after browse reclassification.
     new_keys: set[tuple[str, str]] = set()
     if NEW_RECIPES_JSON.exists():
         try:
@@ -858,13 +867,15 @@ def main() -> None:
                     cat = (e.get("category") or "").strip().lower()
                     title = (e.get("title") or "").strip().lower()
                     if cat and title:
-                        new_keys.add((cat, title))
+                        new_keys.add((slugify(cat), title))
         except Exception as exc:
             print(f"Warning: could not read {NEW_RECIPES_JSON.name}: {exc}")
     if new_keys:
         matched = 0
         for r in recipes:
-            if (r["category"].strip().lower(), r["title"].strip().lower()) in new_keys:
+            title_key = r["title"].strip().lower()
+            if ((slugify(r["category"]), title_key) in new_keys or
+                    (r["url"].split("/")[1], title_key) in new_keys):
                 r["new"] = True
                 matched += 1
         print(f"Flagged {matched} recipe(s) as NEW from {NEW_RECIPES_JSON.name}.")
@@ -1371,7 +1382,7 @@ WDYH_JS = r"""
     scored.sort(function(a, b){
       if (b.ratio !== a.ratio) return b.ratio - a.ratio;
       if (a.miss.length !== b.miss.length) return a.miss.length - b.miss.length;
-      return a.r.title.localeCompare(b.r.title);
+      return window.RecipesApp.compareTitles(a.r.title, b.r.title);
     });
 
     var full = scored.filter(function(x){ return x.miss.length === 0; });
@@ -1468,7 +1479,7 @@ WDYH_JS = r"""
 def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: int = 0) -> str:
     sections = []
     cat_cards = []
-    for cat in sorted(tree.keys()):
+    for cat in sorted(tree.keys(), key=sort_text):
         sub_map = tree[cat]
         count = sum(len(v) for v in sub_map.values())
         anchor = slugify(cat)
@@ -1481,17 +1492,17 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
         items_html = []
         has_subs = any(s for s in sub_map.keys())
         if has_subs:
-            for sub in sorted(sub_map.keys()):
+            for sub in sorted(sub_map.keys(), key=sort_text):
                 if sub:
                     items_html.append(f'<h3 style="color:var(--muted);margin-top:18px">{ICONS.get(sub,"")} {escape(sub)}</h3>')
                 items_html.append('<ul class="recipes">')
-                for r in sub_map[sub]:
+                for r in sorted(sub_map[sub], key=lambda r: (sort_text(r["title"]), r["url"])):
                     items_html.append(_recipe_li(r))
                 items_html.append("</ul>")
         else:
             items_html.append('<ul class="recipes">')
             for sub in sub_map:
-                for r in sub_map[sub]:
+                for r in sorted(sub_map[sub], key=lambda r: (sort_text(r["title"]), r["url"])):
                     items_html.append(_recipe_li(r))
             items_html.append("</ul>")
         sections.append(
@@ -1817,9 +1828,9 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
         if r.get("new"):
             by_cat.setdefault(r["category"], []).append(r)
     sections = []
-    for cat in sorted(by_cat.keys()):
+    for cat in sorted(by_cat.keys(), key=sort_text):
         icon = ICONS.get(cat, "\U0001F4C4")
-        items = "\n".join(_recipe_li(r) for r in sorted(by_cat[cat], key=lambda x: x["title"].lower()))
+        items = "\n".join(_recipe_li(r) for r in sorted(by_cat[cat], key=lambda x: (sort_text(x["title"]), x["url"])))
         sections.append(
             f'<section><h2 class="cat-title">{icon} {escape(cat)}</h2>'
             f'<ul class="recipes">{items}</ul></section>'
@@ -1856,13 +1867,24 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
 """
 
 
-def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:
+def render_recipe_page(title: str, category: str, sub: str, body: str, url: str = "", shopping: str = "") -> str:
+    from recipe_notes import dish_note
+    from recipe_presentation import collapsible_cooking_body
+
+    about = dish_note(title, body)
+    body = collapsible_cooking_body(body)
     # Compute path back to root from /recipes/<cat>[/<sub>]/file.html
-    depth = 2 + (1 if sub else 0)
+    depth = len(Path(url).parts) - 1 if url else 2 + (1 if sub else 0)
     root = "../" * depth
     crumbs = f'<a href="{root}index.html">Recipes</a> › <a href="{root}index.html#cat-{slugify(category)}">{escape(category)}</a>'
     if sub:
         crumbs += f' › {escape(sub)}'
+    family = PRESENTATION_REVIEWS.get(url, {}).get("family", FAMILIES[category])
+    if "Reference, not a standalone recipe" in body:
+        family = "reference"
+    family_label = FAMILY_LABELS[family]
+    category_label = "" if sort_text(family_label) == sort_text(category) else category
+    category_label += (" / " + sub) if sub else ""
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
@@ -1873,7 +1895,7 @@ def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:
 <link rel="stylesheet" href="{root}assets/site.css">
 <script src="{root}assets/site.js" defer></script>
 <script src="{root}assets/recipe.js" defer></script>
-</head><body class="recipe-page" data-recipe-title="{escape(title)}" data-recipe-category="{escape(category)}" data-root="{root}">
+</head><body class="recipe-page" data-food-family="{family}" data-recipe-title="{escape(title)}" data-recipe-category="{escape(category)}" data-root="{root}">
 <a class="skip-link" href="#main-content">Skip to recipe</a>
 <header class="site-header"><div class="header-inner header-simple">
   <a class="brand" href="{root}index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
@@ -1885,6 +1907,7 @@ def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:
 <main class="container" id="main-content">
   <div class="crumbs">{crumbs}</div>
   <div class="recipe-title-row"><h1 class="page-title">{escape(title)}</h1></div>
+  <p class="food-family-label">{escape(family_label)}{(' <span aria-hidden="true">&middot;</span> ' + escape(category_label)) if category_label else ''}</p>
   <div class="recipe-toolbar" aria-label="Recipe tools">
     <button class="action-btn" type="button" data-favorite data-title="{escape(title)}" data-category="{escape(category)}" aria-pressed="false"><span data-favorite-icon aria-hidden="true">♡</span><span class="button-label" data-favorite-label>Save</span></button>
     <button class="action-btn" type="button" data-cook-mode aria-pressed="false"><span aria-hidden="true">◉</span><span class="button-label">Cook mode</span></button>
@@ -1894,6 +1917,8 @@ def render_recipe_page(title: str, category: str, sub: str, body: str) -> str:
     <div class="progress-wrap"><span data-progress-label>Ready</span><div class="progress-track" aria-hidden="true"><div class="progress-bar" data-progress-bar></div></div><button class="icon-btn" type="button" data-reset-progress aria-label="Reset checklist" title="Reset checklist">↺</button></div>
   </div>
   <div class="cook-mode-banner" role="status">Cook mode is on: larger text and screen wake lock when supported.</div>
+{shopping}
+{about}
   <article class="recipe-content">{body}</article>
   <section class="related" data-related hidden><h2>More from {escape(category)}</h2><div class="related-grid" data-related-grid></div></section>
 </main>

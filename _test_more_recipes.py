@@ -5,6 +5,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from bs4 import BeautifulSoup
+
 import build
 
 
@@ -27,8 +29,12 @@ class ReviewedRecipesTests(unittest.TestCase):
         self.review_patch = patch.object(build, "MORE_RECIPES_REVIEW", self.review)
         self.source_patch.start()
         self.review_patch.start()
+        # These synthetic ingestion fixtures do not identify a real food.
+        self.note_patch = patch("recipe_notes.dish_note", return_value="")
+        self.note_patch.start()
 
     def tearDown(self):
+        self.note_patch.stop()
         self.review_patch.stop()
         self.source_patch.stop()
         self.temporary.cleanup()
@@ -60,7 +66,7 @@ class ReviewedRecipesTests(unittest.TestCase):
 
     def test_reviewed_incomplete_entry_is_published_with_warning(self):
         entry = {**self.entry, "status": "incomplete", "url": "recipes/incomplete.html",
-                 "title": "Recipe (Incomplete)", "body_html": "<p>Known ingredient facts.</p>",
+                 "title": "Recipe (Incomplete)", "body_html": "<h2>Ingredients</h2><ul><li>Known ingredient facts.</li></ul><h2>Instructions</h2>",
                  "missing": "Baking directions are missing.", "category": "Breads", "sub": ""}
         self.write_review([entry])
         self.assertEqual(build.load_reviewed_recipes(), [entry])
@@ -109,7 +115,7 @@ class ReviewedRecipesTests(unittest.TestCase):
 
     def test_suggestion_is_separate_and_not_ingredient_indexed(self):
         entry = {**self.entry, "status": "incomplete", "url": "recipes/suggestion.html",
-                 "title": "Recipe (Incomplete)", "body_html": "<p>Original facts.</p>",
+                 "title": "Recipe (Incomplete)", "body_html": "<h2>Ingredients</h2><ul><li>Original facts.</li></ul><h2>Instructions</h2>",
                  "missing": "Method absent.", "category": "Breads", "sub": "",
                  "suggestions": [self.suggestion()]}
         with patch.object(build, "OUT", self.root), patch.object(
@@ -180,15 +186,16 @@ class ReviewedRecipesTests(unittest.TestCase):
         with patch.object(build, "OUT", self.root):
             recipe = build.render_reviewed_recipe(entry)
         page = (self.root / recipe["url"]).read_text(encoding="utf-8")
-        self.assertIn("<ul><li>1 cup flour</li></ul>", page)
-        self.assertIn("<ol><li>Bake until done.</li></ol>", page)
+        article = BeautifulSoup(page, "html.parser").select_one(".recipe-content")
+        self.assertEqual(article.select_one("li.recipe-ingredient").get_text(), "1 cup flour")
+        self.assertEqual(article.select_one("li.recipe-instruction").get_text(), "Bake until done.")
         self.assertIn("https://example.com/recipe", page)
         self.assertIn("Example author", page)
         self.assertIn("separate from the incomplete original", page)
         self.assertNotIn("<img", page)
 
     def test_internal_suggestion_link_preserves_original_list_order(self):
-        original = "<ul><li>Original flour</li><li>Original sugar</li></ul>"
+        original = "<h2>Ingredients</h2><ul><li>Original flour</li><li>Original sugar</li></ul><h2>Instructions</h2>"
         entry = {**self.entry, "status": "incomplete", "url": "recipes/breads/original.html",
                  "title": "Original (Incomplete)", "body_html": original, "missing": "Method absent.",
                  "category": "Breads", "sub": "", "suggestions": [{
@@ -201,8 +208,8 @@ class ReviewedRecipesTests(unittest.TestCase):
             recipe = build.render_reviewed_recipe(entry)
         page = (self.root / recipe["url"]).read_text(encoding="utf-8")
         self.assertIn('href="../desserts/import.html"', page)
-        self.assertIn(original, page)
-        self.assertEqual(page.count("<li>"), 2)
+        article = BeautifulSoup(page, "html.parser").select_one(".recipe-content")
+        self.assertEqual([li.get_text() for li in article.select("li")], ["Original flour", "Original sugar"])
         self.assertNotIn("<li", page.split('aria-label="Suggested completion"', 1)[1])
 
     def test_internal_suggestion_requires_safe_destination(self):
@@ -214,7 +221,7 @@ class ReviewedRecipesTests(unittest.TestCase):
 
     def test_missing_imported_target_fails_explicitly(self):
         entry = {**self.entry, "status": "incomplete", "url": "recipes/original.html",
-                 "title": "Original (Incomplete)", "body_html": "<p>Known facts.</p>",
+                 "title": "Original (Incomplete)", "body_html": "<h2>Ingredients</h2><ul><li>Known facts.</li></ul><h2>Instructions</h2>",
                  "missing": "Method absent.", "category": "Breads", "sub": "",
                  "suggestions": [{**self.suggestion(), "recipe_url": "recipes/missing.html",
                                   "recipe_title": "Missing complete recipe"}]}

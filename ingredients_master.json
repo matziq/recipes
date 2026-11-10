@@ -25,7 +25,7 @@
   },
   {
     "name": "sugar",
-    "count": 70
+    "count": 71
   },
   {
     "name": "garlic",
@@ -117,7 +117,7 @@
   },
   {
     "name": "oil",
-    "count": 19
+    "count": 20
   },
   {
     "name": "buttermilk",
@@ -220,6 +220,10 @@
     "count": 12
   },
   {
+    "name": "cooking spray",
+    "count": 12
+  },
+  {
     "name": "garlic salt",
     "count": 12
   },
@@ -249,10 +253,6 @@
   },
   {
     "name": "chocolate chip",
-    "count": 10
-  },
-  {
-    "name": "cooking spray",
     "count": 10
   },
   {
@@ -308,6 +308,10 @@
     "count": 8
   },
   {
+    "name": "nut",
+    "count": 8
+  },
+  {
     "name": "pineapple",
     "count": 8
   },
@@ -333,10 +337,6 @@
   },
   {
     "name": "jalapeno",
-    "count": 7
-  },
-  {
-    "name": "nut",
     "count": 7
   },
   {
@@ -516,6 +516,10 @@
     "count": 5
   },
   {
+    "name": "tortilla",
+    "count": 5
+  },
+  {
     "name": "white pepper",
     "count": 5
   },
@@ -576,6 +580,10 @@
     "count": 4
   },
   {
+    "name": "mozzarella cheese",
+    "count": 4
+  },
+  {
     "name": "onion salt",
     "count": 4
   },
@@ -620,11 +628,11 @@
     "count": 4
   },
   {
-    "name": "tomato paste",
+    "name": "taco seasoning",
     "count": 4
   },
   {
-    "name": "tortilla",
+    "name": "tomato paste",
     "count": 4
   },
   {
@@ -696,6 +704,10 @@
     "count": 3
   },
   {
+    "name": "corn",
+    "count": 3
+  },
+  {
     "name": "corn starch",
     "count": 3
   },
@@ -753,10 +765,6 @@
   },
   {
     "name": "mango",
-    "count": 3
-  },
-  {
-    "name": "mozzarella cheese",
     "count": 3
   },
   {
@@ -837,10 +845,6 @@
   },
   {
     "name": "t olive oil",
-    "count": 3
-  },
-  {
-    "name": "taco seasoning",
     "count": 3
   },
   {
@@ -1073,10 +1077,6 @@
   },
   {
     "name": "coriander powder",
-    "count": 2
-  },
-  {
-    "name": "corn",
     "count": 2
   },
   {
@@ -1640,6 +1640,10 @@
     "count": 1
   },
   {
+    "name": "apple juice",
+    "count": 1
+  },
+  {
     "name": "applesauce",
     "count": 1
   },
@@ -1740,6 +1744,10 @@
     "count": 1
   },
   {
+    "name": "bbq sauce",
+    "count": 1
+  },
+  {
     "name": "bean sprouts",
     "count": 1
   },
@@ -1781,6 +1789,10 @@
   },
   {
     "name": "bisquick",
+    "count": 1
+  },
+  {
+    "name": "black or pinto beans",
     "count": 1
   },
   {
@@ -2472,6 +2484,10 @@
     "count": 1
   },
   {
+    "name": "fat free refried beans",
+    "count": 1
+  },
+  {
     "name": "feta",
     "count": 1
   },
@@ -2724,6 +2740,10 @@
     "count": 1
   },
   {
+    "name": "garlic-infused extra-virgin olive oil",
+    "count": 1
+  },
+  {
     "name": "garnish flaked sea salt",
     "count": 1
   },
@@ -2732,7 +2752,11 @@
     "count": 1
   },
   {
-    "name": "garnishes hot sauce",
+    "name": "generous cup grand marnier",
+    "count": 1
+  },
+  {
+    "name": "generous cups heavy cream",
     "count": 1
   },
   {
@@ -3404,6 +3428,10 @@
     "count": 1
   },
   {
+    "name": "olive oil for coating",
+    "count": 1
+  },
+  {
     "name": "olive oil or vegetable",
     "count": 1
   },
@@ -3796,10 +3824,6 @@
     "count": 1
   },
   {
-    "name": "queso ingredient",
-    "count": 1
-  },
-  {
     "name": "quick-cooking oats",
     "count": 1
   },
@@ -3929,10 +3953,6 @@
   },
   {
     "name": "salsa or pico de",
-    "count": 1
-  },
-  {
-    "name": "salsa verde ingredient",
     "count": 1
   },
   {
@@ -4148,6 +4168,10 @@
     "count": 1
   },
   {
+    "name": "steak",
+    "count": 1
+  },
+  {
     "name": "stew beef",
     "count": 1
   },
@@ -4161,6 +4185,10 @@
   },
   {
     "name": "store-bought soft caramel",
+    "count": 1
+  },
+  {
+    "name": "strawberries or other fruit",
     "count": 1
   },
   {
@@ -4577,6 +4605,10 @@
   },
   {
     "name": "water or milk",
+    "count": 1
+  },
+  {
+    "name": "water to half-fill crockpot",
     "count": 1
   },
   {

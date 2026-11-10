@@ -6,9 +6,9 @@ A static site for browsing my family recipe collection. Built from `d:\OneDrive\
 
 ## Categories
 
-22 categories, 425 entries (including 5 explicitly incomplete recipes and
+23 categories, 425 entries (including 5 explicitly incomplete recipes and
 10 intentional reference pages). Actual recipes have standard Ingredients and
-Instructions sections with ingredient checklists. Reviewed scan recipes include
+Instructions sections with ingredient and cooking-step checklists. Reviewed scan recipes include
 searchable ingredient facts and concise methods; unresolved source gaps remain
 disclosed rather than guessed. Protected cookbook and breadmaker collections
 are reference summaries, not reproduced collections.
@@ -39,6 +39,38 @@ and instruction items use subsequent slots even when displayed earlier, preservi
 the existing URL-based saved-progress keys. Citation links remain usable without
 toggling checklist items. Tests inventory every indexed page, verify legacy item
 fingerprints and progress-slot uniqueness, and exercise keyboard/link behavior.
+
+`recipe_presentation_review.json` records content-reviewed browse-category corrections
+with rationales, food-family exceptions, and the few ingredient facts originally
+misformatted as headings or embedded in methods. `recipe_presentation.py` gives all
+cooking items explicit semantics, keeps non-cooking notes/references out of checklists,
+and produces static, grouped shopping lists above the recipe. Shopping lists copy
+ingredient facts without aggregating quantities, combining alternate sizes/formulas,
+or sharing cooking-progress state. Missing amounts/methods remain disclosed; six
+ingredient-only sources intentionally have no invented step checklist.
+
+All existing recipe URLs stay unchanged even when their browse category changes;
+navigation/asset paths are based on the URL, not the category label. Category,
+subcategory, and title sorting use accent/punctuation-normalized alphabetical keys,
+with the same title comparison in client-side search. Broad food-family backgrounds
+have visible text labels, light/dark palettes, mobile layouts, and neutral print styles.
+Saved progress retains inactive legacy slots as well as active cooking slots.
+Native keyboard-accessible disclosures keep Shopping list and About this dish /
+Did you know? closed by default, with Ingredients and Instructions independently
+open by default, including interleaved components. Cook mode opens cooking sections.
+Printing opens all meaningful disclosures and restores their screen states afterward.
+Images start as small aspect-ratio-preserving previews; click, Enter or Space toggles
+full-width viewing and back, with an accessible expanded-state label.
+
+`recipe_notes.py` supplies independently worded, cited history or did-you-know
+paragraphs for all 414 food preparations. Facts describe an identified dish family
+or an ingredient actually present, not invented origins for individual family recipes.
+Related variants may share context. The play-dough preparation instead has an
+explicitly nonfood craft note grounded in its source; the ten reference pages do
+not receive invented dish histories. Missing fact coverage stops the build.
+The inventory tests cover all 425 entries, exact shopping-list fact coverage and
+alternative grouping, 38 reviewed category corrections, and every published
+legacy item fingerprint and storage slot.
 
 The six breadmaker exceptions, first-tastes ideas, quick dinner ideas, healthy
 snack ideas, and the supplied full cookbook are explicitly identified as reference

@@ -6,8 +6,7 @@ const vm = require("node:vm");
 
 function run(slots, previous) {
   const writes = [], messages = [];
-  const items = slots.map(slot => {
-    const attributes = slot === null ? {} : { "data-progress-index": String(slot) };
+  function element(attributes = {}) {
     const classes = new Set();
     const handlers = {};
     return {
@@ -17,25 +16,48 @@ function run(slots, previous) {
       classList: {
         add: name => classes.add(name), remove: name => classes.delete(name),
         contains: name => classes.has(name),
-        toggle: (name, enabled) => enabled ? classes.add(name) : classes.delete(name)
+        toggle: (name, enabled = !classes.has(name)) => {
+          if (enabled) classes.add(name); else classes.delete(name);
+          return enabled;
+        }
       },
       addEventListener: (type, handler) => { handlers[type] = handler; }
     };
-  });
+  }
+  const items = slots.map(slot => element(slot === null ? {} : { "data-progress-index": String(slot) }));
+  const disclosure = { attributes: {}, open: true }, shopping = { attributes: {}, open: false };
+  const note = { open: false }, instruction = { open: true };
+  const image = element(), cookButton = element(), printButton = element();
+  const events = {};
   const content = {
-    querySelectorAll: selector => selector === "img" ? [] :
-      selector === "li.checkable" ? items.filter(item => item.classList.contains("checkable")) : items
+    querySelectorAll: selector => {
+      if (selector === "img") return [image];
+      if (selector === "details.cooking-section") return [disclosure, instruction];
+      if (selector === "li.checkable") return items.filter(item => item.classList.contains("checkable"));
+      assert.equal(selector, "li.recipe-ingredient, li.recipe-instruction",
+        "Only cooking items may become checkboxes, not disclosures or shopping lists");
+      return items;
+    }
   };
   const body = {
-    getAttribute: key => ({ "data-recipe-title": "Test", "data-recipe-category": "Breads" })[key] ?? null
+    getAttribute: key => ({ "data-recipe-title": "Test", "data-recipe-category": "Breads" })[key] ?? null,
+    classList: element().classList
   };
   const context = {
-    Set, Number, Array, String, Boolean, console: { error() {} },
+    Set, Number, Array, String, Boolean, navigator: {}, console: { error() {} },
     document: {
-      body, querySelector: selector => selector === ".recipe-content" ? content : null,
+      body, querySelector: selector => ({
+        ".recipe-content": content, "[data-cook-mode]": cookButton, "[data-print]": printButton
+      })[selector] ?? null,
+      querySelectorAll: selector => {
+        assert.equal(selector, ".shopping-list, .dish-note, details.cooking-section");
+        return [shopping, note, disclosure, instruction];
+      },
       addEventListener() {}
     },
     window: {
+      addEventListener: (type, handler) => { events[type] = handler; },
+      print() { events.beforeprint(); },
       location: { pathname: "/recipes/recipes/breads/test.html" },
       RecipesApp: {
         normalizeUrl: value => value.replace("/recipes/", ""),
@@ -47,7 +69,8 @@ function run(slots, previous) {
     fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve([]) })
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "assets", "recipe.js"), "utf8"), context);
-  return { items, writes, messages };
+  return { items, writes, messages, disclosure, shopping, note, instruction, image,
+    cookButton, printButton, events };
 }
 
 // New ingredients precede legacy instructions visually, but are appended in storage.
@@ -79,4 +102,45 @@ assert.equal(invalid.writes.length, 0);
 assert.equal(invalid.messages.length, 1);
 const malformed = run(["invalid"], [true]);
 assert.equal(malformed.writes.length, 0);
-console.log("Checklist migration, legacy fallback, keyboard/link handling and invalid-state guards pass.");
+const retained = run([0, 2], [false, true, true]);
+assert.deepEqual(retained.writes[0][1], [false, true, true]);
+retained.items[0].handlers.keydown({
+  key: "Enter", target: retained.items[0], preventDefault() {}
+});
+assert.deepEqual(retained.writes.at(-1)[1], [true, true, true],
+  "Inactive legacy slots must survive subsequent cooking progress writes");
+assert.equal(retained.disclosure.attributes.role, undefined);
+assert.equal(retained.shopping.attributes.role, undefined);
+assert.equal(run([], []).writes.length, 0, "Reference pages have no cooking checkboxes");
+const controls = run([0], [true]);
+assert.equal(controls.image.attributes["aria-expanded"], "false");
+controls.image.handlers.click();
+assert.equal(controls.image.attributes["aria-expanded"], "true");
+assert.equal(controls.image.attributes["aria-label"], "Shrink recipe image");
+let imagePrevented = false;
+controls.image.handlers.keydown({ key: " ", preventDefault() { imagePrevented = true; } });
+assert.equal(imagePrevented, true);
+assert.equal(controls.image.attributes["aria-expanded"], "false");
+controls.image.handlers.keydown({ key: "Enter", preventDefault() {} });
+assert.equal(controls.image.attributes["aria-expanded"], "true");
+controls.disclosure.open = false;
+controls.printButton.handlers.click();
+assert.ok([controls.disclosure, controls.instruction, controls.shopping, controls.note].every(d => d.open));
+controls.events.beforeprint(); // Repeated native event must not replace the original snapshot.
+controls.events.afterprint();
+assert.deepEqual([controls.disclosure.open, controls.instruction.open, controls.shopping.open, controls.note.open],
+  [false, true, false, false]);
+controls.events.beforeprint(); // Browser-menu printing uses the same path.
+controls.events.afterprint();
+controls.instruction.open = false;
+controls.cookButton.handlers.click({ currentTarget: controls.cookButton });
+assert.equal(controls.disclosure.open, true);
+assert.equal(controls.instruction.open, true);
+assert.equal(controls.shopping.open, false);
+assert.equal(controls.note.open, false);
+assert.equal(controls.items[0].attributes["aria-checked"], "true");
+const site = { window: {}, document: { readyState: "loading", addEventListener() {} } };
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, "assets", "site.js"), "utf8"), site);
+assert.deepEqual(["Zebra", "Éclair", "apples", "Apple's cake"].sort(site.window.RecipesApp.compareTitles),
+  ["apples", "Apple's cake", "Éclair", "Zebra"]);
+console.log("Cooking-only checkboxes, stable slots, isolation, keyboard/links, sorting, images, print restoration and cook-mode disclosures pass.");

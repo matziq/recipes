@@ -48,6 +48,22 @@
     ]
   },
   {
+    "title": "Blueberry Brie Jalapeño Poppers",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/sides/blueberry-brie-jalapeño-poppers.html",
+    "type": "html",
+    "ingredients": [
+      "jalape os",
+      "brie cheese",
+      "blueberry",
+      "honey",
+      "walnut",
+      "olive oil",
+      "salt and black pepper"
+    ]
+  },
+  {
     "title": "Chipotles Guacamole",
     "category": "Appetizers",
     "sub": "",
@@ -195,6 +211,28 @@
     "new": true
   },
   {
+    "title": "Saucy Sesame Meatballs",
+    "category": "Appetizers",
+    "sub": "",
+    "url": "recipes/sides/saucy-sesame-meatballs.html",
+    "type": "html",
+    "ingredients": [
+      "pork or ground beef",
+      "sesame oil",
+      "panko or breadcrumb",
+      "ginger",
+      "egg",
+      "garlic",
+      "thinly-sliced green onion",
+      "garnish toasted sesame seed",
+      "hoisin sauce",
+      "rice vinegar",
+      "garlic clove",
+      "soy sauce"
+    ],
+    "new": true
+  },
+  {
     "title": "Torchy's Queso",
     "category": "Appetizers",
     "sub": "",
@@ -203,21 +241,18 @@
     "ingredients": [
       "hatch green chile",
       "roma tomato",
-      "salsa verde ingredient",
       "serrano chili peppers adjust",
       "with a jalape o",
       "tomatillo",
       "garlic",
       "kosher salt",
-      "queso ingredient",
       "half-and-half",
       "velveeta queso blanco",
       "butter",
       "sharp cheddar",
       "lime juice",
       "cilantro",
-      "salt",
-      "garnishes hot sauce"
+      "salt"
     ]
   },
   {
@@ -287,28 +322,6 @@
     "ingredients": []
   },
   {
-    "title": "African Peanut Soup",
-    "category": "Beef",
-    "sub": "",
-    "url": "recipes/beef/african-peanut-soup.html",
-    "type": "html",
-    "ingredients": [
-      "onion",
-      "c oil",
-      "c water",
-      "t red pepper flake",
-      "t garlic powder",
-      "salt pepper",
-      "carrot",
-      "sweet potato",
-      "russet potato",
-      "tomato",
-      "c peanut butter",
-      "stew beef",
-      "beef w bone"
-    ]
-  },
-  {
     "title": "Amazing Meatballs",
     "category": "Beef",
     "sub": "",
@@ -353,6 +366,10 @@
     "url": "recipes/beef/best-at-home-steak.html",
     "type": "html",
     "ingredients": [
+      "steak",
+      "olive oil for coating",
+      "garlic-infused extra-virgin olive oil",
+      "sugar",
       "mixed black",
       "kosher salt",
       "red pepper"
@@ -402,6 +419,33 @@
     "new": true
   },
   {
+    "title": "Birria (Slow Cooker)",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/sides/birria-slow-cooker.html",
+    "type": "html",
+    "ingredients": [
+      "beef chuck roast",
+      "guajillo chile",
+      "ancho chili",
+      "arbol chili",
+      "roma tomato",
+      "white onion",
+      "garlic clove",
+      "beef broth",
+      "apple cider vinegar",
+      "kosher salt",
+      "black pepper",
+      "cumin",
+      "mexican oregano",
+      "cinnamon",
+      "ginger",
+      "bay leaf",
+      "onion"
+    ],
+    "new": true
+  },
+  {
     "title": "Burritos",
     "category": "Beef",
     "sub": "",
@@ -415,7 +459,9 @@
       "onion salt",
       "cayenne pepper",
       "cheese",
-      "tortilla"
+      "tortilla",
+      "taco seasoning",
+      "fat free refried beans"
     ]
   },
   {
@@ -448,6 +494,26 @@
     "category": "Beef",
     "sub": "",
     "url": "recipes/beef/copycat-crunchwrap-supreme.html",
+    "type": "html",
+    "ingredients": [
+      "flour tortilla",
+      "beef",
+      "water",
+      "taco seasoning",
+      "nacho cheese sauce",
+      "tostada shell",
+      "sour cream",
+      "iceberg lettuce",
+      "tomato",
+      "mexican cheese blend"
+    ],
+    "new": true
+  },
+  {
+    "title": "Copycat Crunchwrap Supreme",
+    "category": "Beef",
+    "sub": "",
+    "url": "recipes/sides/copycat-crunchwrap-supreme.html",
     "type": "html",
     "ingredients": [
       "flour tortilla",
@@ -537,26 +603,6 @@
       "water chestnut"
     ],
     "new": true
-  },
-  {
-    "title": "Red Beans And Rice",
-    "category": "Beef",
-    "sub": "",
-    "url": "recipes/beef/red-beans-and-rice.html",
-    "type": "html",
-    "ingredients": [
-      "bacon drippings or cup",
-      "sweet onion",
-      "green onion",
-      "salt",
-      "thyme",
-      "black pepper",
-      "cayenne pepper",
-      "bay leaf",
-      "garlic",
-      "light red kidney beans",
-      "dark red kidney beans"
-    ]
   },
   {
     "title": "Restaurant-Style Steak Fajitas",
@@ -772,27 +818,6 @@
     "new": true
   },
   {
-    "title": "California Roll Sushi Bowl",
-    "category": "Breads",
-    "sub": "",
-    "url": "recipes/breads/california-roll-sushi-bowl.html",
-    "type": "html",
-    "ingredients": [
-      "soy sauce",
-      "sugar",
-      "rice vinegar",
-      "white rice - cooled",
-      "imitation crab",
-      "cucumber",
-      "lemon - sliced extra",
-      "pickled sushi ginger",
-      "avocado - sliced or",
-      "sheet dried seaweed",
-      "sesame seeds"
-    ],
-    "new": true
-  },
-  {
     "title": "Chickpea Moraccan Flatbread",
     "category": "Breads",
     "sub": "",
@@ -831,6 +856,26 @@
     "new": true
   },
   {
+    "title": "Cinnamon Sugar Soft Pretzels Recipe",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/sides/cinnamon-sugar-soft-pretzels-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "milk",
+      "active dry yeast",
+      "brown sugar",
+      "butter",
+      "salt",
+      "flour",
+      "baking soda",
+      "water",
+      "sugar",
+      "cinnamon"
+    ],
+    "new": true
+  },
+  {
     "title": "Cranberry Nut Bread",
     "category": "Breads",
     "sub": "",
@@ -850,28 +895,6 @@
       "cranberry",
       "walnut"
     ]
-  },
-  {
-    "title": "Crunch Roll Sushi Bowl with Easy Eel Sauce",
-    "category": "Breads",
-    "sub": "",
-    "url": "recipes/breads/crunch-roll-sushi-bowl-with-easy-eel-sauce.html",
-    "type": "html",
-    "ingredients": [
-      "imitation crab",
-      "white or brown rice",
-      "cucumber",
-      "avocado",
-      "cilantro",
-      "soy sauce",
-      "sugar",
-      "mirin",
-      "mayo",
-      "sriracha",
-      "panko breadcrumb",
-      "olive oil"
-    ],
-    "new": true
   },
   {
     "title": "Dutch Oven Garlic Rosemary Bread",
@@ -911,6 +934,31 @@
     "category": "Breads",
     "sub": "",
     "url": "recipes/breads/easy-homemade-soft-pretzels-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "water",
+      "sugar",
+      "kosher salt",
+      "active dry yeast",
+      "flour",
+      "butter",
+      "baking soda",
+      "egg yolk with tablespoon",
+      "pretzel salt",
+      "non-stick cooking spray",
+      "milk",
+      "cheddar cheese",
+      "velveeta cheese sauce",
+      "salsa verde",
+      "salt"
+    ],
+    "new": true
+  },
+  {
+    "title": "Easy Homemade Soft Pretzels Recipe",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/sides/easy-homemade-soft-pretzels-recipe.html",
     "type": "html",
     "ingredients": [
       "water",
@@ -1065,6 +1113,24 @@
       "to tsp kosher salt",
       "olive oil"
     ]
+  },
+  {
+    "title": "Lion House Rolls",
+    "category": "Breads",
+    "sub": "",
+    "url": "recipes/sides/lion-house-rolls.html",
+    "type": "html",
+    "ingredients": [
+      "water",
+      "instant nonfat dry milk",
+      "active dry yeast",
+      "sugar",
+      "salt",
+      "butter",
+      "egg",
+      "to cups all-purpose flour"
+    ],
+    "new": true
   },
   {
     "title": "Mimi's Carrot Bread",
@@ -1340,32 +1406,6 @@
     ]
   },
   {
-    "title": "Slow Cooker Chicken Tortilla Soup",
-    "category": "Breads",
-    "sub": "",
-    "url": "recipes/breads/slow-cooker-chicken-tortilla-soup.html",
-    "type": "html",
-    "ingredients": [
-      "tomato",
-      "enchilada sauce",
-      "green chile pepper",
-      "onion",
-      "garlic",
-      "water",
-      "chicken broth",
-      "cumin",
-      "chili powder",
-      "salt",
-      "black pepper",
-      "bay leaf",
-      "corn",
-      "cilantro",
-      "corn tortilla",
-      "vegetable oil"
-    ],
-    "new": true
-  },
-  {
     "title": "Soft Pretzel Bites",
     "category": "Breads",
     "sub": "",
@@ -1476,19 +1516,19 @@
     "new": true
   },
   {
-    "title": "Multigrain Breads (Exception)",
+    "title": "Multigrain Breads 1 (Exception)",
     "category": "Breads",
     "sub": "Breadmaker Bread",
-    "url": "recipes/breads/breadmaker-bread/multigrain-breads-exception.html",
+    "url": "recipes/breads/breadmaker-bread/multigrain-breads-1-exception.html",
     "type": "html",
     "ingredients": [],
     "new": true
   },
   {
-    "title": "Multigrain Breads 1 (Exception)",
+    "title": "Multigrain Breads (Exception)",
     "category": "Breads",
     "sub": "Breadmaker Bread",
-    "url": "recipes/breads/breadmaker-bread/multigrain-breads-1-exception.html",
+    "url": "recipes/breads/breadmaker-bread/multigrain-breads-exception.html",
     "type": "html",
     "ingredients": [],
     "new": true
@@ -1608,6 +1648,29 @@
     "new": true
   },
   {
+    "title": "Healthy Pumpkin Oatmeal Blender Pancakes",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/sides/healthy-pumpkin-oatmeal-blender-pancakes.html",
+    "type": "html",
+    "ingredients": [
+      "c gluten free rolled",
+      "almond milk",
+      "pumpkin puree",
+      "egg",
+      "honey",
+      "coconut oil",
+      "baking powder",
+      "baking soda",
+      "salt",
+      "vanilla extract",
+      "cinnamon",
+      "pumpkin pie spice",
+      "handful crushed walnut"
+    ],
+    "new": true
+  },
+  {
     "title": "High-Protein Buttermilk Pancakes (Your Mom’s Recipe, Upgraded)",
     "category": "Breakfast",
     "sub": "",
@@ -1703,6 +1766,30 @@
     "new": true
   },
   {
+    "title": "Pumpkin Pancakes",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/sides/pumpkin-pancakes.html",
+    "type": "html",
+    "ingredients": [
+      "milk",
+      "pumpkin puree",
+      "egg",
+      "vegetable oil",
+      "vinegar",
+      "flour",
+      "brown sugar",
+      "baking powder",
+      "baking soda",
+      "allspice",
+      "cinnamon",
+      "ginger",
+      "salt",
+      "cooking spray"
+    ],
+    "new": true
+  },
+  {
     "title": "Pumpkin Pancakes with Nutella Syrup",
     "category": "Breakfast",
     "sub": "",
@@ -1762,10 +1849,51 @@
     "new": true
   },
   {
+    "title": "Strawberry Buttermilk Pancakes with Nutella Syrup",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/sides/strawberry-buttermilk-pancakes-with-nutella-syrup.html",
+    "type": "html",
+    "ingredients": [
+      "flour",
+      "baking soda",
+      "kosher salt",
+      "granulated sugar",
+      "buttermilk",
+      "egg",
+      "vanilla extract",
+      "strawberry",
+      "red food coloring",
+      "nutella syrup",
+      "butter",
+      "heaping tablespoons nutella"
+    ],
+    "new": true
+  },
+  {
     "title": "Yeast Waffles",
     "category": "Breakfast",
     "sub": "",
     "url": "recipes/breakfast/yeast-waffles.html",
+    "type": "html",
+    "ingredients": [
+      "water",
+      "active yeast",
+      "milk",
+      "butter",
+      "salt",
+      "granulated sugar",
+      "flour",
+      "egg",
+      "baking soda"
+    ],
+    "new": true
+  },
+  {
+    "title": "Yeast Waffles",
+    "category": "Breakfast",
+    "sub": "",
+    "url": "recipes/sides/yeast-waffles.html",
     "type": "html",
     "ingredients": [
       "water",
@@ -2139,6 +2267,32 @@
     "new": true
   },
   {
+    "title": "Panang curry",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/sides/panang-curry.html",
+    "type": "html",
+    "ingredients": [
+      "oil",
+      "panang curry paste",
+      "peanut butter",
+      "chicken breast",
+      "onion",
+      "green bell pepper",
+      "red bell pepper",
+      "ginger",
+      "garlic clove",
+      "coconut milk",
+      "cornstarch",
+      "light brown sugar",
+      "fish sauce",
+      "lime juice",
+      "loosely packed basil leaf",
+      "rice"
+    ],
+    "new": true
+  },
+  {
     "title": "Provolone & Mushroom Chicken",
     "category": "Chicken",
     "sub": "",
@@ -2170,30 +2324,6 @@
       "chicken taco seasoning"
     ],
     "new": true
-  },
-  {
-    "title": "T's Coq Au Vin",
-    "category": "Chicken",
-    "sub": "",
-    "url": "recipes/chicken/ts-coq-au-vin.html",
-    "type": "html",
-    "ingredients": [
-      "garlic clove",
-      "salt",
-      "black peppercorn",
-      "thyme",
-      "bay leaf",
-      "marjoram",
-      "paprika",
-      "burgundy",
-      "olive oil",
-      "white onion",
-      "portabella mushroom top",
-      "bacon",
-      "new potato",
-      "water",
-      "cilantro"
-    ]
   },
   {
     "title": "Thai Peanut Chicken Wraps",
@@ -2259,6 +2389,30 @@
     "new": true
   },
   {
+    "title": "T's Coq Au Vin",
+    "category": "Chicken",
+    "sub": "",
+    "url": "recipes/chicken/ts-coq-au-vin.html",
+    "type": "html",
+    "ingredients": [
+      "garlic clove",
+      "salt",
+      "black peppercorn",
+      "thyme",
+      "bay leaf",
+      "marjoram",
+      "paprika",
+      "burgundy",
+      "olive oil",
+      "white onion",
+      "portabella mushroom top",
+      "bacon",
+      "new potato",
+      "water",
+      "cilantro"
+    ]
+  },
+  {
     "title": "Basic Berliner (Incomplete)",
     "category": "Desserts",
     "sub": "",
@@ -2283,6 +2437,28 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/best-white-chocolate-and-macadamia-cookies.html",
+    "type": "html",
+    "ingredients": [
+      "cake flour - spooned",
+      "bread flour - spooned",
+      "baking powder",
+      "baking soda",
+      "kosher salt",
+      "butter cold and cut",
+      "light brown sugar",
+      "granulated sugar",
+      "egg",
+      "vanilla extract",
+      "white chocolate chips or",
+      "macadamia nuts - roughly"
+    ],
+    "new": true
+  },
+  {
+    "title": "Best White Chocolate and Macadamia Cookies",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/sides/best-white-chocolate-and-macadamia-cookies.html",
     "type": "html",
     "ingredients": [
       "cake flour - spooned",
@@ -2380,6 +2556,23 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/chocolate-fondue.html",
+    "type": "html",
+    "ingredients": [
+      "heavy cream",
+      "kosher salt",
+      "bittersweet chocolate",
+      "milk chocolate",
+      "vanilla extract",
+      "cognac",
+      "dippers such as fruit"
+    ],
+    "new": true
+  },
+  {
+    "title": "Chocolate Fondue",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/sides/chocolate-fondue.html",
     "type": "html",
     "ingredients": [
       "heavy cream",
@@ -2591,6 +2784,29 @@
     "new": true
   },
   {
+    "title": "Everyday Cinnamon Rolls",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/sides/everyday-cinnamon-rolls.html",
+    "type": "html",
+    "ingredients": [
+      "milk",
+      "butter",
+      "flour",
+      "instant or 'rapid rise",
+      "white sugar",
+      "salt",
+      "egg",
+      "filling",
+      "brown sugar",
+      "cinnamon",
+      "c powdered sugar",
+      "t melted butter",
+      "vanilla"
+    ],
+    "new": true
+  },
+  {
     "title": "Ferrero Rocher Ice Cream",
     "category": "Desserts",
     "sub": "",
@@ -2669,6 +2885,25 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/homemade-fondant-that-tastes-like-buttercream.html",
+    "type": "html",
+    "ingredients": [
+      "up to cup vegetable",
+      "butter",
+      "marshmallow",
+      "clear gluten free vanilla",
+      "clear butter flavoured extract",
+      "salt",
+      "water",
+      "white corn syrup",
+      "confectioners' sugar"
+    ],
+    "new": true
+  },
+  {
+    "title": "Homemade Fondant that Tastes like Buttercream",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/sides/homemade-fondant-that-tastes-like-buttercream.html",
     "type": "html",
     "ingredients": [
       "up to cup vegetable",
@@ -2951,28 +3186,6 @@
     "new": true
   },
   {
-    "title": "Sophie's Shepherd's Pie",
-    "category": "Desserts",
-    "sub": "",
-    "url": "recipes/desserts/sophies-shepherds-pie.html",
-    "type": "html",
-    "ingredients": [
-      "baking potato",
-      "butter",
-      "milk",
-      "lamb",
-      "worcestershire sauce",
-      "cube beef bouillon",
-      "button mushroom",
-      "onion",
-      "baked beans",
-      "tomato",
-      "brown gravy mix",
-      "carrot"
-    ],
-    "new": true
-  },
-  {
     "title": "Sweet Coconut Tapioca Soup With Bananas",
     "category": "Desserts",
     "sub": "",
@@ -2993,6 +3206,20 @@
     "category": "Desserts",
     "sub": "",
     "url": "recipes/desserts/the-best-rice-krispies-treats-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "rice krispies cereal",
+      "butter",
+      "marshmallow",
+      "vanilla extract"
+    ],
+    "new": true
+  },
+  {
+    "title": "The BEST Rice Krispies Treats Recipe",
+    "category": "Desserts",
+    "sub": "",
+    "url": "recipes/sides/the-best-rice-krispies-treats-recipe.html",
     "type": "html",
     "ingredients": [
       "rice krispies cereal",
@@ -3176,7 +3403,8 @@
       "condensed milk",
       "egg yolk",
       "honey",
-      "egg white"
+      "egg white",
+      "strawberries or other fruit"
     ]
   },
   {
@@ -3194,6 +3422,7 @@
       "oil",
       "white chocolate chip",
       "red raspberry preserve",
+      "cooking spray",
       "cream cheese",
       "butter",
       "powdered sugar",
@@ -3266,11 +3495,14 @@
     "url": "recipes/desserts/candies/chocolate-truffles.html",
     "type": "html",
     "ingredients": [
+      "generous cups heavy cream",
       "bittersweet chocolate",
+      "generous cup grand marnier",
       "tempered bittersweet chocolate",
       "tempered white chocolate",
       "sifted dutch-process cocoa",
-      "coconut"
+      "coconut",
+      "nut"
     ]
   },
   {
@@ -4113,6 +4345,28 @@
     ]
   },
   {
+    "title": "Sophie's Shepherd's Pie",
+    "category": "Main Dishes",
+    "sub": "",
+    "url": "recipes/desserts/sophies-shepherds-pie.html",
+    "type": "html",
+    "ingredients": [
+      "baking potato",
+      "butter",
+      "milk",
+      "lamb",
+      "worcestershire sauce",
+      "cube beef bouillon",
+      "button mushroom",
+      "onion",
+      "baked beans",
+      "tomato",
+      "brown gravy mix",
+      "carrot"
+    ],
+    "new": true
+  },
+  {
     "title": "Healthy Snack Ideas",
     "category": "Other",
     "sub": "",
@@ -4319,6 +4573,7 @@
       "salsa",
       "dr pepper",
       "brown sugar",
+      "water to half-fill crockpot",
       "buttermilk ranch dressing",
       "milk",
       "mayonnaise",
@@ -4330,7 +4585,11 @@
       "cubes chicken bouillon",
       "onion",
       "oil",
-      "lime"
+      "lime",
+      "black or pinto beans",
+      "mozzarella cheese",
+      "tortilla",
+      "corn"
     ]
   },
   {
@@ -4394,23 +4653,31 @@
       "black pepper",
       "white pepper",
       "brown sugar",
-      "paprika"
+      "paprika",
+      "apple juice",
+      "oil",
+      "bbq sauce"
     ]
   },
   {
-    "title": "Sausage Stuffing",
+    "title": "Slow Cooker Carnitas",
     "category": "Pork",
     "sub": "",
-    "url": "recipes/pork/sausage-stuffing.html",
+    "url": "recipes/sides/slow-cooker-carnitas.html",
     "type": "html",
     "ingredients": [
-      "breakfast sausage",
-      "margarine",
-      "celery",
-      "onion",
-      "white bread cube",
-      "poultry seasoning",
-      "black pepper"
+      "pork shoulder roast",
+      "mexican beer",
+      "orange juice",
+      "lime juice",
+      "garlic clove",
+      "salt",
+      "black pepper",
+      "chili powder",
+      "onion powder",
+      "oregano",
+      "cumin",
+      "rice"
     ],
     "new": true
   },
@@ -4439,6 +4706,38 @@
     "category": "Pork",
     "sub": "",
     "url": "recipes/pork/tacos-al-pastor-3-methods.html",
+    "type": "html",
+    "ingredients": [
+      "pork shoulder",
+      "pineapple",
+      "chili powder",
+      "achiote paste",
+      "white onion",
+      "pineapple juice",
+      "white vinegar",
+      "garlic",
+      "salt",
+      "mexican oregano",
+      "cumin",
+      "cinnamon",
+      "epazote",
+      "flour or corn tortilla",
+      "cilantro",
+      "lime",
+      "salsa verde",
+      "tomato salsa",
+      "pico de gallo",
+      "pasilla dried chile",
+      "guajillo chile",
+      "chiles de arbol"
+    ],
+    "new": true
+  },
+  {
+    "title": "Tacos al Pastor (3 Methods)",
+    "category": "Pork",
+    "sub": "",
+    "url": "recipes/sides/tacos-al-pastor-3-methods.html",
     "type": "html",
     "ingredients": [
       "pork shoulder",
@@ -4518,6 +4817,7 @@
       "walnut",
       "bacon slice",
       "chicken broth",
+      "cooking spray",
       "onion",
       "carrot",
       "seeded jalapeno",
@@ -4887,26 +5187,6 @@
     "new": true
   },
   {
-    "title": "Chicken Taco Seasoning Recipe",
-    "category": "Sandwiches",
-    "sub": "",
-    "url": "recipes/sandwiches/chicken-taco-seasoning-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "chili powder",
-      "coriander powder",
-      "paprika",
-      "salt",
-      "garlic powder",
-      "onion powder",
-      "cumin powder",
-      "black pepper powder",
-      "mexican oregano",
-      "cayenne pepper powder"
-    ],
-    "new": true
-  },
-  {
     "title": "Grilled Chicken & Pesto Panini",
     "category": "Sandwiches",
     "sub": "",
@@ -5081,6 +5361,75 @@
       "garlic",
       "chiles de arbol"
     ]
+  },
+  {
+    "title": "Chicken Taco Seasoning Recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sandwiches/chicken-taco-seasoning-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "chili powder",
+      "coriander powder",
+      "paprika",
+      "salt",
+      "garlic powder",
+      "onion powder",
+      "cumin powder",
+      "black pepper powder",
+      "mexican oregano",
+      "cayenne pepper powder"
+    ],
+    "new": true
+  },
+  {
+    "title": "Chuy's Creamy Jalapeno Dip",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sides/chuys-creamy-jalapeno-dip.html",
+    "type": "html",
+    "ingredients": [
+      "real mayonnaise",
+      "avocado oil mayo",
+      "buttermilk",
+      "light sour cream",
+      "chile",
+      "jalapeno",
+      "cilantro",
+      "ranch dip mix",
+      "garlic"
+    ],
+    "new": true
+  },
+  {
+    "title": "Cilantro Lime Crema recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sides/cilantro-lime-crema-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "cilantro",
+      "salt",
+      "garlic powder",
+      "onion powder",
+      "lime",
+      "sour cream"
+    ],
+    "new": true
+  },
+  {
+    "title": "Copycat Texas Roadhouse Butter",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sides/copycat-texas-roadhouse-butter.html",
+    "type": "html",
+    "ingredients": [
+      "butter",
+      "powdered sugar",
+      "honey",
+      "cinnamon"
+    ],
+    "new": true
   },
   {
     "title": "Creamy Garlic Lime Cilantro Sauce",
@@ -5291,6 +5640,23 @@
     "new": true
   },
   {
+    "title": "Jalapeño Crema",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sides/jalapeño-crema.html",
+    "type": "html",
+    "ingredients": [
+      "jalapeno",
+      "onion",
+      "garlic clove",
+      "water",
+      "salt",
+      "sour cream",
+      "cilantro",
+      "lime"
+    ]
+  },
+  {
     "title": "Jalapeno Tartar Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -5463,6 +5829,22 @@
     "new": true
   },
   {
+    "title": "Red Lobster Copycat Pina Colada Sauce",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/seafood/red-lobster-copycat-pina-colada-sauce.html",
+    "type": "html",
+    "ingredients": [
+      "sour cream",
+      "pi a colada non",
+      "pineapple",
+      "coconut",
+      "lemon juice",
+      "powdered sugar"
+    ],
+    "new": true
+  },
+  {
     "title": "Salsa",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -5499,21 +5881,6 @@
     ]
   },
   {
-    "title": "Sweet & Spicy Sriracha Chili Dipping Sauce Recipe",
-    "category": "Sauces  & Dips",
-    "sub": "",
-    "url": "recipes/sauces-dips/sweet-spicy-sriracha-chili-dipping-sauce-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "brown sugar",
-      "bottled hot sauce",
-      "apple cider vinegar",
-      "soy sauce",
-      "garlic powder"
-    ],
-    "new": true
-  },
-  {
     "title": "Sweet And Hot Garlic Sauce",
     "category": "Sauces  & Dips",
     "sub": "",
@@ -5527,6 +5894,21 @@
       "salt",
       "srirachi sauce"
     ]
+  },
+  {
+    "title": "Sweet & Spicy Sriracha Chili Dipping Sauce Recipe",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/sauces-dips/sweet-spicy-sriracha-chili-dipping-sauce-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "brown sugar",
+      "bottled hot sauce",
+      "apple cider vinegar",
+      "soy sauce",
+      "garlic powder"
+    ],
+    "new": true
   },
   {
     "title": "Taco Seasoning",
@@ -5560,6 +5942,26 @@
       "adobo sauce",
       "taco seasoning",
       "american cheese"
+    ],
+    "new": true
+  },
+  {
+    "title": "Tex Mex Chili Gravy (Mexican Brown Gravy)",
+    "category": "Sauces  & Dips",
+    "sub": "",
+    "url": "recipes/soups/tex-mex-chili-gravy-mexican-brown-gravy.html",
+    "type": "html",
+    "ingredients": [
+      "bacon fat",
+      "flour",
+      "chili powder",
+      "cumin",
+      "garlic powder",
+      "onion powder",
+      "kosher salt",
+      "black pepper",
+      "mexican oregano",
+      "beef broth"
     ],
     "new": true
   },
@@ -5720,6 +6122,27 @@
     ]
   },
   {
+    "title": "California Roll Sushi Bowl",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/breads/california-roll-sushi-bowl.html",
+    "type": "html",
+    "ingredients": [
+      "soy sauce",
+      "sugar",
+      "rice vinegar",
+      "white rice - cooled",
+      "imitation crab",
+      "cucumber",
+      "lemon - sliced extra",
+      "pickled sushi ginger",
+      "avocado - sliced or",
+      "sheet dried seaweed",
+      "sesame seeds"
+    ],
+    "new": true
+  },
+  {
     "title": "California Spicy Crab Stuffed Avocado",
     "category": "Seafood",
     "sub": "",
@@ -5780,6 +6203,28 @@
       "chicken stock",
       "italian dressing"
     ]
+  },
+  {
+    "title": "Crunch Roll Sushi Bowl with Easy Eel Sauce",
+    "category": "Seafood",
+    "sub": "",
+    "url": "recipes/breads/crunch-roll-sushi-bowl-with-easy-eel-sauce.html",
+    "type": "html",
+    "ingredients": [
+      "imitation crab",
+      "white or brown rice",
+      "cucumber",
+      "avocado",
+      "cilantro",
+      "soy sauce",
+      "sugar",
+      "mirin",
+      "mayo",
+      "sriracha",
+      "panko breadcrumb",
+      "olive oil"
+    ],
+    "new": true
   },
   {
     "title": "Crunch Roll Sushi Bowl with Easy Eel Sauce",
@@ -5944,22 +6389,6 @@
       "lemon juice to cover",
       "louisiana sauce"
     ]
-  },
-  {
-    "title": "Red Lobster Copycat Pina Colada Sauce",
-    "category": "Seafood",
-    "sub": "",
-    "url": "recipes/seafood/red-lobster-copycat-pina-colada-sauce.html",
-    "type": "html",
-    "ingredients": [
-      "sour cream",
-      "pi a colada non",
-      "pineapple",
-      "coconut",
-      "lemon juice",
-      "powdered sugar"
-    ],
-    "new": true
   },
   {
     "title": "Salmon Patties",
@@ -6139,22 +6568,6 @@
     ]
   },
   {
-    "title": "Sushi Rice",
-    "category": "Seafood",
-    "sub": "",
-    "url": "recipes/seafood/sushi-rice.html",
-    "type": "html",
-    "ingredients": [
-      "japanese short-grain rice",
-      "water",
-      "square of kombu",
-      "unseasoned rice vinegar",
-      "sugar",
-      "sea salt"
-    ],
-    "new": true
-  },
-  {
     "title": "Thai Coconut Shrimp",
     "category": "Seafood",
     "sub": "",
@@ -6196,76 +6609,6 @@
     ]
   },
   {
-    "title": "BEST Copycat Zuppa Toscana Recipe",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/best-copycat-zuppa-toscana-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "spicy italian sausage mild",
-      "bacon",
-      "yellow onion",
-      "garlic",
-      "flour cornstarch can be",
-      "chicken stock",
-      "russet potato",
-      "heavy cream",
-      "kale",
-      "salt and pepper",
-      "red pepper flake"
-    ],
-    "new": true
-  },
-  {
-    "title": "Best White Chocolate and Macadamia Cookies",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/best-white-chocolate-and-macadamia-cookies.html",
-    "type": "html",
-    "ingredients": [
-      "cake flour - spooned",
-      "bread flour - spooned",
-      "baking powder",
-      "baking soda",
-      "kosher salt",
-      "butter cold and cut",
-      "light brown sugar",
-      "granulated sugar",
-      "egg",
-      "vanilla extract",
-      "white chocolate chips or",
-      "macadamia nuts - roughly"
-    ],
-    "new": true
-  },
-  {
-    "title": "Birria (Slow Cooker)",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/birria-slow-cooker.html",
-    "type": "html",
-    "ingredients": [
-      "beef chuck roast",
-      "guajillo chile",
-      "ancho chili",
-      "arbol chili",
-      "roma tomato",
-      "white onion",
-      "garlic clove",
-      "beef broth",
-      "apple cider vinegar",
-      "kosher salt",
-      "black pepper",
-      "cumin",
-      "mexican oregano",
-      "cinnamon",
-      "ginger",
-      "bay leaf",
-      "onion"
-    ],
-    "new": true
-  },
-  {
     "title": "Black-Eyed Pea Baked Squash",
     "category": "Sides",
     "sub": "",
@@ -6280,22 +6623,6 @@
       "salt",
       "onion",
       "black pepper"
-    ]
-  },
-  {
-    "title": "Blueberry Brie Jalapeño Poppers",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/blueberry-brie-jalapeño-poppers.html",
-    "type": "html",
-    "ingredients": [
-      "jalape os",
-      "brie cheese",
-      "blueberry",
-      "honey",
-      "walnut",
-      "olive oil",
-      "salt and black pepper"
     ]
   },
   {
@@ -6406,79 +6733,6 @@
     ]
   },
   {
-    "title": "Chocolate Fondue",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/chocolate-fondue.html",
-    "type": "html",
-    "ingredients": [
-      "heavy cream",
-      "kosher salt",
-      "bittersweet chocolate",
-      "milk chocolate",
-      "vanilla extract",
-      "cognac",
-      "dippers such as fruit"
-    ],
-    "new": true
-  },
-  {
-    "title": "Chunky Portabella Veggie Burgers",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/chunky-portabella-veggie-burgers.html",
-    "type": "html",
-    "ingredients": [
-      "portobello mushroom",
-      "black beans",
-      "broccoli",
-      "red onion",
-      "l egg",
-      "plus tablespoons panko or",
-      "montreal steak seasoning",
-      "worcestershire for full vegetarian",
-      "garlic",
-      "parmesan look for vegetarian",
-      "olive oil"
-    ],
-    "new": true
-  },
-  {
-    "title": "Chuy's Creamy Jalapeno Dip",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/chuys-creamy-jalapeno-dip.html",
-    "type": "html",
-    "ingredients": [
-      "real mayonnaise",
-      "avocado oil mayo",
-      "buttermilk",
-      "light sour cream",
-      "chile",
-      "jalapeno",
-      "cilantro",
-      "ranch dip mix",
-      "garlic"
-    ],
-    "new": true
-  },
-  {
-    "title": "Cilantro Lime Crema recipe",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/cilantro-lime-crema-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "cilantro",
-      "salt",
-      "garlic powder",
-      "onion powder",
-      "lime",
-      "sour cream"
-    ],
-    "new": true
-  },
-  {
     "title": "Cilantro Lime Rice",
     "category": "Sides",
     "sub": "",
@@ -6492,60 +6746,6 @@
       "cilantro",
       "oil",
       "lime"
-    ],
-    "new": true
-  },
-  {
-    "title": "Cinnamon Sugar Soft Pretzels Recipe",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/cinnamon-sugar-soft-pretzels-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "milk",
-      "active dry yeast",
-      "brown sugar",
-      "butter",
-      "salt",
-      "flour",
-      "baking soda",
-      "water",
-      "sugar",
-      "cinnamon"
-    ],
-    "new": true
-  },
-  {
-    "title": "Copycat Crunchwrap Supreme",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/copycat-crunchwrap-supreme.html",
-    "type": "html",
-    "ingredients": [
-      "flour tortilla",
-      "beef",
-      "water",
-      "taco seasoning",
-      "nacho cheese sauce",
-      "tostada shell",
-      "sour cream",
-      "iceberg lettuce",
-      "tomato",
-      "mexican cheese blend"
-    ],
-    "new": true
-  },
-  {
-    "title": "Copycat Texas Roadhouse Butter",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/copycat-texas-roadhouse-butter.html",
-    "type": "html",
-    "ingredients": [
-      "butter",
-      "powdered sugar",
-      "honey",
-      "cinnamon"
     ],
     "new": true
   },
@@ -6601,54 +6801,6 @@
       "light butter",
       "pecan"
     ]
-  },
-  {
-    "title": "Easy Homemade Soft Pretzels Recipe",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/easy-homemade-soft-pretzels-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "water",
-      "sugar",
-      "kosher salt",
-      "active dry yeast",
-      "flour",
-      "butter",
-      "baking soda",
-      "egg yolk with tablespoon",
-      "pretzel salt",
-      "non-stick cooking spray",
-      "milk",
-      "cheddar cheese",
-      "velveeta cheese sauce",
-      "salsa verde",
-      "salt"
-    ],
-    "new": true
-  },
-  {
-    "title": "Everyday Cinnamon Rolls",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/everyday-cinnamon-rolls.html",
-    "type": "html",
-    "ingredients": [
-      "milk",
-      "butter",
-      "flour",
-      "instant or 'rapid rise",
-      "white sugar",
-      "salt",
-      "egg",
-      "filling",
-      "brown sugar",
-      "cinnamon",
-      "c powdered sugar",
-      "t melted butter",
-      "vanilla"
-    ],
-    "new": true
   },
   {
     "title": "Firecracker Broccoli",
@@ -6759,65 +6911,6 @@
     "new": true
   },
   {
-    "title": "Healthy Pumpkin Oatmeal Blender Pancakes",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/healthy-pumpkin-oatmeal-blender-pancakes.html",
-    "type": "html",
-    "ingredients": [
-      "c gluten free rolled",
-      "almond milk",
-      "pumpkin puree",
-      "egg",
-      "honey",
-      "coconut oil",
-      "baking powder",
-      "baking soda",
-      "salt",
-      "vanilla extract",
-      "cinnamon",
-      "pumpkin pie spice",
-      "handful crushed walnut"
-    ],
-    "new": true
-  },
-  {
-    "title": "Homemade Fondant that Tastes like Buttercream",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/homemade-fondant-that-tastes-like-buttercream.html",
-    "type": "html",
-    "ingredients": [
-      "up to cup vegetable",
-      "butter",
-      "marshmallow",
-      "clear gluten free vanilla",
-      "clear butter flavoured extract",
-      "salt",
-      "water",
-      "white corn syrup",
-      "confectioners' sugar"
-    ],
-    "new": true
-  },
-  {
-    "title": "Jalapeño Crema",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/jalapeño-crema.html",
-    "type": "html",
-    "ingredients": [
-      "jalapeno",
-      "onion",
-      "garlic clove",
-      "water",
-      "salt",
-      "sour cream",
-      "cilantro",
-      "lime"
-    ]
-  },
-  {
     "title": "Jeera Rice",
     "category": "Sides",
     "sub": "",
@@ -6850,24 +6943,6 @@
       "parsley",
       "saltine cracker"
     ]
-  },
-  {
-    "title": "Lion House Rolls",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/lion-house-rolls.html",
-    "type": "html",
-    "ingredients": [
-      "water",
-      "instant nonfat dry milk",
-      "active dry yeast",
-      "sugar",
-      "salt",
-      "butter",
-      "egg",
-      "to cups all-purpose flour"
-    ],
-    "new": true
   },
   {
     "title": "Mexican Black Beans (Quick Easy Version)",
@@ -6927,32 +7002,6 @@
     "new": true
   },
   {
-    "title": "Panang curry",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/panang-curry.html",
-    "type": "html",
-    "ingredients": [
-      "oil",
-      "panang curry paste",
-      "peanut butter",
-      "chicken breast",
-      "onion",
-      "green bell pepper",
-      "red bell pepper",
-      "ginger",
-      "garlic clove",
-      "coconut milk",
-      "cornstarch",
-      "light brown sugar",
-      "fish sauce",
-      "lime juice",
-      "loosely packed basil leaf",
-      "rice"
-    ],
-    "new": true
-  },
-  {
     "title": "Perfect Jasmine Rice",
     "category": "Sides",
     "sub": "",
@@ -6966,28 +7015,24 @@
     "new": true
   },
   {
-    "title": "Pumpkin Pancakes",
+    "title": "Red Beans And Rice",
     "category": "Sides",
     "sub": "",
-    "url": "recipes/sides/pumpkin-pancakes.html",
+    "url": "recipes/beef/red-beans-and-rice.html",
     "type": "html",
     "ingredients": [
-      "milk",
-      "pumpkin puree",
-      "egg",
-      "vegetable oil",
-      "vinegar",
-      "flour",
-      "brown sugar",
-      "baking powder",
-      "baking soda",
-      "allspice",
-      "cinnamon",
-      "ginger",
+      "bacon drippings or cup",
+      "sweet onion",
+      "green onion",
       "salt",
-      "cooking spray"
-    ],
-    "new": true
+      "thyme",
+      "black pepper",
+      "cayenne pepper",
+      "bay leaf",
+      "garlic",
+      "light red kidney beans",
+      "dark red kidney beans"
+    ]
   },
   {
     "title": "Red Beans with Cheese",
@@ -7077,24 +7122,19 @@
     "new": true
   },
   {
-    "title": "Saucy Sesame Meatballs",
+    "title": "Sausage Stuffing",
     "category": "Sides",
     "sub": "",
-    "url": "recipes/sides/saucy-sesame-meatballs.html",
+    "url": "recipes/pork/sausage-stuffing.html",
     "type": "html",
     "ingredients": [
-      "pork or ground beef",
-      "sesame oil",
-      "panko or breadcrumb",
-      "ginger",
-      "egg",
-      "garlic",
-      "thinly-sliced green onion",
-      "garnish toasted sesame seed",
-      "hoisin sauce",
-      "rice vinegar",
-      "garlic clove",
-      "soy sauce"
+      "breakfast sausage",
+      "margarine",
+      "celery",
+      "onion",
+      "white bread cube",
+      "poultry seasoning",
+      "black pepper"
     ],
     "new": true
   },
@@ -7157,28 +7197,6 @@
     "new": true
   },
   {
-    "title": "Slow Cooker Carnitas",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/slow-cooker-carnitas.html",
-    "type": "html",
-    "ingredients": [
-      "pork shoulder roast",
-      "mexican beer",
-      "orange juice",
-      "lime juice",
-      "garlic clove",
-      "salt",
-      "black pepper",
-      "chili powder",
-      "onion powder",
-      "oregano",
-      "cumin",
-      "rice"
-    ],
-    "new": true
-  },
-  {
     "title": "Spicy Sweet Potato Wedges",
     "category": "Sides",
     "sub": "",
@@ -7215,24 +7233,18 @@
     "new": true
   },
   {
-    "title": "Strawberry Buttermilk Pancakes with Nutella Syrup",
+    "title": "Sushi Rice",
     "category": "Sides",
     "sub": "",
-    "url": "recipes/sides/strawberry-buttermilk-pancakes-with-nutella-syrup.html",
+    "url": "recipes/seafood/sushi-rice.html",
     "type": "html",
     "ingredients": [
-      "flour",
-      "baking soda",
-      "kosher salt",
-      "granulated sugar",
-      "buttermilk",
-      "egg",
-      "vanilla extract",
-      "strawberry",
-      "red food coloring",
-      "nutella syrup",
-      "butter",
-      "heaping tablespoons nutella"
+      "japanese short-grain rice",
+      "water",
+      "square of kombu",
+      "unseasoned rice vinegar",
+      "sugar",
+      "sea salt"
     ],
     "new": true
   },
@@ -7292,36 +7304,16 @@
     ]
   },
   {
-    "title": "Tacos al Pastor (3 Methods)",
+    "title": "Thai Sticky Rice",
     "category": "Sides",
     "sub": "",
-    "url": "recipes/sides/tacos-al-pastor-3-methods.html",
+    "url": "recipes/vegetarian-tofu/thai-sticky-rice.html",
     "type": "html",
     "ingredients": [
-      "pork shoulder",
-      "pineapple",
-      "chili powder",
-      "achiote paste",
-      "white onion",
-      "pineapple juice",
-      "white vinegar",
-      "garlic",
-      "salt",
-      "mexican oregano",
-      "cumin",
-      "cinnamon",
-      "epazote",
-      "flour or corn tortilla",
-      "cilantro",
-      "lime",
-      "salsa verde",
-      "tomato salsa",
-      "pico de gallo",
-      "pasilla dried chile",
-      "guajillo chile",
-      "chiles de arbol"
-    ],
-    "new": true
+      "sticky rice",
+      "cool water for soaking",
+      "water for steaming"
+    ]
   },
   {
     "title": "The Best Asparagus in Under 10 Minutes",
@@ -7337,20 +7329,6 @@
       "black pepper",
       "parmesan cheese",
       "handful of shredded parmesan"
-    ],
-    "new": true
-  },
-  {
-    "title": "The BEST Rice Krispies Treats Recipe",
-    "category": "Sides",
-    "sub": "",
-    "url": "recipes/sides/the-best-rice-krispies-treats-recipe.html",
-    "type": "html",
-    "ingredients": [
-      "rice krispies cereal",
-      "butter",
-      "marshmallow",
-      "vanilla extract"
     ],
     "new": true
   },
@@ -7373,21 +7351,18 @@
     "new": true
   },
   {
-    "title": "Yeast Waffles",
-    "category": "Sides",
+    "title": "10-Minute Chili Lime Almonds",
+    "category": "Snacks",
     "sub": "",
-    "url": "recipes/sides/yeast-waffles.html",
+    "url": "recipes/soups/10-minute-chili-lime-almonds.html",
     "type": "html",
     "ingredients": [
-      "water",
-      "active yeast",
-      "milk",
-      "butter",
+      "almond",
+      "oil",
+      "chili powder",
       "salt",
-      "granulated sugar",
-      "flour",
-      "egg",
-      "baking soda"
+      "lime juice",
+      "cilantro"
     ],
     "new": true
   },
@@ -7517,20 +7492,26 @@
     "new": true
   },
   {
-    "title": "10-Minute Chili Lime Almonds",
+    "title": "African Peanut Soup",
     "category": "Soups",
     "sub": "",
-    "url": "recipes/soups/10-minute-chili-lime-almonds.html",
+    "url": "recipes/beef/african-peanut-soup.html",
     "type": "html",
     "ingredients": [
-      "almond",
-      "oil",
-      "chili powder",
-      "salt",
-      "lime juice",
-      "cilantro"
-    ],
-    "new": true
+      "onion",
+      "c oil",
+      "c water",
+      "t red pepper flake",
+      "t garlic powder",
+      "salt pepper",
+      "carrot",
+      "sweet potato",
+      "russet potato",
+      "tomato",
+      "c peanut butter",
+      "stew beef",
+      "beef w bone"
+    ]
   },
   {
     "title": "Bennigans Ultimate Baked Potato Soup",
@@ -7551,6 +7532,27 @@
       "bacon",
       "scallion"
     ]
+  },
+  {
+    "title": "BEST Copycat Zuppa Toscana Recipe",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/sides/best-copycat-zuppa-toscana-recipe.html",
+    "type": "html",
+    "ingredients": [
+      "spicy italian sausage mild",
+      "bacon",
+      "yellow onion",
+      "garlic",
+      "flour cornstarch can be",
+      "chicken stock",
+      "russet potato",
+      "heavy cream",
+      "kale",
+      "salt and pepper",
+      "red pepper flake"
+    ],
+    "new": true
   },
   {
     "title": "Black Bean Soup",
@@ -7688,6 +7690,32 @@
     ]
   },
   {
+    "title": "Slow Cooker Chicken Tortilla Soup",
+    "category": "Soups",
+    "sub": "",
+    "url": "recipes/breads/slow-cooker-chicken-tortilla-soup.html",
+    "type": "html",
+    "ingredients": [
+      "tomato",
+      "enchilada sauce",
+      "green chile pepper",
+      "onion",
+      "garlic",
+      "water",
+      "chicken broth",
+      "cumin",
+      "chili powder",
+      "salt",
+      "black pepper",
+      "bay leaf",
+      "corn",
+      "cilantro",
+      "corn tortilla",
+      "vegetable oil"
+    ],
+    "new": true
+  },
+  {
     "title": "Soup Nazi",
     "category": "Soups",
     "sub": "",
@@ -7706,26 +7734,6 @@
       "v juice",
       "season"
     ]
-  },
-  {
-    "title": "Tex Mex Chili Gravy (Mexican Brown Gravy)",
-    "category": "Soups",
-    "sub": "",
-    "url": "recipes/soups/tex-mex-chili-gravy-mexican-brown-gravy.html",
-    "type": "html",
-    "ingredients": [
-      "bacon fat",
-      "flour",
-      "chili powder",
-      "cumin",
-      "garlic powder",
-      "onion powder",
-      "kosher salt",
-      "black pepper",
-      "mexican oregano",
-      "beef broth"
-    ],
-    "new": true
   },
   {
     "title": "Tortellini Soup",
@@ -7770,6 +7778,27 @@
       "black pepper",
       "salt"
     ]
+  },
+  {
+    "title": "Chunky Portabella Veggie Burgers",
+    "category": "Vegetarian (Tofu)",
+    "sub": "",
+    "url": "recipes/sides/chunky-portabella-veggie-burgers.html",
+    "type": "html",
+    "ingredients": [
+      "portobello mushroom",
+      "black beans",
+      "broccoli",
+      "red onion",
+      "l egg",
+      "plus tablespoons panko or",
+      "montreal steak seasoning",
+      "worcestershire for full vegetarian",
+      "garlic",
+      "parmesan look for vegetarian",
+      "olive oil"
+    ],
+    "new": true
   },
   {
     "title": "Herb-Marinated Fresh Mozzarella Wraps",
@@ -7841,17 +7870,5 @@
       "basil"
     ],
     "new": true
-  },
-  {
-    "title": "Thai Sticky Rice",
-    "category": "Vegetarian (Tofu)",
-    "sub": "",
-    "url": "recipes/vegetarian-tofu/thai-sticky-rice.html",
-    "type": "html",
-    "ingredients": [
-      "sticky rice",
-      "cool water for soaking",
-      "water for steaming"
-    ]
   }
 ]

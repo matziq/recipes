@@ -15,6 +15,7 @@
   var textSizes = ["1rem", "1.15rem", "1.3rem"];
   var textSizeIndex = 0;
   var wakeLock = null;
+  var savedProgress = [];
 
   window.RecipesApp.addRecent(recipe);
 
@@ -30,16 +31,20 @@
     var label = document.querySelector("[data-progress-label]");
     if (bar) bar.style.transform = "scaleX(" + ratio + ")";
     if (label) label.textContent = items.length ? done + " / " + items.length : "Ready";
-    var saved = [];
+    var saved = savedProgress.slice();
     items.forEach(function (item) {
       saved[Number(item.getAttribute("data-progress-index"))] = item.classList.contains("is-done");
     });
     window.RecipesApp.write(progressKey, saved);
+    savedProgress = saved;
   }
 
   function initChecklists() {
     var saved = window.RecipesApp.read(progressKey, []);
-    var items = Array.from(content.querySelectorAll("ul li, ol li"));
+    savedProgress = Array.isArray(saved) ? saved.slice() : [];
+    saved = savedProgress;
+    var items = Array.from(content.querySelectorAll("li.recipe-ingredient, li.recipe-instruction"));
+    if (!items.length) return items;
     var used = new Set();
     var valid = items.every(function (item, index) {
       var slot = item.getAttribute("data-progress-index") ?? String(index);
@@ -111,6 +116,11 @@
 
   async function setCookMode(enabled) {
     body.classList.toggle("cook-mode", enabled);
+    if (enabled) {
+      content.querySelectorAll("details.cooking-section").forEach(function (section) {
+        section.open = true;
+      });
+    }
     var button = document.querySelector("[data-cook-mode]");
     if (button) {
       button.classList.toggle("is-active", enabled);
@@ -134,9 +144,11 @@
       image.setAttribute("tabindex", "0");
       image.setAttribute("role", "button");
       image.setAttribute("aria-label", "Expand recipe image");
+      image.setAttribute("aria-expanded", "false");
       function toggle() {
         var expanded = image.classList.toggle("image-expanded");
         image.setAttribute("aria-label", expanded ? "Shrink recipe image" : "Expand recipe image");
+        image.setAttribute("aria-expanded", String(expanded));
       }
       image.addEventListener("click", toggle);
       image.addEventListener("keydown", function (event) {
@@ -185,7 +197,26 @@
       });
   }
 
+  var printState = null;
+  function preparePrint() {
+    if (printState) return;
+    printState = Array.from(document.querySelectorAll(
+      ".shopping-list, .dish-note, details.cooking-section"
+    )).map(function (section) {
+      var state = { section: section, open: section.open };
+      section.open = true;
+      return state;
+    });
+  }
+  function restorePrint() {
+    if (!printState) return;
+    printState.forEach(function (state) { state.section.open = state.open; });
+    printState = null;
+  }
+  window.addEventListener("beforeprint", preparePrint);
+  window.addEventListener("afterprint", restorePrint);
   document.querySelector("[data-print]")?.addEventListener("click", function () {
+    preparePrint();
     window.print();
   });
   document.querySelector("[data-share]")?.addEventListener("click", shareRecipe);

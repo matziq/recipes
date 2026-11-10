@@ -19,7 +19,7 @@
   var MEALS = {
     breakfast: ["breakfast"],
     lunch: ["salads", "sandwiches", "soups", "pasta", "seafood", "vegetarian tofu"],
-    dinner: ["beef", "chicken", "luau", "pasta", "pork", "seafood", "sides", "soups", "turkey", "vegetarian tofu"],
+    dinner: ["beef", "chicken", "luau", "main dishes", "pasta", "pork", "seafood", "sides", "soups", "turkey", "vegetarian tofu"],
     dessert: ["desserts"],
     snack: ["appetizers", "breads", "drinks", "fruit", "sauces dips", "snacks"]
   };
@@ -105,7 +105,7 @@
     }).filter(function (item) {
       return item.score >= 0;
     }).sort(function (a, b) {
-      return b.score - a.score || a.recipe.title.localeCompare(b.recipe.title);
+      return b.score - a.score || window.RecipesApp.compareTitles(a.recipe.title, b.recipe.title);
     }).slice(0, 120).map(function (item) {
       return item.recipe;
     });

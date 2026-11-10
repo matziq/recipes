@@ -37,6 +37,15 @@
     }
   }
 
+  function compareTitles(first, second) {
+    function key(value) {
+      return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase().replace(/[^\p{L}\p{N}_\s]/gu, "").replace(/\s+/g, " ").trim();
+    }
+    var a = key(first), b = key(second);
+    return a < b ? -1 : a > b ? 1 : 0;
+  }
+
   function favorites() {
     return read(KEYS.favorites, []);
   }
@@ -155,6 +164,7 @@
   }
 
   window.RecipesApp = {
+    compareTitles: compareTitles,
     addRecent: addRecent,
     favorites: favorites,
     isFavorite: isFavorite,
