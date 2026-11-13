@@ -1041,14 +1041,22 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.85rem}
 .wdyh-empty-state{color:var(--muted);font-style:italic;padding:14px;background:#fff;border:1px dashed var(--line);border-radius:10px;text-align:center}
 """
 
-THEME_SCRIPT = """<script>
-  (() => {
-    const param = new URLSearchParams(window.location.search).get("scoutTheme");
-    const theme =
-      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", theme);
-  })();
-</script>"""
+APPEARANCE_CONTROLS = """<details class="appearance-menu">
+  <summary class="icon-btn" aria-label="Appearance settings" title="Appearance settings">◐</summary>
+  <div class="appearance-panel">
+    <label for="appearance-palette">Theme</label>
+    <select id="appearance-palette" data-palette-select>
+      <option value="autumn">Autumn</option><option value="winter">Winter</option>
+      <option value="spring">Spring</option><option value="summer">Summer</option>
+      <option value="ocean">Ocean</option><option value="lavender">Lavender</option>
+      <option value="terracotta">Terracotta</option><option value="forest">Forest</option>
+    </select>
+    <button class="action-btn" type="button" data-theme-toggle>Switch to dark mode</button>
+    <button class="action-btn" type="button" data-motion-toggle aria-pressed="false">Animations</button>
+    <button class="action-btn" type="button" data-theme-surprise>Surprise me with a theme</button>
+    <p class="appearance-status" data-appearance-status role="status" aria-live="polite"></p>
+  </div>
+</details>"""
 
 
 # Client-side JS: hide NEW badges per-user once a recipe is viewed.
@@ -1557,7 +1565,7 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recipes</title>
-{THEME_SCRIPT}
+<script src="assets/appearance.js"></script>
 <link rel="icon" href="favicon.svg">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
@@ -1573,7 +1581,7 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
       <button class="search-clear" type="button" data-search-clear aria-label="Clear search">&times;</button>
     </div>
     <div class="header-actions">
-      <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">\u263E</span></button>
+      {APPEARANCE_CONTROLS}
     </div>
   </div>
 </header>
@@ -1841,7 +1849,7 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>New Recipes \u2022 Recipes</title>
-{THEME_SCRIPT}
+<script src="assets/appearance.js"></script>
 <link rel="icon" href="favicon.svg">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
@@ -1851,7 +1859,7 @@ def render_new_page(recipes: list[dict], new_count: int) -> str:
   <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">\U0001F374</span><span>Family Recipes</span></a>
   <div class="header-actions">
     <a class="icon-btn" href="index.html" aria-label="All recipes" title="All recipes">\u2302</a>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">\u263E</span></button>
+    {APPEARANCE_CONTROLS}
   </div>
 </div></header>
 <main class="container" id="main-content">
@@ -1890,7 +1898,7 @@ def render_recipe_page(title: str, category: str, sub: str, body: str, url: str 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)} • Recipes</title>
-{THEME_SCRIPT}
+<script src="{root}assets/appearance.js"></script>
 <link rel="icon" href="{root}favicon.svg">
 <link rel="stylesheet" href="{root}assets/site.css">
 <script src="{root}assets/site.js" defer></script>
@@ -1901,7 +1909,7 @@ def render_recipe_page(title: str, category: str, sub: str, body: str, url: str 
   <a class="brand" href="{root}index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
   <div class="header-actions">
     <a class="icon-btn" href="{root}index.html" aria-label="All recipes" title="All recipes">⌂</a>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">☾</span></button>
+    {APPEARANCE_CONTROLS}
   </div>
 </div></header>
 <main class="container" id="main-content">

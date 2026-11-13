@@ -55,6 +55,26 @@ subcategory, and title sorting use accent/punctuation-normalized alphabetical ke
 with the same title comparison in client-side search. Broad food-family backgrounds
 have visible text labels, light/dark palettes, mobile layouts, and neutral print styles.
 Saved progress retains inactive legacy slots as well as active cooking slots.
+
+The Appearance menu offers eight palettes (Autumn, Winter, Spring, Summer, Ocean,
+Lavender, Terracotta and Forest), each with an independent light/dark mode and
+animation preference saved in this browser. Preferences are applied before the
+stylesheet loads; the existing `scoutTheme=light|dark` query overrides saved mode
+for that page without changing it. The original theme storage key is retained.
+Decorations are removed when off and never run when the system requests reduced
+motion; new users with reduced motion start with animations off. They are hidden
+when printing and do not intercept clicks. Food-family labels and subtle accents
+remain visible on recipe pages.
+
+The theme Surprise button chooses a different palette. From a regular palette it
+chooses the hidden Burger Arcade option with exactly 5% probability; otherwise
+it picks uniformly among the other seven regular palettes. When already in the
+bonus theme it chooses among the eight regular palettes, so the button always
+changes the appearance. Burger Arcade appears in the picker after discovery for
+the current page (and while it remains the saved theme), and is an unofficial
+original pixel-art homage, not affiliated with BurgerTime. It uses no game assets
+or audio. The separate recipe Surprise button is unchanged.
+
 Native keyboard-accessible disclosures keep Shopping list and About this dish /
 Did you know? below the recipe and closed by default, with Ingredients and Instructions independently
 open by default, including interleaved components. Cook mode opens cooking sections.

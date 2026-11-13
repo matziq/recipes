@@ -1,4 +1,5 @@
 import json
+import subprocess
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -203,6 +204,21 @@ class CollectionPresentationTests(unittest.TestCase):
                          ["ingredient", "instruction", "ingredient", "instruction"])
         self.assertEqual([li["data-progress-index"] for li in result.select("li")], ["2", "0", "1", "3"])
         self.assertIsNone(result.aside.find_parent("details"))
+
+    def test_shared_appearance_is_available_before_styles_on_every_page(self):
+        pages = list(self.pages.values()) + [
+            BeautifulSoup((ROOT / name).read_text(encoding="utf-8"), "html.parser")
+            for name in ("index.html", "new.html")
+        ]
+        for page in pages:
+            scripts = page.select('head script[src$="assets/appearance.js"]')
+            self.assertEqual(len(scripts), 1)
+            self.assertFalse(scripts[0].has_attr("defer"))
+            self.assertLess(str(page).index('assets/appearance.js'), str(page).index('assets/site.css'))
+            for selector in ("[data-palette-select]", "[data-theme-toggle]",
+                             "[data-motion-toggle]", "[data-theme-surprise]"):
+                self.assertEqual(len(page.select(selector)), 1, selector)
+        subprocess.run(["node", str(ROOT / "_test_appearance.js")], check=True)
 
 
 if __name__ == "__main__":

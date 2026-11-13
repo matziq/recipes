@@ -3,14 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shredded Chicken for Tacos • Recipes</title>
-<script>
-  (() => {
-    const param = new URLSearchParams(window.location.search).get("scoutTheme");
-    const theme =
-      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", theme);
-  })();
-</script>
+<script src="../../assets/appearance.js"></script>
 <link rel="icon" href="../../favicon.svg">
 <link rel="stylesheet" href="../../assets/site.css">
 <script src="../../assets/site.js" defer></script>
@@ -21,7 +14,22 @@
   <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">🍴</span><span>Family Recipes</span></a>
   <div class="header-actions">
     <a class="icon-btn" href="../../index.html" aria-label="All recipes" title="All recipes">⌂</a>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Use dark theme" title="Use dark theme"><span data-theme-icon aria-hidden="true">☾</span></button>
+    <details class="appearance-menu">
+  <summary class="icon-btn" aria-label="Appearance settings" title="Appearance settings">◐</summary>
+  <div class="appearance-panel">
+    <label for="appearance-palette">Theme</label>
+    <select id="appearance-palette" data-palette-select>
+      <option value="autumn">Autumn</option><option value="winter">Winter</option>
+      <option value="spring">Spring</option><option value="summer">Summer</option>
+      <option value="ocean">Ocean</option><option value="lavender">Lavender</option>
+      <option value="terracotta">Terracotta</option><option value="forest">Forest</option>
+    </select>
+    <button class="action-btn" type="button" data-theme-toggle>Switch to dark mode</button>
+    <button class="action-btn" type="button" data-motion-toggle aria-pressed="false">Animations</button>
+    <button class="action-btn" type="button" data-theme-surprise>Surprise me with a theme</button>
+    <p class="appearance-status" data-appearance-status role="status" aria-live="polite"></p>
+  </div>
+</details>
   </div>
 </div></header>
 <main class="container" id="main-content">

@@ -114,18 +114,6 @@
     }, 2600);
   }
 
-  function setTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    write(KEYS.theme, theme);
-    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
-      var isDark = theme === "dark";
-      button.setAttribute("aria-label", isDark ? "Use light theme" : "Use dark theme");
-      button.setAttribute("title", isDark ? "Use light theme" : "Use dark theme");
-      var icon = button.querySelector("[data-theme-icon]");
-      if (icon) icon.textContent = isDark ? "\u2600" : "\u263E";
-    });
-  }
-
   function updateFavoriteButtons() {
     document.querySelectorAll("[data-favorite]").forEach(function (button) {
       var active = isFavorite(button.getAttribute("data-url") || window.location.pathname);
@@ -140,13 +128,6 @@
   }
 
   function init() {
-    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        setTheme(next);
-      });
-    });
-
     document.querySelectorAll("[data-favorite]").forEach(function (button) {
       button.addEventListener("click", function () {
         var added = toggleFavorite({
@@ -160,7 +141,6 @@
 
     document.addEventListener("recipes:favorites", updateFavoriteButtons);
     updateFavoriteButtons();
-    setTheme(read(KEYS.theme, null) || document.documentElement.getAttribute("data-theme") || "light");
   }
 
   window.RecipesApp = {

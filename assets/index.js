@@ -273,31 +273,6 @@
     surpriseDialog.showModal();
   }
 
-  function initLeaves() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    try {
-      if (window.sessionStorage.getItem("familyRecipesLeavesShown")) return;
-      window.sessionStorage.setItem("familyRecipesLeavesShown", "1");
-    } catch (error) {
-      return;
-    }
-    var shower = document.createElement("div");
-    shower.className = "leaf-shower";
-    shower.setAttribute("aria-hidden", "true");
-    for (var index = 0; index < 14; index += 1) {
-      var leaf = document.createElement("span");
-      leaf.className = "falling-leaf";
-      leaf.textContent = index % 2 ? "\ud83c\udf42" : "\ud83c\udf41";
-      leaf.style.setProperty("--leaf-x", (3 + index * 7) + "vw");
-      leaf.style.setProperty("--leaf-drift", ((index % 3 - 1) * 55) + "px");
-      leaf.style.setProperty("--leaf-delay", (index * 0.16) + "s");
-      leaf.style.setProperty("--leaf-duration", (3.8 + index % 4 * 0.45) + "s");
-      shower.appendChild(leaf);
-    }
-    document.body.appendChild(shower);
-    window.setTimeout(function () { shower.remove(); }, 6500);
-  }
-
   function initEvents() {
     q.addEventListener("input", scheduleSearch);
     q.addEventListener("keydown", function (event) {
@@ -383,7 +358,6 @@
     .then(function (data) {
       recipes = data;
       initEvents();
-      initLeaves();
       openSectionFromHash();
     })
     .catch(function () {
