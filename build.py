@@ -1574,7 +1574,10 @@ def render_index(tree: dict[str, dict[str, list[dict]]], total: int, new_count: 
 <a class="skip-link" href="#main-content">Skip to recipes</a>
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">\U0001F374</span><span>Family Recipes</span></a>
+    <div class="header-brand-group">
+      <a class="app-menu-link" href="https://memconfigmgr.org/apps/">App Menu</a>
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">\U0001F374</span><span>Family Recipes</span></a>
+    </div>
     <div class="search">
       <label class="sr-only" for="q">Search recipes</label>
       <input id="q" type="search" placeholder="Search {total} recipes or ingredients..." autocomplete="off" enterkeyhint="search">

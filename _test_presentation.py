@@ -61,6 +61,18 @@ class CollectionPresentationTests(unittest.TestCase):
         unique = list(dict.fromkeys(category_names))
         self.assertEqual(unique, sorted(unique, key=presentation.sort_text))
 
+    def test_home_app_menu_is_first_visible_header_link(self):
+        home = BeautifulSoup((ROOT / "index.html").read_text(encoding="utf-8"), "html.parser")
+        header = home.select_one(".site-header .header-inner")
+        link = header.find("a")
+        self.assertEqual(link.get_text(" ", strip=True), "App Menu")
+        self.assertEqual(link.get("href"), "https://memconfigmgr.org/apps/")
+        self.assertEqual(link.get("class"), ["app-menu-link"])
+        self.assertFalse(link.has_attr("hidden"))
+        self.assertNotEqual(link.get("tabindex"), "-1")
+        self.assertIsNone(link.get("aria-hidden"))
+        self.assertEqual(header.select_one(".brand")["href"], "./")
+
     def test_all_cooking_facts_and_steps_have_distinct_checklist_semantics(self):
         references = 0
         missing_methods = set()

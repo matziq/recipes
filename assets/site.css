@@ -113,6 +113,12 @@ button { touch-action: manipulation; }
   align-items: center;
   gap: 16px;
 }
+.header-brand-group { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.app-menu-link {
+  display: inline-flex; min-height: 44px; align-items: center;
+  color: var(--cp-link); font-weight: 650; white-space: nowrap;
+}
+.app-menu-link:hover { text-decoration-thickness: 2px; }
 .brand {
   display: inline-flex;
   align-items: center;
@@ -834,6 +840,8 @@ body.cook-mode .recipe-content { --recipe-font-size: 1.25rem; max-width: 1000px;
   :root { --cp-header-height: 118px; }
   .brand { font-size: 1.05rem; }
   .brand-mark { width: 38px; height: 38px; font-size: 1.15rem; }
+  .header-brand-group { gap: 8px; }
+  .app-menu-link { font-size: 0.9rem; }
   .header-inner { width: calc(100% - 20px); grid-template-rows: 54px 54px; }
   .container { width: calc(100% - 20px); padding-bottom: 36px; }
   .hero { margin-bottom: 16px; padding: 18px; }
